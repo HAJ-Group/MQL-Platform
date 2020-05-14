@@ -1,5 +1,5 @@
 function route(component) {
     component += 'Component';
     let url = 'components/' + component + '/' + component + '.html';
-    document.body.innerHTML = '<iframe src="' + url + '" seamless></iframe>';
+    document.getElementById('content').innerHTML = '<iframe src="' + url + '" seamless></iframe>';
 }
