@@ -1,1 +1,13 @@
+body {
+    background-image: url("../resources/pictures/background.jpg");
+}
 
+.content {
+    max-width: 70%;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    -webkit-box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
+    -moz-box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
+    box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
+}
