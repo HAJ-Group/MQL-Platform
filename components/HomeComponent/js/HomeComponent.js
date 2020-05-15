@@ -3,11 +3,12 @@ let view;
 let service; 
 /*Default class*/ 
 function HomeComponent(service) { 
-	//TODO: Intitialize controller for HomeComponent 
-	this.service = service; 
+	//TODO: Intitialize controller for HomeComponent
+	loadResources();
+	this.service = service;
 } 
 /* Main Function */ 
-function main() { 
+function main() {
 	service = new HomeComponentService(); 
-	view = new HomeComponent(service); 
+	view = new HomeComponent(service);
 } 
