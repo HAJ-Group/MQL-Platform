@@ -1,2 +1,2 @@
-/* Global data source table for HomeComponent */ 
-let data = []; 
+/* Global data source table for HomeComponent */
+let data = [];
