@@ -5,7 +5,9 @@ let service;
 function HomeComponent(service) { 
 	//TODO: Intitialize controller for HomeComponent 
 	this.service = service; 
-} 
+}
+
+
 /* Main Function */ 
 function main() { 
 	service = new HomeComponentService(); 
