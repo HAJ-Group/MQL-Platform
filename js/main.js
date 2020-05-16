@@ -1,36 +1,63 @@
 let current_component;
 
-function route(component) {
-    let path;
-    if (component.indexOf('../') === 0) {
-        component = component.substring(3);
-        path = '../../'
+function route(component, tag_id=null) {
+    if(component !== null) {
+        let path;
+        if (component.indexOf('../') === 0) {
+            component = component.substring(3);
+            path = '../../'
+        }
+        else path = '';
+        component += 'Component';
+        if(tag_id !== null){
+            window.location.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
+        } else
+            window.location.href = path + 'components/' + component + '/' + component + '.html';
     }
-    else path = '';
-    component += 'Component';
-    window.location.href = path + 'components/' + component + '/' + component + '.html';
 }
 
 
 function loadResources() {
+    let navs = [
+        /*
+        * name : value of name attribute related with the title picture and the component
+        * content : value of the innerText of the nav
+        * */
+        {name: 'Presentation', content:'Présentation'},
+        {name: 'Event', content:'Evénements'},
+    ];
+    /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
         '<img class="animate_title" id="title-image" src="" alt="title" />' +
         '<div class="topnav">\n' +
-        '<a class="active left" class="left" onmouseover="changePicture(this.name)" onmouseleave="changePicture(current_component, false)" name="Home" href="#home"><img src="../../resources/pictures/home.png" alt="home"></a>\n' +
-        '<a href="#presentation" class="left" onmouseover="changePicture(this.name)" onmouseleave="changePicture(current_component, false)" name="Presentation">Présentation</a>\n' +
-        '<a href="#events" class="left" onmouseover="changePicture(this.name)" onmouseleave="changePicture(current_component, false)" name="Event">Evénements</a>\n' +
-        '<a href="#nav3" class="left">Nav3</a>\n' +
-        '<a href="#nav3" class="left">Nav4</a>\n' +
-        '<a href="#nav3" class="left">Nav5</a>\n' +
-        '<a href="#contact" class="left">Contact</a>\n' +
-        '<a href="#about" class="right"><img src="../../resources/pictures/about.png" alt="about"></a>' +
+        '<a href="#home" class="left" onclick="route(' + '\'../Home\'' + ')" onmouseover="changePicture(this.name)" onmouseleave="changePicture(current_component, false)" ' +
+        'name="Home" href="#Home"><img id="home-logo" src="../../resources/pictures/home.png" alt="home"></a>\n';
+    // DYNAMIC NAVS
+    for(let nav of navs) {
+        headerContent += '<a href="#' + nav.name +
+            '" class="left" onclick="route(\'../' + nav.name + '\')"' +
+            ' onmouseover="changePicture(this.name)" ' +
+            'onmouseleave="changePicture(current_component,false)" ' +
+            'name="' + nav.name + '">' + nav.content + '</a>\n'
+    }
+    //
+    headerContent += '<a href="#about" class="right"><img src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
         '</header><hr>';
+
+    /* FOOTER --------------------------------------------------------------------------------------------------------*/
     let footerContent = '<footer>' +
         'footer' +
         '</footer>';
+    /* ASSIGN DATA ---------------------------------------------------------------------------------------------------*/
     document.getElementById('header').innerHTML = headerContent;
     document.getElementById('footer').innerHTML = footerContent;
+    /* CURRENT INITIALIZATION ----------------------------------------------------------------------------------------*/
+    let current_element = document.getElementsByName(current_component)[0];
+    if(current_component === 'Home') document.getElementById('home-logo').setAttribute('src', '../../resources/pictures/homeactive.png')
+    current_element.setAttribute('class', current_element.getAttribute('class') + ' active');
+    current_element.setAttribute('onclick', '');
+    current_element.setAttribute('onmouseover', '');
     changePicture(current_component);
 }
 
