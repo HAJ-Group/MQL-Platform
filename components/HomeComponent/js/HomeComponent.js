@@ -4,6 +4,7 @@ let service;
 /*Default class*/ 
 function HomeComponent(service) { 
 	//TODO: Intitialize controller for HomeComponent
+	current_component = 'Home';
 	loadResources();
 	this.service = service;
 } 
