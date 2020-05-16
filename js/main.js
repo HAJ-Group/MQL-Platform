@@ -8,3 +8,15 @@ function route(component) {
     component += 'Component';
     window.location.href = path + 'components/' + component + '/' + component + '.html';
 }
+
+
+function loadResources() {
+    let headerContent = '<header>' +
+        'header' +
+        '</header>';
+    let footerContent = '<footer>' +
+        'footer' +
+        '</footer>';
+    document.getElementById('header').innerHTML = headerContent;
+    document.getElementById('footer').innerHTML = footerContent;
+}
