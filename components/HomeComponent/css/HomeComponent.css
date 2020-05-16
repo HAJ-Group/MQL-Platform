@@ -3,10 +3,12 @@ body {
 	margin:auto; 
 }
 .image{
+	padding: 10px;
 	display: block;
 	max-width: 70%;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 30%;
 }
 .container{
 
@@ -18,17 +20,24 @@ body {
 	float: left;
 	position: fixed;
 }
+@media only screen and (max-width: 400px) {
+	.left-menu {
+		display: none;
+	}
+}
 .menuitem{
 	font-size: 17px;
 	font-family: "Berlin Sans FB";
 	text-decoration: none;
 	color: black;
 	padding: 5px;
-
+	display: block;
 }
 
-.sub-content{
-	margin-left: 25%;
+@media only screen and (min-width: 400px) {
+	.sub-content{
+		margin-left: 25%;
+	}
 }
 .title {
 	font-family: "Agency FB";
@@ -36,6 +45,7 @@ body {
 	color: red;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	text-transform: uppercase;
 }
 .details{
 	font-family: "Arial Narrow";
@@ -45,6 +55,7 @@ body {
 	box-shadow:  2px 2px 2px 1px gray;
 	padding: 10px;
 }
+
 .table-program{
 	margin-top: 10px;
 	padding: 20px;
@@ -54,4 +65,12 @@ body {
 }
 li {
  list-style: circle;
+}
+.semester{
+	display: block;
+	text-align: center;
+	color: cornflowerblue ;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: "Times New Roman";
 }
