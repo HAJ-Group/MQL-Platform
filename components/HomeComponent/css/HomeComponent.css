@@ -1,4 +1,57 @@
 body { 
 	display:block; 
 	margin:auto; 
-} 
+}
+.image{
+	display: block;
+	max-width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container{
+
+}
+.left-menu{
+	border: 3px solid cornflowerblue;
+	box-shadow: gray 2px 2px 2px;
+	max-width: 20%;
+	float: left;
+	position: fixed;
+}
+.menuitem{
+	font-size: 17px;
+	font-family: "Berlin Sans FB";
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+
+}
+
+.sub-content{
+	margin-left: 25%;
+}
+.title {
+	font-family: "Agency FB";
+	font-size: 25px;
+	color: red;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.details{
+	font-family: "Arial Narrow";
+	font-size: 20px;
+	text-align: justify;
+	letter-spacing: 1px;
+	box-shadow:  2px 2px 2px 1px gray;
+	padding: 10px;
+}
+.table-program{
+	margin-top: 10px;
+	padding: 20px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+li {
+ list-style: circle;
+}

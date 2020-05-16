@@ -1,9 +1,8 @@
 body {
     background-image: url("../resources/pictures/background.jpg");
+    max-width: 1200px;
 }
-
 .content {
-    max-width: 70%;
     margin: auto;
     background: white;
     padding: 10px;
