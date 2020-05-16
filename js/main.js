@@ -23,15 +23,14 @@ function loadResources() {
         * name : value of name attribute related with the title picture and the component
         * content : value of the innerText of the nav
         * */
+        {name: 'Home', content:'<img id="home-logo" src="../../resources/pictures/home.png" alt="home">'},
         {name: 'Presentation', content:'Présentation'},
         {name: 'Event', content:'Evénements'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
         '<img class="animate_title" id="title-image" src="" alt="title" />' +
-        '<div class="topnav">\n' +
-        '<a href="#home" class="left" onclick="route(' + '\'../Home\'' + ')" onmouseover="changePicture(this.name)" onmouseleave="changePicture(current_component, false)" ' +
-        'name="Home" href="#Home"><img id="home-logo" src="../../resources/pictures/home.png" alt="home"></a>\n';
+        '<div class="topnav">\n';
     // DYNAMIC NAVS
     for(let nav of navs) {
         headerContent += '<a href="#' + nav.name +
@@ -40,7 +39,7 @@ function loadResources() {
             'onmouseleave="changePicture(current_component,false)" ' +
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
-    //
+    // ABOUT NAV
     headerContent += '<a href="#about" class="right"><img src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
         '</header><hr>';
