@@ -31,8 +31,6 @@ header {
 /* Add a black background color to the top navigation */
 .topnav {
     overflow: hidden;
-    border-bottom: 1px solid lightgray;
-    margin-bottom: 8px;
 }
 
 /* Style the links inside the navigation bar */

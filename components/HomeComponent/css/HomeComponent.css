@@ -5,22 +5,21 @@ body {
 
 .main-box{
 	display: flex;
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .image{
-	padding: 10px;
 	display: block;
 	width: 60%;
 	border: solid 1px lightgray;
 	margin-left: 5px;
-	border-radius: 10px;
 }
 
 .news{
 	width: 40%;
 	border: solid 1px lightgray;
-	border-radius: 10px;
-	margin-left: 5px;
+ 	margin-left: 5px;
 	margin-right: 5px;
 }
 
