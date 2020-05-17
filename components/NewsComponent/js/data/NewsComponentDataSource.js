@@ -1,5 +1,5 @@
 /* Global data source table for NewsComponent */ 
-let data = [
+let dbNews = [
     {
         id :1,
         title:'Création de la plateforme MQL',

@@ -1,5 +1,5 @@
 /* Global data source table for HomeComponent */
-var db= [
+let dbHome = [
     {
         id : 1,
         modules : ["Ingénierie de l’Objet et Technologie Java","Technologie XML","Génie Logiciel & Modélisation UML","Bases de données","Audit & Qualité du Logiciel","Communication Professionnelle"]

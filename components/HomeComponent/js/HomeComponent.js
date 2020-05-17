@@ -10,37 +10,52 @@ function HomeComponent(service) {
 	this.table_news=this.get("table-news");
 	this.addTitleIcon('../../resources/pictures/title-logo.png');
 }
+
+
 HomeComponent.prototype.get = function (id) {
 	return document.getElementById(id);
 };
 
+/**
+ * Program table builder
+ * @param program
+ */
 HomeComponent.prototype.addColumn=function (program) {
-	var row=this.table.insertRow();
-	var cell=row.insertCell();
+	let row=this.table.insertRow();
+	let cell=row.insertCell();
 	cell.innerHTML += "<span class='semester'>Semestre"+program.id +"</span>" + "<hr>" + "<ul>";
 	for (let i = 0; i < program.modules.length ; i++) {
-		cell.innerHTML+="<li>"+"M"+(i+1)+" : "+program.modules[i]+"</li>";
+		cell.innerHTML+="<li>"+"M"+(i+1)+":"+program.modules[i]+"</li>";
 	}
-	cell.innerHTML += "</ul>" +" <br>";
+	cell.innerHTML += "</ul>" +"<br>";
 };
 HomeComponent.prototype.printSemesters=function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addColumn(this.service.get(i));
 	}
 };
-HomeComponent.prototype.addNews=function (news) {
-	var row=this.table_news.insertRow();
-	row.insertCell().innerHTML =news.date;
-	row.insertCell().innerHTML =news.title;
-};
-HomeComponent.prototype.printNews=function () {
 
-	let service=new NewsComponentService();
-	service.load(data);
-	for (let i = 0; i < service.size(); i++) {
+/**
+ * News Table builder (Related Service with NewsComponent)
+ * @param news
+ */
+HomeComponent.prototype.addNews=function (news) {
+	let row = this.table_news.insertRow();
+	row.insertCell().innerHTML = news.date;
+	row.insertCell().innerHTML = news.title;
+};
+HomeComponent.prototype.printNews=function (max = 5) {
+	let service = new NewsComponentService();
+	service.load(dbNews);
+	for (let i = 0; i < max; i++) {
 		this.addNews(service.get(i));
 	}
 };
+
+/**
+ * Building title configuration (icon + show and hide button)
+ * @param source
+ */
 HomeComponent.prototype.addTitleIcon = function(source) {
 	let titles = document.getElementsByClassName('title');
 	let i=0;
@@ -50,6 +65,11 @@ HomeComponent.prototype.addTitleIcon = function(source) {
 		i++;
 	}
 };
+
+/**
+ * Action method show details block
+ * @param id
+ */
 HomeComponent.prototype.show = function (id) {
 	let icon = document.getElementsByName('sh-icon')[id];
 	let sep = document.getElementsByClassName('sh-sep')[id];
@@ -59,12 +79,17 @@ HomeComponent.prototype.show = function (id) {
 	element.style.display = 'block';
 	sep.style.display='none';
 };
+
+/**
+ * Action method hide details block
+ * @param id
+ */
 HomeComponent.prototype.hide = function (id) {
 	let icon = document.getElementsByName('sh-icon')[id];
 	let sep = document.getElementsByClassName('sh-sep')[id];
 	icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
 	icon.setAttribute('onclick','view.show('+id+')');
-	let element =document.getElementsByClassName('details')[id];
+	let element = document.getElementsByClassName('details')[id];
 	element.style.display = 'none';
 	sep.style.display='block';
 };
@@ -72,7 +97,7 @@ HomeComponent.prototype.hide = function (id) {
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
-	service.load(db);
+	service.load(dbHome);
 	view = new HomeComponent(service);
 	view.printSemesters();
 	view.printNews();
