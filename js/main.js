@@ -24,7 +24,13 @@ function loadResources() {
         * content : value of the innerText of the nav
         * */
         {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'Activity', content:'Activités'},
         {name: 'Event', content:'Evénements'},
+        {name: 'Event', content:'Evénements'},
+        {name: 'Partner', content:'Partenaires'},
+        {name: 'Area', content:'Votre Espace'},
+        {name: 'Laureate', content:'Nos Lauréats'},
+        {name: 'Contact', content:'Contact'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
