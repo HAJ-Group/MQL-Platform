@@ -4,8 +4,11 @@
 		<meta charset="UTF-8"> 
 		<title>HomeComponent</title> 
 		<link rel="stylesheet" href="../../css/style.css"> 
-		<link rel="stylesheet" href="css/HomeComponent.css"> 
-		<script src="../../js/main.js"></script> 
+		<link rel="stylesheet" href="css/HomeComponent.css">
+		<script src="../NewsComponent/js/service/NewsComponentService.js"></script>
+		<script src="../NewsComponent/js/data/NewsComponentDataSource.js"></script>
+		<script src="../NewsComponent/js/model/News.js"></script>
+		<script src="../../js/main.js"></script>
 		<script src="js/data/HomeComponentDataSource.js"></script>
 		<script src="js/model/Home.js"></script> 
 		<script src="js/service/HomeComponentService.js"></script>
@@ -17,7 +20,10 @@
 			<div class="main-box">
 				<img src="../../resources/pictures/presentationimage.png" class="image">
 				<div class="news">
+					<span> ACTUALITES MQL: </span>
+					<table  class="news-tab" id="table-news">
 
+					</table>
 				</div>
 			</div>
 			<div class="container">

@@ -1,20 +1,21 @@
-function NewsComponentService() { 
+function NewsComponentService() {
+    this.data=[];
 }
-NewsComponentService.prototype.add = function (doc) {
-    this.db.push(doc);
+NewsComponentService.prototype.add = function (news) {
+    this.data.push(news);
 }
 
 NewsComponentService.prototype.get = function (index) {
-    return this.db[index];
+    return this.data[index];
 }
 
 NewsComponentService.prototype.size = function () {
-    return this.db.length;
+    return this.data.length;
 }
 
 NewsComponentService.prototype.load = function(db) {
     for (let i = 0; i < db.length; i++) {
-        this.db.push(
+        this.add(
             new News(
                 db[i].id,
                 db[i].title,

@@ -3,11 +3,11 @@ let view;
 let service;
 /*Default class*/ 
 function HomeComponent(service) { 
-	//TODO: Intitialize controller for HomeComponent
 	current_component = 'Home';
 	loadResources();
 	this.service = service;
 	this.table=this.get("table-program");
+	this.table_news=this.get("table-news");
 	this.addTitleIcon('../../resources/pictures/title-logo.png');
 }
 HomeComponent.prototype.get = function (id) {
@@ -26,6 +26,19 @@ HomeComponent.prototype.addColumn=function (program) {
 HomeComponent.prototype.printSemesters=function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addColumn(this.service.get(i));
+	}
+};
+HomeComponent.prototype.addNews=function (news) {
+	var row=this.table_news.insertRow();
+	row.insertCell().innerHTML =news.date;
+	row.insertCell().innerHTML =news.title;
+};
+HomeComponent.prototype.printNews=function () {
+
+	let service=new NewsComponentService();
+	service.load(data);
+	for (let i = 0; i < service.size(); i++) {
+		this.addNews(service.get(i));
 	}
 };
 HomeComponent.prototype.addTitleIcon = function(source) {
@@ -55,10 +68,12 @@ HomeComponent.prototype.hide = function (id) {
 	element.style.display = 'none';
 	sep.style.display='block';
 };
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
 	service.load(db);
 	view = new HomeComponent(service);
 	view.printSemesters();
+	view.printNews();
 }
