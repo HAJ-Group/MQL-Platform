@@ -99,6 +99,7 @@ header {
 }
 
 
+/* FOOTER OF THE PAGE */
 footer{
     position: static;
     bottom: 0;
@@ -106,6 +107,7 @@ footer{
     margin: 0; //
 }
 
+/* THE CONTAINER OF THE MIDDLE ZONE FOR FOOTER (LOCALISATION, CONTACT ...) */
 
 .flex-container{
     display: flex;
@@ -142,6 +144,7 @@ footer{
     text-transform: uppercase;
 }
 
+/* STYLING THE COPY-RIGHT ZONE */
 
 .copy-right{
     display: flex;
@@ -165,12 +168,14 @@ footer{
     color: #d9d9d9;
 }
 
-
+/* POSITION OF THE MAP IN THE FOOTER*/
 
 .map{
     position:relative;
     text-align:right;
 }
+
+/* If the map is bigger than the container, it'll be truncated */
 
 .over-flow{
     overflow:hidden;
@@ -179,15 +184,21 @@ footer{
     width:300px;
 }
 
+/* the hover for the links (Lien utiles) */
+
 a.links:hover{
     color: chocolate;
     border-left: 1px dotted;
 }
+
+/* the hover for the last link (Faculté des sciences) */
+
 .copy-right > span > a:hover{
     color: chocolate;
     border-bottom: 1px dotted;
 }
 
+/* Define the positions of elements in the partenaire-zone */
 .partenaire{
     display: flex;
     flex-wrap: wrap;
@@ -198,10 +209,13 @@ a.links:hover{
     background-color: white;
 }
 
+
+/* Style of images for 'partenaires' */
 .img-partenaire{
     width: 200px;
     height: 90px;
 }
+
 
 .text-partenaire{
     display: flex;
@@ -234,7 +248,7 @@ a.links:hover{
     opacity: 0.7;
 }
 
-
+/* Responsive style for all small other devices*/
 @media screen and (max-width: 1024px)
 {
     .partenaire{
