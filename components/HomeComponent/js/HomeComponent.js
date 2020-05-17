@@ -30,10 +30,30 @@ HomeComponent.prototype.printSemesters=function () {
 };
 HomeComponent.prototype.addTitleIcon = function(source) {
 	let titles = document.getElementsByClassName('title');
+	let i=0;
 	for (let title of titles) {
 		let text = title.textContent;
-		title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text;
+		title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  class="sh-icon" onclick="view.hide('+i+')">'+'<span class="sh-sep"></span>';
+		i++;
 	}
+};
+HomeComponent.prototype.show = function (id) {
+	let icon = document.getElementsByName('sh-icon')[id];
+	let sep = document.getElementsByClassName('sh-sep')[id];
+	icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
+	icon.setAttribute('onclick','view.hide('+id+')');
+	let element =document.getElementsByClassName('details')[id];
+	element.style.display = 'block';
+	sep.style.display='none';
+};
+HomeComponent.prototype.hide = function (id) {
+	let icon = document.getElementsByName('sh-icon')[id];
+	let sep = document.getElementsByClassName('sh-sep')[id];
+	icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
+	icon.setAttribute('onclick','view.show('+id+')');
+	let element =document.getElementsByClassName('details')[id];
+	element.style.display = 'none';
+	sep.style.display='block';
 };
 /* Main Function */
 function main() {

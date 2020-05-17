@@ -2,13 +2,26 @@ body {
 	display:block; 
 	margin:auto;
 }
+
+.main-box{
+	display: flex;
+}
+
 .image{
 	padding: 10px;
 	display: block;
-	max-width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 5px;
+	width: 60%;
+	border: solid 1px lightgray;
+	margin-left: 5px;
+	border-radius: 10px;
+}
+
+.news{
+	width: 40%;
+	border: solid 1px lightgray;
+	border-radius: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .left-menu{
@@ -21,7 +34,7 @@ body {
 	top: 10px;
 	position: sticky;
 	/* annimation */
-	animation: 1s ease-out 0s 1 slideInFromLeft;
+	animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
 
 @media only screen and (max-width: 400px) {
@@ -61,6 +74,17 @@ body {
 .title-logo {
 	padding-right: 10px;
 }
+.sh-icon{
+	float: right;
+	cursor: pointer;
+}
+.sh-icon:hover{
+	opacity: 0.4;
+}
+.sh-sep{
+	border-top: 2px solid lightgray ;
+	display: none;
+}
 .details{
 	font-family: "Arial Narrow", serif;
 	font-size: 20px;
@@ -99,5 +123,5 @@ li {
 
 .sub-content > * {
 	/* annimation */
-	animation: 1s ease-out 0s 1 slideInFromRight;
+	animation: 1.5s ease-out 0s 1 slideInFromRight;
 }
