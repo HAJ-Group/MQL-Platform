@@ -1,5 +1,5 @@
 /* Default Model for HomeComponent */ 
-function Home(id) { 
-	//TODO: Intitialize model properties 
-	this.id = id; 
+function Home(id,modules) {
+	this.id = id;
+	this.modules=modules;
 } 
