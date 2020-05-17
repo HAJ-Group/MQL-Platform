@@ -46,8 +46,8 @@ function loadResources() {
     /* FOOTER --------------------------------------------------------------------------------------------------------*/
     let footerContent = '<footer>' +
        '        <div class="text-partenaire">\n' +
-        '        <span>Partenaires</span>\n' +
-        '    </div>\n' +
+        '        <span>Partenaires</span> \n' +
+        '    </div>  <hr>\n' +
         '\n' +
         '    <div class="partenaire">\n' +
         '        <span>\n' +
