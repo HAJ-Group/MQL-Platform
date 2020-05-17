@@ -1,9 +1,10 @@
 body {
     background-image: url("../resources/pictures/background.jpg");
+
 }
 
 .content {
-    max-width: 70%;
+    max-width: 80%;
     margin: auto;
     background: white;
     padding: 10px;
@@ -11,3 +12,166 @@ body {
     -moz-box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
     box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
 }
+
+/*Jaouad block*/
+
+
+@font-face {
+    font-family: Montserrat;
+    src: url('fonts/Montserrat-Thin.otf');
+}
+
+@font-face {
+    font-family: Oswald;
+    src: url('fonts/oswald.regular.ttf');
+}
+
+
+footer{
+    position: static;
+    bottom: 0px;
+    width: 100%;
+    margin: 0px; //
+}
+
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+ /*   background-color: #180e0d;*/
+    background-color:#4b4c54
+
+}
+
+.flex-container > div{
+    padding-left: 40px;
+    width: 30%;
+    color: white;
+}
+
+.flex-container > div > ul > li{
+    font-size: 14px;
+    color: #bcbcbc;
+}
+
+.flex-container > div > ul > li{
+    padding: 5px;
+    margin: 5px;
+    list-style-type: none;
+}
+
+.flex-container > div > h5{
+    font-family: Montserrat, serif;
+    font-weight: bolder;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 5px;
+    border-bottom: 1px dotted dimgrey;
+    text-transform: uppercase;
+}
+
+
+.copy-right{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #130103;
+    color: whitesmoke;
+}
+
+
+.copy-right > span{
+    font-size: 14px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    color: #d9d9d9;
+}
+
+.copy-right > span > a, .flex-container > div > ul > li >  a{
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+
+
+.map{
+    position:relative;
+    text-align:right;
+}
+
+.over-flow{
+    overflow:hidden;
+    background:none!important;
+    height:200px;
+    width:300px;
+}
+
+a.links:hover{
+    color: chocolate;
+    border-left: 1px dotted;
+}
+.copy-right > span > a:hover{
+    color: chocolate;
+    border-bottom: 1px dotted;
+}
+
+.partenaire{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+}
+
+.img-partenaire{
+    width: 200px;
+    height: 90px;
+}
+
+.text-partenaire{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #b3ad9d;
+    width: 100%;
+    height: 50px;
+
+}
+
+.text-partenaire > span{
+    font-family: Oswald, serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.background-space{
+    width: 100%;
+    height: 30px;
+    background-image: url("../resources/partenaires/background.png");
+    background-repeat: repeat;
+}
+
+.partenaire > span > a:hover{
+    background-color: rgb(253, 68, 113);
+    opacity: 0.7;
+}
+
+
+@media screen and (max-width: 1024px)
+{
+    .partenaire{
+        height: 400px;
+    }
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
