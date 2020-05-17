@@ -8,16 +8,17 @@ body {
 }
 /* Main content block */
 
+header {
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromTop;
+}
 
 .content {
     margin: auto;
     background: white;
-    -webkit-box-shadow: 0px -20px 20px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px -20px 20px 0px rgba(0,0,0,0.4);
-    box-shadow: 0px -20px 20px 0px rgba(0,0,0,0.4);
-
-    /* This section calls the slideInFromLeft animation we defined above */
-    animation: 1s ease-out 0s 1 slideInFromTop;
+    -webkit-box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
 }
 
 /* THE BODY BETWEEN THE HEADER AND THE FOOTER */
@@ -80,7 +81,7 @@ body {
     float: right;
 }
 
-img {
+.def-img {
     width: 100%;
     height: auto;
 }
@@ -101,9 +102,9 @@ img {
 
 footer{
     position: static;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
-    margin: 0px; //
+    margin: 0; //
 }
 
 
@@ -246,9 +247,6 @@ a.links:hover{
     }
 }
 
-
-
-
 hr {
     border: 0;
     height: 0;
@@ -262,13 +260,22 @@ hr {
         transform: translateY(-100%);
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(0%);
     }
 }
 
 @keyframes slideInFromLeft {
     0% {
         transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
     }
     100% {
         transform: translateX(0);

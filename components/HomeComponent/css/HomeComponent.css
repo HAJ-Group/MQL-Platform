@@ -13,26 +13,34 @@ body {
 
 .left-menu{
 	border: 3px solid cornflowerblue;
+	border-radius: 10px;
 	box-shadow: gray 2px 2px 2px;
 	max-width: 20%;
+	padding: 10px;
 	float: left;
 	top: 10px;
 	position: sticky;
 	/* annimation */
 	animation: 1s ease-out 0s 1 slideInFromLeft;
 }
+
 @media only screen and (max-width: 400px) {
 	.left-menu {
 		display: none;
 	}
 }
-.menuitem{
+.menuitem {
 	font-size: 17px;
-	font-family: "Berlin Sans FB";
+	text-align: center;
+	font-family: "Berlin Sans FB", serif;
 	text-decoration: none;
 	color: black;
 	padding: 5px;
 	display: block;
+}
+
+.menuitem:hover {
+	color: royalblue;
 }
 
 @media only screen and (min-width: 400px) {
@@ -41,20 +49,26 @@ body {
 	}
 }
 .title {
-	font-family: "Agency FB";
-	font-size: 25px;
+	font-family: "Agency FB", serif;
+	font-weight: bold;
+	font-size: 30px;
 	color: rgb(253, 68, 113);
 	padding-top: 15px;
 	padding-bottom: 15px;
+	padding-left: 10px;
 	text-transform: uppercase;
 }
+.title-logo {
+	padding-right: 10px;
+}
 .details{
-	font-family: "Arial Narrow";
+	font-family: "Arial Narrow", serif;
 	font-size: 20px;
 	text-align: justify;
 	letter-spacing: 1px;
-	box-shadow:  2px 2px 2px 1px gray;
 	padding: 10px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
 }
 
 .table-program{
@@ -63,6 +77,11 @@ body {
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	border-style: none;
+}
+tbody, tr, td, th {
+	border: 1px lightgray solid;
+	border-radius: 10px;
 }
 li {
  list-style: circle;
@@ -71,9 +90,14 @@ li {
 .semester{
 	display: block;
 	text-align: center;
-
+	padding: 10px;
 	color: cornflowerblue ;
 	font-weight: bold;
 	font-size: 20px;
-	font-family: "Times New Roman";
+	font-family: "Times New Roman", serif;
+}
+
+.sub-content > * {
+	/* annimation */
+	animation: 1s ease-out 0s 1 slideInFromRight;
 }
