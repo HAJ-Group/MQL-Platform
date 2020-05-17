@@ -1,10 +1,10 @@
 body {
     background-image: url("../resources/pictures/background.jpg");
+    max-width: 1200px;
 
 }
 
 .content {
-    max-width: 80%;
     margin: auto;
     background: white;
     padding: 10px;
@@ -45,7 +45,7 @@ footer{
 
 .flex-container > div{
     padding-left: 40px;
-    width: 30%;
+    width: 29%;
     color: white;
 }
 
