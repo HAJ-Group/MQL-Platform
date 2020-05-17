@@ -94,6 +94,20 @@ HomeComponent.prototype.hide = function (id) {
 	sep.style.display='block';
 };
 
+HomeComponent.prototype.toggleSlideLink = function () {
+	let links = {
+		'1':'#presentation',
+		'2':'#mqlfamily',
+		'3':'https://www.w3schools.com/default.asp',
+		'4':'https://www.w3schools.com/default.asp',
+		'5':'https://www.w3schools.com/default.asp',
+		'6':'https://www.w3schools.com/default.asp',
+	};
+	let element = this.get('slide-show');
+	let key = getComputedStyle(element).fontSize.split('.')[0];
+	window.location.assign(links[key]);
+};
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();

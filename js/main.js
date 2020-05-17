@@ -1,4 +1,5 @@
 let current_component;
+let phone_menu_toggled = false;
 
 function route(component, tag_id=null) {
     if(component !== null) {
@@ -33,12 +34,16 @@ function loadResources() {
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
         '<img id="title-image" src="" alt="title" />' +
+        '<div class="phone-header" id="phone-header">' +
+        '<div class="move-left"><img src="../../resources/pictures/logoMQL.png" alt="lm" width="150" height="90" id="mini-logo"></div>' +
+        '<div class="move-right" onclick="showMenu()"><img src="../../resources/pictures/menu-phone.png" alt="mp" id="menu-button" width="60" height="60"></div>' +
+        '</div>' +
         '<div class="topnav">\n';
     // DYNAMIC NAVS
     for(let nav of navs) {
         headerContent += '<a href="#' + nav.name +
-            '" class="left" onclick="route(\'../' + nav.name + '\')"' +
-            ' onmouseover="changePicture(this.name)" ' +
+            '"class="left" onclick="route(\'../' + nav.name + '\')"' +
+            'onmouseover="changePicture(this.name)" ' +
             'onmouseleave="changePicture(current_component,false)" ' +
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
@@ -141,6 +146,13 @@ function changePicture(element, animate=true) {
         image.classList.add('animate_title');
     }
     image.setAttribute('class', 'def-img animate_title');
+}
+
+function showMenu() {
+    phone_menu_toggled = !phone_menu_toggled;
+    let menu = document.getElementsByClassName('topnav')[0];
+    if(phone_menu_toggled) menu.style.display = 'block';
+    if(!phone_menu_toggled) menu.style.display = 'none';
 }
 
 
