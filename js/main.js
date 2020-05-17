@@ -24,7 +24,6 @@ function loadResources() {
         * content : value of the innerText of the nav
         * */
         {name: 'Home', content:'<img id="home-logo" src="../../resources/pictures/home.png" alt="home">'},
-        {name: 'Presentation', content:'Présentation'},
         {name: 'Event', content:'Evénements'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
