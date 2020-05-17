@@ -1,4 +1,79 @@
 body { 
 	display:block; 
-	margin:auto; 
-} 
+	margin:auto;
+}
+.image{
+	padding: 10px;
+	display: block;
+	max-width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 30%;
+}
+.container{
+
+}
+.left-menu{
+	border: 3px solid cornflowerblue;
+	box-shadow: gray 2px 2px 2px;
+	max-width: 20%;
+	float: left;
+	top: 10px;
+	position: sticky;
+	/* annimation */
+	animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+@media only screen and (max-width: 400px) {
+	.left-menu {
+		display: none;
+	}
+}
+.menuitem{
+	font-size: 17px;
+	font-family: "Berlin Sans FB";
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+	display: block;
+}
+
+@media only screen and (min-width: 400px) {
+	.sub-content{
+		margin-left: 25%;
+	}
+}
+.title {
+	font-family: "Agency FB";
+	font-size: 25px;
+	color: rgb(253, 68, 113);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-transform: uppercase;
+}
+.details{
+	font-family: "Arial Narrow";
+	font-size: 20px;
+	text-align: justify;
+	letter-spacing: 1px;
+	box-shadow:  2px 2px 2px 1px gray;
+	padding: 10px;
+}
+
+.table-program{
+	margin-top: 10px;
+	padding: 20px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+li {
+ list-style: circle;
+}
+.semester{
+	display: block;
+	text-align: center;
+	color: cornflowerblue ;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: "Times New Roman";
+}

@@ -7,15 +7,66 @@
 		<link rel="stylesheet" href="css/HomeComponent.css"> 
 		<script src="../../js/main.js"></script> 
 		<script src="js/data/HomeComponentDataSource.js"></script>
-		<script src="js/model/Home.js"></script> 
+		<script src="js/model/Home.js"></script>
 		<script src="js/service/HomeComponentService.js"></script>
 		<script src="js/HomeComponent.js"></script>
-	</head> 
-	<body onload="main()"> 
-		<h1>HomeComponent works</h1>
-		<div onclick="route('../Presentation')">
-			jaouad
+	</head>
+	<body onload="main()">
+		<div class="content">
+			<div id="header"></div>
+			<img src="../../resources/pictures/presentationimage.png" class="image">
+			<hr>
+			<div class="container">
+				<div class="left-menu">
+					<div> <a  class="menuitem" href="#presentation"> Master Qualité du logiciel </a> </div>
+					<hr>
+					<div> <a class="menuitem" href="#prof">Monsieur Noureddine Chenfour </a> </div>
+					<hr>
+					<div> <a class="menuitem" href="#mqliste">MQListe</a> </div>
+					<hr>
+					<div> <a class="menuitem" href="#program">Programme</a> </div>
+				</div>
+				<div class="sub-content">
+					<div id="presentation" class="presentation">
+						<div class="title">Master Qualité du Logiciel</div>
+						<div class="details">
+							MQL, master qualité du logiciel date depuis 2007, C'est une véritable plateforme de formation et de production de la ressource humaine très hautement qualifiée en ingénierie du logiciel. Le Master permet à l’étudiant d’une part d’acquérir une compétence de pointe en haute technologie informatique et d’autre part une très bonne maitrise de l’entreprise et de son écosystème avec une insertion facile, naturelle et implicite dans les plus grandes SS2I du monde.
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto consequuntur corporis delectus, enim ex illum in laborum magnam odit officiis, omnis, porro quasi quis quo quos rem sed sunt.</p>
+						</div>
+					</div>
+					<div id="prof" class="prof">
+						<div class="title"> N.Chenfour : </div>
+						<div  class="details">
+								Nouredinne Chenfour, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi magni, placeat. Ad aliquid aut cumque dignissimos eaque est, ipsum itaque labore magni minima, nisi quas, quod rerum temporibus ut veniam.
+								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aliquam architecto consequuntur cum, dignissimos distinctio eius explicabo fugit id, illo ipsum itaque magni natus neque nobis officia quas sint.</p>
+						</div>
+					</div>
+					<div id="mqliste" class="mqliste">
+						<div class="title"> PROFIL MQL : </div>
+						<div  class="details">
+							Un Mqliste est un futur  ingénieur d'étude et de développement qui doit posséder les qualités suivants :
+						</div>
+					</div>
+
+					<div id="program" class="program">
+						<div class="title"> Programme : </div>
+						<div  class="details">
+							La formation MQL s'intersse principalement aux besoins des entreprises, cette formation est déroulée en 4 semestres, 2 par an, dont chacun avec 6 modules , le 4ème semestre est sacrifié pour un stage pré embauche dans des <strong>multinationales</strong> actives en développement offshore.
+							<table id="table-program" class="table-program" border="2px"></table>
+						</div>
+					</div>
+					<div id="mqlfamily" class="mqlfamily">
+						<div class="title"> Famille : </div>
+						<div  class="details">
+							 WE ARE A FAMILY! MQL est une famille !
+							<p>MQL :  une famille, un style de vie :</p>
+							<img class="image" src="../../resources/pictures/mqlfam.JPG" >
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div id="footer"></div>
 		</div>
 	</body>
-
 </html> 

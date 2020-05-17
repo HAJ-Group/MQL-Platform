@@ -1,13 +1,110 @@
 body {
     background-image: url("../resources/pictures/background.jpg");
+    background-attachment: fixed;
+    height: 100%;
+    font-family: 'Open Sans', serif;
+    max-width: 1200px;
 }
-
+/* Main content block */
 .content {
-    max-width: 70%;
     margin: auto;
     background: white;
     padding: 10px;
     -webkit-box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
     -moz-box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
     box-shadow: -2px 0px 25px 6px rgba(0,0,0,0.71);
+
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromTop;
 }
+
+/* HEADER------------------------------------------------------------------------------------------------------------ */
+
+/* Add a black background color to the top navigation */
+.topnav {
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    color: rgb(253, 68, 113);
+    opacity: 0.2;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    color: rgb(253, 68, 113);
+}
+
+.animate_title {
+    animation: fadein 2s;
+}
+
+/* GENERAL----------------------------------------------------------------------------------------------------------- */
+.el-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.el-right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
