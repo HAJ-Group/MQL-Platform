@@ -23,12 +23,18 @@ function loadResources() {
         * name : value of name attribute related with the title picture and the component
         * content : value of the innerText of the nav
         * */
-        {name: 'Home', content:'<img id="home-logo" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'Activity', content:'Activités'},
         {name: 'Event', content:'Evénements'},
+        {name: 'Event', content:'Evénements'},
+        {name: 'Partner', content:'Partenaires'},
+        {name: 'Area', content:'Votre Espace'},
+        {name: 'Laureate', content:'Nos Lauréats'},
+        {name: 'Contact', content:'Contact'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
-        '<img class="animate_title" id="title-image" src="" alt="title" />' +
+        '<img id="title-image" src="" alt="title" />' +
         '<div class="topnav">\n';
     // DYNAMIC NAVS
     for(let nav of navs) {
@@ -39,7 +45,7 @@ function loadResources() {
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
     // ABOUT NAV
-    headerContent += '<a href="#about" class="right"><img src="../../resources/pictures/about.png" alt="about"></a>' +
+    headerContent += '<a href="#about" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
         '</header><hr>';
 
@@ -136,6 +142,7 @@ function changePicture(element, animate=true) {
         void image.offsetWidth;
         image.classList.add('animate_title');
     }
+    image.setAttribute('class', 'def-img animate_title');
 }
 
 

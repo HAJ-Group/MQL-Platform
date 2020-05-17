@@ -8,24 +8,33 @@ function HomeComponent(service) {
 	loadResources();
 	this.service = service;
 	this.table=this.get("table-program");
+	this.addTitleIcon('../../resources/pictures/title-logo.png');
 }
 HomeComponent.prototype.get = function (id) {
 	return document.getElementById(id);
-}
+};
+
 HomeComponent.prototype.addColumn=function (program) {
 	var row=this.table.insertRow();
 	var cell=row.insertCell();
-	cell.innerHTML += "<span class='semester'> Semestre "+program.id +" </span>"+"<hr>"+"<ul>";
+	cell.innerHTML += "<span class='semester'>Semestre"+program.id +"</span>" + "<hr>" + "<ul>";
 	for (let i = 0; i < program.modules.length ; i++) {
 		cell.innerHTML+="<li>"+"M"+(i+1)+" : "+program.modules[i]+"</li>";
 	}
 	cell.innerHTML += "</ul>" +" <br>";
-}
+};
 HomeComponent.prototype.printSemesters=function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addColumn(this.service.get(i));
 	}
-}
+};
+HomeComponent.prototype.addTitleIcon = function(source) {
+	let titles = document.getElementsByClassName('title');
+	for (let title of titles) {
+		let text = title.textContent;
+		title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text;
+	}
+};
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
