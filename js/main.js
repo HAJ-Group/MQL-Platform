@@ -1,4 +1,5 @@
 let current_component;
+let phone_menu_toggled = false;
 
 function route(component, tag_id=null) {
     if(component !== null) {
@@ -24,30 +25,32 @@ function loadResources() {
         * content : value of the innerText of the nav
         * */
         {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
-        {name: 'Event', content:'Evénements'},
-        {name: 'Event', content:'Evénements'},
         {name: 'Partner', content:'Partenaires'},
         {name: 'Area', content:'Votre Espace'},
         {name: 'Laureate', content:'Nos Lauréats'},
-        {name: 'Contact', content:'Contact'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
         '<img id="title-image" src="" alt="title" />' +
+        '<div class="phone-header" id="phone-header">' +
+        '<div class="move-left"><img src="../../resources/pictures/logoMQL.png" alt="lm" width="150" height="90" id="mini-logo"></div>' +
+        '<div class="move-right" onclick="showMenu()"><img src="../../resources/pictures/menu-phone.png" alt="mp" id="menu-button" width="60" height="60"></div>' +
+        '</div>' +
         '<div class="topnav">\n';
     // DYNAMIC NAVS
     for(let nav of navs) {
         headerContent += '<a href="#' + nav.name +
-            '" class="left" onclick="route(\'../' + nav.name + '\')"' +
-            ' onmouseover="changePicture(this.name)" ' +
+            '"class="left" onclick="route(\'../' + nav.name + '\')"' +
+            'onmouseover="changePicture(this.name)" ' +
             'onmouseleave="changePicture(current_component,false)" ' +
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
     // ABOUT NAV
     headerContent += '<a href="#about" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
-        '</header><hr>';
+        '</header>';
 
     /* FOOTER --------------------------------------------------------------------------------------------------------*/
     let footerContent = '<footer>' +
@@ -133,6 +136,11 @@ function loadResources() {
 }
 
 /* Action Functions */
+/**
+ * Change title image
+ * @param element
+ * @param animate
+ */
 function changePicture(element, animate=true) {
     let image = document.getElementById('title-image');
     let source = element + '.jpg';
@@ -143,6 +151,57 @@ function changePicture(element, animate=true) {
         image.classList.add('animate_title');
     }
     image.setAttribute('class', 'def-img animate_title');
+}
+
+/**
+ * Showing/hiding phone version menu
+ */
+function showMenu() {
+    phone_menu_toggled = !phone_menu_toggled;
+    let menu = document.getElementsByClassName('topnav')[0];
+    if(phone_menu_toggled) menu.style.display = 'block';
+    if(!phone_menu_toggled) menu.style.display = 'none';
+}
+/**
+ * Building title configuration (icon + show and hide button)
+ * @param source
+ */
+function addTitleIcon(source) {
+    let titles = document.getElementsByClassName('title');
+    let i=0;
+    for (let title of titles) {
+        let text = title.textContent;
+        title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
+        i++;
+    }
+}
+
+/**
+ * Action method show details block
+ * @param id
+ */
+function show(id) {
+    let icon = document.getElementsByName('sh-icon')[id];
+    let sep = document.getElementsByClassName('sh-sep')[id];
+    icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
+    icon.setAttribute('onclick','hide('+id+')');
+    let element =document.getElementsByClassName('details')[id];
+    element.style.display = 'block';
+    sep.style.display='none';
+}
+
+/**
+ * Action method hide details block
+ * @param id
+ */
+function hide(id) {
+    let icon = document.getElementsByName('sh-icon')[id];
+    let sep = document.getElementsByClassName('sh-sep')[id];
+    icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
+    icon.setAttribute('onclick','show('+id+')');
+    let element = document.getElementsByClassName('details')[id];
+    element.style.display = 'none';
+    sep.style.display='block';
 }
 
 
