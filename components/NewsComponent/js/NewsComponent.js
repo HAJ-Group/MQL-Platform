@@ -6,18 +6,19 @@ function NewsComponent(service) {
 	current_component = 'News';
 	loadResources(); 
 	this.service = service;
+	this.table = this.get('table-NewsID');
 }
 NewsComponent.prototype.get = function (id) {
 	return document.getElementById(id);
 };
-NewsComponent.prototype.addNews=function (news) {
-	let row=this.table_news.insertRow();
+NewsComponent.prototype.addNewsRow =function (news) {
+	let row=this.table.insertRow();
 	row.insertCell().innerHTML =news.date;
 	row.insertCell().innerHTML =news.title;
 };
-NewsComponent.prototype.printNews=function (max = this.service.size()) {
+NewsComponent.prototype.printNewsList = function (max = this.service.size()) {
 	for (let i = 0; i < max; i++) {
-		this.addNews(this.service.get(i));
+		this.addNewsRow(this.service.get(i));
 	}
 };
 /* Main Function */ 
@@ -25,5 +26,5 @@ function main() {
 	service = new NewsComponentService();
 	service.load(dbNews);
 	view = new NewsComponent(service);
-	view.printNews();
+	view.printNewsList();
 } 

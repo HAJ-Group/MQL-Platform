@@ -14,12 +14,12 @@ HomeComponentService.prototype.size = function () {
     return this.db.length;
 };
 
-HomeComponentService.prototype.load = function(db) {
-    for (let i = 0; i < db.length; i++) {
+HomeComponentService.prototype.load = function(dbSource) {
+    for (let i = 0; i < dbSource.length; i++) {
         this.add(
             new Home(
-                db[i].id,
-                db[i].modules
+                dbSource[i].id,
+                dbSource[i].modules
             )
         )
     }

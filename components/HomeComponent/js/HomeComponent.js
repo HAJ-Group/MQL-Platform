@@ -11,7 +11,6 @@ function HomeComponent(service) {
 	addTitleIcon('../../resources/pictures/title-logo.png');
 }
 
-
 HomeComponent.prototype.get = function (id) {
 	return document.getElementById(id);
 };
