@@ -127,6 +127,12 @@ footer{
     color: white;
 }
 
+
+/* Space before the map*/
+.remove-space{
+    padding: 5px;
+}
+
 .flex-container > div > ul > li{
     font-size: 14px;
     color: #bcbcbc;
@@ -185,7 +191,7 @@ footer{
     overflow:hidden;
     background:none!important;
     height:200px;
-    width:300px;
+    width:343px;
 }
 
 /* the hover for the links (Lien utiles) */
@@ -408,14 +414,25 @@ hr {
 }
 
 /* Responsive style for all small other devices*/
-@media screen and (max-width: 1024px)
+@media screen and (max-width: 820px)
 {
     .partenaire{
         height: 400px;
     }
+
+}
+
+@media screen and (max-width: 900px){
     .flex-container{
         display: flex;
         flex-direction: column;
+    }
+
+    .over-flow{
+        overflow:hidden;
+        background:none!important;
+        height:200px;
+        width:250px;
     }
 }
 

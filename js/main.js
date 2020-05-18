@@ -92,7 +92,7 @@ function loadResources() {
         '\n' +
         '        <div>\n' +
         '            <h5>Localisation</h5>\n' +
-        '            <ul>\n' +
+        '            <ul class="remove-space">\n' +
         '                <div class="map">\n' +
         '                    <div class="over-flow">\n' +
         '                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1653.2037839986274!2d-4.9779526!3d34.0334149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8b5f7be79403%3A0x64ed183ba63abde7!2sFacult%C3%A9%20des%20Sciences%20Dhar%20El%20Mehraz!5e0!3m2!1sfr!2sma!4v1589646925624!5m2!1sfr!2sma" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">\n' +
