@@ -249,16 +249,45 @@ a.links:hover{
     opacity: 0.7;
 }
 
-/* Responsive style for all small other devices*/
-@media screen and (max-width: 1024px)
-{
-    .partenaire{
-        height: 400px;
-    }
-    .flex-container{
-        display: flex;
-        flex-direction: column;
-    }
+/* Title and Details */
+
+.title {
+    font-family: "Agency FB", serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(253, 59, 76);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.title-logo {
+    padding-right: 10px;
+}
+
+.sh-icon{
+    float: right;
+    cursor: pointer;
+}
+
+.sh-icon:hover{
+    opacity: 0.4;
+}
+
+.sh-sep{
+    border-top: 2px solid lightgray ;
+    display: none;
+}
+
+.details{
+    font-family: "Arial Narrow", serif;
+    font-size: 20px;
+    text-align: justify;
+    letter-spacing: 1px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
 }
 
 hr {
@@ -375,6 +404,18 @@ hr {
     .move-right:hover {
         cursor: pointer;
         opacity: 0.5;
+    }
+}
+
+/* Responsive style for all small other devices*/
+@media screen and (max-width: 1024px)
+{
+    .partenaire{
+        height: 400px;
+    }
+    .flex-container{
+        display: flex;
+        flex-direction: column;
     }
 }
 

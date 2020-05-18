@@ -8,7 +8,7 @@ function HomeComponent(service) {
 	this.service = service;
 	this.table=this.get("table-program");
 	this.table_news=this.get("table-news");
-	this.addTitleIcon('../../resources/pictures/title-logo.png');
+	addTitleIcon('../../resources/pictures/title-logo.png');
 }
 
 
@@ -50,48 +50,6 @@ HomeComponent.prototype.printNews=function (max = 5) {
 	for (let i = 0; i < max; i++) {
 		this.addNews(service.get(i));
 	}
-};
-
-/**
- * Building title configuration (icon + show and hide button)
- * @param source
- */
-HomeComponent.prototype.addTitleIcon = function(source) {
-	let titles = document.getElementsByClassName('title');
-	let i=0;
-	for (let title of titles) {
-		let text = title.textContent;
-		title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  class="sh-icon" onclick="view.hide('+i+')">'+'<span class="sh-sep"></span>';
-		i++;
-	}
-};
-
-/**
- * Action method show details block
- * @param id
- */
-HomeComponent.prototype.show = function (id) {
-	let icon = document.getElementsByName('sh-icon')[id];
-	let sep = document.getElementsByClassName('sh-sep')[id];
-	icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
-	icon.setAttribute('onclick','view.hide('+id+')');
-	let element =document.getElementsByClassName('details')[id];
-	element.style.display = 'block';
-	sep.style.display='none';
-};
-
-/**
- * Action method hide details block
- * @param id
- */
-HomeComponent.prototype.hide = function (id) {
-	let icon = document.getElementsByName('sh-icon')[id];
-	let sep = document.getElementsByClassName('sh-sep')[id];
-	icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
-	icon.setAttribute('onclick','view.show('+id+')');
-	let element = document.getElementsByClassName('details')[id];
-	element.style.display = 'none';
-	sep.style.display='block';
 };
 
 HomeComponent.prototype.toggleSlideLink = function () {

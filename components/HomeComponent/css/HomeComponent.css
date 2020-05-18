@@ -21,7 +21,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	/* Animation for slide show */
-	animation: slideShow 20s ease-in-out infinite both;
+	animation: slideShow 5s ease-in-out infinite both;
 }
 
 .slide-show:hover {
@@ -100,46 +100,6 @@ body {
 	color: royalblue;
 }
 
-
-.title {
-	font-family: "Agency FB", serif;
-	font-weight: bold;
-	font-size: 30px;
-	color: rgb(253, 59, 76);
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 10px;
-	text-transform: uppercase;
-}
-
-.title-logo {
-	padding-right: 10px;
-}
-
-.sh-icon{
-	float: right;
-	cursor: pointer;
-}
-
-.sh-icon:hover{
-	opacity: 0.4;
-}
-
-.sh-sep{
-	border-top: 2px solid lightgray ;
-	display: none;
-}
-
-.details{
-	font-family: "Arial Narrow", serif;
-	font-size: 20px;
-	text-align: justify;
-	letter-spacing: 1px;
-	padding: 10px;
-	border: 1px solid lightgray;
-	border-radius: 10px;
-}
-
 .table-program{
 	margin-top: 10px;
 	padding: 20px;
@@ -169,11 +129,6 @@ li {
 	font-family: "Times New Roman", serif;
 }
 
-.sub-content > * {
-	/* annimation */
-	animation: 1.5s ease-out 0s 1 slideInFromRight;
-}
-
 /* Animations */
 
 @keyframes slideShow {
@@ -181,25 +136,9 @@ li {
 		font-size: 1px;
 		background-image: url("../../../resources/pictures/presentationimage.png");
 	}
-	20% {
+	100% {
 		font-size: 2px;
 		background-image: url("../../../resources/pictures/mqlfam.JPG");
-	}
-	40% {
-		font-size: 3px;
-		background-image: url("../../../resources/pictures/1.jpg");
-	}
-	60% {
-		font-size: 4px;
-		background-image: url("../../../resources/pictures/2.png");
-	}
-	80% {
-		font-size: 5px;
-		background-image: url("../../../resources/pictures/3.jpg");
-	}
-	100% {
-		font-size: 6px;
-		background-image: url("../../../resources/pictures/4.png");
 	}
 }
 

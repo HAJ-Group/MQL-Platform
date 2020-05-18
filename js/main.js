@@ -136,6 +136,11 @@ function loadResources() {
 }
 
 /* Action Functions */
+/**
+ * Change title image
+ * @param element
+ * @param animate
+ */
 function changePicture(element, animate=true) {
     let image = document.getElementById('title-image');
     let source = element + '.jpg';
@@ -148,11 +153,55 @@ function changePicture(element, animate=true) {
     image.setAttribute('class', 'def-img animate_title');
 }
 
+/**
+ * Showing/hiding phone version menu
+ */
 function showMenu() {
     phone_menu_toggled = !phone_menu_toggled;
     let menu = document.getElementsByClassName('topnav')[0];
     if(phone_menu_toggled) menu.style.display = 'block';
     if(!phone_menu_toggled) menu.style.display = 'none';
+}
+/**
+ * Building title configuration (icon + show and hide button)
+ * @param source
+ */
+function addTitleIcon(source) {
+    let titles = document.getElementsByClassName('title');
+    let i=0;
+    for (let title of titles) {
+        let text = title.textContent;
+        title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
+        i++;
+    }
+}
+
+/**
+ * Action method show details block
+ * @param id
+ */
+function show(id) {
+    let icon = document.getElementsByName('sh-icon')[id];
+    let sep = document.getElementsByClassName('sh-sep')[id];
+    icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
+    icon.setAttribute('onclick','hide('+id+')');
+    let element =document.getElementsByClassName('details')[id];
+    element.style.display = 'block';
+    sep.style.display='none';
+}
+
+/**
+ * Action method hide details block
+ * @param id
+ */
+function hide(id) {
+    let icon = document.getElementsByName('sh-icon')[id];
+    let sep = document.getElementsByClassName('sh-sep')[id];
+    icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
+    icon.setAttribute('onclick','show('+id+')');
+    let element = document.getElementsByClassName('details')[id];
+    element.style.display = 'none';
+    sep.style.display='block';
 }
 
 
