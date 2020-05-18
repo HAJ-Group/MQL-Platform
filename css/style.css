@@ -38,6 +38,9 @@ header {
 .topnav {
     display: block;
     overflow: hidden;
+    font-family: MontserratBold, serif;
+    font-size: 19px!important;
+    font-weight: bold;
 }
 
 /* Style the links inside the navigation bar */
@@ -56,7 +59,7 @@ header {
 /* Change the color of links on hover */
 .topnav a:hover {
     color: rgb(253, 59, 76);
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 /* Add a color to the active/current link */
@@ -95,7 +98,13 @@ header {
 /* FOOTER BLOCK */
 
 @font-face {
-    font-family: Montserrat;
+    font-family: MontserratBold;
+    src: url('fonts/Montserrat-Bold.otf');
+}
+
+
+@font-face {
+    font-family: MontserratThin;
     src: url('fonts/Montserrat-Thin.otf');
 }
 
@@ -145,7 +154,7 @@ footer{
 }
 
 .flex-container > div > h5{
-    font-family: Montserrat, serif;
+    font-family: MontserratThin, serif;
     font-weight: bolder;
     font-size: 14px;
     letter-spacing: 2px;
