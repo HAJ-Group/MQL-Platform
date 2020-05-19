@@ -8,6 +8,7 @@ function HomeComponent(service) {
 	this.service = service;
 	this.table=this.get("table-program");
 	this.table_news=this.get("table-news");
+	this.news_idSaver = [];
 }
 
 HomeComponent.prototype.get = function (id) {
@@ -39,6 +40,7 @@ HomeComponent.prototype.printSemesters=function () {
  */
 HomeComponent.prototype.addNews=function (news) {
 	let row = this.table_news.insertRow();
+	this.news_idSaver.push(news.id);
 	row.insertCell().innerHTML = news.date;
 	row.insertCell().innerHTML = news.title;
 };
@@ -50,6 +52,9 @@ HomeComponent.prototype.printNews=function (max = 5) {
 	}
 };
 
+/**
+ * Slide show link manager
+ */
 HomeComponent.prototype.toggleSlideLink = function () {
 	let links = {
 		'1':'#presentation',
@@ -64,6 +69,20 @@ HomeComponent.prototype.toggleSlideLink = function () {
 	window.location.assign(links[key]);
 };
 
+
+/**
+ * News link managers
+ */
+HomeComponent.prototype.setNewsRoutes = function () {
+	let rows = this.table_news.rows;
+	for(let i=0; i<rows.length; i++) {
+		let cells = rows[i].cells;
+		for(let j=1; j<cells.length; j++) {
+			cells[j].innerHTML = '<a onclick="route(\'../News\',' + (i+1) + '); return false;">' + cells[j].innerHTML + '</a>';
+		}
+	}
+};
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
@@ -71,5 +90,8 @@ function main() {
 	view = new HomeComponent(service);
 	view.printSemesters();
 	view.printNews();
+	view.setNewsRoutes();
+	// stays last
 	addTitleIcon('../../resources/pictures/title-logo.png');
+	detect_subContent_trigger_left_bar();
 }

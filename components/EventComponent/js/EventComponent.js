@@ -30,5 +30,7 @@ function main() {
 	service = new EventComponentService(); 
 	//service.load(dbEvent); Uncomment to load data for dynamic use 
 	view = new EventComponent(service); 
-	//view.printEventList(); Uncomment to print data in table member 
+	//view.printEventList(); Uncomment to print data in table member
+	// Stays last
+	detect_subContent_trigger_left_bar();
 }

@@ -10,10 +10,11 @@ function route(component, tag_id=null) {
         }
         else path = '';
         component += 'Component';
+        let url = window.location;
         if(tag_id !== null) {
-            window.location.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
+            url.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
         } else
-            window.location.href = path + 'components/' + component + '/' + component + '.html';
+            url.href = path + 'components/' + component + '/' + component + '.html';
     }
 }
 
@@ -207,6 +208,44 @@ function hide(id) {
     let element = document.getElementsByClassName('details')[id];
     element.style.display = 'none';
     sep.style.display='block';
+}
+
+/**
+ * Auto-add detection on left-menu bar for auto hovering on target article
+ */
+function detect_subContent_trigger_left_bar() {
+    let element0 = document.getElementsByClassName('left-menu')[0];
+    for(let child of element0.childNodes) {
+        if(child.innerHTML !== undefined && child instanceof HTMLDivElement) {
+            let target = child.firstChild;
+            if(target.innerHTML !== undefined) {
+                target.setAttribute('id', 'nav' + target.getAttribute('href').substr(target.getAttribute('href').indexOf('#') + 1));
+            }
+        }
+    }
+    let element = document.getElementsByClassName('sub-content')[0];
+    for(let child of element.childNodes) {
+        if(child.innerHTML !== undefined) {
+            child.setAttribute('onmouseover', 'lightNav(this.id)');
+            child.setAttribute('onmouseleave', 'offLight(this.id)')
+        }
+    }
+}
+
+/***
+ * Lighting with navigation bar (left-menu) instant hovering works with auto detection
+ * @param id
+ */
+function lightNav(id) {
+    document.getElementById('nav' + id).classList.add('wrap-red');
+}
+
+/***
+ * Lighting with navigation bar (left-menu) instant hovering works with auto detection
+ * @param id
+ */
+function offLight(id) {
+    document.getElementById('nav' + id).classList.remove('wrap-red');
 }
 
 /**

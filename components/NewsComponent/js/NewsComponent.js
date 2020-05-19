@@ -40,7 +40,7 @@ NewsComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" href="#' + news.id + '">' + news.title + '</a></div>\n';
+			'<div><a class="menuitem" id="nav' + news.id + '" href="#' + news.id + '">' + news.title + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
@@ -51,7 +51,9 @@ NewsComponent.prototype.fillNavigation = function () {
 NewsComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
-		htmlContent += '<div id="' + news.id + '"">\n' +
+		htmlContent += '<div id="' + news.id + '" ' +
+			'onmouseover="lightNav(' + news.id + ')" ' +
+			'onmouseleave="offLight(' + news.id + ')">\n' +
 			'<div class="title">\n' +
 			news.title +
 			'</div>\n' +
@@ -71,8 +73,8 @@ NewsComponent.prototype.fillSwitcher = function () {
 	let htmlContent = this.htmlSaver.switcher;
 	let pages = this.page_blocks.length;
 	for(let i = 1; i<=pages; i++) {
-		if(current_page_number === i) htmlContent += '<span onclick="view.navigate(' + i + ')" class="active-page">' + i + '</span>';
-		else htmlContent += '<span onclick="view.navigate(' + i + ')">' + i + '</span>';
+		if(current_page_number === i) htmlContent += '<span onclick="view.navigate(' + i + ', true)" class="active-page">' + i + '</span>';
+		else htmlContent += '<span onclick="view.navigate(' + i + ', true)">' + i + '</span>';
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
@@ -80,15 +82,24 @@ NewsComponent.prototype.fillSwitcher = function () {
 /**
  * Navigate between pages
  * @param page_number
+ * @param top
  */
-NewsComponent.prototype.navigate = function(page_number) {
+NewsComponent.prototype.navigate = function(page_number, top=false) {
 	current_page_number = page_number;
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
     addTitleIcon('../../resources/pictures/News-logo.png');
-    window.location.href = '#header';
+    if(top) window.location.href = '#header';
 };
+
+NewsComponent.prototype.trigger = function () {
+	let anchor = window.location.href.split('#')[1];
+	if(anchor !== undefined) {
+		this.get('nav' + anchor).click();
+	}
+};
+
 
 /* Main Function */ 
 function main() { 
@@ -100,5 +111,9 @@ function main() {
 	view.fillMain();
 	view.fillSwitcher();
 	view.navigate(current_page_number);
+	// stays last
 	addTitleIcon('../../resources/pictures/News-logo.png');
-} 
+	view.trigger();
+	detect_subContent_trigger_left_bar();
+}
+
