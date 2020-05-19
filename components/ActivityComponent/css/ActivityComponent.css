@@ -1,6 +1,6 @@
-body { 
-	display:block; 
-	margin:auto; 
+body {
+	display:block;
+	margin:auto;
 }
 
 /* Container of the card and its title */
@@ -128,11 +128,10 @@ body {
 	content: "\26AA";
 }
 
-.content {
+.content-card {
 	padding: 0 18px;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.3s ease-out;
-
 }
 

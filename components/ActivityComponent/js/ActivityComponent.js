@@ -11,8 +11,10 @@ function ActivityComponent(service) {
 } 
 ActivityComponent.prototype.get = function (id) { 
 	return document.getElementById(id); 
-}; 
-// Adding a row in the table member 
+};
+
+/*
+// Adding a row in the table member
 ActivityComponent.prototype.addActivityRow = function (oneActivity) { 
 	let row = this.table.insertRow(); 
 	//row.insertCell().innerHTML = news.id; 
@@ -23,8 +25,11 @@ ActivityComponent.prototype.printActivityList = function () {
 	for (let i = 0; i < this.service.size(); i++) { 
 		this.addActivityRow(this.service.get(i)); 
 	} 
-}; 
-/* Main Function */ 
+};
+
+*/
+
+
 function main() { 
 	service = new ActivityComponentService(); 
 	//service.load(dbActivity);
@@ -35,8 +40,8 @@ function main() {
 
 
 function collapse(){
-	var coll = document.getElementsByClassName("collapsible");
-	var i;
+	let coll = document.getElementsByClassName("collapsible");
+	let i;
 
 
 	for (i = 0; i < coll.length; i++) {
