@@ -19,15 +19,16 @@ body {
 	padding: 30px;
 }
 
-.page_numbers > * {
+.page_numbers > span {
 	border: 1px lightgray solid;
 	border-radius: 20px;
 	padding: 5px;
 	margin-right: 10px;
 }
 
-.page_numbers a {
-
+.page_numbers span:hover {
+	cursor: pointer;
+	opacity: 0.5;
 }
 
 .active-page {

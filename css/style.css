@@ -31,7 +31,7 @@ header {
     border: 3px solid cornflowerblue;
     border-radius: 10px;
     box-shadow: gray 2px 2px 2px;
-    max-width: 20%;
+    width: 20%;
     padding: 10px;
     float: left;
     top: 10px;
