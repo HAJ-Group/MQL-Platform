@@ -4,7 +4,7 @@ body {
 }
 .time{
 	color: gray;
-	font-family:  "Harlow Solid Italic";
+	font-family: "Harlow Solid Italic", serif;
 	font-size: 10px;
 	margin-left: 20px;
 }
@@ -13,9 +13,8 @@ body {
 	padding-left:15px;
 }
 .sub-title .element {
-	font-family: "Harlow Solid Italic";
+	font-family: "Harlow Solid Italic", serif;
 	color: cornflowerblue;
-	font-family: Arial;
 	font-size: 18px;
 	font-weight: bold;
 }

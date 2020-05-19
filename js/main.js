@@ -262,4 +262,23 @@ function split(array, n) {
     return ret;
 }
 
+/**
+ * Close popped image
+ */
+function closeIMG() {
+    let modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
+/**
+ * Display image
+ */
+function popIMG(id) {
+    let modal = document.getElementById('myModal');
+    let img = document.getElementById(id);
+    let modalImg = document.getElementById('modal_img');
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+}
+
 

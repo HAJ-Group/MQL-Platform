@@ -107,7 +107,7 @@ header {
 
 .left {
     float: left;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .right {
@@ -117,7 +117,7 @@ header {
 .def-img {
     width: 100%;
     height: auto;
-    margin-top: -5px;
+    margin-top: -8px;
 }
 
 /* Coloring with background  */
@@ -371,6 +371,92 @@ a.links:hover{
     border-radius: 10px;
 }
 
+/* Images Grids */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 100%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 45%;
+    height: 45%;
+}
+
+.column img:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0);  Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Add Animation */
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 70px;
+    right: 23.2%;
+    background-color: rgb(253, 59, 76);
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.close:hover, .close:focus {
+    background-color: white;
+    color: rgb(253, 59, 76);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:active {
+    opacity: 0.5;
+}
+
+/* TAGS */
+
 hr {
     border: 0;
     height: 0;
@@ -419,6 +505,16 @@ hr {
 @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
 }
 
 /* Responsive CSS ----------------------------------------------------------------------------------------------------*/
@@ -491,7 +587,7 @@ hr {
 }
 
 /* Responsive style for all small other devices*/
-@media screen and (max-width: 820px)
+@media screen and (max-width: 600px)
 {
     .partenaire{
         height: 400px;
@@ -499,7 +595,7 @@ hr {
 
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 600px){
     .flex-container{
         display: flex;
         flex-direction: column;
@@ -526,5 +622,11 @@ hr {
 
 }
 
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 600px){
+    .modal-content {
+        width: 100%;
+    }
+}
 
 

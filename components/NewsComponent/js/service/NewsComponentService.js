@@ -24,7 +24,8 @@ NewsComponentService.prototype.load = function(dbSource) {
                 dbSource[i].id,
                 dbSource[i].title,
                 dbSource[i].date,
-                dbSource[i].desciption
+                dbSource[i].desciption,
+                dbSource[i].images,
             )
         )
     }

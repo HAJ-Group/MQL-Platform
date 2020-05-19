@@ -40,7 +40,7 @@ NewsComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" id="nav' + news.id + '" href="#' + news.id + '">' + news.title + '</a></div>\n';
+			'<div><a class="menuitem" href="#' + news.id + '">' + news.title + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
@@ -60,8 +60,11 @@ NewsComponent.prototype.fillMain = function () {
 			'<div class="details">' +
 			'<p class="date">' + news.date + '</p>' +
 			'<p>' + news.description + '</p>\n' +
-			'</div>\n' +
-			'</div>';
+			'<div class="row"><span class="column">';
+		for(let image of news.images) {
+			htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="">\n';
+		}
+		htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
 	this.block_main.innerHTML = htmlContent;
 };
@@ -113,7 +116,7 @@ function main() {
 	view.navigate(current_page_number);
 	// stays last
 	addTitleIcon('../../resources/pictures/News-logo.png');
-	view.trigger();
 	detect_subContent_trigger_left_bar();
+	view.trigger();
 }
 
