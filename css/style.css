@@ -3,7 +3,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: 'Open Sans', serif;
+    font-family: MontserratBold, serif;
 }
 /* Main content block */
 
@@ -25,6 +25,35 @@ header {
     padding: 10px;
 }
 
+/* Navigation Menu */
+.left-menu{
+    margin-top: 20px;
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+    box-shadow: gray 2px 2px 2px;
+    width: 20%;
+    padding: 10px;
+    float: left;
+    top: 10px;
+    position: sticky;
+    /* annimation */
+    animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
+
+.menuitem {
+    font-size: 17px;
+    text-align: center;
+    font-family: "Berlin Sans FB", serif;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+}
+
+.menuitem:hover {
+    color: royalblue;
+}
+
 
 /* HEADER------------------------------------------------------------------------------------------------------------ */
 
@@ -38,8 +67,6 @@ header {
 .topnav {
     display: block;
     overflow: hidden;
-    font-family: MontserratBold, serif;
-    font-size: 19px!important;
     font-weight: bold;
 }
 
@@ -51,7 +78,7 @@ header {
     display: block;
     padding: 20px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     /* This section calls the slideInFromLeft animation we defined above */
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
@@ -67,10 +94,6 @@ header {
     color: rgb(253, 59, 76);
 }
 
-.animate_title {
-    animation: fadein 2s;
-}
-
 /* GENERAL----------------------------------------------------------------------------------------------------------- */
 .el-center {
     display: block;
@@ -84,6 +107,7 @@ header {
 
 .left {
     float: left;
+    margin-top: 5px;
 }
 
 .right {
@@ -93,6 +117,48 @@ header {
 .def-img {
     width: 100%;
     height: auto;
+    margin-top: -5px;
+}
+
+/* Coloring with background  */
+.wrap-blue {
+    background-color: cornflowerblue;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-blue:hover {
+    background-color: cornflowerblue;
+    color: white;
+    opacity: 0.8;
+}
+
+.wrap-red {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-red:hover {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    color: white;
+    opacity: 0.8;
+}
+
+.animate_fade {
+    animation: fadein 2s;
+}
+
+/* Spacing */
+.left-space {
+    margin-left: 10px;
+}
+
+.right-space {
+    margin-right: 10px;
 }
 
 /* FOOTER BLOCK */
@@ -374,6 +440,8 @@ hr {
     .topnav {
         background-image: url("../resources/pictures/background.jpg");
         display: none;
+        /* This section calls the slideInFromLeft animation we defined above */
+        animation: 1s ease-out 0s 1 slideInFromRight;
     }
 
     .topnav a {
@@ -443,6 +511,19 @@ hr {
         height:200px;
         width:250px;
     }
+}
+
+@media only screen and (min-width: 600px) {
+    .sub-content{
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .left-menu {
+        display: none;
+    }
+
 }
 
 
