@@ -1,4 +1,127 @@
 body { 
 	display:block; 
 	margin:auto; 
-} 
+}
+
+
+
+
+.big-container{
+	/* background-color: cornflowerblue;*/
+	padding: 10px;
+}
+
+.title-top-cards{
+	display: inline-block;
+	width: auto;
+
+	background-color: coral;
+}
+
+.cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around; /* center horizontally */
+	align-items: center; /* center vertically*/
+	background-color: chocolate;
+
+}
+
+.card {
+	font-family: Roboto, sans-serif;
+	width: 600px;
+	height: auto;
+	border-radius: 5px;
+	box-shadow: 0px 0px 0px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+	overflow: hidden; /* otherwise header image won't respect rounded corners */
+	background: white;
+	margin: 10px;
+	transition: all .4s ease; /* back to normal */
+}
+.card:hover {
+	transform: translate3D(1px , 1px,0) scale(1.01); /* move up slightly and zoom in */
+	box-shadow: 20px 20px 20px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+	transition: all .4s ease; /* zoom in */
+}
+
+.card-image {
+	width: 100%; /* forces image to maintain its aspect ratio; otherwise image stretches vertically */
+	height: 300px;
+}
+
+.card-subject{
+	font-size: 22px;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+.card-text {
+	text-align: justify;
+	text-justify: inter-word;
+	font-size: 18px;
+	padding: 20px
+}
+
+.card-footer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center; /* vertically align content */
+	font-family: roboto, sans-serif;
+	padding: 20px 20px 10px 10px;
+
+}
+
+.logo-mql {
+	object-fit: cover; /* don't squish profile image */
+	object-position: 30%;  /* move image to the right slightly */
+	border-radius: 100%; /* make profile image a circle */
+	width: 60px;
+	height: 60px;
+
+}
+
+.right-side {
+	color: #738a94;
+	font-size: 0.9rem;
+	line-height: 33px;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-left: auto; /* move over to the right */
+}
+
+.collapsible {
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+}
+
+.active, .collapsible:hover {
+	background-color: #555;
+}
+
+.collapsible:after {
+	content: '\26AB';
+	color: white;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\26AA";
+}
+
+.content {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+
+}
+
