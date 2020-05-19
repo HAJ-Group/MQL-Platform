@@ -70,5 +70,5 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	view.fillSwitcher();
-	addTitleIcon('../../resources/pictures/title-logo.png');
+	addTitleIcon('../../resources/pictures/News-logo.png');
 } 
