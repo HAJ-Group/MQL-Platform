@@ -412,6 +412,18 @@ a.links:hover{
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
+/* Caption of Modal Image */
+#caption, #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
 /* Modal Content (image) */
 .modal-content {
     margin: 0 auto;
@@ -419,6 +431,7 @@ a.links:hover{
     width: 100%;
     max-width: 1000px;
 }
+
 
 /* Add Animation */
 .modal-content {
@@ -453,6 +466,53 @@ a.links:hover{
 
 .close:active {
     opacity: 0.5;
+}
+
+/* Book Images and arrows*/
+
+.book-images {
+    display: flex;
+}
+
+.book-images img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    width: 700px;
+    height: 400px;
+}
+
+/* Arrows for slide shows control */
+
+.arrow-left, .arrow-right {
+    font-family: "Bahnschrift", serif;
+    text-align: center;
+    font-size: 100px;
+    opacity: 0.1;
+    color: rgb(253, 59, 76);
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 80px;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow-left:active, .arrow-right:active {
+    background-color: rgb(253, 59, 76);
+    color: white;
+}
+
+.arrow-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.arrow-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 /* TAGS */

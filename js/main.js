@@ -143,7 +143,7 @@ function loadResources() {
  * @param element
  * @param animate
  */
-function changePicture(element, animate=true) {
+function changePicture(element) {
     let image = document.getElementById('title-image');
     let source = element + '.jpg';
     image.setAttribute('src', '../../resources/pictures/' + source);
@@ -279,6 +279,45 @@ function popIMG(id) {
     let modalImg = document.getElementById('modal_img');
     modal.style.display = 'block';
     modalImg.src = img.src;
+    document.getElementById('caption').innerHTML = img.alt;
 }
+
+/**
+ * Global uses for functions bellow
+ * @type {number}
+ */
+let current_img = 1;
+let images_size = 0;
+
+/**
+ * Create book of images using a base data table
+ * @param images
+ */
+function createBook(images=[]) {
+    images_size = images.length;
+    let element = document.getElementById('book');
+    element.innerHTML = '<div onclick="target(--current_img)" class="arrow-left"><</div>';
+    for(let i = 1; i<=images.length; i++) {
+        element.innerHTML += '<img class="book_img" src="../../resources/pictures/' + images[i-1] + '" alt="">';
+    }
+    element.innerHTML += '<div onclick="target(++current_img)" class="arrow-right">></div>';
+    document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+}
+
+/**
+ * Target function for image switching
+ */
+function target() {
+    if(current_img < 1 ) target(++current_img);
+    else if(current_img > images_size) target(--current_img);
+    else {
+        for(let i=0; i<images_size; i++) {
+            document.getElementsByClassName('book_img')[i].style.display = 'none';
+        }
+        document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+    }
+}
+
+
 
 

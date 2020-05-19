@@ -62,7 +62,7 @@ NewsComponent.prototype.fillMain = function () {
 			'<p>' + news.description + '</p>\n' +
 			'<div class="row"><span class="column">';
 		for(let image of news.images) {
-			htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="">\n';
+			htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="MQL PLATFORM">\n';
 		}
 		htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
