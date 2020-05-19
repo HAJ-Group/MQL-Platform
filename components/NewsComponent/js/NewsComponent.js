@@ -2,14 +2,14 @@
 let view; 
 let service;
 let current_page_number = 1;
-const MAX_PAGES_PER_PAGE = 5;
+const MAX_NEWS_PER_PAGE = 5;
 /*Default class*/ 
 function NewsComponent(service) { 
 	current_component = 'News';
 	loadResources(); 
 	this.service = service;
 	// this.table = this.get('table-NewsID');
-	this.page_blocks = split(this.service.db, MAX_PAGES_PER_PAGE);
+	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
 	this.block_nav = this.get('navigation');
 	this.block_main = this.get('main');
 	this.block_switch = this.get('switcher');
@@ -71,8 +71,8 @@ NewsComponent.prototype.fillSwitcher = function () {
 	let htmlContent = this.htmlSaver.switcher;
 	let pages = this.page_blocks.length;
 	for(let i = 1; i<=pages; i++) {
-		if(current_page_number === i) htmlContent += '<span id="linker_' + i + '" onclick="view.navigate(' + i + ')" class="active-page">' + i + '</span>';
-		else htmlContent += '<span id="linker_' + i + '" onclick="view.navigate(' + i + ')">' + i + '</span>';
+		if(current_page_number === i) htmlContent += '<span onclick="view.navigate(' + i + ')" class="active-page">' + i + '</span>';
+		else htmlContent += '<span onclick="view.navigate(' + i + ')">' + i + '</span>';
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
@@ -86,6 +86,8 @@ NewsComponent.prototype.navigate = function(page_number) {
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
+    addTitleIcon('../../resources/pictures/News-logo.png');
+    window.location.href = '#header';
 };
 
 /* Main Function */ 

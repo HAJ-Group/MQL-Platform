@@ -3,7 +3,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: 'Open Sans', serif;
+    font-family: MontserratBold, serif;
 }
 /* Main content block */
 
@@ -67,8 +67,6 @@ header {
 .topnav {
     display: block;
     overflow: hidden;
-    font-family: MontserratBold, serif;
-    font-size: 19px!important;
     font-weight: bold;
 }
 
@@ -80,7 +78,7 @@ header {
     display: block;
     padding: 20px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     /* This section calls the slideInFromLeft animation we defined above */
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }

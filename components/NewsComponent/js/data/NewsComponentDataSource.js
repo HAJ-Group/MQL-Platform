@@ -42,5 +42,33 @@ let dbNews = [
         desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
         images:[],
     },
+    {
+        id :7,
+        title:'News 7',
+        date:'17-05-2020',
+        desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
+        images:[],
+    },
+    {
+        id :8,
+        title:'News 8',
+        date:'17-05-2020',
+        desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
+        images:[],
+    },
+    {
+        id :9,
+        title:'News 9',
+        date:'17-05-2020',
+        desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
+        images:[],
+    },
+    {
+        id :10,
+        title:'News 10',
+        date:'17-05-2020',
+        desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
+        images:[],
+    },
 
 ];
