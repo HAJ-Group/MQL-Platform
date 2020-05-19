@@ -1,0 +1,31 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+.time{
+	color: gray;
+	font-family:  "Harlow Solid Italic";
+	font-size: 10px;
+	margin-left: 20px;
+}
+.sub-title{
+	padding-top: 15px;
+	padding-left:15px;
+}
+.sub-title .element {
+	font-family: "Harlow Solid Italic";
+	color: cornflowerblue;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+}
+.space{
+	padding-left:30px;
+}
+fieldset{
+	border: solid 2px cornflowerblue;
+	box-shadow: gray 2px 2px 2px 2px ;
+}
+legend {
+	color: rgb(253, 59, 76);
+}

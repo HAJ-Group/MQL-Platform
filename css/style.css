@@ -289,7 +289,33 @@ a.links:hover{
     border: 1px solid lightgray;
     border-radius: 10px;
 }
+/* Decorating the left-menu */
+.left-menu{
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+    box-shadow: gray 2px 2px 2px;
+    max-width: 20%;
+    padding: 10px;
+    float: left;
+    top: 10px;
+    position: sticky;
+    /* annimation */
+    animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
 
+.menuitem {
+    font-size: 17px;
+    text-align: center;
+    font-family: "Berlin Sans FB", serif;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+}
+
+.menuitem:hover {
+    color: royalblue;
+}
 hr {
     border: 0;
     height: 0;
@@ -419,5 +445,14 @@ hr {
     }
 }
 
-
-
+@media only screen and (min-width: 600px) {
+    .sub-content{
+        margin-left: 25%;
+    }
+}
+/*  responsive design for left-menu */
+@media only screen and (max-width: 600px) {
+    .left-menu {
+        display: none;
+    }
+}
