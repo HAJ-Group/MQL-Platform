@@ -10,7 +10,7 @@ function route(component, tag_id=null) {
         }
         else path = '';
         component += 'Component';
-        if(tag_id !== null){
+        if(tag_id !== null) {
             window.location.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
         } else
             window.location.href = path + 'components/' + component + '/' + component + '.html';
@@ -25,6 +25,7 @@ function loadResources() {
         * content : value of the innerText of the nav
         * */
         {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'News', content:'Actualités'},
         {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
         {name: 'Partner', content:'Partenaires'},
@@ -44,18 +45,18 @@ function loadResources() {
         headerContent += '<a href="#' + nav.name +
             '"class="left" onclick="route(\'../' + nav.name + '\')"' +
             'onmouseover="changePicture(this.name)" ' +
-            'onmouseleave="changePicture(current_component,false)" ' +
+            'onmouseleave="changePicture(current_component)" ' +
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
     // ABOUT NAV
-    headerContent += '<a href="#about" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
+    headerContent += '<a href="#footer" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
         '</header>';
 
     /* FOOTER --------------------------------------------------------------------------------------------------------*/
-    let footerContent = '<footer>' +
+    let footerContent = '<hr><footer>' +
        '        <div class="text-partenaire">\n' +
-        '        <span>Partenaires</span> \n' +
+        '        <img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" width="80" height="46"><span>Partenaires</span> \n' +
         '    </div>  <hr>\n' +
         '\n' +
         '    <div class="partenaire">\n' +
@@ -145,22 +146,26 @@ function changePicture(element, animate=true) {
     let image = document.getElementById('title-image');
     let source = element + '.jpg';
     image.setAttribute('src', '../../resources/pictures/' + source);
-    if (animate === true) {
-        image.classList.remove('animate_title');
-        void image.offsetWidth;
-        image.classList.add('animate_title');
-    }
-    image.setAttribute('class', 'def-img animate_title');
+    image.setAttribute('class', 'def-img');
 }
 
 /**
  * Showing/hiding phone version menu
  */
 function showMenu() {
+    function toggle(media) {
+        let menu = document.getElementsByClassName('topnav')[0];
+        if (media.matches) { // If media query matches
+            if(phone_menu_toggled) menu.style.display = 'block';
+            if(!phone_menu_toggled) menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    }
     phone_menu_toggled = !phone_menu_toggled;
-    let menu = document.getElementsByClassName('topnav')[0];
-    if(phone_menu_toggled) menu.style.display = 'block';
-    if(!phone_menu_toggled) menu.style.display = 'none';
+    let media = window.matchMedia("(max-width: 600px)");
+    toggle(media);
+    media.addListener(toggle);
 }
 /**
  * Building title configuration (icon + show and hide button)
@@ -204,5 +209,18 @@ function hide(id) {
     sep.style.display='block';
 }
 
+/**
+ * Split an array into n arrays
+ * @param array
+ * @param n
+ * @returns {[]}
+ */
+function split(array, n) {
+    let ret = [];
+    for (let i = 0; i < array.length; i += n){
+        ret.push(array.slice(i, i + n));
+    }
+    return ret;
+}
 
 

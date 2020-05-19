@@ -8,7 +8,6 @@ function HomeComponent(service) {
 	this.service = service;
 	this.table=this.get("table-program");
 	this.table_news=this.get("table-news");
-	addTitleIcon('../../resources/pictures/title-logo.png');
 }
 
 HomeComponent.prototype.get = function (id) {
@@ -72,4 +71,5 @@ function main() {
 	view = new HomeComponent(service);
 	view.printSemesters();
 	view.printNews();
+	addTitleIcon('../../resources/pictures/title-logo.png');
 }

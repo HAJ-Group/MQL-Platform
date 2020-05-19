@@ -73,33 +73,6 @@ body {
 	cursor: pointer;
 }
 
-.left-menu{
-	border: 3px solid cornflowerblue;
-	border-radius: 10px;
-	box-shadow: gray 2px 2px 2px;
-	max-width: 20%;
-	padding: 10px;
-	float: left;
-	top: 10px;
-	position: sticky;
-	/* annimation */
-	animation: 1.5s ease-out 0s 1 slideInFromLeft;
-}
-
-.menuitem {
-	font-size: 17px;
-	text-align: center;
-	font-family: "Berlin Sans FB", serif;
-	text-decoration: none;
-	color: black;
-	padding: 5px;
-	display: block;
-}
-
-.menuitem:hover {
-	color: royalblue;
-}
-
 .table-program{
 	margin-top: 10px;
 	padding: 20px;
@@ -145,10 +118,6 @@ li {
 /* Responsive css ----------------------------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 600px) {
-	.left-menu {
-		display: none;
-	}
-
 	.main-box {
 		display: block;
 	}
@@ -162,8 +131,3 @@ li {
 	}
 }
 
-@media only screen and (min-width: 600px) {
-	.sub-content{
-		margin-left: 25%;
-	}
-}
