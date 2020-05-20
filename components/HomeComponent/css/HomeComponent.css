@@ -122,12 +122,12 @@ a:hover {
 .Chenfour{
 	display: flex;
 }
-.Chenfour img {
+.Chenfour .img {
 	width: 40%;
 }
 .Chenfour div {
 	padding: 20px;
-	width: 55%;
+	width: 60%;
 }
 .details img {
 	margin-right: auto;
