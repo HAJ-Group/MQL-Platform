@@ -51,12 +51,8 @@ NewsComponent.prototype.fillNavigation = function () {
 NewsComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
-		htmlContent += '<div id="' + news.id + '" ' +
-			'onmouseover="lightNav(' + news.id + ')" ' +
-			'onmouseleave="offLight(' + news.id + ')">\n' +
-			'<div class="title">\n' +
-			news.title +
-			'</div>\n' +
+		htmlContent += '<div id="' + news.id + '" >' +
+			'<div class="title">\n' + news.title + '</div>\n' +
 			'<div class="details">' +
 			'<p class="date">' + news.date + '</p>' +
 			'<p>' + news.description + '</p>\n' +

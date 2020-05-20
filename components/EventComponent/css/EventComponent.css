@@ -3,65 +3,78 @@ body {
 	margin:auto;
 }
 
-.test{
+.card-event {
 	display: flex;
+	border: 1px solid lightgray;
+	margin-bottom: 10px;
 }
-.test img{
+.card-event > img {
 	width: 30%;
+	border-right: 1px solid lightgray;
+}
+
+.card-event .description {
+	width: 70%;
 	padding: 10px;
 }
-.test .description {
-	width: 70%;
-	padding: 5px;
-}
-.details{
-	text-align: justify;
-	font-size: 20px;
-	letter-spacing: 2px;
+.full-width {
+	width: 98%;
+	padding: 10px;
 }
 
 .sub-title{
 	padding-top: 15px;
-	padding-left:15px;
 }
 .sub-title .element {
-	padding: 10px;
-	font-family: "Harlow Solid Italic";
-	color: cornflowerblue;
-	font-size: 18px;
+	font-size: 30px;
 	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 10px;
+	text-align: center;
 }
 .space{
 	padding-left:30px;
 }
 
-.gallery-view {
+
+/* BLOCK FOR THE SLIDESHOW ANIMATION ---------------------------------------------------------------------------------*/
+.gallery-view1, .gallery-view2 {
 	border: 1px solid lightgray;
-	width: 90%;
-	min-height: 300px;
+	width: 100%;
+	min-height: 400px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
-	/* Animation for slide show */
-	animation: slideShow 15s ease-in-out infinite both;
+	margin-bottom: 10px;
 }
 
-.gallery-view:hover {
+
+.gallery-view1:hover, .gallery-view2:hover {
 	animation-play-state: paused;
 	cursor: pointer;
 }
 
-.je {
-	animation: slideShow-je 10s ease-in-out infinite both;
+.gallery-view1 {
+	/* Animation for slide show */
+	animation: slideShow1 20s ease-in-out infinite both;
 }
-.ce-1{
-	animation: slideShow-ce-1 10s ease-in-out infinite both;
+
+.gallery-view2  {
+	/* Animation for slide show */
+	animation: slideShow2 20s ease-in-out infinite both;
 }
-.ce-2{
-	animation: slideShow-ce-2 10s ease-in-out infinite both;
+/*.gallery-view3  {
+	!* Animation for slide show *!
+	animation: slideShow3 20s ease-in-out infinite both;
 }
+.gallery-view4  {
+	!* Animation for slide show *!
+	animation: slideShow4 20s ease-in-out infinite both;
+}*/
+
+/* BLOCK FOR THE SLIDESHOW ANIMATION ---------------------------------------------------------------------------------*/
 .img-cer{
 	margin-top: 20px;
 	margin-right: auto;
@@ -84,15 +97,15 @@ body {
 /* Phone */
 @media only screen and (max-width: 600px) {
 
-	.test {
+	.card-event {
 		display: block;
 	}
-	.test img {
-		width: 80%;
+	.card-event > img {
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.test .description{
+	.card-event .description{
 		width: 90%;
 		margin-left: auto;
 		margin-right: auto;
@@ -113,7 +126,7 @@ body {
 }
 /* Animations */
 
-@keyframes slideShow {
+@keyframes slideShow1 {
 	0% {
 		font-size: 1px;
 		background-image: url("../../../resources/pictures/Events/CAP.JPG");
@@ -159,7 +172,7 @@ body {
 		background-image: url("../../../resources/pictures/Events/CGI3.JPG");
 	}
 }
-@keyframes slideShow-je {
+@keyframes slideShow2 {
 	0% {
 		font-size: 1px;
 		background-image: url("../../../resources/pictures/Events/JE1.JPG");

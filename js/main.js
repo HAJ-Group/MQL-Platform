@@ -288,33 +288,34 @@ function popIMG(id) {
  */
 let current_img = 1;
 let images_size = 0;
-
 /**
  * Create book of images using a base data table
  * @param images
+ * @param default_element_id
  */
-function createBook(images=[]) {
+function createBook(images=[], default_element_id = 'book') {
+    current_img = 1;
     images_size = images.length;
-    let element = document.getElementById('book');
-    element.innerHTML = '<div onclick="target(--current_img)" class="arrow-left"><</div>';
+    let element = document.getElementById(default_element_id);
+    element.innerHTML = '<div onclick="target(\''+ default_element_id + '\',--current_img)" class="arrow-left"><</div>';
     for(let i = 1; i<=images.length; i++) {
-        element.innerHTML += '<img class="book_img" src="../../resources/pictures/' + images[i-1] + '" alt="">';
+        element.innerHTML += '<img onclick="popIMG(this.id)" id="' + default_element_id + '-img' + i + '" class="' + default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
     }
-    element.innerHTML += '<div onclick="target(++current_img)" class="arrow-right">></div>';
-    document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+    element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
+    document.getElementsByClassName( default_element_id + '-img')[current_img - 1].style.display = 'block';
 }
 
 /**
  * Target function for image switching
  */
-function target() {
+function target(target_element) {
     if(current_img < 1 ) target(++current_img);
     else if(current_img > images_size) target(--current_img);
     else {
         for(let i=0; i<images_size; i++) {
-            document.getElementsByClassName('book_img')[i].style.display = 'none';
+            document.getElementsByClassName( target_element + '-img')[i].style.display = 'none';
         }
-        document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+        document.getElementsByClassName( target_element + '-img')[current_img - 1].style.display = 'block';
     }
 }
 

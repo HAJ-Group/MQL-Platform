@@ -337,9 +337,7 @@ a.links:hover{
     font-weight: bold;
     font-size: 30px;
     color: rgb(253, 59, 76);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
+    padding: 15px 10px;
     text-transform: uppercase;
 }
 
@@ -478,8 +476,13 @@ a.links:hover{
     margin-top: 10px;
     margin-bottom: 10px;
     display: none;
-    width: 700px;
+    width: 80%;
     height: 400px;
+}
+
+.book-images img:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 /* Arrows for slide shows control */
@@ -513,6 +516,30 @@ a.links:hover{
 .arrow-right {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+/** PAGES CONTROLLS */
+.page_numbers {
+    margin: 0 auto;
+    width: 50%;
+    padding: 30px;
+}
+
+.page_numbers > span {
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.page_numbers span:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.active-page {
+    background-color: rgb(253, 59, 76);
+    color: white;
 }
 
 /* TAGS */
@@ -654,6 +681,7 @@ hr {
         width: 100%;
         height: 100%;
     }
+
 }
 
 /* Responsive style for all small other devices*/
