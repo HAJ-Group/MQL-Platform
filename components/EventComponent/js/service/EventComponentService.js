@@ -20,12 +20,12 @@ EventComponentService.prototype.size = function() {
 }; 
 // Load all data from source to database object 
 EventComponentService.prototype.load = function(dbSource) { 
-	for (let i = 0; i < dbSource.length; i++) { 
+	for (let i = 0; i < dbSource.length; i++) {
 		// Transforming database source into database object of Event model 
-		this.add( 
-			new Event( 
-				dbSource[i].id, 
-			) 
-		) 
+		this.add(
+			new Event(
+				dbSource[i].id,
+			)
+		)
 	} 
 }; 

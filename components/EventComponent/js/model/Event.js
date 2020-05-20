@@ -1,5 +1,9 @@
 /* Default Model for EventComponent */ 
-function Event(id) { 
-	//TODO: Intitialize model properties 
-	this.id = id; 
-} 
+function Event(id,title,desciption,images=[]) {
+	this.id = id;
+	this.title=title;
+	this.desciption=desciption;
+	this.images=images;
+}
+
+
