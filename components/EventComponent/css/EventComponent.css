@@ -1,19 +1,32 @@
 body { 
 	display:block; 
-	margin:auto; 
+	margin:auto;
 }
-.time{
-	color: gray;
-	font-family: "Harlow Solid Italic", serif;
-	font-size: 10px;
-	margin-left: 20px;
+
+.test{
+	display: flex;
 }
+.test img{
+	width: 30%;
+	padding: 10px;
+}
+.test .description {
+	width: 70%;
+	padding: 5px;
+}
+.details{
+	text-align: justify;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
 .sub-title{
 	padding-top: 15px;
 	padding-left:15px;
 }
 .sub-title .element {
-	font-family: "Harlow Solid Italic", serif;
+	padding: 10px;
+	font-family: "Harlow Solid Italic";
 	color: cornflowerblue;
 	font-size: 18px;
 	font-weight: bold;
@@ -21,10 +34,155 @@ body {
 .space{
 	padding-left:30px;
 }
-fieldset{
-	border: solid 2px cornflowerblue;
-	box-shadow: gray 2px 2px 2px 2px ;
+
+.gallery-view {
+	border: 1px solid lightgray;
+	width: 90%;
+	min-height: 300px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	/* Animation for slide show */
+	animation: slideShow 15s ease-in-out infinite both;
 }
-legend {
-	color: rgb(253, 59, 76);
+
+.gallery-view:hover {
+	animation-play-state: paused;
+	cursor: pointer;
+}
+
+.je {
+	animation: slideShow-je 10s ease-in-out infinite both;
+}
+.ce-1{
+	animation: slideShow-ce-1 10s ease-in-out infinite both;
+}
+.ce-2{
+	animation: slideShow-ce-2 10s ease-in-out infinite both;
+}
+.img-cer{
+	margin-top: 20px;
+	margin-right: auto;
+	text-align: center;
+}
+.img-cer img{
+	width: 90%;
+}
+.imgs{
+	display: flex;
+}
+.imgs img:first-child{
+	width: 40%;
+}
+.imgs img:last-child{
+	width: 60%;
+}
+
+
+/* Phone */
+@media only screen and (max-width: 600px) {
+
+	.test {
+		display: block;
+	}
+	.test img {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.test .description{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.imgs{
+		display: block;
+	}
+	.imgs img:first-child{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.imgs img:last-child{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+/* Animations */
+
+@keyframes slideShow {
+	0% {
+		font-size: 1px;
+		background-image: url("../../../resources/pictures/Events/CAP.JPG");
+	}
+	10% {
+		font-size: 2px;
+		background-image: url("../../../resources/pictures/Events/cap1.JPG");
+	}
+	20% {
+		font-size: 3px;
+		background-image: url("../../../resources/pictures/Events/cap2.JPG");
+	}
+	30% {
+		font-size: 4px;
+		background-image: url("../../../resources/pictures/Events/CGI.JPG");
+	}
+	40% {
+		font-size: 5px;
+		background-image: url("../../../resources/pictures/Events/CGI2.JPG");
+	}
+	50% {
+		font-size: 6px;
+		background-image: url("../../../resources/pictures/Events/CGI1.JPG");
+	}
+	60% {
+		font-size: 7px;
+		background-image: url("../../../resources/pictures/Events/CGI3.JPG");
+	}
+	70% {
+		font-size: 8px;
+		background-image: url("../../../resources/pictures/Events/UMANIS2.JPG");
+	}
+	80% {
+		font-size: 9px;
+		background-image: url("../../../resources/pictures/Events/UMANIS4.JPG");
+	}
+	90% {
+		font-size: 9px;
+		background-image: url("../../../resources/pictures/Events/CGI.JPG");
+	}
+	100% {
+		font-size: 9px;
+		background-image: url("../../../resources/pictures/Events/CGI3.JPG");
+	}
+}
+@keyframes slideShow-je {
+	0% {
+		font-size: 1px;
+		background-image: url("../../../resources/pictures/Events/JE1.JPG");
+	}
+	20% {
+		font-size: 2px;
+		background-image: url("../../../resources/pictures/Events/JE2.JPG");
+	}
+	40% {
+		font-size: 3px;
+		background-image: url("../../../resources/pictures/Events/JE3.JPG");
+	}
+	60% {
+		font-size: 4px;
+		background-image: url("../../../resources/pictures/Events/JE4.JPG");
+	}
+	80% {
+		font-size: 5px;
+		background-image: url("../../../resources/pictures/Events/JE5.JPG");
+	}
+	100% {
+		font-size: 6px;
+		background-image: url("../../../resources/pictures/Events/JE6.JPG");
+	}
+
 }

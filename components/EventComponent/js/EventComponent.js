@@ -33,4 +33,6 @@ function main() {
 	//view.printEventList(); Uncomment to print data in table member
 	// Stays last
 	detect_subContent_trigger_left_bar();
+	//view.printEventList(); Uncomment to print data in table member
+	//view.fillMain();
 }
