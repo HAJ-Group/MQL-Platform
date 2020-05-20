@@ -3,7 +3,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: 'Open Sans', serif;
+    font-family: MontserratBold, serif;
 }
 /* Main content block */
 
@@ -25,6 +25,35 @@ header {
     padding: 10px;
 }
 
+/* Navigation Menu */
+.left-menu{
+    margin-top: 20px;
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+    box-shadow: gray 2px 2px 2px;
+    width: 20%;
+    padding: 10px;
+    float: left;
+    top: 10px;
+    position: sticky;
+    /* annimation */
+    animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
+
+.menuitem {
+    font-size: 17px;
+    text-align: center;
+    font-family: "Berlin Sans FB", serif;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+}
+
+.menuitem:hover {
+    color: royalblue;
+}
+
 
 /* HEADER------------------------------------------------------------------------------------------------------------ */
 
@@ -38,6 +67,7 @@ header {
 .topnav {
     display: block;
     overflow: hidden;
+    font-weight: bold;
 }
 
 /* Style the links inside the navigation bar */
@@ -48,7 +78,7 @@ header {
     display: block;
     padding: 20px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     /* This section calls the slideInFromLeft animation we defined above */
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
@@ -56,16 +86,12 @@ header {
 /* Change the color of links on hover */
 .topnav a:hover {
     color: rgb(253, 59, 76);
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
     color: rgb(253, 59, 76);
-}
-
-.animate_title {
-    animation: fadein 2s;
 }
 
 /* GENERAL----------------------------------------------------------------------------------------------------------- */
@@ -81,6 +107,7 @@ header {
 
 .left {
     float: left;
+    margin-top: 8px;
 }
 
 .right {
@@ -90,12 +117,60 @@ header {
 .def-img {
     width: 100%;
     height: auto;
+    margin-top: -8px;
+}
+
+/* Coloring with background  */
+.wrap-blue {
+    background-color: cornflowerblue;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-blue:hover {
+    background-color: cornflowerblue;
+    color: white;
+    opacity: 0.8;
+}
+
+.wrap-red {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-red:hover {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    color: white;
+    opacity: 0.8;
+}
+
+.animate_fade {
+    animation: fadein 2s;
+}
+
+/* Spacing */
+.left-space {
+    margin-left: 10px;
+}
+
+.right-space {
+    margin-right: 10px;
 }
 
 /* FOOTER BLOCK */
 
 @font-face {
-    font-family: Montserrat;
+    font-family: MontserratBold;
+    src: url('fonts/Montserrat-Bold.otf');
+}
+
+
+@font-face {
+    font-family: MontserratThin;
     src: url('fonts/Montserrat-Thin.otf');
 }
 
@@ -127,6 +202,12 @@ footer{
     color: white;
 }
 
+
+/* Space before the map*/
+.remove-space{
+    padding: 5px;
+}
+
 .flex-container > div > ul > li{
     font-size: 14px;
     color: #bcbcbc;
@@ -139,7 +220,7 @@ footer{
 }
 
 .flex-container > div > h5{
-    font-family: Montserrat, serif;
+    font-family: MontserratThin, serif;
     font-weight: bolder;
     font-size: 14px;
     letter-spacing: 2px;
@@ -185,7 +266,7 @@ footer{
     overflow:hidden;
     background:none!important;
     height:200px;
-    width:300px;
+    width:343px;
 }
 
 /* the hover for the links (Lien utiles) */
@@ -290,6 +371,152 @@ a.links:hover{
     border-radius: 10px;
 }
 
+/* Images Grids */
+
+.row {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 100%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 45%;
+    height: 45%;
+}
+
+.column img:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0);  Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* Caption of Modal Image */
+#caption, #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+}
+
+
+/* Add Animation */
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 70px;
+    right: 23.2%;
+    background-color: rgb(253, 59, 76);
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.close:hover, .close:focus {
+    background-color: white;
+    color: rgb(253, 59, 76);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:active {
+    opacity: 0.5;
+}
+
+/* Book Images and arrows*/
+
+.book-images {
+    display: flex;
+}
+
+.book-images img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    width: 700px;
+    height: 400px;
+}
+
+/* Arrows for slide shows control */
+
+.arrow-left, .arrow-right {
+    font-family: "Bahnschrift", serif;
+    text-align: center;
+    font-size: 100px;
+    opacity: 0.1;
+    color: rgb(253, 59, 76);
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 80px;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow-left:active, .arrow-right:active {
+    background-color: rgb(253, 59, 76);
+    color: white;
+}
+
+.arrow-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.arrow-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* TAGS */
+
 hr {
     border: 0;
     height: 0;
@@ -340,6 +567,16 @@ hr {
     to {opacity: 1}
 }
 
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
 /* Responsive CSS ----------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
     .content {
@@ -352,6 +589,11 @@ hr {
         padding-top: 10px;
     }
 
+    .book-images img {
+        width: 400px;
+        height: 300px;
+    }
+
     #title-image {
         display: none;
     }
@@ -359,6 +601,8 @@ hr {
     .topnav {
         background-image: url("../resources/pictures/background.jpg");
         display: none;
+        /* This section calls the slideInFromLeft animation we defined above */
+        animation: 1s ease-out 0s 1 slideInFromRight;
     }
 
     .topnav a {
@@ -405,19 +649,54 @@ hr {
         cursor: pointer;
         opacity: 0.5;
     }
+
+    .column img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 /* Responsive style for all small other devices*/
-@media screen and (max-width: 1024px)
+@media screen and (max-width: 600px)
 {
     .partenaire{
         height: 400px;
     }
+
+}
+
+@media screen and (max-width: 600px){
     .flex-container{
         display: flex;
         flex-direction: column;
     }
+
+    .over-flow{
+        overflow:hidden;
+        background:none!important;
+        height:200px;
+        width:250px;
+    }
 }
 
+@media only screen and (min-width: 600px) {
+    .sub-content{
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .left-menu {
+        display: none;
+    }
+
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 600px){
+    .modal-content {
+        width: 100%;
+    }
+}
 
 

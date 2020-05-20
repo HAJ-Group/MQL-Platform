@@ -10,10 +10,11 @@ function route(component, tag_id=null) {
         }
         else path = '';
         component += 'Component';
-        if(tag_id !== null){
-            window.location.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
+        let url = window.location;
+        if(tag_id !== null) {
+            url.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
         } else
-            window.location.href = path + 'components/' + component + '/' + component + '.html';
+            url.href = path + 'components/' + component + '/' + component + '.html';
     }
 }
 
@@ -25,6 +26,7 @@ function loadResources() {
         * content : value of the innerText of the nav
         * */
         {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'News', content:'Actualités'},
         {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
         {name: 'Partner', content:'Partenaires'},
@@ -44,18 +46,18 @@ function loadResources() {
         headerContent += '<a href="#' + nav.name +
             '"class="left" onclick="route(\'../' + nav.name + '\')"' +
             'onmouseover="changePicture(this.name)" ' +
-            'onmouseleave="changePicture(current_component,false)" ' +
+            'onmouseleave="changePicture(current_component)" ' +
             'name="' + nav.name + '">' + nav.content + '</a>\n'
     }
     // ABOUT NAV
-    headerContent += '<a href="#about" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
+    headerContent += '<a href="#footer" class="right"><img class="def-img" src="../../resources/pictures/about.png" alt="about"></a>' +
         '</div>' +
         '</header>';
 
     /* FOOTER --------------------------------------------------------------------------------------------------------*/
-    let footerContent = '<footer>' +
+    let footerContent = '<hr><footer>' +
        '        <div class="text-partenaire">\n' +
-        '        <span>Partenaires</span> \n' +
+        '        <img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" width="80" height="46"><span>Partenaires</span> \n' +
         '    </div>  <hr>\n' +
         '\n' +
         '    <div class="partenaire">\n' +
@@ -92,7 +94,7 @@ function loadResources() {
         '\n' +
         '        <div>\n' +
         '            <h5>Localisation</h5>\n' +
-        '            <ul>\n' +
+        '            <ul class="remove-space">\n' +
         '                <div class="map">\n' +
         '                    <div class="over-flow">\n' +
         '                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1653.2037839986274!2d-4.9779526!3d34.0334149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8b5f7be79403%3A0x64ed183ba63abde7!2sFacult%C3%A9%20des%20Sciences%20Dhar%20El%20Mehraz!5e0!3m2!1sfr!2sma!4v1589646925624!5m2!1sfr!2sma" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">\n' +
@@ -141,26 +143,30 @@ function loadResources() {
  * @param element
  * @param animate
  */
-function changePicture(element, animate=true) {
+function changePicture(element) {
     let image = document.getElementById('title-image');
     let source = element + '.jpg';
     image.setAttribute('src', '../../resources/pictures/' + source);
-    if (animate === true) {
-        image.classList.remove('animate_title');
-        void image.offsetWidth;
-        image.classList.add('animate_title');
-    }
-    image.setAttribute('class', 'def-img animate_title');
+    image.setAttribute('class', 'def-img');
 }
 
 /**
  * Showing/hiding phone version menu
  */
 function showMenu() {
+    function toggle(media) {
+        let menu = document.getElementsByClassName('topnav')[0];
+        if (media.matches) { // If media query matches
+            if(phone_menu_toggled) menu.style.display = 'block';
+            if(!phone_menu_toggled) menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    }
     phone_menu_toggled = !phone_menu_toggled;
-    let menu = document.getElementsByClassName('topnav')[0];
-    if(phone_menu_toggled) menu.style.display = 'block';
-    if(!phone_menu_toggled) menu.style.display = 'none';
+    let media = window.matchMedia("(max-width: 600px)");
+    toggle(media);
+    media.addListener(toggle);
 }
 /**
  * Building title configuration (icon + show and hide button)
@@ -203,6 +209,115 @@ function hide(id) {
     element.style.display = 'none';
     sep.style.display='block';
 }
+
+/**
+ * Auto-add detection on left-menu bar for auto hovering on target article
+ */
+function detect_subContent_trigger_left_bar() {
+    let element0 = document.getElementsByClassName('left-menu')[0];
+    for(let child of element0.childNodes) {
+        if(child.innerHTML !== undefined && child instanceof HTMLDivElement) {
+            let target = child.firstChild;
+            if(target.innerHTML !== undefined) {
+                target.setAttribute('id', 'nav' + target.getAttribute('href').substr(target.getAttribute('href').indexOf('#') + 1));
+            }
+        }
+    }
+    let element = document.getElementsByClassName('sub-content')[0];
+    for(let child of element.childNodes) {
+        if(child.innerHTML !== undefined) {
+            child.setAttribute('onmouseover', 'lightNav(this.id)');
+            child.setAttribute('onmouseleave', 'offLight(this.id)')
+        }
+    }
+}
+
+/***
+ * Lighting with navigation bar (left-menu) instant hovering works with auto detection
+ * @param id
+ */
+function lightNav(id) {
+    document.getElementById('nav' + id).classList.add('wrap-red');
+}
+
+/***
+ * Lighting with navigation bar (left-menu) instant hovering works with auto detection
+ * @param id
+ */
+function offLight(id) {
+    document.getElementById('nav' + id).classList.remove('wrap-red');
+}
+
+/**
+ * Split an array into n arrays
+ * @param array
+ * @param n
+ * @returns {[]}
+ */
+function split(array, n) {
+    let ret = [];
+    for (let i = 0; i < array.length; i += n){
+        ret.push(array.slice(i, i + n));
+    }
+    return ret;
+}
+
+/**
+ * Close popped image
+ */
+function closeIMG() {
+    let modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
+/**
+ * Display image
+ */
+function popIMG(id) {
+    let modal = document.getElementById('myModal');
+    let img = document.getElementById(id);
+    let modalImg = document.getElementById('modal_img');
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+    document.getElementById('caption').innerHTML = img.alt;
+}
+
+/**
+ * Global uses for functions bellow
+ * @type {number}
+ */
+let current_img = 1;
+let images_size = 0;
+
+/**
+ * Create book of images using a base data table
+ * @param images
+ */
+function createBook(images=[]) {
+    images_size = images.length;
+    let element = document.getElementById('book');
+    element.innerHTML = '<div onclick="target(--current_img)" class="arrow-left"><</div>';
+    for(let i = 1; i<=images.length; i++) {
+        element.innerHTML += '<img class="book_img" src="../../resources/pictures/' + images[i-1] + '" alt="">';
+    }
+    element.innerHTML += '<div onclick="target(++current_img)" class="arrow-right">></div>';
+    document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+}
+
+/**
+ * Target function for image switching
+ */
+function target() {
+    if(current_img < 1 ) target(++current_img);
+    else if(current_img > images_size) target(--current_img);
+    else {
+        for(let i=0; i<images_size; i++) {
+            document.getElementsByClassName('book_img')[i].style.display = 'none';
+        }
+        document.getElementsByClassName('book_img')[current_img - 1].style.display = 'block';
+    }
+}
+
 
 
 

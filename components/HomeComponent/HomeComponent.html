@@ -21,7 +21,7 @@
 		<div class="content">
 			<div id="header"></div>
 			<div class="main-box">
-				<div id="slide-show" class="slide-show image" onclick="view.toggleSlideLink()"></div>
+				<div id="slide-show" onclick="window.location.href='#book'" class="slide-show image"></div>
 				<div class="news">
 					<span> ACTUALITES MQL </span>
 					<table class="news-tab" id="table-news"></table>
@@ -29,13 +29,17 @@
 			</div>
 			<div class="container">
 				<div class="left-menu">
-					<div><a  class="menuitem" href="#presentation">Master Qualité du logiciel </a> </div>
+					<div class="menuitem wrap-blue">Navigation</div>
+					<hr>
+					<div><a class="menuitem" href="#presentation">Master Qualité du logiciel </a> </div>
 					<hr>
 					<div><a class="menuitem" href="#prof">Monsieur Noureddine Chenfour </a> </div>
 					<hr>
 					<div><a class="menuitem" href="#mqliste">MQListe</a> </div>
 					<hr>
 					<div><a class="menuitem" href="#program">Programme</a> </div>
+					<hr>
+					<div><a class="menuitem" href="#mqlfamily">Famille MQL</a> </div>
 				</div>
 				<div class="sub-content">
 					<div id="presentation" class="presentation">
@@ -73,12 +77,11 @@
 						<div  class="details">
 							 WE ARE A FAMILY! MQL est une famille !
 							<p>MQL :  une famille, un style de vie :</p>
-							<img class="image" src="../../resources/pictures/mqlfam.JPG" >
+							<div class="book-images" id="book"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<hr>
 			<div id="footer"></div>
 		</div>
 
