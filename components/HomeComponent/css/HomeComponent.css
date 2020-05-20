@@ -110,7 +110,30 @@ a:hover {
 	font-size: 20px;
 	font-family: "Times New Roman", serif;
 }
+.element .element-title {
+	color: cornflowerblue;
+	padding: 10px;
+	font-family: "Agency FB";
+	font-size: 25px;
+	font-weight: bold;
+}
 
+
+.Chenfour{
+	display: flex;
+}
+.Chenfour img {
+	width: 40%;
+}
+.Chenfour div {
+	padding: 20px;
+	width: 55%;
+}
+.details img {
+	margin-right: auto;
+	margin-left:auto;
+	width: 70%;
+}
 /* Animations */
 
 @keyframes slideShow {
@@ -138,5 +161,18 @@ a:hover {
 
 	.news {
 		width: 97%;
+	}
+	.Chenfour{
+		display: block;
+	}
+	.Chenfour img {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.Chenfour div {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
 	}
 }

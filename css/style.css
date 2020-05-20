@@ -365,12 +365,18 @@ a.links:hover{
     font-family: "Arial Narrow", serif;
     font-size: 20px;
     text-align: justify;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
-}
 
+}
+.details > * {
+    text-align: justify;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 /* Images Grids */
 
 .row {
