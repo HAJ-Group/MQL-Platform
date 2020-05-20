@@ -40,6 +40,11 @@ function main() {
 	//view.printActivityList(); Uncomment to print data in table member
 }
 
+
+ActivityComponent.prototype.printSemesters = function(){
+	let subjectZone = this.get('zone');
+}
+
 ActivityComponent.prototype.printSubjects = function () {
 	let subjectZone = this.get('zone');
 	for (let i = 0; i < this.service.size(); i++) {
@@ -82,7 +87,7 @@ function collapse(){
 	for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
 			this.classList.toggle("active-element");
-			var content = this.nextElementSibling;
+			let content = this.nextElementSibling;
 
 			if (content.style.maxHeight){
 				content.style.maxHeight = null;

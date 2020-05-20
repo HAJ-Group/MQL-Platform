@@ -1,43 +1,54 @@
 /* Global data source table for ActivityComponent */ 
 let dbActivity = [ 
-	// Add object structure associated with the model created 
+	// Add object structure associated with the model created
+
 	{
-		'subject' : [
-			{
-				name: 'Déroulement des cours',
-				data : [
-					['cours-1', 'lurem ipsum lurem ipsum', '../../resources/pictures/pc.png'],
-					['cours-2', 'lurem ipsum lurem ipsum', '../../resources/pictures/cafe.png'],
-					['cours-2', 'lurem ipsum lurem ipsum', '../../resources/pictures/cafe.png'],
-					['cours-2', 'lurem ipsum lurem ipsum', '../../resources/pictures/cafe.png'],
-					['cours-3', 'lurem ipsum lurem ipsum', '../../resources/pictures/cafe.png']
-				]
-			}
-		]
-	}
-	,
+		id: 1,
+		description: 'Le semester 1',
+		modules: [
+				['java'],
+				['oracle'],
+				['xml'],
+				['TEC'],
+				['GP'],
+				['UML']
+			],
+		activity: 'activity 1'
+	},
 	{
-		'subject' : [
-			{
-				name: 'Traveaux en équipe',
-				data : [
-					['travail-12', 'lurem ipsum lurem ipsum', '../../resources/pictures/student.jpg'],
-					['travail-22', 'lurem ipsum lurem ipsum', '../../resources/pictures/etudiant.jpg']
-				]
-			}
-		]
-	}
-	,
+		id: 2,
+		description: 'le semestre 2',
+		modules: [
+			['java'],
+			['oracle'],
+			['xml'],
+			['TEC'],
+			['GP'],
+			['UML']
+		],
+		activity: 'activity 2'
+	},
 	{
-		'subject' : [
-			{
-				name: 'Traveaux individuels',
-				data : [
-					['travail-12', 'lurem ipsum lurem ipsum', '../../resources/pictures/test.jpg'],
-					['travail-22', 'lurem ipsum lurem ipsum', '../../resources/pictures/test.jpg']
-				]
-			}
-		]
+		id: 3,
+		description: 'Le semestre 3',
+		modules: [
+			['java'],
+			['oracle'],
+			['xml'],
+			['TEC'],
+			['GP'],
+			['UML']
+		],
+		activity: 'activity 3'
+	},
+	{
+		id: 4,
+		description: 'Le semestre 4',
+		modules: [
+			[],
+			[],
+		],
+		activity: 'activity 4'
 	}
 
 ]; 

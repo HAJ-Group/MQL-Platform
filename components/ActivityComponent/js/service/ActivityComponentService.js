@@ -4,7 +4,14 @@ function ActivityComponentService() {
 } 
 // Add model to database table object 
 ActivityComponentService.prototype.add = function (oneActivity) { 
-	this.db.push(oneActivity); 
+	this.db.push(
+		new Activity(
+			oneActivity.id,
+			oneActivity.description,
+			oneActivity.modules,
+			oneActivity.activity
+		)
+	);
 }; 
 // Remove from database object by index 
 ActivityComponentService.prototype.remove = function(index) { 
@@ -23,7 +30,10 @@ ActivityComponentService.prototype.load = function(dbSource) {
 	for (let i = 0; i < dbSource.length; i++) { 
 		// Transforming database source into database object of Activity model 
 		this.add( 
-			dbSource[i]
+			dbSource[i].id,
+			dbSource[i].description,
+			dbSource[i].modules,
+			dbSource[i].activity
 		) 
 	} 
 }; 
