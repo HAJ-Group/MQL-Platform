@@ -8,9 +8,8 @@ function HomeComponent(service) {
 	this.service = service;
 	this.table=this.get("table-program");
 	this.table_news=this.get("table-news");
-	this.addTitleIcon('../../resources/pictures/title-logo.png');
+	this.news_idSaver = [];
 }
-
 
 HomeComponent.prototype.get = function (id) {
 	return document.getElementById(id);
@@ -41,6 +40,7 @@ HomeComponent.prototype.printSemesters=function () {
  */
 HomeComponent.prototype.addNews=function (news) {
 	let row = this.table_news.insertRow();
+	this.news_idSaver.push(news.id);
 	row.insertCell().innerHTML = news.date;
 	row.insertCell().innerHTML = news.title;
 };
@@ -53,52 +53,29 @@ HomeComponent.prototype.printNews=function (max = 5) {
 };
 
 /**
- * Building title configuration (icon + show and hide button)
- * @param source
+ * News link managers
  */
-HomeComponent.prototype.addTitleIcon = function(source) {
-	let titles = document.getElementsByClassName('title');
-	let i=0;
-	for (let title of titles) {
-		let text = title.textContent;
-		title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' + text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  class="sh-icon" onclick="view.hide('+i+')">'+'<span class="sh-sep"></span>';
-		i++;
+HomeComponent.prototype.setNewsRoutes = function () {
+	let rows = this.table_news.rows;
+	for(let i=0; i<rows.length; i++) {
+		let cells = rows[i].cells;
+		for(let j=1; j<cells.length; j++) {
+			cells[j].innerHTML = '<a onclick="route(\'../News\',' + (i+1) + ')">' + cells[j].innerHTML + '</a>';
+		}
 	}
 };
 
-/**
- * Action method show details block
- * @param id
- */
-HomeComponent.prototype.show = function (id) {
-	let icon = document.getElementsByName('sh-icon')[id];
-	let sep = document.getElementsByClassName('sh-sep')[id];
-	icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
-	icon.setAttribute('onclick','view.hide('+id+')');
-	let element =document.getElementsByClassName('details')[id];
-	element.style.display = 'block';
-	sep.style.display='none';
-};
-
-/**
- * Action method hide details block
- * @param id
- */
-HomeComponent.prototype.hide = function (id) {
-	let icon = document.getElementsByName('sh-icon')[id];
-	let sep = document.getElementsByClassName('sh-sep')[id];
-	icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
-	icon.setAttribute('onclick','view.show('+id+')');
-	let element = document.getElementsByClassName('details')[id];
-	element.style.display = 'none';
-	sep.style.display='block';
-};
 
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
-	service.load(dbHome);
+	service.load(dbHomeProgram);
 	view = new HomeComponent(service);
 	view.printSemesters();
 	view.printNews();
+	view.setNewsRoutes();
+	// stays last
+	addTitleIcon('../../resources/pictures/title-logo.png');
+	detect_subContent_trigger_left_bar();
+	createBook(dbHomeImages);
 }

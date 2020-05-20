@@ -2,3 +2,38 @@ body {
 	display:block; 
 	margin:auto; 
 } 
+
+.date {
+	text-align: right;
+	margin-left: auto;
+	border: 1px solid lightgray;
+	padding: 10px;
+	border-radius: 20px;
+	width: fit-content;
+	background-color: #f5f5f5;
+}
+
+.page_numbers {
+	margin: 0 auto;
+	width: 50%;
+	padding: 30px;
+}
+
+.page_numbers > span {
+	border: 1px lightgray solid;
+	border-radius: 20px;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+.page_numbers span:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.active-page {
+	background-color: rgb(253, 59, 76);
+	color: white;
+}
+
+

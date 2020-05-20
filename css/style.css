@@ -3,7 +3,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: 'Open Sans', serif;
+    font-family: MontserratBold, serif;
 }
 /* Main content block */
 
@@ -25,12 +25,49 @@ header {
     padding: 10px;
 }
 
+/* Navigation Menu */
+.left-menu{
+    margin-top: 20px;
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+    box-shadow: gray 2px 2px 2px;
+    width: 20%;
+    padding: 10px;
+    float: left;
+    top: 10px;
+    position: sticky;
+    /* annimation */
+    animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
+
+.menuitem {
+    font-size: 17px;
+    text-align: center;
+    font-family: "Berlin Sans FB", serif;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+}
+
+.menuitem:hover {
+    color: royalblue;
+}
+
 
 /* HEADER------------------------------------------------------------------------------------------------------------ */
 
+/* Hide the phone header */
+.phone-header {
+    display: none;
+    border-bottom: 1px solid lightgray;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
+    display: block;
     overflow: hidden;
+    font-weight: bold;
 }
 
 /* Style the links inside the navigation bar */
@@ -41,7 +78,7 @@ header {
     display: block;
     padding: 20px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     /* This section calls the slideInFromLeft animation we defined above */
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
@@ -49,16 +86,12 @@ header {
 /* Change the color of links on hover */
 .topnav a:hover {
     color: rgb(253, 59, 76);
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
     color: rgb(253, 59, 76);
-}
-
-.animate_title {
-    animation: fadein 2s;
 }
 
 /* GENERAL----------------------------------------------------------------------------------------------------------- */
@@ -74,6 +107,7 @@ header {
 
 .left {
     float: left;
+    margin-top: 8px;
 }
 
 .right {
@@ -83,13 +117,60 @@ header {
 .def-img {
     width: 100%;
     height: auto;
+    margin-top: -8px;
 }
 
-/*Jaouad block*/
+/* Coloring with background  */
+.wrap-blue {
+    background-color: cornflowerblue;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-blue:hover {
+    background-color: cornflowerblue;
+    color: white;
+    opacity: 0.8;
+}
+
+.wrap-red {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-red:hover {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    color: white;
+    opacity: 0.8;
+}
+
+.animate_fade {
+    animation: fadein 2s;
+}
+
+/* Spacing */
+.left-space {
+    margin-left: 10px;
+}
+
+.right-space {
+    margin-right: 10px;
+}
+
+/* FOOTER BLOCK */
+
+@font-face {
+    font-family: MontserratBold;
+    src: url('fonts/Montserrat-Bold.otf');
+}
 
 
 @font-face {
-    font-family: Montserrat;
+    font-family: MontserratThin;
     src: url('fonts/Montserrat-Thin.otf');
 }
 
@@ -99,6 +180,7 @@ header {
 }
 
 
+/* FOOTER OF THE PAGE */
 footer{
     position: static;
     bottom: 0;
@@ -106,19 +188,24 @@ footer{
     margin: 0; //
 }
 
+/* THE CONTAINER OF THE MIDDLE ZONE FOR FOOTER (LOCALISATION, CONTACT ...) */
 
 .flex-container{
     display: flex;
     flex-wrap: wrap;
- /*   background-color: #180e0d;*/
     background-color:#4b4c54
-
 }
 
 .flex-container > div{
     padding-left: 40px;
     width: 29%;
     color: white;
+}
+
+
+/* Space before the map*/
+.remove-space{
+    padding: 5px;
 }
 
 .flex-container > div > ul > li{
@@ -133,7 +220,7 @@ footer{
 }
 
 .flex-container > div > h5{
-    font-family: Montserrat, serif;
+    font-family: MontserratThin, serif;
     font-weight: bolder;
     font-size: 14px;
     letter-spacing: 2px;
@@ -142,6 +229,7 @@ footer{
     text-transform: uppercase;
 }
 
+/* STYLING THE COPY-RIGHT ZONE */
 
 .copy-right{
     display: flex;
@@ -165,29 +253,37 @@ footer{
     color: #d9d9d9;
 }
 
-
+/* POSITION OF THE MAP IN THE FOOTER*/
 
 .map{
     position:relative;
     text-align:right;
 }
 
+/* If the map is bigger than the container, it'll be truncated */
+
 .over-flow{
     overflow:hidden;
     background:none!important;
     height:200px;
-    width:300px;
+    width:343px;
 }
+
+/* the hover for the links (Lien utiles) */
 
 a.links:hover{
     color: chocolate;
     border-left: 1px dotted;
 }
+
+/* the hover for the last link (Faculté des sciences) */
+
 .copy-right > span > a:hover{
     color: chocolate;
     border-bottom: 1px dotted;
 }
 
+/* Define the positions of elements in the partenaire-zone */
 .partenaire{
     display: flex;
     flex-wrap: wrap;
@@ -198,20 +294,20 @@ a.links:hover{
     background-color: white;
 }
 
+/* Style of images for 'partenaires' */
 .img-partenaire{
     width: 200px;
     height: 90px;
 }
+
 
 .text-partenaire{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     height: 50px;
-
 }
 
 .text-partenaire > span{
@@ -234,17 +330,198 @@ a.links:hover{
     opacity: 0.7;
 }
 
+/* Title and Details */
 
-@media screen and (max-width: 1024px)
-{
-    .partenaire{
-        height: 400px;
-    }
-    .flex-container{
-        display: flex;
-        flex-direction: column;
-    }
+.title {
+    font-family: "Agency FB", serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(253, 59, 76);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    text-transform: uppercase;
 }
+
+.title-logo {
+    padding-right: 10px;
+}
+
+.sh-icon{
+    float: right;
+    cursor: pointer;
+}
+
+.sh-icon:hover{
+    opacity: 0.4;
+}
+
+.sh-sep{
+    border-top: 2px solid lightgray ;
+    display: none;
+}
+
+.details{
+    font-family: "Arial Narrow", serif;
+    font-size: 20px;
+    text-align: justify;
+    letter-spacing: 2px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+
+}
+.details > * {
+    text-align: justify;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Images Grids */
+
+.row {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 100%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 45%;
+    height: 45%;
+}
+
+.column img:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0);  Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* Caption of Modal Image */
+#caption, #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+}
+
+
+/* Add Animation */
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 70px;
+    right: 23.2%;
+    background-color: rgb(253, 59, 76);
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.close:hover, .close:focus {
+    background-color: white;
+    color: rgb(253, 59, 76);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:active {
+    opacity: 0.5;
+}
+
+/* Book Images and arrows*/
+
+.book-images {
+    display: flex;
+}
+
+.book-images img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    width: 700px;
+    height: 400px;
+}
+
+/* Arrows for slide shows control */
+
+.arrow-left, .arrow-right {
+    font-family: "Bahnschrift", serif;
+    text-align: center;
+    font-size: 100px;
+    opacity: 0.1;
+    color: rgb(253, 59, 76);
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 80px;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow-left:active, .arrow-right:active {
+    background-color: rgb(253, 59, 76);
+    color: white;
+}
+
+.arrow-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.arrow-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* TAGS */
 
 hr {
     border: 0;
@@ -286,12 +563,146 @@ hr {
     to   { opacity: 1; }
 }
 
-/* Responsive CSS */
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* Responsive CSS ----------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
     .content {
         max-width: 100%;
     }
+
+    .phone-header {
+        display: block;
+        overflow: hidden;
+        padding-top: 10px;
+    }
+
+    .book-images img {
+        width: 400px;
+        height: 300px;
+    }
+
+    #title-image {
+        display: none;
+    }
+
+    .topnav {
+        background-image: url("../resources/pictures/background.jpg");
+        display: none;
+        /* This section calls the slideInFromLeft animation we defined above */
+        animation: 1s ease-out 0s 1 slideInFromRight;
+    }
+
+    .topnav a {
+        background-color: white;
+        border-bottom: 1px solid lightgray;
+        opacity: 0.8;
+    }
+
+    .topnav a:hover {
+        color: white;
+        background-color: rgb(253, 59, 76);
+        opacity: 1;
+    }
+
+    .left {
+        float: none;
+    }
+
+    .right {
+        background-color: white;
+        float: none;
+    }
+
+    .def-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .phone-header {
+        width: 100%;
+    }
+
+    .move-left {
+        float:left;
+    }
+
+    .move-right {
+        float: right;
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+
+    .move-right:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .column img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
+/* Responsive style for all small other devices*/
+@media screen and (max-width: 600px)
+{
+    .partenaire{
+        height: 400px;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .over-flow{
+        overflow:hidden;
+        background:none!important;
+        height:200px;
+        width:250px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .sub-content{
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .left-menu {
+        display: none;
+    }
+
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 600px){
+    .modal-content {
+        width: 100%;
+    }
+}
 
 
