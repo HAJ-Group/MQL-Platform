@@ -374,7 +374,7 @@ a.links:hover{
 /* Images Grids */
 
 .row {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -589,6 +589,11 @@ hr {
         padding-top: 10px;
     }
 
+    .book-images img {
+        width: 400px;
+        height: 300px;
+    }
+
     #title-image {
         display: none;
     }
@@ -643,6 +648,11 @@ hr {
     .move-right:hover {
         cursor: pointer;
         opacity: 0.5;
+    }
+
+    .column img {
+        width: 100%;
+        height: 100%;
     }
 }
 
