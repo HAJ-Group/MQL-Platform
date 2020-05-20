@@ -34,7 +34,7 @@ function main() {
 	service = new ActivityComponentService();
 	service.load(dbActivity);
 	view = new ActivityComponent(service);
-	view.printSubjects();
+	view.printSemesters();
 	collapse();
 
 	//view.printActivityList(); Uncomment to print data in table member
@@ -43,8 +43,113 @@ function main() {
 
 ActivityComponent.prototype.printSemesters = function(){
 	let subjectZone = this.get('zone');
+	for (let i = 0; i < this.service.size(); i++) {
+		let semesterI = this.service.get(i);
+
+		let semesterName = '';
+		switch (i + 1) {
+			case 1: semesterName = 'Le premier semestre'; break;
+			case 2: semesterName = 'Le deuxième semestre'; break;
+			case 3: semesterName = 'Le toizième semestre'; break;
+			case 4: semesterName = 'Le quatrième semestre'; break;
+		}
+
+		let modules = '<ul>';
+		let moduleImage = '';
+		for (let j = 0; j < semesterI.modules.length; j++) {
+			moduleImage = semesterI.modules[0];
+			if (j === 0) continue;
+			modules += '<li> ' + semesterI.modules[j] + ' </li>';
+		}
+		modules += '</ul>';
+
+		let activities = '';
+		let activityImage = '';
+		for (let j = 0; j < semesterI.activity.length; j++) {
+			activityImage = semesterI.activity[0];
+			if(j === 0) continue;
+			activities += '<p>' + semesterI.activity[j] + '</p>';
+		}
+
+		let cards = '';
+
+		for (let j = 1; j <= 3; j++) {
+			if (j === 1){
+				cards += '<div class="card">' +
+				'<img class="card-image" src="' + semesterI.description[0] + '" alt="">' +
+					'<div class="card-text">' +
+						'<div class="card-subject"> ' + 'Description' +' </div>' +
+						'<div class="subject"> ' + semesterI.description[1] + ' </div>' +
+					'</div>' +
+					'<div class="card-footer">' +
+						'<a href="#">' +
+							'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
+						'</a>' +
+					'</div>' +
+				'</div>';
+			}
+
+			if (j === 2){
+                if (i === 3)
+                    cards += '';
+                else
+				cards += '<div class="card">' +
+					'<img class="card-image" src="' + moduleImage + '" alt="">' +
+						'<div class="card-text">' +
+							'<div class="card-subject"> ' + 'Modules' +' </div>' +
+							'<div class="subject"> ' + modules + ' </div>' +
+						'</div>' +
+						'<div class="card-footer">' +
+							'<a href="#">' +
+								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
+							'</a>' +
+						'</div>' +
+					'</div>';
+			}
+			if (j === 3){
+				cards += '<div class="card">' +
+					'<img class="card-image" src="' + activityImage + '" alt="">' +
+						'<div class="card-text">' +
+							'<div class="card-subject"> ' + 'Valeurs' +' </div>' +
+							'<div class="subject"> ' + activities + ' </div>' +
+						'</div>' +
+						'<div class="card-footer">' +
+							'<a href="#">' +
+								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
+							'</a>' +
+						'</div>' +
+					'</div>';
+			}
+		}
+
+		subjectZone.innerHTML +=
+			'<div class="big-container">' +
+				'<div class="title-top-cards collapsible">' + semesterName +
+					'' +
+				'</div>' +
+				'<div class="cards-container content-card">' +
+					' ' + cards + ' ' +
+				'</div>' +
+			' </div>';
+	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 ActivityComponent.prototype.printSubjects = function () {
 	let subjectZone = this.get('zone');
 	for (let i = 0; i < this.service.size(); i++) {
@@ -78,6 +183,8 @@ ActivityComponent.prototype.printSubjects = function () {
 	}
 
 };
+*/
+
 
 function collapse(){
 	let coll = document.getElementsByClassName("collapsible");
