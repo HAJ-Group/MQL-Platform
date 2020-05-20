@@ -23,9 +23,7 @@ ActivityComponentService.prototype.load = function(dbSource) {
 	for (let i = 0; i < dbSource.length; i++) { 
 		// Transforming database source into database object of Activity model 
 		this.add( 
-			new Activity( 
-				dbSource[i].id, 
-			) 
+			dbSource[i]
 		) 
 	} 
 }; 

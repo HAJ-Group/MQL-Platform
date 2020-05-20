@@ -12,8 +12,7 @@ body {
 
 .title-top-cards{
 	display: inline-block;
-	width: auto;
-
+	width: 97%;
 	background-color: coral;
 }
 
@@ -23,13 +22,13 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-around; /* center horizontally */
 	align-items: center; /* center vertically*/
-	background-color: chocolate;
+	background-color: rgba(226, 250, 255, 0.92);
 
 }
 
 .card {
 	font-family: Roboto, sans-serif;
-	width: 600px;
+	width: 500px;
 	height: auto;
 	border-radius: 5px;
 	box-shadow: 0px 0px 0px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
@@ -102,7 +101,7 @@ body {
 
 /* Style for the zone 'collapsible' */
 .collapsible {
-	background-color: #777;
+	background-color: #2975bf;
 	color: white;
 	cursor: pointer;
 	padding: 18px;
@@ -112,8 +111,11 @@ body {
 	font-size: 15px;
 }
 
-.active, .collapsible:hover {
-	background-color: #555;
+.active-element, .collapsible:hover {
+	/*background-color: #184c8c;*/
+	background-image: url("../../../resources/pictures/glass-blue.jpg");
+
+
 }
 
 .collapsible:after {
@@ -124,7 +126,7 @@ body {
 	margin-left: 5px;
 }
 
-.active:after {
+.active-element:after {
 	content: "\26AA";
 }
 

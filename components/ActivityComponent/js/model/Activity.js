@@ -1,6 +1,5 @@
 /* Default Model for ActivityComponent */ 
-function Activity(id, data) {
+function Activity(subject) {
 	//TODO: Intitialize model properties 
-	this.id = id;
-	this.data = data;
+	this.subject = subject;
 } 
