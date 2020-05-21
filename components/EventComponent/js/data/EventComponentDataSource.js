@@ -30,7 +30,8 @@ let dbEventBook2 = [
 let dbEvent = [
 	{
 		id: 1,
-		title:'Compagnes de stages : A partir d\'octobre',
+		title:'Compagnes de stages',
+		date:'01-10-2017',
 		description:'Un Mqliste, dans sa deuxième année de formation, commence déja à passer des entretiens de stage pré-ambauche, en fait nous retrouvons, à la faculté des sciences, des multinationales dans des sessions de recrutement organisées par les étudiants MQL.',
 		content:[
 			{
@@ -60,7 +61,8 @@ let dbEvent = [
 	},
 	{
 		id:2,
-		title: 'Journée Entrepreunariat: Novembre',
+		title: 'Journée Entrepreunariat',
+		date:'02-11-2017',
 		description: 'Les étudiants MQL organisent une journée entrepreneuriat, dont des équipes de différents masters présentent leurs projets devant un jury pour une durée de 7 minutes.',
 		content: [
 			{
@@ -72,7 +74,8 @@ let dbEvent = [
 	},
 	{
 		id:3,
-		title: 'Cérémonie de remise de diplomes : Mars-Avril',
+		title: 'Cérémonie de remise de diplomes',
+		date:'01-03-2018',
 		description: 'La cérémonie de remise de diplômes est une cérémonie organisée afin de celebrer les jeunes diplomés, que la majorité ont déjâ des contrats CDI avec des multinationales notamment CGI,Capgemini,ATOS .... , Cliquez pour voir plus sur nos lauréats.',
 		content: [
 			{
@@ -95,6 +98,7 @@ let dbEvent = [
 	{
 		id:4,
 		title:'Evenements para-scolaire',
+		date:'05-04-2018',
 		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
 		content: [
 			{
