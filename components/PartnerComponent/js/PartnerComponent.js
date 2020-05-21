@@ -33,14 +33,22 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 			'</div>'+
 			'<div class="card-body">' +
 				'<div class="title">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div>'+
-				'<p class="desc">'+onePartner.description+'</p>'+
+				'<p class="description">'+onePartner.description+'</p>'+
 				'<p class="colabs">Nombre de collobaroteurs de MQL chez CGi est :'+onePartner.nbr_colla+'</p>'+
 				'<p class="website">Site web officiel : <a href="https://'+onePartner.website+'" target="_blank">'+onePartner.website+'</a></p>'+
 			'</div>'
 		;
 };
+PartnerComponent.prototype.addMenuPartners = function (onePartner) {
+	this.block.innerHTML +=
+		'<div class="partners">' +
+			'<div class="partner" id="'+onePartner.name+'" onclick=alert("à_implemeneter_demain")>'+onePartner.name+'</div>';
+};
 // Printing all service data into the table member
 PartnerComponent.prototype.printPartners = function () {
+	for (let i = 0; i < this.service.size(); i++) {
+		this.addMenuPartners(this.service.get(i));
+	}
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addOnePartner(this.service.get(i));
 	}

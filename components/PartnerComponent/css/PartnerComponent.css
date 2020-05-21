@@ -4,24 +4,40 @@ body {
 }
 .container {
 	display: flex;
+	padding-top: 50px;
 }
+.partners{
+	width: 20%;
+	padding-top: 100px;
+}
+.partners .partner {
+	height: 30px;
+	text-align: center;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	color: cornflowerblue;
+}
+.partner:hover{
+	box-shadow: 20px 20px 20px 20px lightgray;
+}
+
+
 .card {
-	width: 45%;
-	margin-left: 25%;
-	height: auto;
+	margin-left: 5%;
+	width: 70%;
+	min-height: 300px;
 	border: 3px solid lightgray;
 	box-shadow: gray 2px 2px 2px 2px ;
 }
 .card-image img{
 	margin-left: 2%;
 	width: 96%;
-	height: 30%;
-	border-bottom: 1px solid lightgray;
+	height: 200px;
+	border-bottom: 2px solid lightgray;
 }
 .card-body{
 	margin-left: 2%;
 	border-bottom: 1px solid lightgray;
-	height: 70%;
 	width: 96%;
 }
 
