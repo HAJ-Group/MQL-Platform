@@ -24,6 +24,7 @@ body {
 	height: 70%;
 	width: 96%;
 }
+
 .card-body .title {
 	text-align: center;
 }
@@ -32,7 +33,12 @@ body {
 	color: lightgray;
 	text-align: right;
 }
-.card-body{
-	padding: 10px;
+.card-body .description {
 	text-align: justify;
+}
+.card-body .colabs{
+	text-align: center;
+}
+.card-body .website{
+	color: cornflowerblue;
 }

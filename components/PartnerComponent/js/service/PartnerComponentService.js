@@ -24,8 +24,14 @@ PartnerComponentService.prototype.load = function(dbSource) {
 		// Transforming database source into database object of Partner model 
 		this.add( 
 			new Partner( 
-				dbSource[i].id, 
-			) 
+				dbSource[i].id,
+				dbSource[i].name,
+				dbSource[i].ca,
+				dbSource[i].description,
+				dbSource[i].nbr_colla,
+				dbSource[i].website,
+				dbSource[i].image,
+			)
 		) 
 	} 
 }; 
