@@ -8,8 +8,10 @@ function PartnerComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = this.get('table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.block=this.get('container')
-} 
+	this.block=this.get('container');
+	this.partners=this.get('partners');
+	this.currentblock=null;
+}
 PartnerComponent.prototype.get = function (id) { 
 	return document.getElementById(id); 
 }; 
@@ -27,7 +29,7 @@ PartnerComponent.prototype.printPartnerList = function () {
 };
 PartnerComponent.prototype.addOnePartner = function (onePartner) {
 	this.block.innerHTML +=
-		'<div class="card">' +
+		'<div class="card" id="'+onePartner.name+'">' +
 			'<div class="card-image">' +
 				'<img src="'+onePartner.image+'" alt="">' +
 			'</div>'+
@@ -40,17 +42,42 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 		;
 };
 PartnerComponent.prototype.addMenuPartners = function (onePartner) {
-	this.block.innerHTML +=
-		'<div class="partners">' +
-			'<div class="partner" id="'+onePartner.name+'" onclick=alert("à_implemeneter_demain")>'+onePartner.name+'</div>';
+	this.partners.innerHTML +=
+			'<div class="partner" onclick=view.show('+onePartner.name+')>'+onePartner.name+'</div>';
 };
 // Printing all service data into the table member
+PartnerComponent.prototype.printPartners = function () {
+	this.currentblock = this.get(this.service.get(0).name);
+	this.addMenuPartners(this.service.get(0));
+	for (let i = 1; i < this.service.size(); i++) {
+		this.addMenuPartners(this.service.get(i));
+	}
+	for (let i = 0; i < this.service.size(); i++) {
+		this.addOnePartner(this.service.get(i));
+	}
+};
 PartnerComponent.prototype.printPartners = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addMenuPartners(this.service.get(i));
 	}
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addOnePartner(this.service.get(i));
+	}
+};
+
+PartnerComponent.prototype.show = function (id) {
+	let showblock = this.get(id);
+	showblock.style.display = 'block';
+	for (let i = 0; i < this.service.size(); i++) {
+		let partner = document.getElementsByClassName('card')[i];
+		partner.style.display = 'none';
+	}
+
+};
+PartnerComponent.prototype.hidden = function () {
+	for (let i = 1; i < this.service.size(); i++) {
+		let partner = document.getElementsByClassName('card')[i];
+		partner.style.display = 'none';
 	}
 };
 /* Main Function */ 
@@ -60,4 +87,5 @@ function main() {
 	view = new PartnerComponent(service); 
 	//view.printPartnerList(); Uncomment to print data in table member
 	view.printPartners();
+	view.hidden();
 } 
