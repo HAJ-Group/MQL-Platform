@@ -79,7 +79,7 @@ let dbEvent = [
 				type:'image-grid',
 				title:'Gallerie',
 				description:'',
-				images: ['../../resources/pictures/Events/CE1.jpg'],
+				images: ['../../resources/pictures/Events/economiste.jpg','../../resources/pictures/Events/CE1.jpg'],
 			},
 			{
 				type:'image-grid',
@@ -99,38 +99,14 @@ let dbEvent = [
 		content: [
 			{
 				type:'image-grid',
-				title:'Gallerie',
+				title:'Galerie',
 				description:'',
 				images: ['../../resources/pictures/mqlfam.JPG'],
 			},
 		],
 	},
-	{
-		id:6,
-		title:'Evenements para-scolaire',
-		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
-		content: [
-			{
-				type:'image-grid',
-				title:'Gallerie',
-				description:'',
-				images: ['../../resources/pictures/mqlfam.JPG'],
-			},
-		],
-	},
-	{
-		id:5,
-		title:'Evenements para-scolaire',
-		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
-		content: [
-			{
-				type:'image-grid',
-				title:'Gallerie',
-				description:'',
-				images: ['../../resources/pictures/mqlfam.JPG'],
-			},
-		],
-	},
+
+
 ];
 
 

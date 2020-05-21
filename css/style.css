@@ -95,24 +95,6 @@ header {
 }
 
 /* GENERAL----------------------------------------------------------------------------------------------------------- */
-.el-center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.el-right {
-    float: right;
-}
-
-.left {
-    float: left;
-    margin-top: 8px;
-}
-
-.right {
-    float: right;
-}
 
 .def-img {
     width: 100%;
@@ -120,46 +102,7 @@ header {
     margin-top: -8px;
 }
 
-/* Coloring with background  */
-.wrap-blue {
-    background-color: cornflowerblue;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    color: white;
-}
 
-.wrap-blue:hover {
-    background-color: cornflowerblue;
-    color: white;
-    opacity: 0.8;
-}
-
-.wrap-red {
-    background-color: rgb(253, 59, 76);
-    border-radius: 50px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.wrap-red:hover {
-    background-color: rgb(253, 59, 76);
-    border-radius: 50px;
-    color: white;
-    opacity: 0.8;
-}
-
-.animate_fade {
-    animation: fadein 2s;
-}
-
-/* Spacing */
-.left-space {
-    margin-left: 10px;
-}
-
-.right-space {
-    margin-right: 10px;
-}
 
 /* FOOTER BLOCK */
 
@@ -383,12 +326,6 @@ a.links:hover{
     text-align: center;
 }
 
-.mini-logo {
-    width: 50%;
-    height: 50%;
-    margin-left: 50%;
-}
-
 /* Create two equal columns that sits next to each other */
 .column {
     flex: 100%;
@@ -423,7 +360,7 @@ a.links:hover{
 }
 
 /* Caption of Modal Image */
-#caption, #caption {
+#caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -616,6 +553,87 @@ hr {
     to {transform:scale(1)}
 }
 
+
+
+
+/* -----------------------------------------------Global styles------------------------------------------------------ */
+.el-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.el-right {
+    float: right;
+}
+
+.left {
+    float: left;
+    margin-top: 8px;
+}
+
+.right {
+    float: right;
+}
+/* Coloring with background  */
+.wrap-blue {
+    background-color: cornflowerblue;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-blue:hover {
+    background-color: cornflowerblue;
+    color: white;
+    opacity: 0.8;
+}
+
+.wrap-red {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wrap-red:hover {
+    background-color: rgb(253, 59, 76);
+    border-radius: 50px;
+    color: white;
+    opacity: 0.8;
+}
+
+.animate_fade {
+    animation: fadein 2s;
+}
+
+/* Spacing */
+.left-space {
+    margin-left: 10px;
+}
+
+.right-space {
+    margin-right: 10px;
+}
+
+.mini-logo {
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.bold {
+    font-weight: bold;
+}
+.startext{
+    font-size: 25px;
+}
+
+
+
+
 /* Responsive CSS ----------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
     .content {
@@ -651,8 +669,9 @@ hr {
     }
 
     .topnav a:hover {
-        color: white;
-        background-color: rgb(253, 59, 76);
+        color: rgb(253, 59, 76);
+        border: 2px solid rgb(253, 59, 76);
+        /*background-color: rgb(253, 59, 76);*/
         opacity: 1;
     }
 
@@ -695,7 +714,6 @@ hr {
     }
 
 }
-
 /* Responsive style for all small other devices*/
 @media screen and (max-width: 600px)
 {
@@ -738,5 +756,3 @@ hr {
         width: 100%;
     }
 }
-
-
