@@ -29,7 +29,6 @@ ActivityComponent.prototype.printActivityList = function () {
 
 */
 
-
 function main() {
 	service = new ActivityComponentService();
 	service.load(dbActivity);
@@ -50,7 +49,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		switch (i + 1) {
 			case 1: semesterName = 'Le premier semestre'; break;
 			case 2: semesterName = 'Le deuxième semestre'; break;
-			case 3: semesterName = 'Le toizième semestre'; break;
+			case 3: semesterName = 'Le troizième semestre'; break;
 			case 4: semesterName = 'Le quatrième semestre'; break;
 		}
 
@@ -135,21 +134,6 @@ ActivityComponent.prototype.printSemesters = function(){
 			' </div>';
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 ActivityComponent.prototype.printSubjects = function () {

@@ -4,7 +4,7 @@ let dbActivity = [
 
 	{
 		id: 1,
-		description: ['../../resources/pictures/cafe.png', 'Le semester 1'],
+		description: ['../../resources/pictures/cafe.png', 'Le premier semestre se '],
 		modules: [
 		        '../../resources/pictures/cafe.png',
 				'Ingénierie de l\'objet et thechnologie Java',
