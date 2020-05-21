@@ -117,7 +117,19 @@ EventComponent.prototype.fillSwitcher = function () {
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
-
+/**
+ * Navigate between pages
+ * @param page_number
+ * @param top
+ */
+EventComponent.prototype.navigate = function(page_number, top=false) {
+	current_page_number = page_number;
+	this.fillNavigation();
+	this.fillMain();
+	this.fillSwitcher();
+	addTitleIcon('../../resources/pictures/Event-logo.png');
+	if(top) window.location.href = '#header';
+};
 /* Main Function */ 
 function main() { 
 	service = new EventComponentService(); 
@@ -128,7 +140,7 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	view.fillSwitcher();
-	// Stays last
 	addTitleIcon('../../resources/pictures/Event-logo.png');
+	// Stays last
 	detect_subContent_trigger_left_bar();
 }

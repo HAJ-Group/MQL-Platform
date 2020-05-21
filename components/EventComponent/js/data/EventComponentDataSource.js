@@ -105,6 +105,32 @@ let dbEvent = [
 			},
 		],
 	},
+	{
+		id:6,
+		title:'Evenements para-scolaire',
+		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
+		content: [
+			{
+				type:'image-grid',
+				title:'Gallerie',
+				description:'',
+				images: ['../../resources/pictures/mqlfam.JPG'],
+			},
+		],
+	},
+	{
+		id:5,
+		title:'Evenements para-scolaire',
+		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
+		content: [
+			{
+				type:'image-grid',
+				title:'Gallerie',
+				description:'',
+				images: ['../../resources/pictures/mqlfam.JPG'],
+			},
+		],
+	},
 ];
 
 

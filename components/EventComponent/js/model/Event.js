@@ -5,7 +5,6 @@ function EventModel(id,title,description='', content=[]) {
 	this.description=description;
 	this.content=content;
 }
-
 /*  Card Event Model */
 function CardEvent(title, description='', image='', type='card') {
 	this.title = title;
