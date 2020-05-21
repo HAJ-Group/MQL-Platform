@@ -210,7 +210,7 @@ footer{
 
 .flex-container > div > ul > li{
     font-size: 14px;
-    color: #bcbcbc;
+    color: rgb(253, 59, 76);
 }
 
 .flex-container > div > ul > li{
@@ -383,6 +383,12 @@ a.links:hover{
     display: block;
     flex-wrap: wrap;
     text-align: center;
+}
+
+.mini-logo {
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
 }
 
 /* Create two equal columns that sits next to each other */

@@ -113,11 +113,23 @@ a:hover {
 .element .element-title {
 	color: cornflowerblue;
 	padding: 10px;
-	font-family: "Agency FB";
+	font-family: "Agency FB", serif;
 	font-size: 25px;
 	font-weight: bold;
+
 }
 
+.element-title {
+	border: 1px solid lightgray;
+	border-radius: 10px;
+}
+
+.element-details {
+	border: 1px solid rgba(216,250,255,0.83);
+	border-radius: 10px;
+	background-color: rgba(216,250,255,0.83);
+	padding: 10px;
+}
 
 .Chenfour{
 	display: flex;
@@ -129,11 +141,17 @@ a:hover {
 	padding: 20px;
 	width: 60%;
 }
-.details img {
+.details > img {
 	margin-right: auto;
 	margin-left:auto;
 	width: 70%;
 }
+
+.full-width {
+	width: 100%;
+	height: 100%;
+}
+
 /* Animations */
 
 @keyframes slideShow {
