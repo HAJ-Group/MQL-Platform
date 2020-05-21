@@ -53,7 +53,7 @@ let dbEvent = [
 			},
 			{
 				type:'image-show',
-				title:'Gallerie',
+				title:'Galerie',
 				images: dbEventBook1,
 			},
 		],
@@ -77,7 +77,7 @@ let dbEvent = [
 		content: [
 			{
 				type:'image-grid',
-				title:'Gallerie',
+				title:'Galerie',
 				description:'',
 				images: ['../../resources/pictures/Events/economiste.jpg','../../resources/pictures/Events/CE1.jpg'],
 			},

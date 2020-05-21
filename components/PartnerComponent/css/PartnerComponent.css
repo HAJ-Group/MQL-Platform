@@ -1,0 +1,38 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+.container {
+	display: flex;
+}
+.card {
+	width: 45%;
+	margin-left: 25%;
+	height: auto;
+	border: 3px solid lightgray;
+	box-shadow: gray 2px 2px 2px 2px ;
+}
+.card-image img{
+	margin-left: 2%;
+	width: 96%;
+	height: 30%;
+	border-bottom: 1px solid lightgray;
+}
+.card-body{
+	margin-left: 2%;
+	border-bottom: 1px solid lightgray;
+	height: 70%;
+	width: 96%;
+}
+.card-body .title {
+	text-align: center;
+}
+.card-body .ca {
+	font-size: 15px;
+	color: lightgray;
+	text-align: right;
+}
+.card-body{
+	padding: 10px;
+	text-align: justify;
+}
