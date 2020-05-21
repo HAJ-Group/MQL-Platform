@@ -87,7 +87,7 @@ function getFooterContent() {
     let partners = [
         {name:'Capgemini', image:'../../resources/partenaires/capgemeni.png'},
         {name:'Umanis', image:'../../resources/partenaires/umanis.png'},
-        {name:'Atos', image:'../../resources/partenaires/atos.pn'},
+        {name:'Atos', image:'../../resources/partenaires/atos.png'},
         {name:'CGI', image:'../../resources/partenaires/cgi.png'},
     ];
     let foots = [
