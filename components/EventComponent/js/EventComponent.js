@@ -128,6 +128,7 @@ EventComponent.prototype.navigate = function(page_number, top=false) {
 	this.fillMain();
 	this.fillSwitcher();
 	addTitleIcon('../../resources/pictures/Event-logo.png');
+	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
 /* Main Function */ 
@@ -140,7 +141,7 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	view.fillSwitcher();
-	addTitleIcon('../../resources/pictures/Event-logo.png');
 	// Stays last
+	addTitleIcon('../../resources/pictures/Event-logo.png');
 	detect_subContent_trigger_left_bar();
 }
