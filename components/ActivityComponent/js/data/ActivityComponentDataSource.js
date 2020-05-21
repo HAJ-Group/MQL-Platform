@@ -4,51 +4,68 @@ let dbActivity = [
 
 	{
 		id: 1,
-		description: ['../../resources/pictures/semester.jpg', 'Le semester 1'],
+		description: ['../../resources/pictures/cafe.png', 'Le semester 1'],
 		modules: [
-		        '../../resources/pictures/semester.jpg',
-				'java',
-				'oracle',
-				'xml',
-				'TEC',
-				'GP',
-				'UML'
-			],
-		activity: ['../../resources/pictures/semester.jpg','activity 1','activity 1-2'],
+		        '../../resources/pictures/cafe.png',
+				'Ingénierie de l\'objet et thechnologie Java',
+				'Bases de données ORACLE',
+				'Technologie XML',
+				'Téchniques d\'éxpressions et communication',
+				'Géstion de projets',
+				'Ingénierie logiciélle et UML'
+				],
+		activity: ['../../resources/pictures/cafe.png',
+			'Compétences Techniques et technologiques : Chaque module est une formation théorique et technique',
+			'Autonomie : Traveaux pritiques et projets individuels',
+			'Bonnes pratiques en développement : Design Patterns',
+			'Assiduité et Respet des deadlines : Projets avec Livrables',
+
+		],
 	},
 	{
 		id: 2,
-		description:  ['../../resources/pictures/semester.jpg', 'Le semester 2'],
+		description:  ['../../resources/pictures/cafe.png', 'Le semester 2'],
 		modules: [
-            '../../resources/pictures/semester.jpg',
-            'java',
-            'oracle',
-            'xml',
-            'TEC',
-            'GP',
-            'UML'
+            '../../resources/pictures/cafe.png',
+            'Design Patterns',
+            'Ingénierie du Web',
+            'Architecture Java EE',
+            'Technologies Mobiles',
+            'Portails d\'entreprises',
+            'Gestion de projets & Méthodes Agiles'
 		],
-		activity:  ['activity 2','activity 2-2']
+		activity:  [
+			'../../resources/pictures/cafe.png',
+			'Travail d\'équipe : 4 à 6 étudiants / équipe',
+			'Recherche, Lecture, Rédaction',
+			'Communication : Présentation orale chaque semaine, chaque membre de l\'équipe : 15 à 30 min par équipe',
+			'Critiques et Autocritique',
+			'Méthodologies de travail + Méthodes Agiles : Scrum',
+			]
 	},
 	{
 		id: 3,
-		description:  ['../../resources/pictures/semester.jpg', 'Le semester 3'],
+		description:  ['../../resources/pictures/cafe.png', 'Le semester 3'],
 		modules: [
-            '../../resources/pictures/semester.jpg',
-            'java',
-            'oracle',
-            'xml',
-            'TEC',
-            'GP',
-            'UML'
+            '../../resources/pictures/cafe.png',
+            'Frameworks Java EE',
+            'Plateforme Applicative Microsoft',
+            'Outils d’industrialisation & environnement Offshore',
+            'Business Intelligence & Big Data',
+            'Cloud Computing',
+            'Culture d’entreprise'
 		],
-		activity:  ['../../resources/pictures/semester.jpg','activity 3','activity 3-2']
+		activity:  ['../../resources/pictures/cafe.png',
+			'Maitrise des Métiers',
+			'Bonne connaissance de l\'entreprise',
+			'Processus de recrutement en stage',
+			]
 	},
 	{
 		id: 4,
-		description:  ['../../resources/pictures/semester.jpg', 'Le semester 4'],
+		description:  ['../../resources/pictures/cafe.png', 'Le semester 4'],
 		modules: [
-            '../../resources/pictures/semester.jpg',
+            '../../resources/pictures/cafe.png',
             'java',
             'oracle',
             'xml',
@@ -56,7 +73,7 @@ let dbActivity = [
             'GP',
             'UML'
 		],
-		activity:  ['../../resources/pictures/semester.jpg', 'activity 4','activity 4-2']
+		activity:  ['../../resources/pictures/cafe.png', 'activity 4','activity 4-2']
 	}
 
 ]; 

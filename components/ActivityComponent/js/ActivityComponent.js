@@ -59,7 +59,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		for (let j = 0; j < semesterI.modules.length; j++) {
 			moduleImage = semesterI.modules[0];
 			if (j === 0) continue;
-			modules += '<li> ' + semesterI.modules[j] + ' </li>';
+			modules += '<li> ' + 'M' + (j) + ' : ' + semesterI.modules[j] + ' </li>';
 		}
 		modules += '</ul>';
 
@@ -68,7 +68,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		for (let j = 0; j < semesterI.activity.length; j++) {
 			activityImage = semesterI.activity[0];
 			if(j === 0) continue;
-			activities += '<p>' + semesterI.activity[j] + '</p>';
+			activities += '<p><span></span>' + semesterI.activity[j] + '</p>';
 		}
 
 		let cards = '';
@@ -79,12 +79,12 @@ ActivityComponent.prototype.printSemesters = function(){
 				'<img class="card-image" src="' + semesterI.description[0] + '" alt="">' +
 					'<div class="card-text">' +
 						'<div class="card-subject"> ' + 'Description' +' </div>' +
-						'<div class="subject"> ' + semesterI.description[1] + ' </div>' +
+						'<div class="subject"> ' + '<p>' + semesterI.description[1] + '</p>' + ' </div>' +
 					'</div>' +
 					'<div class="card-footer">' +
-						'<a href="#">' +
+						'' +
 							'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-						'</a>' +
+						'' +
 					'</div>' +
 				'</div>';
 			}
@@ -100,23 +100,25 @@ ActivityComponent.prototype.printSemesters = function(){
 							'<div class="subject"> ' + modules + ' </div>' +
 						'</div>' +
 						'<div class="card-footer">' +
-							'<a href="#">' +
+							'' +
 								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-							'</a>' +
+							'' +
 						'</div>' +
 					'</div>';
 			}
 			if (j === 3){
-				cards += '<div class="card">' +
+
+
+				cards += '<div class="card" id="card">' +
 					'<img class="card-image" src="' + activityImage + '" alt="">' +
 						'<div class="card-text">' +
 							'<div class="card-subject"> ' + 'Valeurs' +' </div>' +
 							'<div class="subject"> ' + activities + ' </div>' +
 						'</div>' +
 						'<div class="card-footer">' +
-							'<a href="#">' +
+							'' +
 								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-							'</a>' +
+							'' +
 						'</div>' +
 					'</div>';
 			}

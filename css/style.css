@@ -267,6 +267,7 @@ footer{
     background:none!important;
     height:200px;
     width:343px;
+    border-radius: 5px;
 }
 
 /* the hover for the links (Lien utiles) */
