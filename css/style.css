@@ -210,7 +210,7 @@ footer{
 
 .flex-container > div > ul > li{
     font-size: 14px;
-    color: #bcbcbc;
+    color: rgb(253, 59, 76);
 }
 
 .flex-container > div > ul > li{
@@ -363,18 +363,30 @@ a.links:hover{
     font-family: "Arial Narrow", serif;
     font-size: 20px;
     text-align: justify;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
-}
 
+}
+.details > * {
+    text-align: justify;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 /* Images Grids */
 
 .row {
     display: block;
     flex-wrap: wrap;
     text-align: center;
+}
+
+.mini-logo {
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
 }
 
 /* Create two equal columns that sits next to each other */
