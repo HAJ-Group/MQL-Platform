@@ -15,75 +15,17 @@
 		<div class="content"> 
 			<div id="header"></div>
             <div class="container">
-                <div class="left-menu">
-                    <div><a  class="menuitem" href="#stage">Compagnes de stages </a> </div>
-                    <hr>
-                    <div><a class="menuitem" href="#je">Journée Entrepreneuriat</a> </div>
-                    <hr>
-                    <div><a class="menuitem" href="#ceremonie">Cérémonie de remises des diplomes</a> </div>
-                    <hr>
-                    <div><a class="menuitem" href="#para">Evenements para-scolaire</a> </div>
+                <div id="navigation" class="left-menu">
+                    <div class="menuitem wrap-blue">Navigation</div>
                 </div>
-
-                <div class="sub-content">
-                    <div id="stage" >
-                        <div class="title">
-                            Compagnes de stages : <span class="time">A partir d'octobre </span>
-                        </div>
-                        <div class="details">
-                            <span class="space">Un</span> Mqliste, dans sa deuxième année de formation, commence déja à passer des entretiens de stage pré-ambauche, en fait nous retrouvons, à la faculté des sciences, des multinationales dans des sessions de recrutement organisées par les étudiants MQL.
-                            <div class="sub-title">
-                               <span class="element"> Test: </span>
-                                <div class="sub-title">
-                                    <fieldset>
-                                        <legend>Psychotechnique:</legend>
-                                            <span class="space">Les</span> tests psychotechniques sont utilisés pour mesurer les aptitudes logiques, verbales et numériques de l'étudiant.
-                                            Ils mesurent les capacités de réaction, de réflexion, de concentration mais aussi la faculté à intégrer et à traiter l’information ou la stimulation.
-                                    </fieldset>
-                                </div>
-                                <div class="sub-title">
-                                    <fieldset>
-                                        <legend> Technique:</legend>
-                                        <span class="space">Un</span> entretient technique  sur les différents aspects du developpement informatique
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="sub-title">
-                                <span class="element"> Entretien: </span>
-                                <div class="sub-title">
-                                    <fieldset>
-                                        <legend> Ressources Humaines :</legend>
-                                        <span class="space">Les</span> étudiants passent un entretien RH allant de 15 à 20 minutes, Le candidat doit mettre en avant son expérience, ses compétences et sa personnalité à travers la description de son parcours professionnel.
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="sub-title">
-                                <span class="element"> Galerie: </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="je">
-                        <div class="title"> Journée Entrepreunariat: <span class="time">Novembre</span> </div>
-                        <div  class="details">
-                            <span class="space">Les</span> étudiants MQL organisent une journée entrepreneuriat, dont des équipes de différents masters présentent leurs projets devant un jury pour une durée de 7 minutes, ci-dessous quelques images :
-                        </div>
-                    </div>
-                    <div id="ceremonie">
-                        <div class="title"> Cérémonie de remise de diplomes : <span class="time">Mars-Avril</span>  </div>
-                        <div  class="details">
-                            <span class="space">La</span> cérémonie de remise de diplômes est une cérémonie organisée afin de celebrer les jeunes diplomés, que la majorité ont déjâ des contrats CDI avec des multinationales notamment CGI,Capgemini,ATOS .... , Cliquez pour voir plus sur nos lauréats.
-                            <br> <br> <span class="space">Les</span> lauréats MQL ne s'arretent pas à l'insertion professionnelle mais excellent dans leurs postes professionnels et deviennent des éléments clé pour le developpement des multinationales. ils aident également les nouvelles générations( formations, informations ...) dans une solidarité familiale.
-                            <span class="space">Galerie:</span>
-                        </div>
-                    </div>
-                    <div id="para">
-                        <div class="title"> Evenements para-scolaire : </div>
-                        <div  class="details">
-                            <span class="space">MQL</span> dépasse les limtes de formation et éducation;
-                            MQL est une équipe, une famille, un style de vie.
-                        </div>
-                    </div>
+                <div class="sub-content" id="main"></div>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <span onclick="closeIMG()" class="close">&times;</span>
+                    <img class="modal-content" id="modal_img">
+                    <div id="caption"></div>
                 </div>
+                <div id="switcher" class="page_numbers"></div>
             </div>
 			<div id="footer"></div>
 		</div> 
