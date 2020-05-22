@@ -29,17 +29,6 @@ ActivityComponent.prototype.printActivityList = function () {
 
 */
 
-function main() {
-	service = new ActivityComponentService();
-	service.load(dbActivity);
-	view = new ActivityComponent(service);
-	view.printSemesters();
-	collapse();
-
-	//view.printActivityList(); Uncomment to print data in table member
-}
-
-
 ActivityComponent.prototype.printSemesters = function(){
 	let subjectZone = this.get('zone');
 	for (let i = 0; i < this.service.size(); i++) {
@@ -189,4 +178,13 @@ function collapse(){
 			}
 		});
 	}
+}
+
+function main() {
+	service = new ActivityComponentService();
+	service.load(dbActivity);
+	view = new ActivityComponent(service);
+	view.printSemesters();
+	collapse();
+	//view.printActivityList(); Uncomment to print data in table member
 }

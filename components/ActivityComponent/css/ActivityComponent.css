@@ -3,11 +3,22 @@ body {
 	margin:auto;
 }
 
+
+.container {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 /* Container of the card and its title */
 .big-container{
 	/* background-color: cornflowerblue;*/
 	padding: 10px;
+}
 
+.zone-title {
+	border-top: 1px solid #bbbbbb;
+	border-right: 1px solid #bbbbbb;
+	border-left: 1px solid #bbbbbb;
 }
 
 .container-border{
@@ -15,7 +26,7 @@ body {
 	border-left: 1px solid #bbbbbb;
 	border-bottom: 1px solid #bbbbbb;
 	border-right: 1px solid #bbbbbb;
-	background-color: #f5f5f5;
+	background-color: white;
 }
 
 
@@ -32,16 +43,15 @@ body {
 	justify-content: space-around; /* center horizontally */
 	align-items: center; /* center vertically*/
 	background-color: #f4f4f4;
-
 }
 
 .card {
     position: relative;
 	font-family: MontserratBold, serif;
-	width: 530px;
+	width: 500px;
 	height: 680px;
 	border-radius: 5px;
-	box-shadow: 0px 0px 0px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+	box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
 	overflow: hidden; /* otherwise header image won't respect rounded corners */
 	background-color: #f7fbdf;
 	margin: 10px;
@@ -51,10 +61,10 @@ body {
 .card-activities{
     position: relative;
     font-family: MontserratBold, serif;
-    width: 530px;
+    width: 500px;
     height: 680px;
     border-radius: 5px;
-    box-shadow: 0px 0px 0px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
     overflow: hidden; /* otherwise header image won't respect rounded corners */
     background-color: whitesmoke;
     margin: 10px;
@@ -132,7 +142,8 @@ body {
 
 /* Style for the zone 'collapsible' */
 .collapsible {
-	background-color: #2975bf;
+	/*background-color: #2975bf;*/
+	background-image: url("../../../resources/pictures/Activities/wrap.jpg");
 	color: white;
 	cursor: pointer;
 	padding: 18px;
@@ -146,7 +157,8 @@ body {
 
 .active-element, .collapsible:hover {
 	/*background-color: #184c8c;*/
-	background-image: url("../../../resources/pictures/img.jpg");
+	/*background-image: url("../../../resources/pictures/img.jpg");*/
+	opacity: 0.5;
 
 }
 
@@ -181,6 +193,9 @@ body {
     font-family: MontserratBold, serif;
     font-size: 24px;
     text-align: center;
+	border-top: 1px solid #bbbbbb;
+	border-right: 1px solid #bbbbbb;
+	border-left: 1px solid #bbbbbb;
 }
 
 .introduction{
@@ -190,7 +205,7 @@ body {
 	font-size: 18px;
     text-align: justify;
 
-	background-color: #f5f5f5;
+	background-color: white;
     border-left: 1px solid #bbbbbb;
     border-bottom: 1px solid #bbbbbb;
     border-right: 1px solid #bbbbbb;
