@@ -53,24 +53,6 @@ HomeComponent.prototype.printNews=function (max = 5) {
 };
 
 /**
- * Slide show link manager
- */
-HomeComponent.prototype.toggleSlideLink = function () {
-	let links = {
-		'1':'#presentation',
-		'2':'#mqlfamily',
-		'3':'https://www.w3schools.com/default.asp',
-		'4':'https://www.w3schools.com/default.asp',
-		'5':'https://www.w3schools.com/default.asp',
-		'6':'https://www.w3schools.com/default.asp',
-	};
-	let element = this.get('slide-show');
-	let key = getComputedStyle(element).fontSize.split('.')[0];
-	window.location.assign(links[key]);
-};
-
-
-/**
  * News link managers
  */
 HomeComponent.prototype.setNewsRoutes = function () {
@@ -78,15 +60,16 @@ HomeComponent.prototype.setNewsRoutes = function () {
 	for(let i=0; i<rows.length; i++) {
 		let cells = rows[i].cells;
 		for(let j=1; j<cells.length; j++) {
-			cells[j].innerHTML = '<a onclick="route(\'../News\',' + (i+1) + '); return false;">' + cells[j].innerHTML + '</a>';
+			cells[j].innerHTML = '<a onclick="route(\'../News\',' + (i+1) + ')">' + cells[j].innerHTML + '</a>';
 		}
 	}
 };
 
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
-	service.load(dbHome);
+	service.load(dbHomeProgram);
 	view = new HomeComponent(service);
 	view.printSemesters();
 	view.printNews();
@@ -94,4 +77,5 @@ function main() {
 	// stays last
 	addTitleIcon('../../resources/pictures/title-logo.png');
 	detect_subContent_trigger_left_bar();
+	createBook(dbHomeImages);
 }

@@ -40,7 +40,7 @@ NewsComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" id="nav' + news.id + '" href="#' + news.id + '">' + news.title + '</a></div>\n';
+			'<div><a class="menuitem" href="#' + news.id + '">' + news.title + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
@@ -51,17 +51,16 @@ NewsComponent.prototype.fillNavigation = function () {
 NewsComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
-		htmlContent += '<div id="' + news.id + '" ' +
-			'onmouseover="lightNav(' + news.id + ')" ' +
-			'onmouseleave="offLight(' + news.id + ')">\n' +
-			'<div class="title">\n' +
-			news.title +
-			'</div>\n' +
+		htmlContent += '<div id="' + news.id + '" >' +
+			'<div class="title">\n' + news.title + '</div>\n' +
 			'<div class="details">' +
 			'<p class="date">' + news.date + '</p>' +
 			'<p>' + news.description + '</p>\n' +
-			'</div>\n' +
-			'</div>';
+			'<div class="row"><span class="column">';
+		for(let image of news.images) {
+			htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="MQL PLATFORM">\n';
+		}
+		htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
 	this.block_main.innerHTML = htmlContent;
 };
@@ -90,6 +89,7 @@ NewsComponent.prototype.navigate = function(page_number, top=false) {
 	this.fillMain();
 	this.fillSwitcher();
     addTitleIcon('../../resources/pictures/News-logo.png');
+	detect_subContent_trigger_left_bar();
     if(top) window.location.href = '#header';
 };
 
@@ -113,7 +113,7 @@ function main() {
 	view.navigate(current_page_number);
 	// stays last
 	addTitleIcon('../../resources/pictures/News-logo.png');
-	view.trigger();
 	detect_subContent_trigger_left_bar();
+	view.trigger();
 }
 

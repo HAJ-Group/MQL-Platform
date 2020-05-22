@@ -1,5 +1,5 @@
 /* Global data source table for HomeComponent */
-let dbHome = [
+let dbHomeProgram = [
     {
         id : 1,
         modules : ["Ingénierie de l’Objet et Technologie Java","Technologie XML","Génie Logiciel & Modélisation UML","Bases de données","Audit & Qualité du Logiciel","Communication Professionnelle"]
@@ -16,4 +16,9 @@ let dbHome = [
         id : 4,
         modules : ["Stage pré embauche dans des multinationales actives en développement offshore"]
     }
+];
+
+let dbHomeImages = [
+    '../../resources/pictures/presentationimage.png',
+    '../../resources/pictures/mqlfam.jpg',
 ];

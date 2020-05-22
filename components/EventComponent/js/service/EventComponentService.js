@@ -17,15 +17,34 @@ EventComponentService.prototype.get = function(index) {
 // elements count of database object 
 EventComponentService.prototype.size = function() { 
 	return this.db.length; 
-}; 
+};
+
+// Loading card type content
+EventComponentService.prototype.loadCard = function(content) {
+	return new CardEvent(content.title, content.description, content.image, content.type);
+};
+
+// Loading gallery type content
+EventComponentService.prototype.loadGallery = function(content) {
+	return new GalleryEvent(content.title, content.description, content.images, content.type);
+};
+
 // Load all data from source to database object 
 EventComponentService.prototype.load = function(dbSource) { 
-	for (let i = 0; i < dbSource.length; i++) { 
-		// Transforming database source into database object of Event model 
-		this.add( 
-			new Event( 
-				dbSource[i].id, 
-			) 
-		) 
+	for (let i = 0; i < dbSource.length; i++) {
+		// Transforming database source into database object of Event model
+		let container = [];
+		for(let content of dbSource[i].content) {
+			if(content.type === 'card') container.push(this.loadCard(content));
+			if(content.type.startsWith('image-')) container.push(this.loadGallery(content));
+		}
+		this.add(
+			new EventModel(dbSource[i].id,
+				dbSource[i].title,
+				dbSource[i].date,
+				dbSource[i].description,
+				container,
+			)
+		);
 	} 
 }; 

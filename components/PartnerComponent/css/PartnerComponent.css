@@ -1,0 +1,63 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+.container {
+	display: flex;
+	padding-top: 50px;
+}
+.partners{
+	width: 20%;
+	padding-top: 100px;
+}
+.partners .partner {
+	height: 30px;
+	text-align: center;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	color: cornflowerblue;
+}
+.partner:hover{
+	box-shadow: 20px 20px 20px 20px lightgray;
+}
+
+
+.card {
+	margin-left: 5%;
+	width: 70%;
+	min-height: 300px;
+	border: 3px solid lightgray;
+	box-shadow: gray 2px 2px 2px 2px ;
+}
+.card:hover{
+	box-shadow: gray 20px 20px 20px 20px ;
+}
+.card-image img{
+	margin-left: 2%;
+	width: 96%;
+	height: 200px;
+	border-bottom: 2px solid lightgray;
+}
+.card-body{
+	margin-left: 2%;
+	border-bottom: 1px solid lightgray;
+	width: 96%;
+}
+
+.card-body .title {
+	text-align: center;
+}
+.card-body .ca {
+	font-size: 15px;
+	color: lightgray;
+	text-align: right;
+}
+.card-body .description {
+	text-align: justify;
+}
+.card-body .colabs{
+	text-align: center;
+}
+.card-body .website{
+	color: cornflowerblue;
+}

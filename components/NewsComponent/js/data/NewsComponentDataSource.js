@@ -5,7 +5,7 @@ let dbNews = [
         title:'News 1',
         date:'17-05-2020',
         desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
-        images:[],
+        images:['mqlfam.jpg', 'Home.jpg', 'Event.jpg'],
     },
     {
         id :2,
