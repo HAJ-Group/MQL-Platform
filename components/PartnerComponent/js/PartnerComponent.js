@@ -43,20 +43,11 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 };
 PartnerComponent.prototype.addMenuPartners = function (onePartner) {
 	this.partners.innerHTML +=
-			'<div class="partner" onclick=view.show('+onePartner.name+')>'+onePartner.name+'</div>';
+			'<div class="partner" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
 };
 // Printing all service data into the table member
 PartnerComponent.prototype.printPartners = function () {
-	this.currentblock = this.get(this.service.get(0).name);
-	this.addMenuPartners(this.service.get(0));
-	for (let i = 1; i < this.service.size(); i++) {
-		this.addMenuPartners(this.service.get(i));
-	}
-	for (let i = 0; i < this.service.size(); i++) {
-		this.addOnePartner(this.service.get(i));
-	}
-};
-PartnerComponent.prototype.printPartners = function () {
+	this.currentblock =""+this.service.get(0).name;
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addMenuPartners(this.service.get(i));
 	}
@@ -65,13 +56,15 @@ PartnerComponent.prototype.printPartners = function () {
 	}
 };
 
+
 PartnerComponent.prototype.show = function (id) {
+    let hiddenblock=this.get(this.currentblock);
 	let showblock = this.get(id);
-	showblock.style.display = 'block';
-	for (let i = 0; i < this.service.size(); i++) {
-		let partner = document.getElementsByClassName('card')[i];
-		partner.style.display = 'none';
-	}
+	this.currentblock=id;
+    hiddenblock.style.display = 'none';
+    	showblock.style.display = 'block';
+    showblock.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
+
 
 };
 PartnerComponent.prototype.hidden = function () {
