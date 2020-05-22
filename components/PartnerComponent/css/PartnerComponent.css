@@ -29,6 +29,9 @@ body {
 	border: 3px solid lightgray;
 	box-shadow: gray 2px 2px 2px 2px ;
 }
+.card:hover{
+	box-shadow: gray 20px 20px 20px 20px ;
+}
 .card-image img{
 	margin-left: 2%;
 	width: 96%;
