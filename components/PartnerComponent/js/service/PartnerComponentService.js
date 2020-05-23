@@ -25,6 +25,7 @@ PartnerComponentService.prototype.load = function(dbSource) {
 		this.add( 
 			new Partner( 
 				dbSource[i].id,
+				dbSource[i].bg,
 				dbSource[i].name,
 				dbSource[i].ca,
 				dbSource[i].description,
