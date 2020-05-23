@@ -76,6 +76,14 @@ PartnerComponent.prototype.hideAll = function () {
 		document.getElementsByClassName('partner')[i].classList.remove('active');
 	}
 };
+
+PartnerComponent.prototype.trigger = function () {
+	let anchor = window.location.href.split('#')[1];
+	if(anchor !== undefined) {
+		this.get('menu-' + anchor).click();
+		window.location.href = '#' + anchor;
+	}
+};
 /* Main Function */ 
 function main() { 
 	service = new PartnerComponentService(); 
@@ -84,4 +92,5 @@ function main() {
 	//view.printPartnerList(); Uncomment to print data in table member
 	view.printPartners();
 	view.hideAll();
+	view.trigger();
 } 

@@ -745,6 +745,11 @@ a.links:hover{
         float:left;
     }
 
+    .move-left > img:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
     .move-right {
         float: right;
         padding-top: 10px;
