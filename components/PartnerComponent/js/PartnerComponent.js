@@ -46,12 +46,12 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 	desc.setAttribute('class','description');
 	let descValue=document.createTextNode(onePartner.description);
 	desc.appendChild(descValue);
-	// Create description collabs :
+	// Create  collabs :
 	let colabs = document.createElement('p');
 	colabs.setAttribute('class','colabs');
 	let colabsValue=document.createTextNode('Nombre de collaborateurs de MQL chez CGI est : '+onePartner.nbr_colla);
 	colabs.appendChild(colabsValue);
-	// Create website collabs :
+	// Create website :
 	let webSite = document.createElement('p');
 	webSite.setAttribute('class','website');
 	let phraseWebSite=document.createTextNode('Site web officiel : ');
@@ -144,8 +144,8 @@ PartnerComponent.prototype.show = function (id) {
 	let showblock = this.get(id);
 	let partner=this.get("P"+id);
 	this.currentblock=id;
-    hiddenblock.style["display"] = 'none';
-    showblock.style["display"]= 'block';
+    hiddenblock.style['display'] = 'none';
+    showblock.style['display']= 'block';
     showblock.style['animation'] = '0.5s ease-in 0s 1 slideInFromRight';
 };
 PartnerComponent.prototype.hidden = function () {
