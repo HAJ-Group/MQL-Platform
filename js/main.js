@@ -55,7 +55,7 @@ function getHeaderContent() {
     let headerContent = '<header class="div-center">' +
         '<img id="title-image" src="" alt="title" />' +
         '<div class="phone-header" id="phone-header">' +
-        '<div class="move-left"><img src="../../resources/pictures/logoMQL.png" alt="lm" width="150" height="90" ' +
+        '<div class="move-left"><img onclick="route(\'../Home\')" src="../../resources/pictures/logoMQL.png" alt="lm" width="150" height="90" ' +
         'id="mini-logo"></div>' +
         '<div class="move-right" onclick="showMenu()"><img src="../../resources/pictures/menu-phone.png" alt="mp" ' +
         'id="menu-button" width="60" height="60"></div>' +
@@ -85,9 +85,9 @@ function getHeaderContent() {
  */
 function getFooterContent() {
     let partners = [
-        {name:'Capgemini', image:'../../resources/partenaires/capgemeni.png'},
-        {name:'Umanis', image:'../../resources/partenaires/umanis.png'},
-        {name:'Atos', image:'../../resources/partenaires/atos.png'},
+        {name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
+        {name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
+        {name:'ATOS', image:'../../resources/partenaires/atos.png'},
         {name:'CGI', image:'../../resources/partenaires/cgi.png'},
     ];
     let foots = [
@@ -149,7 +149,7 @@ function getFooterContent() {
         '</div><hr>\n' +
         '<div class="partenaire">\n';
     for(let partner of partners) {
-        footerContent += '<span><a href="#"><img class="img-partenaire" src="' + partner.image + '" alt="' +
+        footerContent += '<span><a><img onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
             partner.name + '"></a></span>\n';
     }
     footerContent += '</div>\n' +

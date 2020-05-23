@@ -669,6 +669,12 @@ a.links:hover{
     height: 50%;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+.micro-logo {
+    margin-left: 35%;
+    width: 25%;
+    height: 25%;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 .uppercase{
     text-transform: uppercase;
 }
@@ -737,6 +743,11 @@ a.links:hover{
 
     .move-left {
         float:left;
+    }
+
+    .move-left > img:hover {
+        cursor: pointer;
+        opacity: 0.8;
     }
 
     .move-right {
