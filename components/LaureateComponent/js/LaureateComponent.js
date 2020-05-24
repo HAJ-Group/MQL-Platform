@@ -38,7 +38,7 @@ LaureateComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let promotion of this.service.dbP) {
 		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" href="#' + promotion.name + '">' + promotion.name + '</a></div>\n';
+			'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
@@ -49,7 +49,7 @@ LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let promotion of this.service.dbP) {
 		htmlContent +=
-			'<div id="' + promotion.name + '" >' +
+			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">';
 		for (let laureate of promotion.content){

@@ -12,8 +12,8 @@ let dbLaureat09=[
 		current_enterprise : 'ZBALA',
 		experience:['cap','cgi','google'],
 		photo:'',
-		rating : 'my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla',
-		linked_in :'lien',
+		rating : 'my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla',
+		linked_in :'https://www.google.com',
 	},
 	{
 		id:2,
@@ -65,11 +65,13 @@ let dbLaureat10=[
 ];
 let dbPromotion= [
 	// Add object structure associated with the model created 
-	{ 
+	{
+		id : 'p0709',
 		name:'Promotion 2007-2009',
 		content : dbLaureat09,
 	},
 	{
+		id : 'p0810',
 		name:'Promotion 2008-2010',
 		content : dbLaureat10,
 	},

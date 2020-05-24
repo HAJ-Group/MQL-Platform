@@ -71,7 +71,7 @@ function main() {
 	service = new HomeComponentService();
 	service.load(dbHomeProgram);
 	view = new HomeComponent(service);
-	view.printSemesters();
+//	view.printSemesters();
 	view.printNews();
 	view.setNewsRoutes();
 	// stays last

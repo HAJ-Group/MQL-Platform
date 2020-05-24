@@ -1,5 +1,6 @@
 /* Default Model for LaureateComponent */ 
-function Promotion(name,content){
+function Promotion(id,name,content){
+	this.id=id;
 	this.name=name;
 	this.content=content;
 }

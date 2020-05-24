@@ -50,7 +50,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 LaureateComponentService.prototype.loadPromotion = function (dbPromotions) {
 	for (let promotion of dbPromotions){
 		this.add(
-			new Promotion(promotion.name, this.load(promotion.content)
+			new Promotion(promotion.id,promotion.name, this.load(promotion.content)
 			)
 		)
 	}
