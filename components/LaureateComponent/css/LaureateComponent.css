@@ -1,0 +1,32 @@
+body { 
+	display:block; 
+	margin:auto; 
+} 
+.card-laureate{
+	width: 100%;
+	display: flex;
+	border: 2px solid lightgray;
+}
+.card-image{
+	width: 30%;
+	border-right: 1px solid lightgray;
+	padding-left:  10px;
+
+}
+.img {
+	width: 90%;
+	border-bottom: 1px solid lightgray;
+}
+.card-desc{
+	width: 30%;
+	border-right: 1px solid lightgray;
+}
+.card-reco{
+	width: 35%;
+	padding-left:  10px;
+}
+.card-reco p{
+	display: block;
+	text-align: left;
+
+}
