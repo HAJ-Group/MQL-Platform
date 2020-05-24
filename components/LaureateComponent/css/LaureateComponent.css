@@ -22,8 +22,9 @@ body {
 
 .card-laureate  img {
 	width: 30%;
-	height: 80%;
+	height: 270px;
 	margin-left: 10px;
+	border-radius: 10px;
 }
 
 .card-laureate .description {
@@ -64,7 +65,7 @@ body {
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 40px;
-	float: left;
+	float: right;
 	margin-right: 10px;
 }
 

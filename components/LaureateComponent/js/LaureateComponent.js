@@ -54,17 +54,17 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div class="details">';
 		for (let laureate of promotion.content){
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
-			htmlContent += '<div class="card-laureate">\n' +
+			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<img src="' + laureate.photo + '" alt="">' +
 				'<div class="description">\n' +
-				'<div class="element"><div onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></div>' + laureate.name + '</div>\n' +
+				'<div class="element">' + laureate.name + '<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
-				'<ul>' +
-				'<li>Age<span class="value">' + laureate.age + '</span></li>'+
-				'<li>Adresse<span class="value">' + laureate.address + '</span></li>'+
-				'<li>Ville<span class="value">' + laureate.ville + '</span></li>'+
-				'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>'+
-				'<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+				'<ul>';
+			// STAGE
+			if(laureate.stage !== '') {
+				htmlContent += '<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+			}
+			// EXPERIENCES
 			if(laureate.experience !== []) {
 				htmlContent += '<li>Expériences<span class="value">';
 				for(let exp of laureate.experience) {
@@ -72,21 +72,18 @@ LaureateComponent.prototype.fillMain = function () {
 				}
 				htmlContent += '</span></li>';
 			}
-				htmlContent += '<li>Travaille chez<span class="value">' + laureate.job + '</span></li>';
-				if(laureate.rating !== ''){
-					htmlContent += '<hr><div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
-				}
-				htmlContent += '</ul></div></div></div>';
+			// ENTERPRISE && CITY
+			if(laureate.current_enterprise !== '' && laureate.city !== '') {
+				htmlContent += '<li>Travaille chez<span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
+					'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
+			}
+			// DESCRIPTION
+			if(laureate.rating !== ''){
+				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
+			}
+			htmlContent += '</ul></div></div></div>';
 		}
 		htmlContent+='</div></div>' ;
-			//'<div class="details">' ;
-		// 	'<p class="date">' + news.date + '</p>' +
-		// 	'<p>' + news.description + '</p>\n' +
-		// 	'<div class="row"><span class="column">';
-		// for(let image of news.images) {
-		// 	htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="MQL PLATFORM">\n';
-		// }
-		// htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
 	this.block_main.innerHTML = htmlContent;
 };
