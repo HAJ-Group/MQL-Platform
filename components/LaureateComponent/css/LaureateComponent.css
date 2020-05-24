@@ -25,3 +25,143 @@ body {
 	width: 4px;
 	background-color: cornflowerblue;
 }
+
+.image-and-infos{
+	margin-left: 2px;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	/*    background-color: cornsilk;*/
+}
+
+
+.opinion{
+	padding: 15px /*0px 5px 5px 5px*/;
+	margin-left: 2px;
+	width: 59%;
+	background-color: #f7fef0;
+	border: 1px solid gray;
+	border-radius: 6px;
+	word-wrap: break-word;
+	font-family: "Sitka Display", serif;
+	font-size: 20px;
+
+}
+
+
+q {
+	quotes: "\201C""\201D""\2018""\2019";
+	margin: 3px;
+}
+
+.opinion > p{
+	padding-left: 6px;
+	border-left: 3px solid crimson;
+}
+
+q:before {
+	color: #ccc;
+	content: open-quote;
+	font-family: "Times New Roman", serif;
+	font-size: 1.6em;
+	font-weight: bold;
+	margin-right: 0.25em;
+
+}
+
+q:after{
+	color: #ccc;
+	content: close-quote;
+	font-family: "Times New Roman", serif;
+	font-size: 1.6em;
+	font-weight: bold;
+	margin-right: 0.25em;
+	vertical-align: -0.3em;
+}
+
+
+.image-person{
+	display: flex;
+	height: 75%;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-person > img{
+ 	border-radius: 100%;
+	width: 90%;
+	height: 90%;
+	border: 1px solid darkgrey;
+
+}
+
+.infos{
+	height: 25%;
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0px 0px 0px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	/*    background-color: cyan;*/
+}
+
+.name{
+
+	/*    background-color: seagreen;*/
+}
+
+.society{
+
+	/*    background-color: darkred;*/
+}
+
+
+@media screen and (max-width: 970px){
+
+	.recommendation{
+		display: flex;
+		flex-direction: column;
+		min-height: 600px;
+		width: 40%;
+	}
+
+	.left-border{
+		display: none;
+	}
+
+	.image-and-infos {
+		height: 45%;
+		width: 100%;
+	}
+
+	.image{
+		margin: auto;
+		min-height: 130px;
+		max-height: 190px;
+		width: 80%;
+	}
+
+	.opinion{
+		margin-top: 5px;
+		height: 55%;
+		width: 96%;
+		word-wrap: break-word;
+	}
+
+	.infos{
+		padding: 3px 0px 0px 3px;
+		min-width: 250px;
+		width: 100%;
+		text-align: left;
+	}
+
+	.name{
+		width: 100%;
+	}
+
+	.society{
+		width: 100%;
+	}
+
+}
