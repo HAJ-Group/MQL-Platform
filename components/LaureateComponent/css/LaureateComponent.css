@@ -39,6 +39,10 @@ body {
 	font-size: 40px;
 	font-weight: bolder;
 }
+.card-laureate .element:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
 
 .card-laureate a {
 	color: rgb(253, 59, 76);
@@ -103,21 +107,3 @@ body {
 	opacity: 0.6;
 }
 
-/*.card-image{
-	width: 30%;
-	border-right: 1px solid lightgray;
-	padding-left:  10px;
-}
-.img {
-	width: 90%;
-	border-bottom: 1px solid lightgray;
-}
-
-.card-reco{
-	width: 35%;
-	padding-left:  10px;
-}
-.card-reco p{
-	display: block;
-	text-align: left;
-}*/

@@ -52,12 +52,20 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">';
-		for (let laureate of promotion.content){
+		for (let laureate of promotion.content) {
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
-			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
+			// LIST ITEM
+			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
+				'<div class="description">\n' +
+				'<div class="element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
+				'</div></div>';
+			// INFO BODY
+			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
 				'<img src="' + laureate.photo + '" alt="">' +
 				'<div class="description">\n' +
-				'<div class="element">' + laureate.name + '<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
+				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
 				'<ul>';
 			// STAGE
@@ -92,6 +100,19 @@ LaureateComponent.prototype.printPromotionsCards = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addLaureateRow(this.service.get(i));
 	}
+};
+// Collapse cards
+LaureateComponent.prototype.showInfos = function(id) {
+	let item = this.get('item-' + id);
+	item.style.display = 'none';
+	let info = this.get(id);
+	info.style.display = 'flex';
+};
+LaureateComponent.prototype.hideInfos = function (id) {
+	let item = this.get('item-' + id);
+	item.style.display = 'flex';
+	let info = this.get(id);
+	info.style.display = 'none';
 };
 /* Main Function */
 function main() { 
