@@ -84,6 +84,13 @@ PartnerComponent.prototype.trigger = function () {
 		window.location.href = '#' + anchor;
 	}
 };
+
+PartnerComponent.prototype.ajustLinks = function () {
+	let links = document.getElementsByClassName('img-partenaire');
+	for(let link of links) {
+		link.setAttribute('onclick', 'view.show(\'' + link.id + '\')');
+	}
+};
 /* Main Function */ 
 function main() { 
 	service = new PartnerComponentService(); 
@@ -93,4 +100,5 @@ function main() {
 	view.printPartners();
 	view.hideAll();
 	view.trigger();
+	view.ajustLinks();
 } 

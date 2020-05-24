@@ -186,6 +186,6 @@ function main() {
 	view = new ActivityComponent(service);
 	view.printSemesters();
 	collapse();
-	addTitleIcon('../../resources/pictures/News-logo.png');
+	addTitleIcon('../../resources/pictures/title-logo.png');
 	//view.printActivityList(); Uncomment to print data in table member
 }
