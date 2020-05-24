@@ -18,3 +18,10 @@ body {
 	width: 45%;
 	max-height: 300px;
 }
+
+
+.left-border{
+	height: 300px;
+	width: 4px;
+	background-color: cornflowerblue;
+}
