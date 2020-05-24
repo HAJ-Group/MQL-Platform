@@ -3,6 +3,7 @@ let view;
 let service;
 let current_page_number = 1;
 const MAX_PROMOTION_PER_PAGE = 5;
+const DEFAULT_PROFILE_IMAGE = '../../resources/pictures/profile.png';
 /*Default class*/ 
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
@@ -13,7 +14,7 @@ function LaureateComponent(service) {
 	this.page_blocks = split(this.service.dbP, MAX_PROMOTION_PER_PAGE);
 	this.block_nav = this.get('navigation');
 	this.block_main = this.get('main');
-	this.block_switch = this.get('switcher');
+	/*this.block_switch = this.get('switcher');*/
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
@@ -51,29 +52,31 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div id="' + promotion.name + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">';
-		console.log(promotion)
 		for (let laureate of promotion.content){
-			htmlContent += '<div class="card-laureate">'+
-                '<div class="card-image">'+
-                  '<img class="img" src="'+laureate.photo+'" alt="Promo">'+
-                  '<div class="name">Name :'+laureate.name+'</div>'+
-                  '<div class="stage">Stage:'+laureate.stage+'</div>'+
-                  '<div class="job">Job '+laureate.job+': , à: '+laureate.current_enterprise+' </div>'+
-                  '<div class="experience">Expérience: '+laureate.experience+'</div>'+
-                '</div>'+
-                '<div class="card-desc">'+
-                    '<ul>'+
-                        '<li>age:'+laureate.age+'</li>'+
-                        '<li>address:'+laureate.address+'</li>'+
-                        '<li>Ville : '+laureate.ville+'</li>'+
-                        '<li>Email : '+laureate.email+'</li>'+
-                        '<li>LinkedIn: '+laureate.linked_in+' </li>'+
-                    '</ul>'+
-                '</div>'+
-                '<div class="card-reco">'+
-                     laureate.rating
-				+'</div>'+
-            '</div> <br>';
+			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
+			htmlContent += '<div class="card-laureate">\n' +
+				'<img src="' + laureate.photo + '" alt="">' +
+				'<div class="description">\n' +
+				'<div class="element"><div onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></div>' + laureate.name + '</div>\n' +
+				'<div class="card-desc">' +
+				'<ul>' +
+				'<li>Age<span class="value">' + laureate.age + '</span></li>'+
+				'<li>Adresse<span class="value">' + laureate.address + '</span></li>'+
+				'<li>Ville<span class="value">' + laureate.ville + '</span></li>'+
+				'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>'+
+				'<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+			if(laureate.experience !== []) {
+				htmlContent += '<li>Expériences<span class="value">';
+				for(let exp of laureate.experience) {
+					htmlContent += '<span class="left-space">' + exp + '</span>';
+				}
+				htmlContent += '</span></li>';
+			}
+				htmlContent += '<li>Travaille chez<span class="value">' + laureate.job + '</span></li>';
+				if(laureate.rating !== ''){
+					htmlContent += '<hr><div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
+				}
+				htmlContent += '</ul></div></div></div>';
 		}
 		htmlContent+='</div></div>' ;
 			//'<div class="details">' ;
@@ -101,6 +104,6 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	// stays last
-	addTitleIcon('../../resources/pictures/News-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png');
 	detect_subContent_trigger_left_bar();
 }

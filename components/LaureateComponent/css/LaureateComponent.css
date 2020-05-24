@@ -2,25 +2,107 @@ body {
 	display:block; 
 	margin:auto; 
 } 
-.card-laureate{
+.card-laureate {
 	width: 100%;
 	display: flex;
-	border: 2px solid lightgray;
+	border: 1px solid lightgray;
+	margin-bottom: 10px;
+	background-image: url('../../../resources/pictures/Laureates/bg-card.jpg');
+	background-repeat: no-repeat;
 }
-.card-image{
+
+.card-laureate > div {
+	display: block;
+}
+
+.card-laureate  img {
+	width: 30%;
+	height: 80%;
+	margin-left: 10px;
+}
+
+.card-laureate .description {
+	width: 70%;
+	padding: 10px;
+}
+
+.card-laureate .element {
+	color: white;
+	margin-left: 20px;
+	max-width: 100%;
+	font-size: 40px;
+	font-weight: bolder;
+}
+
+.card-laureate a {
+	color: rgb(253, 59, 76);
+	text-decoration: none;
+}
+
+.card-laureate a:hover {
+	opacity: 0.5;
+}
+
+.card-desc{
+	color: gray;
+	border: 1px solid lightgray;
+	background-color: rgba(232,231,233,0.92);
+	padding: 5px;
+	margin: 15px;
+	font-weight: bolder;
+	border-radius: 10px;
+	bottom: 0;
+}
+
+.linkedin {
+	background-image: url('../../../resources/pictures/linkedin.png');
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-right: 10px;
+}
+
+.linkedin:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.value {
+	float: right;
+	margin-right: 10px;
+}
+
+.rating {
+	border: 1px solid lightgray;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.8;
+	padding: 10px;
+	margin-left: -20px;
+	margin-right: 20px;
+}
+
+.quotes {
+	float: left;
+	background-image: url('../../../resources/pictures/Laureates/quotes.png');
+	background-repeat: no-repeat;
+	width: 70px;
+	height: 70px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+
+/*.card-image{
 	width: 30%;
 	border-right: 1px solid lightgray;
 	padding-left:  10px;
-
 }
 .img {
 	width: 90%;
 	border-bottom: 1px solid lightgray;
 }
-.card-desc{
-	width: 30%;
-	border-right: 1px solid lightgray;
-}
+
 .card-reco{
 	width: 35%;
 	padding-left:  10px;
@@ -28,5 +110,4 @@ body {
 .card-reco p{
 	display: block;
 	text-align: left;
-
-}
+}*/
