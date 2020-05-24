@@ -149,7 +149,7 @@ function getFooterContent() {
         '</div><hr>\n' +
         '<div class="partenaire">\n';
     for(let partner of partners) {
-        footerContent += '<span><a><img onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
+        footerContent += '<span><a><img id="' + partner.name + '" onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
             partner.name + '"></a></span>\n';
     }
     footerContent += '</div>\n' +
