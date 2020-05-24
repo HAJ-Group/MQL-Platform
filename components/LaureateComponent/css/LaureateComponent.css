@@ -9,6 +9,11 @@ body {
 	margin-bottom: 10px;
 	background-image: url('../../../resources/pictures/Laureates/bg-card.jpg');
 	background-repeat: no-repeat;
+	opacity: 0.4;
+}
+
+.card-laureate:hover {
+	opacity: 0.9;
 }
 
 .card-laureate > div {
