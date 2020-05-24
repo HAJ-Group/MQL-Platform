@@ -41,6 +41,7 @@ EventComponentService.prototype.load = function(dbSource) {
 		this.add(
 			new EventModel(dbSource[i].id,
 				dbSource[i].title,
+				dbSource[i].date,
 				dbSource[i].description,
 				container,
 			)

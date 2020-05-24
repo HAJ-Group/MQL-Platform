@@ -59,6 +59,7 @@ EventComponent.prototype.fillMain = function() {
 		htmlContent += '<div id="' + event.id + '" >' +
 			'<div class="title">\n' + event.title + '</div>\n' +
 			'<div class="details">' +
+			'<p class="date">' + event.date + '</p>' +
 			'<div id="gallery" class="gallery-view' + event.id + '"></div>' +
 			'<p>' + event.description + '</p>\n';
 		// Contents

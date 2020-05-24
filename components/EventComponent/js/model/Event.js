@@ -1,7 +1,8 @@
 /* Default Model for EventComponent */ 
-function EventModel(id,title,description='', content=[]) {
+function EventModel(id,title,date,description='', content=[]) {
 	this.id = id;
 	this.title=title;
+	this.date=date;
 	this.description=description;
 	this.content=content;
 }

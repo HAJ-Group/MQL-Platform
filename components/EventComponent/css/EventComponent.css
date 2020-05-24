@@ -95,7 +95,7 @@ body {
 
 
 /* Phone */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
 	.card-event {
 		display: block;
@@ -118,11 +118,11 @@ body {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.imgs img:last-child{
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	.imgs img:last-child {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 /* Animations */
 

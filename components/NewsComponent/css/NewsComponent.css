@@ -3,15 +3,7 @@ body {
 	margin:auto; 
 } 
 
-.date {
-	text-align: right;
-	margin-left: auto;
-	border: 1px solid lightgray;
-	padding: 10px;
-	border-radius: 20px;
-	width: fit-content;
-	background-color: #f5f5f5;
-}
+
 
 
 

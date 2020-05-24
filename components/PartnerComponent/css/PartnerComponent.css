@@ -1,0 +1,132 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+.container {
+	display: flex;
+	padding-top: 50px;
+}
+.partners {
+	position: relative;
+	width: 30%;
+	margin-left: 5px;
+	border: 1px solid lightgray;
+}
+
+h2 {
+	text-align: center;
+}
+
+.sep {
+	border-top: 1px solid lightgray;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.menu-img {
+	width: 100%;
+}
+
+.partners .partner {
+	padding-top: 10px;
+	height: 40px;
+	text-align: center;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	border-radius: 30px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: black;
+}
+
+.partners .active {
+	color: cornflowerblue;
+	border: 1px solid cornflowerblue;
+}
+
+.partner:hover{
+	background-image: url('../../../resources/pictures/Partners/menu-hover.jpg');
+	box-shadow: 2px 2px 2px 2px lightgray;
+}
+
+.partner:active{
+	color:rgb(253, 59, 76);
+	box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+.end-img {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+.card {
+	margin-left: 1%;
+	width: 70%;
+	min-height: 300px;
+	border: 1px solid lightgray;
+}
+
+.card-image img{
+	width: 100%;
+}
+.card-body{
+	margin-left: 2%;
+	width: 96%;
+}
+
+.card-body .title {
+	text-align: center;
+	font-size: 40px;
+}
+.card-body .ca {
+	font-size: 15px;
+	color: gray;
+	text-align: right;
+}
+.card-body .description {
+	text-align: justify;
+}
+.card-body .colabs{
+	text-align: center;
+}
+.card-body .website{
+	color: cornflowerblue;
+	text-align: center;
+}
+
+.micro-logo {
+	margin-top: 30px;
+}
+
+.website > a {
+	color: rgb(253, 59, 76);
+}
+
+@media screen and (max-width: 700px){
+
+	.container {
+		display: block;
+	}
+
+	.partners {
+		display: block;
+		width: 98%;
+		margin-bottom: 10px;
+	}
+
+	.partners .partner {
+		width: 50%;
+		margin-left: 25%;
+	}
+
+	.end-img {
+		display: none;
+	}
+
+	.card {
+		width: 98%;
+	}
+}

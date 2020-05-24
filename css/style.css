@@ -98,6 +98,14 @@ header {
     margin-top: -8px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+.image{
+    display: block;
+    width: 65%;
+    height: 500px;
+    border: solid 1px lightgray;
+    margin-left: 5px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Main content block ------------------------------------------------------------------------------------------------*/
@@ -220,6 +228,16 @@ header {
 .column img:hover {
     opacity: 0.7;
     cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.date {
+    text-align: right;
+    margin-left: auto;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 20px;
+    width: fit-content;
+    background-color: #f5f5f5;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* The Modal (background) --------------------------------------------------------------------------------------------*/
@@ -444,7 +462,7 @@ footer{
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Size of the map */
 .map-size {
-    width:600px;
+    width:100%;
     height:450px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -458,7 +476,7 @@ footer{
     overflow:hidden;
     background:none!important;
     height:200px;
-    width:343px;
+    width:100%;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* the hover for the links (Lien utiles) */
@@ -480,7 +498,9 @@ a.links:hover{
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 150px;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -649,6 +669,12 @@ a.links:hover{
     height: 50%;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+.micro-logo {
+    margin-left: 35%;
+    width: 25%;
+    height: 25%;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 .uppercase{
     text-transform: uppercase;
 }
@@ -668,7 +694,7 @@ a.links:hover{
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* HEADER ----------------------------------------------------------------------------------------------------------- */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
 
     .phone-header {
         display: block;
@@ -685,13 +711,13 @@ a.links:hover{
         background-image: url("../resources/pictures/background.jpg");
         display: none;
         /* This section calls the slideInFromLeft animation we defined above */
-        animation: 1s ease-out 0s 1 slideInFromRight;
+        animation: 0.5s ease-out 0s 1 slideInFromLeft;
     }
 
     .topnav a {
         background-color: white;
-        border-bottom: 1px solid lightgray;
-        opacity: 0.8;
+        border: 1px solid lightgray;
+        margin-top: -1px;
     }
 
     .topnav a:hover {
@@ -719,6 +745,11 @@ a.links:hover{
         float:left;
     }
 
+    .move-left > img:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
     .move-right {
         float: right;
         padding-top: 10px;
@@ -732,7 +763,7 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* MAIN CONTENT ------------------------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
     .content {
         max-width: 100%;
@@ -743,16 +774,21 @@ a.links:hover{
     }
 
     .sub-content{
-        margin-left: 0%;
+        margin-left: 0;
     }
 
     .modal-content {
         width: 100%;
     }
 
-    .book-images img {
-        width: 75%;
+    .image {
+        width: 97%;
         height: 300px;
+    }
+
+    .book-images img {
+        width: 70%;
+        height: 50%;
     }
 
     .column img {
@@ -760,10 +796,14 @@ a.links:hover{
         height: 100%;
     }
 
+    .startext {
+        font-size: 20px;
+    }
+
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER ------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
 
     .partenaire{
         height: 400px;
@@ -801,4 +841,14 @@ a.links:hover{
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+/* FIXING MODIFICATIONS*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 800px){
+    .content {
+        max-width: 100%;
+    }
 
+    .flex-container > div > ul > li {
+        font-size: 10px;
+    }
+}
