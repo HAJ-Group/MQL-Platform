@@ -1,0 +1,12 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+
+.list-recommendations{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-around;
+}
+
