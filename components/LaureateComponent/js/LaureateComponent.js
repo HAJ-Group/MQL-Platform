@@ -106,11 +106,17 @@ LaureateComponent.prototype.showInfos = function(id) {
 	let item = this.get('item-' + id);
 	item.style.display = 'none';
 	let info = this.get(id);
-	info.style.display = 'flex';
+	if(window.innerWidth <= 700){
+		info.style.display = 'block';
+	}
+	else info.style.display = 'flex';
 };
 LaureateComponent.prototype.hideInfos = function (id) {
 	let item = this.get('item-' + id);
-	item.style.display = 'flex';
+	if(window.innerWidth <= 700){
+		item.style.display = 'block';
+	}
+	else item.style.display = 'flex';
 	let info = this.get(id);
 	info.style.display = 'none';
 };
