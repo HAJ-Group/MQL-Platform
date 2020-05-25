@@ -20,7 +20,7 @@ body {
 	display: block;
 }
 
-.card-laureate  img {
+.card-laureate img {
 	width: 30%;
 	height: 270px;
 	margin-left: 10px;
@@ -29,6 +29,13 @@ body {
 
 .card-laureate .description {
 	width: 70%;
+	padding: 10px;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+.card-laureate .item-description {
+	width: 100%;
 	padding: 10px;
 }
 
@@ -39,7 +46,16 @@ body {
 	font-size: 40px;
 	font-weight: bolder;
 }
-.card-laureate .element:hover {
+
+.card-laureate .item-element {
+	color: white;
+	margin-left: 20px;
+	max-width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.card-laureate .element:hover, .card-laureate .item-element:hover {
     opacity: 0.6;
     cursor: pointer;
 }
