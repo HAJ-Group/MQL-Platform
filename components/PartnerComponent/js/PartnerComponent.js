@@ -69,6 +69,17 @@ PartnerComponent.prototype.show = function (id) {
     show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
     this.get('menu-' + id).classList.add('active');
 };
+PartnerComponent.prototype.show2 = function (id) {
+	let hide_block= this.get(this.currentblock);
+	this.get('menu-' + this.currentblock).classList.remove('active');
+	let show_block = this.get(id);
+	this.currentblock=id;
+	hide_block.style.display = 'none';
+	show_block.style.display = 'block';
+	show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
+	this.get('menu-' + id).classList.add('active');
+	window.location.href='#'+id;
+};
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
 		let partner = document.getElementsByClassName('card')[i];
@@ -88,7 +99,7 @@ PartnerComponent.prototype.trigger = function () {
 PartnerComponent.prototype.ajustLinks = function () {
 	let links = document.getElementsByClassName('img-partenaire');
 	for(let link of links) {
-		link.setAttribute('onclick', 'view.show(\'' + link.id + '\')');
+		link.setAttribute('onclick', 'view.show2(\'' + link.id + '\')');
 	}
 };
 /* Main Function */ 

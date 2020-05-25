@@ -2,9 +2,9 @@
 let dbNews = [
     {
         id :1,
-        title:'News 1',
+        title:'Plateforme MQL',
         date:'17-05-2020',
-        desciption:'le groupe dsldksgmldkgsmlkgdsmlgksmdlgk',
+        desciption:'Le master Qualité du Logiciel lance sa plateforme officielement sur le site web de la faculté de sciences, la plateforme offre des informations détailées sur le master ',
         images:['mqlfam.jpg', 'Home.jpg', 'Event.jpg'],
     },
     {

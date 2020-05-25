@@ -12,6 +12,18 @@ let dbLaureat09=[
 		rating : 'my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla my name is ennouinou alaeddine and i am 22 years old bla bla bla bla bla bla bla bla bla',
 		linked_in :'https://www.google.com',
 	},
+	{
+		id:2,
+		name:'Ennouinou Alaeddinne',
+		city:'Kenitra, Maroc',
+		email:'alae@hotmail.com',
+		stage:'CAP',
+		current_enterprise : 'ZBALA',
+		experience:['cap','cgi','google'],
+		photo:'',
+		rating : '',
+		linked_in :'https://www.google.com',
+	},
 ];
 let dbLaureat10=[
 	{
