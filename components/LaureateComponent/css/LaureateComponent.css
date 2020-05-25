@@ -2,6 +2,164 @@ body {
 	display:block; 
 	margin:auto; 
 }
+.card-laureate {
+	width: 100%;
+	display: flex;
+	border: 1px solid lightgray;
+	margin-bottom: 10px;
+	background-image: url('../../../resources/pictures/Laureates/bg-card.jpg');
+	background-repeat: no-repeat;
+	opacity: 0.4;
+}
+
+.card-laureate:hover {
+	opacity: 0.9;
+}
+
+.card-laureate > div {
+	display: block;
+}
+
+.card-laureate img {
+	width: 30%;
+	height: 270px;
+	margin-left: 10px;
+	border-radius: 10px;
+}
+
+.card-laureate .description {
+	width: 70%;
+	padding: 10px;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+.card-laureate .item-description {
+	width: 100%;
+	padding: 10px;
+}
+
+.card-laureate .element {
+	color: white;
+	margin-left: 20px;
+	max-width: 100%;
+	font-size: 40px;
+	font-weight: bolder;
+}
+
+.card-laureate .item-element {
+	color: white;
+	margin-left: 20px;
+	max-width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.card-laureate .element:hover, .card-laureate .item-element:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.card-laureate a {
+	color: rgb(253, 59, 76);
+	text-decoration: none;
+}
+
+.card-laureate a:hover {
+	opacity: 0.5;
+}
+
+.card-desc{
+	color: gray;
+	border: 1px solid lightgray;
+	background-color: rgba(232,231,233,0.92);
+	padding: 5px;
+	margin: 15px;
+	font-weight: bolder;
+	border-radius: 10px;
+	bottom: 0;
+}
+
+.linkedin {
+	background-image: url('../../../resources/pictures/linkedin.png');
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
+	float: right;
+	margin-right: auto;
+}
+
+.linkedin:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.value {
+	float: right;
+	margin-right: 10px;
+}
+
+.rating {
+	border: 1px solid lightgray;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.8;
+	padding: 10px;
+	margin-left: -20px;
+	margin-right: 20px;
+	overflow: scroll;
+	height: 75px;
+
+}
+
+.quotes {
+	float: left;
+	background-image: url('../../../resources/pictures/Laureates/quotes.png');
+	background-repeat: no-repeat;
+	width: 70px;
+	height: 70px;
+	margin-top: 20px;
+	margin-right: 10px;
+	opacity: 0.6;
+}
+
+@media screen and (max-width: 700px){
+
+	.card-laureate {
+		display: block;
+	}
+
+	.card-laureate .description {
+		width: 100%;
+		padding: 10px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+	}
+
+	.quotes {
+		display: none;
+	}
+
+	.card-laureate img {
+		width: 25%;
+		height: 100px;
+		margin-left: 35%;
+		border-radius: 10px;
+	}
+
+	.card-laureate .element {
+		color: white;
+		margin-left: 20px;
+		max-width: 100%;
+		font-size: 25px;
+		font-weight: bolder;
+	}
+
+	.linkedin {
+		margin-right: 20px;
+	}
+
+}
 
 .list-recommendations{
 	display: flex;
@@ -100,7 +258,9 @@ q:after{
 	display: flex;
 	flex-direction: column;
 	padding: 5px 0px 0px 0px;
-	font-size: 20px;
+	font-family: "Sitka Display", serif;
+	font-style: italic;
+	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
 	/*    background-color: cyan;*/

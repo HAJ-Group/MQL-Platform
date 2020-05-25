@@ -4,14 +4,7 @@ function ActivityComponentService() {
 } 
 // Add model to database table object 
 ActivityComponentService.prototype.add = function (oneActivity) { 
-	this.db.push(
-		new Activity(
-			oneActivity.id,
-			oneActivity.description,
-			oneActivity.modules,
-			oneActivity.activity
-		)
-	);
+	this.db.push(oneActivity);
 }; 
 // Remove from database object by index 
 ActivityComponentService.prototype.remove = function(index) { 

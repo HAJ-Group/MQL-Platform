@@ -31,19 +31,20 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 	this.block.innerHTML +=
 		'<div class="card" id="'+onePartner.name+'">' +
 			'<div class="card-image">' +
-				'<img src="'+onePartner.image+'" alt="">' +
+				'<img src="'+onePartner.bg+'" alt="">' +
 			'</div>'+
 			'<div class="card-body">' +
-				'<div class="title">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div>'+
+				'<div class="title">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div><hr>'+
 				'<p class="description">'+onePartner.description+'</p>'+
 				'<p class="colabs">Nombre de collobaroteurs de MQL chez CGi est :'+onePartner.nbr_colla+'</p>'+
+				'<img src="' + onePartner.image + '" class="micro-logo" alt="">' +
 				'<p class="website">Site web officiel : <a href="https://'+onePartner.website+'" target="_blank">'+onePartner.website+'</a></p>'+
 			'</div>'
 		;
 };
 PartnerComponent.prototype.addMenuPartners = function (onePartner) {
 	this.partners.innerHTML +=
-			'<div class="partner" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
+			'<div id="menu-' + onePartner.name + '" class="partner active" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
 };
 // Printing all service data into the table member
 PartnerComponent.prototype.printPartners = function () {
@@ -51,6 +52,7 @@ PartnerComponent.prototype.printPartners = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addMenuPartners(this.service.get(i));
 	}
+	this.partners.innerHTML += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">'
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addOnePartner(this.service.get(i));
 	}
@@ -58,19 +60,35 @@ PartnerComponent.prototype.printPartners = function () {
 
 
 PartnerComponent.prototype.show = function (id) {
-    let hiddenblock=this.get(this.currentblock);
-	let showblock = this.get(id);
+    let hide_block= this.get(this.currentblock);
+	this.get('menu-' + this.currentblock).classList.remove('active');
+	let show_block = this.get(id);
 	this.currentblock=id;
-    hiddenblock.style.display = 'none';
-    	showblock.style.display = 'block';
-    showblock.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
-
-
+    hide_block.style.display = 'none';
+    show_block.style.display = 'block';
+    show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
+    this.get('menu-' + id).classList.add('active');
 };
-PartnerComponent.prototype.hidden = function () {
+PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
 		let partner = document.getElementsByClassName('card')[i];
 		partner.style.display = 'none';
+		document.getElementsByClassName('partner')[i].classList.remove('active');
+	}
+};
+
+PartnerComponent.prototype.trigger = function () {
+	let anchor = window.location.href.split('#')[1];
+	if(anchor !== undefined) {
+		this.get('menu-' + anchor).click();
+		window.location.href = '#' + anchor;
+	}
+};
+
+PartnerComponent.prototype.ajustLinks = function () {
+	let links = document.getElementsByClassName('img-partenaire');
+	for(let link of links) {
+		link.setAttribute('onclick', 'view.show(\'' + link.id + '\')');
 	}
 };
 /* Main Function */ 
@@ -80,5 +98,7 @@ function main() {
 	view = new PartnerComponent(service); 
 	//view.printPartnerList(); Uncomment to print data in table member
 	view.printPartners();
-	view.hidden();
+	view.hideAll();
+	view.trigger();
+	view.ajustLinks();
 } 
