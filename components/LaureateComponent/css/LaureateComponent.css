@@ -279,9 +279,12 @@ q:after{
 
 @media screen and (max-width: 970px){
 
+
+
 	.recommendation{
 		display: flex;
 		flex-direction: column;
+
 		min-height: 600px;
 		width: 40%;
 	}
@@ -295,23 +298,27 @@ q:after{
 		width: 100%;
 	}
 
-	.image{
+	.image-person{
 		margin: auto;
 		min-height: 130px;
 		max-height: 190px;
+		min-width: 160px;
+		max-width: 160px;
 		width: 80%;
 	}
 
 	.opinion{
+		margin-left: -10px;
 		margin-top: 5px;
 		height: 55%;
 		width: 96%;
+		min-width: 140px;
 		word-wrap: break-word;
 	}
 
 	.infos{
 		padding: 3px 0px 0px 3px;
-		min-width: 250px;
+		min-width: 190px;
 		width: 100%;
 		text-align: left;
 	}
@@ -322,6 +329,13 @@ q:after{
 
 	.society{
 		width: 100%;
+	}
+
+}
+
+@media screen and (max-width: 310px) {
+	.list-recommendations{
+		margin-left: -70px;
 	}
 
 }
