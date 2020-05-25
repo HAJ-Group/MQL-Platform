@@ -5,14 +5,16 @@ body {
 
 
 .container {
-	padding-left: 30px;
-	padding-right: 30px;
+	/*padding-left: 30px;*/
+	/*padding-right: 30px;*/
 }
-
+.sub-content{
+	margin-left: 10%;
+}
 /* Container of the card and its title */
 .big-container{
 	/* background-color: cornflowerblue;*/
-	padding: 10px;
+	/*padding: 10px;*/
 }
 
 .zone-title {
@@ -22,10 +24,6 @@ body {
 }
 
 .container-border{
-	padding: 10px;
-	border-left: 1px solid #bbbbbb;
-	border-bottom: 1px solid #bbbbbb;
-	border-right: 1px solid #bbbbbb;
 	background-color: white;
 }
 
