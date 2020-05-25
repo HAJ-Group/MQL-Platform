@@ -343,3 +343,16 @@ q:after{
 	}
 
 }
+
+
+.titles-laureates{
+	text-align: center;
+
+}
+
+.promotions-style{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid chocolate;
+	border-radius: 5px;
+}
