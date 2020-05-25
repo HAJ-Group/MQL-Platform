@@ -47,14 +47,30 @@ body {
 .card {
     position: relative;
 	font-family: MontserratBold, serif;
-	width: 500px;
-	height: 680px;
+	width: 45%;
+	min-height: 700px;
 	border-radius: 5px;
 	box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
 	overflow: hidden; /* otherwise header image won't respect rounded corners */
 	background-color: #f7fbdf;
 	margin: 10px;
 	transition: all .4s ease; /* back to normal */
+}
+
+.semester-description{
+	width: 93%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	padding: 10px;
+	background-color: #f7fbdf;
+	border: 1px solid #c4c4c4;
+	border-radius: 5px;
+
+}
+
+.semester-description > p{
+	padding: 0px;
 }
 
 .card-activities{
@@ -252,4 +268,11 @@ body {
 .container-image > img{
 	margin-left: 10%;
 	width:80%;
+}
+
+
+@media screen and (max-width: 1024px){
+	.logo-mql{
+		display: none;
+	}
 }
