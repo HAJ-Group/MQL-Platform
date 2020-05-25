@@ -1,8 +1,8 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 	<head> 
-		<meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
 		<title>LaureateComponent</title> 
 		<link rel="stylesheet" href="../../css/style.css"> 
 		<link rel="stylesheet" href="css/LaureateComponent.css"> 
@@ -12,7 +12,7 @@
 		<script src="js/service/LaureateComponentService.js"></script> 
 		<script src="js/LaureateComponent.js"></script> 
 	</head> 
-	<body onload="main()"> 
+	<body onload="main()" onresize="view.updateView()">
 		<div class="content"> 
 			<div id="header"></div>
 			<div class="container">
@@ -116,9 +116,8 @@
 				</div>
 				<div id="main" class="sub-content">
 				</div>
-				<div id="footer"></div>
 			</div>
+			<div id="footer"></div>
 		</div>
-
 	</body>
 </html> 
