@@ -63,7 +63,7 @@ ActivityComponent.prototype.printSemesters = function(){
 
 		for (let j = 1; j <= 3; j++) {
 			if (j === 1){
-				cards += '<div class="card">' +
+			/*	cards += '<div class="card">' +
 				'<img class="card-image" src="' + semesterI.description[0] + '" alt="">' +
 					'<div class="card-text">' +
 						'<div class="card-subject"> ' + 'Description' +' </div>' +
@@ -74,7 +74,13 @@ ActivityComponent.prototype.printSemesters = function(){
 							'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
 						'' +
 					'</div>' +
-				'</div>';
+				'</div>';*/
+				cards += '<div class="semester-description">'
+
+							+ '<p>' + semesterI.description[1] + '</p>' +
+
+					     '</div>' +
+					'';
 			}
 
 			if (j === 2){
@@ -95,7 +101,6 @@ ActivityComponent.prototype.printSemesters = function(){
 					'</div>';
 			}
 			if (j === 3){
-
 
 				cards += '<div class="card" id="card">' +
 					'<img class="card-image" src="' + activityImage + '" alt="">' +
