@@ -120,6 +120,11 @@ LaureateComponent.prototype.hideInfos = function (id) {
 	let info = this.get(id);
 	info.style.display = 'none';
 };
+LaureateComponent.prototype.updateView = function () {
+	if(window.innerWidth > 700){
+		window.location.reload();
+	}
+};
 /* Main Function */
 function main() { 
 	service = new LaureateComponentService(); 
