@@ -31,8 +31,7 @@ body {
 
 
 .title-top-cards{
-	display: inline-block;
-	width: 97%;
+	display: block;
 	background-color: coral;
 }
 
