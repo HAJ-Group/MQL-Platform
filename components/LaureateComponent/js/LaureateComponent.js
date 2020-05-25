@@ -38,7 +38,7 @@ LaureateComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let promotion of this.service.dbP) {
 		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" href="#' + promotion.name + '">' + promotion.name + '</a></div>\n';
+			'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
@@ -49,22 +49,30 @@ LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let promotion of this.service.dbP) {
 		htmlContent +=
-			'<div id="' + promotion.name + '" >' +
+			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">';
-		for (let laureate of promotion.content){
+		for (let laureate of promotion.content) {
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
-			htmlContent += '<div class="card-laureate">\n' +
+			// LIST ITEM
+			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
+				'<div class="item-description">\n' +
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
+				'</div></div>';
+			// INFO BODY
+			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
 				'<img src="' + laureate.photo + '" alt="">' +
 				'<div class="description">\n' +
-				'<div class="element"><div onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></div>' + laureate.name + '</div>\n' +
+				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
-				'<ul>' +
-				'<li>Age<span class="value">' + laureate.age + '</span></li>'+
-				'<li>Adresse<span class="value">' + laureate.address + '</span></li>'+
-				'<li>Ville<span class="value">' + laureate.ville + '</span></li>'+
-				'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>'+
-				'<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+				'<ul>';
+			// STAGE
+			if(laureate.stage !== '') {
+				htmlContent += '<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+			}
+			// EXPERIENCES
 			if(laureate.experience !== []) {
 				htmlContent += '<li>Expériences<span class="value">';
 				for(let exp of laureate.experience) {
@@ -72,21 +80,18 @@ LaureateComponent.prototype.fillMain = function () {
 				}
 				htmlContent += '</span></li>';
 			}
-				htmlContent += '<li>Travaille chez<span class="value">' + laureate.job + '</span></li>';
-				if(laureate.rating !== ''){
-					htmlContent += '<hr><div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
-				}
-				htmlContent += '</ul></div></div></div>';
+			// ENTERPRISE && CITY
+			if(laureate.current_enterprise !== '' && laureate.city !== '') {
+				htmlContent += '<li>Travaille chez<span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
+					'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
+			}
+			// DESCRIPTION
+			if(laureate.rating !== ''){
+				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
+			}
+			htmlContent += '</ul></div></div></div>';
 		}
 		htmlContent+='</div></div>' ;
-			//'<div class="details">' ;
-		// 	'<p class="date">' + news.date + '</p>' +
-		// 	'<p>' + news.description + '</p>\n' +
-		// 	'<div class="row"><span class="column">';
-		// for(let image of news.images) {
-		// 	htmlContent += '<img onclick="popIMG(this.id)" id="id_' + image + '" src="../../resources/pictures/' + image + '" alt="MQL PLATFORM">\n';
-		// }
-		// htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
 	this.block_main.innerHTML = htmlContent;
 };
@@ -94,6 +99,30 @@ LaureateComponent.prototype.fillMain = function () {
 LaureateComponent.prototype.printPromotionsCards = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addLaureateRow(this.service.get(i));
+	}
+};
+// Collapse cards
+LaureateComponent.prototype.showInfos = function(id) {
+	let item = this.get('item-' + id);
+	item.style.display = 'none';
+	let info = this.get(id);
+	if(window.innerWidth <= 700){
+		info.style.display = 'block';
+	}
+	else info.style.display = 'flex';
+};
+LaureateComponent.prototype.hideInfos = function (id) {
+	let item = this.get('item-' + id);
+	if(window.innerWidth <= 700){
+		item.style.display = 'block';
+	}
+	else item.style.display = 'flex';
+	let info = this.get(id);
+	info.style.display = 'none';
+};
+LaureateComponent.prototype.updateView = function () {
+	if(window.innerWidth > 700){
+		window.location.reload();
 	}
 };
 /* Main Function */
