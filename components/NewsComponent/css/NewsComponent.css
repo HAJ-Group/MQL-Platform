@@ -1,9 +1,12 @@
 body { 
 	display:block; 
 	margin:auto; 
-} 
+}
 
-
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
 
 
 

@@ -186,8 +186,6 @@ body {
 }
 
 
-
-
 .left-border{
 	height: 300px;
 	width: 4px;
@@ -224,7 +222,7 @@ q {
 
 .opinion > p{
 	padding-left: 6px;
-	border-left: 3px solid crimson;
+	border-left: 3px solid rgb(253, 59, 76);
 }
 
 q:before {
@@ -289,8 +287,6 @@ q:after{
 
 @media screen and (max-width: 970px){
 
-
-
 	.recommendation{
 		display: flex;
 		flex-direction: column;
@@ -347,7 +343,6 @@ q:after{
 	.list-recommendations{
 		margin-left: -70px;
 	}
-
 }
 
 

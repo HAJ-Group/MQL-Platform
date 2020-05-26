@@ -15,10 +15,10 @@ let dbActivity = [
 				'Ingénierie logiciélle et UML'
 				],
 		activity: ['../../resources/pictures/cafe.png',
-			'Compétences Techniques et technologiques : Chaque module est une formation théorique et technique',
-			'Autonomie : Traveaux pritiques et projets individuels',
-			'Bonnes pratiques en développement : Design Patterns',
-			'Assiduité et Respet des deadlines : Projets avec Livrables',
+			'Compétences Techniques et technologiques (Chaque module est une formation théorique et technique) ',
+			'Autonomie(Traveaux pritiques et projets individuels',
+			'Bonnes pratiques en développement(Design Patterns)',
+			'Assiduité et Respet des deadlines(Projets avec Livrables)',
 
 		],
 	},
@@ -36,11 +36,11 @@ let dbActivity = [
 		],
 		activity:  [
 			'../../resources/pictures/cafe.png',
-			'Travail d\'équipe : 4 à 6 étudiants / équipe',
+			'Travail d\'équipe(4 à 6 étudiants / équipe)',
 			'Recherche, Lecture, Rédaction',
-			'Communication : Présentation orale chaque semaine, chaque membre de l\'équipe : 15 à 30 min par équipe',
+			'Communication(Présentation orale chaque semaine, chaque membre de l\'équipe : 15 à 30 min par équipe)',
 			'Critiques et Autocritique',
-			'Méthodologies de travail + Méthodes Agiles : Scrum',
+			'Méthodologies de travail + Méthodes Agiles(Scrum & XP)',
 			]
 	},
 	{

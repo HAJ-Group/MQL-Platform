@@ -66,7 +66,6 @@ PartnerComponent.prototype.show = function (id) {
 	this.currentblock=id;
     hide_block.style.display = 'none';
     show_block.style.display = 'block';
-    show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
     this.get('menu-' + id).classList.add('active');
 };
 PartnerComponent.prototype.show2 = function (id) {
@@ -76,7 +75,6 @@ PartnerComponent.prototype.show2 = function (id) {
 	this.currentblock=id;
 	hide_block.style.display = 'none';
 	show_block.style.display = 'block';
-	show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
 	this.get('menu-' + id).classList.add('active');
 	window.location.href='#'+id;
 };

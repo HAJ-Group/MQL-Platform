@@ -3,6 +3,11 @@ body {
 	margin:auto;
 }
 
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
 .card-event {
 	display: flex;
 	border: 1px solid lightgray;

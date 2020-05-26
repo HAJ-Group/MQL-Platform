@@ -47,7 +47,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		for (let j = 0; j < semesterI.modules.length; j++) {
 			moduleImage = semesterI.modules[0];
 			if (j === 0) continue;
-			modules += '<li> ' + 'M' + (j) + ' : ' + semesterI.modules[j] + ' </li>';
+			modules += '<li>' + 'M' + (j) + '(' + semesterI.modules[j] + ')</li>';
 		}
 		modules += '</ul>';
 
@@ -76,13 +76,10 @@ ActivityComponent.prototype.printSemesters = function(){
 					'</div>' +
 				'</div>';*/
 				cards += '<div class="semester-description">'
-
 							+ '<p>' + semesterI.description[1] + '</p>' +
-
 					     '</div>' +
 					'';
 			}
-
 			if (j === 2){
                 if (i === 3)
                     cards += '';
@@ -90,44 +87,32 @@ ActivityComponent.prototype.printSemesters = function(){
 				cards += '<div class="card">' +
 					'<img class="card-image" src="' + moduleImage + '" alt="">' +
 						'<div class="card-text">' +
-							'<div class="card-subject"> ' + 'Modules' +' </div>' +
-							'<div class="subject"> ' + modules + ' </div>' +
+							'<div class="card-subject">' + 'Modules' +' </div>' +
+							'<div class="subject">' + modules + ' </div>' +
 						'</div>' +
 						'<div class="card-footer">' +
-							'' +
 								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-							'' +
-						'</div>' +
-					'</div>';
+						'</div></div>';
 			}
 			if (j === 3){
 
 				cards += '<div class="card" id="card">' +
 					'<img class="card-image" src="' + activityImage + '" alt="">' +
 						'<div class="card-text">' +
-							'<div class="card-subject"> ' + 'Valeurs' +' </div>' +
-							'<div class="subject"> ' + activities + ' </div>' +
+							'<div class="card-subject">' + 'Valeurs' +'</div>' +
+							'<div class="subject">' + activities + '</div>' +
 						'</div>' +
 						'<div class="card-footer">' +
-							'' +
-								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-							'' +
-						'</div>' +
-					'</div>';
+								'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">'  +
+						'</div></div>';
 			}
 		}
 
-		subjectZone.innerHTML +=
-			'<div class="big-container">' +
-				'<div class="title-top-cards collapsible">' + semesterName +
-					'' +
-				'</div>' +
-				'<div class="cards-container content-card">' +
-					' ' + cards + ' ' +
-				'</div>' +
-			' </div>';
+		subjectZone.innerHTML += '<div class="big-container">' +
+			'<div class="title-top-cards collapsible">' + semesterName + '</div>' +
+			'<div class="cards-container content-card">' + cards + '</div></div>';
 	}
-}
+};
 
 /*
 ActivityComponent.prototype.printSubjects = function () {

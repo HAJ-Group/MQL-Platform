@@ -3,6 +3,11 @@ body {
 	margin:auto;
 }
 
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
 .main-box{
 	display: flex;
 	margin-top: 5px;
@@ -152,6 +157,12 @@ a:hover {
 	width: 80%!important;
 	margin-left: 10%!important;
 }
+
+.mql-video {
+	width: 100%;
+	border: 2px solid cornflowerblue;
+}
+
 /* Animations */
 
 @keyframes slideShow {

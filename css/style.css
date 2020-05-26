@@ -175,19 +175,21 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 .content {
     margin: auto;
-    background: white;
     -webkit-box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
     -moz-box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
     box-shadow: 0 -20px 20px 0 rgba(0,0,0,0.4);
+    background-color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* THE BODY BETWEEN THE HEADER AND THE FOOTER */
 .container{
     padding: 10px;
+    background-color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Navigation Menu ---------------------------------------------------------------------------------------------------*/
 .left-menu {
+    background-color: white;
     margin-top: 20px;
     border: 3px solid cornflowerblue;
     border-radius: 10px;
@@ -216,6 +218,7 @@ header {
 }
 .sub-content{
     margin-left: 25%;
+    background-color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Title and Details -------------------------------------------------------------------------------------------------*/
@@ -848,6 +851,10 @@ a.links:hover{
 
     .sub-content{
         margin-left: 0;
+    }
+
+    .details  {
+        font-size: 14px;
     }
 
     .modal-content {
