@@ -1,6 +1,6 @@
 /*Global Variables*/ 
 let view; 
-let service; 
+let service;
 /*Default class*/ 
 function AreaComponent(service) { 
 	//TODO: Intitialize controller for AreaComponent 
@@ -26,6 +26,7 @@ AreaComponent.prototype.printAreaList = function () {
 };
 
 AreaComponent.prototype.promptLogin = function () {
+	this.get('restricted').style.display = 'none';
 	let window = document.getElementById('login-window');
 	window.style.display = 'block';
 };
@@ -34,8 +35,14 @@ AreaComponent.prototype.authenticate = function() {
 	let username = this.get('username').value;
 	let password = this.get('password').value;
 	if(this.service.isExist(username, password)) {
-		alert('Authentication successful');
+		// REMOVE RESTRICTIONS
 		this.get('errorBlock').style.display = 'none';
+		this.get('login-window').style.display = 'none';
+		this.get('user').innerHTML = username;
+		this.get('phone-user').innerHTML = username;
+		this.get('restricted').style.display = 'block';
+		// GRANT ACCESS (WORKING ONLY WHEN DATA IS EXTERNAL)
+		grant_access = true;
 	} else {
 		this.get('errorMess').innerHTML = 'Username or Password not valid';
 		this.get('errorBlock').style.display = 'block';

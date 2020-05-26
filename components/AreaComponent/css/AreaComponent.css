@@ -128,30 +128,56 @@ body {
 	opacity: 1;
 }
 
-@media screen and (max-width: 1400px){
-	.access-content {
-		width: 90%;
-		height: 600px;
-		animation-name: zoom;
-		animation-duration: 0.6s;
-		margin-top: 5%;
-		margin-left: 10px;
-		border-radius: 30px;
-	}
 
-	.access-button {
-		width: 40%;
-		padding: 20px;
-		margin-left: 2%;
-		margin-top: 15px;
-		border-radius: 15px;
-	}
 
-	.access-username, .access-password {
-		width: 60%;
-		height: 40px;
-		margin-left: -8%;
-	}
+/* RESTRICTED AREA */
+.profile {
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.phone-profile {
+	display: none;
+}
+
+.profile > img {
+    width: 100%;
+}
+
+.user-block {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.manage-block {
+	display: flex;
+	width: 100%;
+}
+
+.manage-card {
+	width: 45%;
+	padding: 10px;
+}
+
+.manage-card > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	opacity: 0.7;
+}
+
+.manage-card > img:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.manage-card > p {
+	font-weight: bolder;
+	font-size: 20px;
+	text-align: center;
 }
 
 @media screen and (max-width: 700px){
@@ -227,4 +253,57 @@ body {
 		border-radius: 15px;
 	}
 
+	.container {
+		display: block;
+	}
+
+	.manage-block {
+		display: block;
+	}
+
+	.manage-card {
+		width: 97%;
+	}
+
+	.phone-profile {
+		display: flex;
+		width: 97%;
+		border: 1px solid lightgray;
+		border-radius: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.phone-profile > img {
+		width: 50%;
+		margin-right: 20px;
+		margin-left: 10px;
+	}
+
+}
+
+@media screen and (max-width: 1400px){
+	.access-content {
+		width: 90%;
+		height: 600px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-left: 10px;
+		border-radius: 30px;
+	}
+
+	.access-button {
+		width: 40%;
+		padding: 20px;
+		margin-left: 2%;
+		margin-top: 15px;
+		border-radius: 15px;
+	}
+
+	.access-username, .access-password {
+		width: 60%;
+		height: 40px;
+		margin-left: -8%;
+	}
 }
