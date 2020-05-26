@@ -128,6 +128,7 @@ body {
 
 	.card-laureate {
 		display: block;
+		background-repeat: repeat;
 	}
 
 	.card-laureate .description {
@@ -151,11 +152,14 @@ body {
 	.card-laureate .element {
 		color: white;
 		margin-left: 20px;
-		max-width: 100%;
+		max-width: 90%;
 		font-size: 25px;
 		font-weight: bolder;
 	}
 
+	.card-laureate .item-element {
+		max-width: 90%;
+	}
 	.linkedin {
 		margin-right: 20px;
 	}

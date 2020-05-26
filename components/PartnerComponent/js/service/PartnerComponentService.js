@@ -30,6 +30,7 @@ PartnerComponentService.prototype.load = function(dbSource) {
 				dbSource[i].ca,
 				dbSource[i].description,
 				dbSource[i].nbr_colla,
+				dbSource[i].zone,
 				dbSource[i].website,
 				dbSource[i].image,
 			)

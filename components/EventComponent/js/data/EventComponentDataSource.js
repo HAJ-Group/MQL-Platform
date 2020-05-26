@@ -48,8 +48,8 @@ let dbEvent = [
 			},
 			{
 				type:'card',
-				title:'Test Technique',
-				description: 'Un entretien technique  sur les différents aspects du developpement informatique.',
+				title:'Entretien RH',
+				description: 'Le candidat doit mettre en avant son expérience, ses compétences et sa personnalité à travers la description de son parcours professionnel.',
 				image:'../../resources/pictures/HRInter.jpg',
 			},
 			{
@@ -67,7 +67,7 @@ let dbEvent = [
 		content: [
 			{
 				type:'image-show',
-				title:'Gallerie',
+				title:'Galerie',
 				images: dbEventBook2,
 			}
 		],
@@ -86,7 +86,7 @@ let dbEvent = [
 			},
 			{
 				type:'image-grid',
-				title:'Gallerie',
+				title:'Galerie',
 				description:'Les lauréats MQL ne s\'arretent pas à l\'insertion professionnelle mais excellent dans leurs postes professionnels et deviennent des éléments clé pour le developpement des multinationales. ils aident également les nouvelles générations( formations, informations ...) dans une solidarité familiale.',
 				images: [
 					'../../resources/pictures/Events/CE2-1.jpg',
