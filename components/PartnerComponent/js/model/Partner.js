@@ -1,5 +1,5 @@
 /* Default Model for PartnerComponent */ 
-function Partner(id,bg,name,ca,description,nbr_colla,website,image) {
+function Partner(id,bg,name,ca,description,nbr_colla,zone,website,image) {
 	//TODO: Intitialize model properties 
 	this.id = id;
 	this.bg=bg;
@@ -7,6 +7,7 @@ function Partner(id,bg,name,ca,description,nbr_colla,website,image) {
 	this.ca=ca;
 	this.description = description;
 	this.nbr_colla = nbr_colla;
+	this.zone=zone;
 	this.website=website;
 	this.image = image;
 }

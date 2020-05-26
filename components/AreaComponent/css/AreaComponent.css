@@ -31,25 +31,26 @@ body {
 }
 
 .access-content {
-	width: 1000px;
-	height: 700px;
+	width: 90%;
+	height: 90%;
 	padding: 10px;
 	animation-name: zoom;
 	animation-duration: 0.6s;
 	margin-top: 5%;
-	margin-left: 23%;
+	margin-left: auto;
+	margin-right: auto;
 	background-image: url('../../../resources/pictures/Area/imgaccess.jpg');
 	background-repeat: no-repeat;
 	border-radius: 30px;
 }
 
 .access-title {
-	width: 80%;
+	width: 90%;
 	margin-top: 40px;
-	text-align: left;
+	text-align: center;
 	font-size: 60px;
 	font-weight: bolder;
-	margin-left: 10px;
+	margin-left:20%;
 	color: white;
 	text-shadow: 2px 2px #4b4c54;
 }
@@ -284,12 +285,13 @@ body {
 
 @media screen and (max-width: 1400px){
 	.access-content {
-		width: 90%;
+		width: 80%;
 		height: 600px;
 		animation-name: zoom;
 		animation-duration: 0.6s;
 		margin-top: 5%;
-		margin-left: 10px;
+		margin-right: auto;
+		margin-left: auto;
 		border-radius: 30px;
 	}
 

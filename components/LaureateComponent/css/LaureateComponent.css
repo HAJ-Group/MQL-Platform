@@ -42,8 +42,8 @@ body {
 .card-laureate .element {
 	color: white;
 	margin-left: 20px;
-	max-width: 100%;
-	font-size: 40px;
+	max-width: 93%;
+	font-size: 25px;
 	font-weight: bolder;
 }
 
@@ -51,7 +51,7 @@ body {
 	color: white;
 	margin-left: 20px;
 	max-width: 100%;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
@@ -79,7 +79,9 @@ body {
 	border-radius: 10px;
 	bottom: 0;
 }
-
+.card-desc ul {
+	padding-inline-start: 30px;
+}
 .linkedin {
 	background-image: url('../../../resources/pictures/linkedin.png');
 	background-repeat: no-repeat;
@@ -105,7 +107,6 @@ body {
 	border-radius: 10px;
 	opacity: 0.8;
 	padding: 10px;
-	margin-left: -20px;
 	margin-right: 20px;
 	overflow: scroll;
 	height: 75px;
@@ -116,8 +117,8 @@ body {
 	float: left;
 	background-image: url('../../../resources/pictures/Laureates/quotes.png');
 	background-repeat: no-repeat;
-	width: 70px;
-	height: 70px;
+	width: 25px;
+	height: 25px;
 	margin-top: 20px;
 	margin-right: 10px;
 	opacity: 0.6;
@@ -127,6 +128,7 @@ body {
 
 	.card-laureate {
 		display: block;
+		background-repeat: repeat;
 	}
 
 	.card-laureate .description {
@@ -150,11 +152,14 @@ body {
 	.card-laureate .element {
 		color: white;
 		margin-left: 20px;
-		max-width: 100%;
+		max-width: 90%;
 		font-size: 25px;
 		font-weight: bolder;
 	}
 
+	.card-laureate .item-element {
+		max-width: 90%;
+	}
 	.linkedin {
 		margin-right: 20px;
 	}
@@ -182,7 +187,8 @@ body {
 	/*    background-color: chocolate;*/
 	margin: 20px;
 	width: 45%;
-	max-height: 300px;
+	max-height: 250px;
+	border-left: 3px solid cornflowerblue;
 }
 
 
@@ -211,7 +217,8 @@ body {
 	word-wrap: break-word;
 	font-family: "Sitka Display", serif;
 	font-size: 20px;
-
+	overflow: scroll;
+	height: 200px;
 }
 
 
@@ -310,20 +317,17 @@ q:after{
 	.recommendation{
 		display: flex;
 		flex-direction: column;
-
-		min-height: 600px;
+		min-height: 450px;
+		min-width: 450px;
 		width: 40%;
+		border: none;
+		margin-right: auto;
+		margin-left: auto;
 	}
-
-	.left-border{
-		display: none;
-	}
-
 	.image-and-infos {
 		height: 45%;
 		width: 100%;
 	}
-
 	.image-person{
 		margin: auto;
 		min-height: 130px;
@@ -332,23 +336,19 @@ q:after{
 		max-width: 160px;
 		width: 80%;
 	}
-
 	.opinion{
-		margin-left: -10px;
-		margin-top: 5px;
-		height: 55%;
-		width: 96%;
+		margin-right: auto;
+		margin-left: auto;
 		min-width: 140px;
 		word-wrap: break-word;
+		text-align: justify;
 	}
-
 	.infos{
 		padding: 3px 0px 0px 3px;
 		min-width: 190px;
 		width: 100%;
-		text-align: left;
+		text-align: center;
 	}
-
 	.name{
 		width: 100%;
 	}
@@ -356,5 +356,21 @@ q:after{
 	.society{
 		width: 100%;
 	}
+}
 
+@media screen and (max-width: 450px) {
+	.recommendation {
+		min-width: 300px;
+	}
+}
+.titles-laureates{
+	text-align: center;
+
+}
+
+.promotions-style{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid chocolate;
+	border-radius: 5px;
 }
