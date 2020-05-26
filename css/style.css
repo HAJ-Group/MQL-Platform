@@ -35,6 +35,12 @@ hr {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 @font-face {
+    font-family: MontserratBoldItalic;
+    src: url('fonts/Montserrat-BoldItalic.otf');
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+@font-face {
     font-family: MontserratThin;
     src: url('fonts/Montserrat-Thin.otf');
 }
@@ -194,7 +200,7 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details{
     font-family: "Open sans", serif;
-    font-size: 20px;
+    font-size: 18px;
     text-align: justify;
     padding: 10px;
     border: 1px solid lightgray;

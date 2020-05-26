@@ -12,7 +12,7 @@
 		<script src="js/service/ActivityComponentService.js"></script> 
 		<script src="js/ActivityComponent.js"></script> 
 	</head> 
-	<body onload="main()">
+	<body onload="main()" onresize="view.updateView()">
 		<div class="content"> 
 			<div id="header"></div>
 				<div class="container">
@@ -21,6 +21,7 @@
 							<div class="details">
 								<img src="../../resources/pictures/Activities/deroulement-cours2.png" alt="" class="el-center">
 								<p>
+									&nbsp;&nbsp;&nbsp;&nbsp;
 									La formation MQL se déroule en deux ans, répartissés en quatre semestres.
 									Les trois premiers semestres se composent d'un ensemble de modules qui integrent un enseignement théorique, ainsi que pratique.
 									Sachant que le dernier semestre, qui est la derniere étape de cette formation, est un projet de fin d'études s'éffectuant au sein d'une entreprise parmis nos partenaires,

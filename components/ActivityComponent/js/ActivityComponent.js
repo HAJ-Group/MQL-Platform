@@ -38,8 +38,8 @@ ActivityComponent.prototype.printSemesters = function(){
 		switch (i + 1) {
 			case 1: semesterName = 'Le premier semestre'; break;
 			case 2: semesterName = 'Le deuxième semestre'; break;
-			case 3: semesterName = 'Le troizième semestre'; break;
-			case 4: semesterName = 'Le quatrième semestre'; break;
+			case 3: semesterName = 'Le troisième semestre'; break;
+			case 4: semesterName = 'Le quatrième semestre (Stage pré-embauche)'; break;
 		}
 
 		let modules = '<ul>';
@@ -127,7 +127,14 @@ ActivityComponent.prototype.printSemesters = function(){
 				'</div>' +
 			' </div>';
 	}
-}
+};
+
+
+ActivityComponent.prototype.updateView = function () {
+	if(window.innerWidth > 700){
+		window.location.reload();
+	}
+};
 
 /*
 ActivityComponent.prototype.printSubjects = function () {
@@ -169,7 +176,6 @@ ActivityComponent.prototype.printSubjects = function () {
 function collapse(){
 	let coll = document.getElementsByClassName("collapsible");
 	let i;
-
 
 	for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
