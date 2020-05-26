@@ -44,10 +44,12 @@ body {
 }
 
 .access-title {
+	width: 80%;
 	margin-top: 40px;
-	text-align: center;
+	text-align: left;
 	font-size: 60px;
 	font-weight: bolder;
+	margin-left: 10px;
 	color: white;
 	text-shadow: 2px 2px #4b4c54;
 }
@@ -124,4 +126,105 @@ body {
 
 .access-button:active {
 	opacity: 1;
+}
+
+@media screen and (max-width: 1400px){
+	.access-content {
+		width: 90%;
+		height: 600px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-left: 10px;
+		border-radius: 30px;
+	}
+
+	.access-button {
+		width: 40%;
+		padding: 20px;
+		margin-left: 2%;
+		margin-top: 15px;
+		border-radius: 15px;
+	}
+
+	.access-username, .access-password {
+		width: 60%;
+		height: 40px;
+		margin-left: -8%;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.access-close {
+		display: block;
+		font-size: 30px;
+		color: white;
+		margin-left: 20px;
+		margin-top: 5%;
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+
+	.access-content {
+		width: 90%;
+		height: 500px;
+		padding: 10px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-left: 10px;
+		background-image: url('../../../resources/pictures/Area/login.jpg');
+		background-repeat: no-repeat;
+		border-radius: 30px;
+	}
+
+	.access-title {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 30px;
+		font-weight: bolder;
+		color: white;
+		text-shadow: 2px 2px #4b4c54;
+	}
+
+	.access-login {
+		border-radius: 20px;
+		padding: 20px;
+		width: 80%;
+		margin-top: 2%;
+	}
+
+	.error-icon {
+		float: right;
+		width: 20px;
+		height: 20px;
+	}
+
+	.access-username, .access-password {
+		width: 80%;
+		height: 40px;
+		font-size: 15px;
+		font-weight: bold;
+		color: #4b4c54;
+		display: block;
+		text-align: center;
+		opacity: 0.6;
+		margin-bottom: 15px;
+		margin-left: -68px;
+	}
+
+	.access-button {
+		padding: 15px;
+		background-color: rgba(93,233,77,0.92);
+		font-size: 20px;
+		font-weight: bolder;
+		color: white;
+		opacity: 0.8;
+		width: 50%;
+		height: 60px;
+		margin-left: -10px;
+		margin-top: 15px;
+		border-radius: 15px;
+	}
+
 }
