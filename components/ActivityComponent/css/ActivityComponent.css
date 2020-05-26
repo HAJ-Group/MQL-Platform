@@ -50,7 +50,7 @@ body {
 	border-radius: 5px;
 	box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
 	overflow: hidden; /* otherwise header image won't respect rounded corners */
-	background-color: white;
+	background-color: #f7fbdf;
 	margin: 10px;
 	transition: all .4s ease; /* back to normal */
 }
@@ -61,7 +61,7 @@ body {
 	margin-right: auto;
 	margin-top: 15px;
 	padding: 10px;
-	background-color: white;
+	background-color: #f7fbdf;
 	border: 1px solid #c4c4c4;
 	border-radius: 5px;
 
@@ -78,7 +78,7 @@ body {
     height: 680px;
     border-radius: 5px;
     box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
-    overflow: hidden; /* otherwise header image won't respect rounded corners */
+    overflow: hidden;
     background-color: whitesmoke;
     margin: 10px;
     transition: all .4s ease; /* back to normal */
@@ -92,7 +92,7 @@ body {
 
 /* Image associated with the card */
 .card-image {
-	width: 100%; /* forces image to maintain its aspect ratio; otherwise image stretches vertically */
+	width: 100%; /* forces image to maintain its aspect ratio*/
 	height: 250px;
 }
 
@@ -100,7 +100,7 @@ body {
 /* subject of the card */
 
 .card-subject{
-    border: 1px solid cornflowerblue;
+    border: 1px solid darkblue;
     border-radius: 8px;
     padding: 5px;
     font-size: 22px;
@@ -115,9 +115,8 @@ body {
 
 /* The text content of the card */
 .card-text {
-	text-align: justify;
-	text-justify: inter-word;
-	font-size: 18px;
+	text-justify: none;
+	font-size: 16px;
 	padding: 20px
 }
 
@@ -160,7 +159,8 @@ body {
 /* Style for the zone 'collapsible' */
 .collapsible {
 	/*background-color: #2975bf;*/
-	background-image: url("../../../resources/pictures/Activities/wrap.jpg");
+/*	background-image: url("../../../resources/pictures/Activities/semesters-back.png");*/
+	background-color: #1a54b4;
 	color: white;
 	cursor: pointer;
 	padding: 18px;
@@ -169,13 +169,28 @@ body {
 	border-top-left-radius: 7px;
 	text-align: left;
 	outline: none;
+	font-family: MontserratBoldItalic, serif;
 	font-size: 15px;
+}
+
+#collapse-1{
+	background-color: rgb(196, 201, 036);
+}
+
+#collapse-2{
+	background-color: rgb(067, 174, 183);
+}
+#collapse-3{
+	background-color: rgb(204, 027, 074);
+}
+#collapse-4{
+	background-color: rgb(253, 180, 022);
 }
 
 .active-element, .collapsible:hover {
 	/*background-color: #184c8c;*/
 	/*background-image: url("../../../resources/pictures/img.jpg");*/
-	opacity: 0.5;
+	opacity: 0.8;
 
 }
 
@@ -235,6 +250,7 @@ body {
 }
 
 .subject > ul > li{
+
 	list-style-type: none;
 	padding: 5px;
 	margin: 4px;
@@ -248,13 +264,18 @@ body {
 
 .subject > p > span{
     display: inline-block;
-    background-color: #ffb32a;
+    background-color: #ff8057;
     width: 14px;
     height: 14px;
     border-radius: 7px;
     box-shadow: 2px 2px 5px gray;
-    margin-left: 10px;
+    margin-left: -20px;
     margin-right: 5px;
+
+}
+
+.subject > p{
+	padding-left: 20px;
 }
 
 .zone-title{
@@ -283,12 +304,12 @@ body {
 		display: none;
 	}
 
-    .card {
-        width: 100%;
-        min-height: 500px;
-    }
+	.card-text {
+		overflow: scroll;
+		font-size: 14px;
+	}
+	.card-subject{
+		font-size: 16px;
+	}
 
-    .subject > ul > li, .subject p {
-        font-size: 12px;
-    }
 }
