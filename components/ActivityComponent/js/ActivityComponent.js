@@ -63,18 +63,7 @@ ActivityComponent.prototype.printSemesters = function(){
 
 		for (let j = 1; j <= 3; j++) {
 			if (j === 1){
-			/*	cards += '<div class="card">' +
-				'<img class="card-image" src="' + semesterI.description[0] + '" alt="">' +
-					'<div class="card-text">' +
-						'<div class="card-subject"> ' + 'Description' +' </div>' +
-						'<div class="subject"> ' + '<p>' + semesterI.description[1] + '</p>' + ' </div>' +
-					'</div>' +
-					'<div class="card-footer">' +
-						'' +
-							'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-						'' +
-					'</div>' +
-				'</div>';*/
+
 				cards += '<div class="semester-description">'
 
 							+ '<p>' + semesterI.description[1] + '</p>' +
@@ -117,9 +106,11 @@ ActivityComponent.prototype.printSemesters = function(){
 			}
 		}
 
+
+
 		subjectZone.innerHTML +=
 			'<div class="big-container">' +
-				'<div class="title-top-cards collapsible">' + semesterName +
+				'<div id="collapse-' + (i + 1) + '" class="title-top-cards collapsible">' + semesterName +
 					'' +
 				'</div>' +
 				'<div class="cards-container content-card">' +

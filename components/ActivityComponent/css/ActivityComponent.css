@@ -169,6 +169,20 @@ body {
 	font-size: 15px;
 }
 
+#collapse-1{
+	background-color: rgb(196, 201, 036);
+}
+
+#collapse-2{
+	background-color: rgb(067, 174, 183);
+}
+#collapse-3{
+	background-color: rgb(204, 027, 074);
+}
+#collapse-4{
+	background-color: rgb(253, 180, 022);
+}
+
 .active-element, .collapsible:hover {
 	/*background-color: #184c8c;*/
 	/*background-image: url("../../../resources/pictures/img.jpg");*/
