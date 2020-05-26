@@ -17,6 +17,21 @@ NewsComponentService.prototype.size = function () {
     return this.db.length;
 };
 
+/**
+ * Defining search action methode
+ * @param title_key
+ * @returns {[]}
+ */
+NewsComponentService.prototype.searchByKey = function(title_key) {
+    let ret = [];
+    for(let news of this.db) {
+        if(news.title.toLowerCase().includes(title_key.toLowerCase())) {
+            ret.push(news);
+        }
+    }
+    return ret;
+};
+
 NewsComponentService.prototype.load = function(dbSource) {
     for (let i = 0; i < dbSource.length; i++) {
         this.add(

@@ -11,14 +11,14 @@ function LaureateComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = this.get('table-LaureateID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.page_blocks = split(this.service.dbP, MAX_PROMOTION_PER_PAGE);
+	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
 	this.block_nav = this.get('navigation');
 	this.block_main = this.get('main');
-	/*this.block_switch = this.get('switcher');*/
+	this.block_switch = this.get('switcher');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
-		// switcher: this.block_switch.innerHTML,
+		switcher: this.block_switch.innerHTML,
 	};
 } 
 LaureateComponent.prototype.get = function (id) { 
@@ -36,7 +36,7 @@ LaureateComponent.prototype.addLaureateRow = function (oneLaureate) {
  */
 LaureateComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
-	for(let promotion of this.service.dbP) {
+	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<hr>\n' +
 			'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
 	}
@@ -47,7 +47,7 @@ LaureateComponent.prototype.fillNavigation = function () {
 
 LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
-	for(let promotion of this.service.dbP) {
+	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
@@ -95,6 +95,35 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
+
+/**
+ * Create page switcher dynamically
+ */
+LaureateComponent.prototype.fillSwitcher = function () {
+	let htmlContent = this.htmlSaver.switcher;
+	let pages = this.page_blocks.length;
+	for(let i = 1; i<=pages; i++) {
+		if(current_page_number === i) htmlContent += '<span onclick="view.navigate(' + i + ', true)" class="active-page">' + i + '</span>';
+		else htmlContent += '<span onclick="view.navigate(' + i + ', true)">' + i + '</span>';
+	}
+	this.block_switch.innerHTML = htmlContent;
+};
+
+/**
+ * Navigate between pages
+ * @param page_number
+ * @param top
+ */
+LaureateComponent.prototype.navigate = function(page_number, top=false) {
+	current_page_number = page_number;
+	this.fillNavigation();
+	this.fillMain();
+	this.fillSwitcher();
+	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	detect_subContent_trigger_left_bar();
+	if(top) window.location.href = '#header';
+};
+
 // Print PROMOTIONS :
 LaureateComponent.prototype.printPromotionsCards = function () {
 	for (let i = 0; i < this.service.size(); i++) {
@@ -121,10 +150,30 @@ LaureateComponent.prototype.hideInfos = function (id) {
 	info.style.display = 'none';
 };
 LaureateComponent.prototype.updateView = function () {
-	if(window.innerWidth > 700){
-		window.location.reload();
-	}
+	//
 };
+
+/**
+ * Filtering function works with search box
+ */
+LaureateComponent.prototype.filterKey = function () {
+	let key = this.get('key').value;
+	if(key === '') {
+		// LOAD ALL DATA
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+	} else {
+		// LOAD BY KEY
+		this.page_blocks = split(this.service.searchByKey(key), MAX_PROMOTION_PER_PAGE);
+	}
+	if(this.page_blocks.length === 0) {
+		popTB('../../resources/pictures/nf.png', 'LAUREATE NOT FOUND !!');
+		this.get('key').value = '';
+		this.filterKey();
+	}
+	this.navigate(1);
+};
+
+
 /* Main Function */
 function main() { 
 	service = new LaureateComponentService(); 
@@ -132,6 +181,7 @@ function main() {
 	view = new LaureateComponent(service);
 	view.fillNavigation();
 	view.fillMain();
+	view.fillSwitcher();
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png');
 	detect_subContent_trigger_left_bar();

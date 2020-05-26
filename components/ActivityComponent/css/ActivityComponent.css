@@ -30,7 +30,7 @@ body {
 
 .title-top-cards{
 	display: block;
-	background-color: coral;
+	background-color: rgb(253, 59, 76);
 }
 
 /* Container of all the cards of one subject */
@@ -50,7 +50,7 @@ body {
 	border-radius: 5px;
 	box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
 	overflow: hidden; /* otherwise header image won't respect rounded corners */
-	background-color: #f7fbdf;
+	background-color: white;
 	margin: 10px;
 	transition: all .4s ease; /* back to normal */
 }
@@ -61,7 +61,7 @@ body {
 	margin-right: auto;
 	margin-top: 15px;
 	padding: 10px;
-	background-color: #f7fbdf;
+	background-color: white;
 	border: 1px solid #c4c4c4;
 	border-radius: 5px;
 
@@ -100,7 +100,7 @@ body {
 /* subject of the card */
 
 .card-subject{
-    border: 1px solid darkblue;
+    border: 1px solid cornflowerblue;
     border-radius: 8px;
     padding: 5px;
     font-size: 22px;
@@ -141,6 +141,10 @@ body {
 	width: 60px;
 	height: 60px;
 
+}
+
+.schedule-img {
+	width: 100%;
 }
 
 /* Styling the right-side in the footer of the card */
@@ -235,7 +239,7 @@ body {
 	list-style-type: none;
 	padding: 5px;
 	margin: 4px;
-	border-bottom: 1px solid chocolate;
+	border-bottom: 1px solid rgb(253, 59, 76);
 }
 
 .subject > p > span{

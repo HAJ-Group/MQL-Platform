@@ -79,6 +79,23 @@ function getHeaderContent() {
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
+function getSearchBar() {
+    return '<div class="search-block">\n' +
+        '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo">\n' +
+        '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text">\n' +
+        '</div>\n' +
+        '<!-- Text Box -->\n' +
+        '<div id="TextBox" class="modal">\n' +
+        '<span onclick="closeTB()" class="close">&times;</span>\n' +
+        '<div class="box-content">\n' +
+        '<img src="" alt="" id="BoxIcon" class="box-icon">\n' +
+        '<p id="BoxText" class="box-text"></p>\n' +
+        '</div>\n' +
+        '</div>';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Build up the footer using given parameters
  * @returns {string}
@@ -186,6 +203,10 @@ function loadResources() {
     /* ASSIGN DATA ---------------------------------------------------------------------------------------------------*/
     document.getElementById('header').innerHTML = getHeaderContent();
     document.getElementById('footer').innerHTML = getFooterContent();
+    // SEARCH BAR
+    if(document.getElementById('search') !== null) {
+        document.getElementById('search').innerHTML = getSearchBar();
+    }
     /* CURRENT INITIALIZATION ----------------------------------------------------------------------------------------*/
     let current_element = document.getElementsByName(current_component)[0];
     if(current_component === 'Home') document.getElementById('home-logo').
@@ -366,6 +387,30 @@ function popIMG(id) {
     modalImg.src = img.src;
     document.getElementById('caption').innerHTML = img.alt;
 }
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Close TextBox
+ */
+function closeTB() {
+    let modal = document.getElementById('TextBox');
+    modal.style.display = 'none';
+}
+/**
+ * Display textbox
+ */
+function popTB(icon, text) {
+    let modal = document.getElementById('TextBox');
+    let el_icon = document.getElementById('BoxIcon');
+    let el_text = document.getElementById('BoxText');
+    el_icon.src = icon;
+    el_text.innerHTML = text;
+    modal.style.display = 'block';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/

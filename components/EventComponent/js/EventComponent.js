@@ -2,7 +2,7 @@
 let view; 
 let service;
 let current_page_number = 1;
-const MAX_NEWS_PER_PAGE = 5;
+const MAX_EVENT_PER_PAGE = 5;
 /*Default class*/ 
 function EventComponent(service) { 
 	//TODO: Intitialize controller for EventComponent 
@@ -10,7 +10,7 @@ function EventComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = this.get('table-EventID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
+	this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
 	this.block_nav = this.get('navigation');
 	this.block_main = this.get('main');
 	this.block_switch = this.get('switcher');
@@ -132,6 +132,29 @@ EventComponent.prototype.navigate = function(page_number, top=false) {
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
+
+/**
+ * Filtering function works with search box
+ */
+EventComponent.prototype.filterKey = function () {
+	let key = this.get('key').value;
+	if(key === '') {
+		// LOAD ALL DATA
+		this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
+	} else {
+		// LOAD BY KEY
+		this.page_blocks = split(this.service.searchByKey(key), MAX_EVENT_PER_PAGE);
+		console.log(this.service.searchByKey(key));
+	}
+	if(this.page_blocks.length === 0) {
+		popTB('../../resources/pictures/nf.png', 'EVENT NOT FOUND !!');
+		this.get('key').value = '';
+		this.filterKey();
+	}
+	this.navigate(1);
+};
+
+
 /* Main Function */ 
 function main() { 
 	service = new EventComponentService(); 

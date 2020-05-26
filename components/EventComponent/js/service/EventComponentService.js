@@ -29,8 +29,23 @@ EventComponentService.prototype.loadGallery = function(content) {
 	return new GalleryEvent(content.title, content.description, content.images, content.type);
 };
 
+/**
+ * Defining search action methode
+ * @param title_key
+ * @returns {[]}
+ */
+EventComponentService.prototype.searchByKey = function(title_key) {
+	let ret = [];
+	for(let event of this.db) {
+		if(event.title.toLowerCase().includes(title_key.toLowerCase())) {
+			ret.push(event);
+		}
+	}
+	return ret;
+};
+
 // Load all data from source to database object 
-EventComponentService.prototype.load = function(dbSource) { 
+EventComponentService.prototype.load = function(dbSource) {
 	for (let i = 0; i < dbSource.length; i++) {
 		// Transforming database source into database object of Event model
 		let container = [];

@@ -166,7 +166,7 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-content: space-around;
-	border: 1px solid chocolate;
+	border: 1px solid lightgray;
 	border-radius: 5px;
 	padding: 10px;
 	margin: 10px;
@@ -359,6 +359,6 @@ q:after{
 .promotions-style{
 	padding: 10px;
 	margin: 10px;
-	border: 1px solid chocolate;
+	border: 1px solid lightgray;
 	border-radius: 5px;
 }
