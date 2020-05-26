@@ -124,48 +124,6 @@ body {
 	opacity: 0.6;
 }
 
-@media screen and (max-width: 700px){
-
-	.card-laureate {
-		display: block;
-		background-repeat: repeat;
-	}
-
-	.card-laureate .description {
-		width: 100%;
-		padding: 10px;
-		animation-name: zoom;
-		animation-duration: 0.6s;
-	}
-
-	.quotes {
-		display: none;
-	}
-
-	.card-laureate img {
-		width: 25%;
-		height: 100px;
-		margin-left: 35%;
-		border-radius: 10px;
-	}
-
-	.card-laureate .element {
-		color: white;
-		margin-left: 20px;
-		max-width: 90%;
-		font-size: 25px;
-		font-weight: bolder;
-	}
-
-	.card-laureate .item-element {
-		max-width: 90%;
-	}
-	.linkedin {
-		margin-right: 20px;
-	}
-
-}
-
 .list-recommendations{
 	display: flex;
 	flex-wrap: wrap;
@@ -200,7 +158,7 @@ body {
 
 .image-and-infos{
 	margin-left: 2px;
-	width: 40%;
+	width: 35%;
 	display: flex;
 	flex-direction: column;
 	/*    background-color: cornsilk;*/
@@ -210,14 +168,14 @@ body {
 .opinion{
 	padding: 15px /*0px 5px 5px 5px*/;
 	margin-left: 2px;
-	width: 59%;
+	width: 60%;
 	background-color: #f7fef0;
 	border: 1px solid gray;
 	border-radius: 6px;
 	word-wrap: break-word;
 	font-family: "Sitka Display", serif;
 	font-size: 20px;
-	overflow: scroll;
+	overflow: auto;
 	height: 200px;
 }
 
@@ -272,7 +230,7 @@ q:after{
 	height: 25%;
 	display: flex;
 	flex-direction: column;
-	padding: 5px 0px 0px 0px;
+	padding: 5px 0 0 0;
 	font-family: "Sitka Display", serif;
 	font-style: italic;
 	font-size: 16px;
@@ -305,6 +263,48 @@ q:after{
 	}
 }
 
+@media screen and (max-width: 700px){
+
+	.card-laureate {
+		display: block;
+		background-repeat: repeat;
+	}
+
+	.card-laureate .description {
+		width: 100%;
+		padding: 10px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+	}
+
+	.quotes {
+		display: none;
+	}
+
+	.card-laureate img {
+		width: 25%;
+		height: 100px;
+		margin-left: 35%;
+		border-radius: 10px;
+	}
+
+	.card-laureate .element {
+		color: white;
+		margin-left: 20px;
+		max-width: 90%;
+		font-size: 25px;
+		font-weight: bolder;
+	}
+
+	.card-laureate .item-element {
+		max-width: 90%;
+	}
+	.linkedin {
+		margin-right: 20px;
+	}
+
+}
+
 
 @media only screen and (max-width: 700px) {
 	.promotions-style{
@@ -334,12 +334,12 @@ q:after{
 		max-height: 190px;
 		min-width: 160px;
 		max-width: 160px;
-		width: 80%;
+		width: 20%;
 	}
 	.opinion{
 		margin-right: auto;
 		margin-left: auto;
-		min-width: 140px;
+		width: 60%;
 		word-wrap: break-word;
 		text-align: justify;
 	}

@@ -3,6 +3,11 @@ body {
 	margin:auto; 
 }
 
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
 .access {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -31,8 +36,8 @@ body {
 }
 
 .access-content {
-	width: 90%;
-	height: 90%;
+	width: 70%;
+	height: 60%;
 	padding: 10px;
 	animation-name: zoom;
 	animation-duration: 0.6s;
@@ -40,17 +45,15 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url('../../../resources/pictures/Area/imgaccess.jpg');
-	background-repeat: no-repeat;
 	border-radius: 30px;
+	align-items: center;
 }
 
 .access-title {
-	width: 90%;
 	margin-top: 40px;
 	text-align: center;
 	font-size: 60px;
 	font-weight: bolder;
-	margin-left:20%;
 	color: white;
 	text-shadow: 2px 2px #4b4c54;
 }
@@ -154,8 +157,14 @@ body {
 }
 
 .manage-block {
-	display: flex;
 	width: 100%;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+}
+
+.manage-cards {
+	width: 100%;
+	display: flex;
 }
 
 .manage-card {
@@ -181,7 +190,26 @@ body {
 	text-align: center;
 }
 
+.manage-title {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.manage-title > img {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
 @media screen and (max-width: 700px){
+
+	.container {
+		background-image: none;
+	}
+
 	.access-close {
 		display: block;
 		font-size: 30px;
@@ -207,11 +235,8 @@ body {
 
 	.access-title {
 		margin-top: 40px;
-		text-align: center;
 		font-size: 30px;
 		font-weight: bolder;
-		color: white;
-		text-shadow: 2px 2px #4b4c54;
 	}
 
 	.access-login {
@@ -258,7 +283,7 @@ body {
 		display: block;
 	}
 
-	.manage-block {
+	.manage-cards {
 		display: block;
 	}
 
@@ -273,6 +298,7 @@ body {
 		border-radius: 20px;
 		margin-left: 10px;
 		margin-right: 10px;
+		margin-bottom: 20px;
 	}
 
 	.phone-profile > img {

@@ -277,14 +277,16 @@ function addTitleIcon(source) {
 /**
  * Action method show details block
  * @param id
+ * @param def_element
+ * @param def_display
  */
-function show(id) {
+function show(id, def_element = 'details', def_display = 'block') {
     let icon = document.getElementsByName('sh-icon')[id];
     let sep = document.getElementsByClassName('sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
-    icon.setAttribute('onclick','hide('+id+')');
-    let element =document.getElementsByClassName('details')[id];
-    element.style.display = 'block';
+    icon.setAttribute('onclick','hide('+id+', \'' + def_element + '\', \'' + def_display + '\')');
+    let element =document.getElementsByClassName(def_element)[id];
+    element.style.display = def_display;
     sep.style.display='none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -293,15 +295,17 @@ function show(id) {
 /**
  * Action method hide details block
  * @param id
+ * @param def_element
+ * @param def_display
  */
-function hide(id) {
+function hide(id, def_element = 'details', def_display = 'block') {
     let icon = document.getElementsByName('sh-icon')[id];
     let sep = document.getElementsByClassName('sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
-    icon.setAttribute('onclick','show('+id+')');
-    let element = document.getElementsByClassName('details')[id];
+    icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
+    let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
-    sep.style.display='block';
+    sep.style.display=def_display;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
