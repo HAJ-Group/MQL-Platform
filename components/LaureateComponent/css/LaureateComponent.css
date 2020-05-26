@@ -172,6 +172,10 @@ body {
 	margin: 10px;
 }
 
+.list-recommendations > hr{
+	width: 100%;
+}
+
 .recommendation{
 	display: flex;
 	flex-direction: row;
@@ -180,6 +184,8 @@ body {
 	width: 45%;
 	max-height: 300px;
 }
+
+
 
 
 .left-border{
