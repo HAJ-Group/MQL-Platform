@@ -256,7 +256,7 @@ q:after{
 .image-person > img{
  	border-radius: 100%;
 	width: 90%;
-	height: 90%;
+	height: 80%;
 	border: 1px solid darkgrey;
 
 }
@@ -339,6 +339,12 @@ q:after{
 
 }
 
+.top-img {
+	width: 50px;
+	height: 50px;
+	padding-top: 10px;
+}
+
 @media screen and (max-width: 310px) {
 	.list-recommendations{
 		margin-left: -70px;
@@ -348,7 +354,6 @@ q:after{
 
 .titles-laureates{
 	text-align: center;
-
 }
 
 .promotions-style{
