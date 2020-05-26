@@ -1,0 +1,127 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+
+.access {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 10px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%;
+	/*background-color: rgb(0,0,0);  Fallback color */
+	background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.access-close {
+	float: right;
+	font-size: 40px;
+	color: white;
+	margin-right: 23%;
+	margin-top: 5%;
+	padding: 10px;
+}
+
+.access-close:hover {
+	color: rgb(253, 59, 76);
+	cursor: pointer;
+}
+
+.access-content {
+	width: 1000px;
+	height: 700px;
+	padding: 10px;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+	margin-top: 5%;
+	margin-left: 23%;
+	background-image: url('../../../resources/pictures/Area/imgaccess.jpg');
+	background-repeat: no-repeat;
+	border-radius: 30px;
+}
+
+.access-title {
+	margin-top: 40px;
+	text-align: center;
+	font-size: 60px;
+	font-weight: bolder;
+	color: white;
+	text-shadow: 2px 2px #4b4c54;
+}
+
+.access-login {
+	border-radius: 20px;
+	padding: 20px;
+	width: 80%;
+	margin-top: 2%;
+	margin-left: 30%;
+}
+
+.access-error {
+	border: 1px solid crimson;
+	border-radius: 20px;
+	padding: 15px;
+	width: 80%;
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 10%;
+	margin-bottom: 30px;
+	background-color: rgba(233,183,133,0.92);
+	color: crimson;
+	display: none;
+}
+
+.error-icon {
+	float: right;
+	width: 30px;
+	height: 30px;
+}
+
+.access-username, .access-password {
+	border: 1px solid lightgray;
+	border-radius: 20px;
+	padding: 10px;
+	width: 40%;
+	font-size: 20px;
+	font-weight: bold;
+	color: #4b4c54;
+	display: block;
+	text-align: center;
+	opacity: 0.6;
+	margin-bottom: 20px;
+}
+
+.access-username:hover, .access-password:hover {
+	opacity: 1;
+}
+
+.access-username:focus, .access-password:focus {
+	border: none;
+	border-radius: 0;
+}
+
+.access-button {
+	border: none;
+	padding: 20px;
+	background-color: rgba(93,233,77,0.92);
+	font-size: 25px;
+	font-weight: bolder;
+	color: white;
+	opacity: 0.8;
+	width: 15%;
+	margin-left: 13%;
+	margin-top: 20px;
+	border-radius: 20px;
+}
+
+.access-button:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.access-button:active {
+	opacity: 1;
+}

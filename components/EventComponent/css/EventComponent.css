@@ -102,6 +102,10 @@ body {
 /* Phone */
 @media only screen and (max-width: 700px) {
 
+	.container {
+		background-image: none;
+	}
+
 	.card-event {
 		display: block;
 	}

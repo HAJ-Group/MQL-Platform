@@ -11,6 +11,7 @@
 // GLOBAL VARS
 let current_component;
 let phone_menu_toggled = false;
+let grant_access = false;
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -48,8 +49,8 @@ function getHeaderContent() {
         {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
         {name: 'Partner', content:'Partenaires'},
-        {name: 'Area', content:'Votre Espace'},
         {name: 'Laureate', content:'Nos Lauréats'},
+        {name: 'Area', content:'Votre Espace'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +

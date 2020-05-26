@@ -180,6 +180,10 @@ a:hover {
 
 @media only screen and (max-width: 700px) {
 
+	.container {
+		background-image: none;
+	}
+
 	.main-box {
 		display: block;
 	}

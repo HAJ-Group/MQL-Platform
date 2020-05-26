@@ -271,21 +271,41 @@ q:after{
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
-	/*    background-color: cyan;*/
 }
 
-.name{
-
-	/*    background-color: seagreen;*/
+.top-img {
+	width: 50px;
+	height: 50px;
+	padding-top: 10px;
 }
 
-.society{
+.titles-laureates{
+	text-align: center;
+}
 
-	/*    background-color: darkred;*/
+.promotions-style{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
+@media screen and (max-width: 310px) {
+	.list-recommendations{
+		margin-left: -70px;
+	}
 }
 
 
-@media screen and (max-width: 970px){
+@media only screen and (max-width: 700px) {
+	.promotions-style{
+		background-image: none;
+	}
+}
+
+@media screen and (max-width: 700px){
 
 	.recommendation{
 		display: flex;
@@ -337,28 +357,4 @@ q:after{
 		width: 100%;
 	}
 
-}
-
-.top-img {
-	width: 50px;
-	height: 50px;
-	padding-top: 10px;
-}
-
-@media screen and (max-width: 310px) {
-	.list-recommendations{
-		margin-left: -70px;
-	}
-}
-
-
-.titles-laureates{
-	text-align: center;
-}
-
-.promotions-style{
-	padding: 10px;
-	margin: 10px;
-	border: 1px solid lightgray;
-	border-radius: 5px;
 }
