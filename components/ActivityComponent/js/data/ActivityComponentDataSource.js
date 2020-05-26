@@ -14,7 +14,7 @@ let dbActivity = [
 				'Géstion de projets',
 				'Ingénierie logiciélle et UML'
 				],
-		activity: ['../../resources/pictures/cafe.png',
+		activity: ['../../resources/pictures/Activities/values.png',
 			'Compétences Techniques et technologiques (Chaque module est une formation théorique et technique) ',
 			'Autonomie(Traveaux pritiques et projets individuels',
 			'Bonnes pratiques en développement(Design Patterns)',
