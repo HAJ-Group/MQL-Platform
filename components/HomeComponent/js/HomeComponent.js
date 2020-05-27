@@ -41,7 +41,7 @@ HomeComponent.prototype.printSemesters=function () {
 HomeComponent.prototype.addNews=function (news) {
 	let row = this.table_news.insertRow();
 	this.news_idSaver.push(news.id);
-	row.insertCell().innerHTML = news.date;
+	row.insertCell().innerHTML = formattedDate(news.date);
 	row.insertCell().innerHTML = news.title;
 };
 HomeComponent.prototype.printNews=function (max = 5) {

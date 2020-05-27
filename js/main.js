@@ -271,17 +271,17 @@ function addTitleIcon(source, editable=false) {
             'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
         if(editable && localStorage.getItem('ACCESS') !== 'null') {
             // ADD EDIT AND DELETE ICONS
-            title.innerHTML += '<img src="../../resources/pictures/icons/edit.png" alt=""  ' +
-                'class="sh-icon">' +
-                '<img src="../../resources/pictures/icons/delete.png" alt=""  ' +
-                'class="sh-icon">';
+            title.innerHTML += '<img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
+                'class="sh-icon" onclick="view.editData(' + i + ')">' +
+                '<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
+                'class="sh-icon" onclick="view.deleteData(' + i + ')">';
         }
         i++;
     }
     if(editable && localStorage.getItem('ACCESS') !== 'null') {
         // ADD NEW ICON BLOCK
         let saver = document.getElementsByClassName('sub-content')[0];
-        saver.innerHTML = '<div class="new-block"><img src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
+        saver.innerHTML = '<div class="new-block"><img onclick="popFORM()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
             saver.innerHTML;
     }
 }
@@ -302,6 +302,13 @@ function show(id, def_element = 'details', def_display = 'block') {
     let element =document.getElementsByClassName(def_element)[id];
     element.style.display = def_display;
     sep.style.display='none';
+    // HIDE EDIT AND DELETE IF EXISTS
+    if(localStorage.getItem('ACCESS') !== null) {
+        let edit = document.getElementsByName('edit-icon')[id];
+        let delt = document.getElementsByName('delete-icon')[id];
+        edit.style.display = 'block';
+        delt.style.display = 'block';
+    }
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -320,6 +327,13 @@ function hide(id, def_element = 'details', def_display = 'block') {
     let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
     sep.style.display = def_display;
+    // HIDE EDIT AND DELETE IF EXISTS
+    if(localStorage.getItem('ACCESS') !== null) {
+        let edit = document.getElementsByName('edit-icon')[id];
+        let delt = document.getElementsByName('delete-icon')[id];
+        edit.style.display = 'none';
+        delt.style.display = 'none';
+    }
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -416,6 +430,9 @@ function closeTB() {
     let modal = document.getElementById('TextBox');
     modal.style.display = 'none';
 }
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Display textbox
  */
@@ -425,6 +442,26 @@ function popTB(icon, text) {
     let el_text = document.getElementById('BoxText');
     el_icon.src = icon;
     el_text.innerHTML = text;
+    modal.style.display = 'block';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Close Form
+ */
+function closeFORM() {
+    let modal = document.getElementById('form');
+    modal.style.display = 'none';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Display form
+ */
+function popFORM() {
+    let modal = document.getElementById('form');
     modal.style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -475,16 +512,12 @@ function target(target_element) {
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 function scrollToTop(){
-
-    var button = document.getElementById("scroll-top");
-
-// When the user scrolls down 20px from the top of the document, show the button
+    let button = document.getElementById("scroll-top");
+    // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {
         scrollFunction()
     };
-
     function scrollFunction() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             button.style.display = "block";
@@ -496,10 +529,10 @@ function scrollToTop(){
             button.style.display = "none";
         }
     }
-
-
 }
-
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 function topFunction() {
 /*    document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;*/
@@ -513,4 +546,20 @@ let timeout;
         clearTimeout(timeout);
     }
 }
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+function formattedDate(d = new Date) {
+    let month = String(d.getMonth() + 1);
+    let day = String(d.getDate());
+    const year = String(d.getFullYear());
 
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return `${day}-${month}-${year}`;
+}
+function transformDate(date, sep = '-') {
+    let tmp = date.split(sep);
+    return tmp[1] + sep + tmp[0] + sep + tmp[2];
+}

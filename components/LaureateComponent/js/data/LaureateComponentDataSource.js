@@ -245,20 +245,21 @@ let dbPromotion= [
 	{
 		id : 'p1214',
 		name:'Promotion 2012-2014',
+		date:'01-06-2014',
 		content : dbLaureat14,
 	},
 	{
 		id : 'p1618',
 		name:'Promotion 2016-2018',
+		date:'01-06-2018',
 		content : dbLaureat18,
 	},
 	{
 		id : 'p1719',
 		name:'Promotion 2017-2019',
+		date:'01-06-2019',
 		content : dbLaureat19,
 	},
-
-
 
 ];
 

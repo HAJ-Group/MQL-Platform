@@ -27,6 +27,17 @@
                     <img class="modal-content" id="modal_img">
                     <div id="caption"></div>
                 </div>
+				<!-- FORM MODAL -->
+				<div id="form" class="modal">
+					<span onclick="closeFORM()" class="close">&times;</span>
+					<div class="form-content" id="formContent">
+						<img src="../../resources/pictures/Event-logo.png" alt="">
+						<p class="form-title">EVENT COMPONENT</p>
+						<input id="eventTitle" type="text" class="form-text" placeholder="Event Title...">
+						<textarea id="eventDescription" class="form-text" placeholder="Event Description" rows="5"></textarea>
+						<p id="eventSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
+					</div>
+				</div>
                 <div id="switcher" class="page_numbers"></div>
             </div>
 			<div id="footer"></div>

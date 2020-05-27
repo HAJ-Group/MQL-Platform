@@ -68,6 +68,11 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 	return ret;
 };
 
+LaureateComponentService.prototype.sort = function() {
+	// SORT BY DATE
+	this.db = this.db.sort((a, b) => b.date - a.date);
+};
+
 /**
  * Extraction of all promotions :
  * @param dbPromotions
@@ -75,8 +80,9 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 LaureateComponentService.prototype.loadPromotion = function (dbPromotions) {
 	for (let promotion of dbPromotions){
 		this.add(
-			new Promotion(promotion.id,promotion.name, this.load(promotion.content)
+			new Promotion(promotion.id,promotion.name,new Date(transformDate(promotion.date)), this.load(promotion.content)
 			)
 		)
 	}
+	this.sort();
 };

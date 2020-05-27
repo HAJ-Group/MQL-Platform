@@ -51,7 +51,8 @@ LaureateComponent.prototype.fillMain = function () {
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
-			'<div class="details">';
+			'<div class="details">' +
+			'<p class="date">' + formattedDate(promotion.date) + '</p>';
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
 			// LIST ITEM
@@ -115,7 +116,7 @@ LaureateComponent.prototype.fillSwitcher = function () {
  * @param page_number
  * @param top
  */
-LaureateComponent.prototype.navigate = function(page_number, top=false) {
+LaureateComponent.prototype.navigate = function(page_number=1, top=false) {
 	current_page_number = page_number;
 	this.fillNavigation();
 	this.fillMain();
@@ -171,7 +172,47 @@ LaureateComponent.prototype.filterKey = function () {
 		this.get('key').value = '';
 		this.filterKey();
 	}
-	this.navigate(1);
+	this.navigate();
+};
+
+/* FORM SERVICES */
+LaureateComponent.prototype.editData = function(index) {
+	let el_name = this.get('promotionName');
+	//....
+	let target = this.service.get(index);
+	el_name.value = target.name;
+	//...
+	this.get('promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	popFORM();
+};
+
+LaureateComponent.prototype.deleteData = function(index) {
+	if(confirm('Are you sure you want to delete this Promotion ?')) {
+		this.service.remove(index);
+		//....
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+		this.navigate();
+	}
+};
+
+LaureateComponent.prototype.submitData = function (action = 'add', index = '0') {
+	// GETTING DATA MEMBERS
+	let name = this.get('promotionName').value;
+	//...
+	if(action === 'add') {
+		this.service.add(new Promotion(this.service.size() + 1,name,new Date()));
+	}
+	if(action === 'edit') {
+		let target = this.service.get(index);
+		target.name = name;
+		target.date = new Date();
+		//...
+		this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	}
+	this.service.sort();
+	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+	closeFORM();
+	this.navigate();
 };
 
 
