@@ -3,6 +3,11 @@ body {
 	margin:auto;
 }
 
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
 .card-event {
 	display: flex;
 	border: 1px solid lightgray;
@@ -96,6 +101,10 @@ body {
 
 /* Phone */
 @media only screen and (max-width: 700px) {
+
+	.container {
+		background-image: none;
+	}
 
 	.card-event {
 		display: block;

@@ -95,9 +95,30 @@ NewsComponent.prototype.navigate = function(page_number, top=false) {
 
 NewsComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
-	if(anchor !== undefined) {
+	if(anchor !== undefined && anchor !== 'header') {
 		this.get('nav' + anchor).click();
 	}
+};
+
+/**
+ * Filtering function works with search box
+ */
+NewsComponent.prototype.filterKey = function () {
+	let key = this.get('key').value;
+	if(key === '') {
+		// LOAD ALL DATA
+		this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
+	} else {
+		// LOAD BY KEY
+		this.page_blocks = split(this.service.searchByKey(key), MAX_NEWS_PER_PAGE);
+		console.log(this.service.searchByKey(key));
+	}
+	if(this.page_blocks.length === 0) {
+		popTB('../../resources/pictures/nf.png', 'NEWS NOT FOUND !!');
+		this.get('key').value = '';
+		this.filterKey();
+	}
+	this.navigate(1);
 };
 
 

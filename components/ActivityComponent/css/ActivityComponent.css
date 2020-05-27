@@ -30,7 +30,7 @@ body {
 
 .title-top-cards{
 	display: block;
-	background-color: coral;
+	background-color: rgb(253, 59, 76);
 }
 
 /* Container of all the cards of one subject */
@@ -68,7 +68,7 @@ body {
 }
 
 .semester-description > p{
-	padding: 0px;
+	padding: 0;
 }
 
 .card-activities{
@@ -140,6 +140,10 @@ body {
 	width: 60px;
 	height: 60px;
 
+}
+
+.schedule-img {
+	width: 100%;
 }
 
 /* Styling the right-side in the footer of the card */
@@ -250,7 +254,12 @@ body {
 	list-style-type: none;
 	padding: 5px;
 	margin: 4px;
-	border-bottom: 1px solid chocolate;
+	border-bottom: 1px solid rgb(253, 59, 76);
+    text-align: left;
+}
+
+.subject > p {
+    text-align: center;
 }
 
 .subject > p > span{
@@ -288,8 +297,18 @@ body {
 	width:80%;
 }
 
+.formation-video {
+	width: 100%;
+	border: 2px solid cornflowerblue;
+}
 
-@media screen and (max-width: 1024px){
+
+@media screen and (max-width: 700px){
+
+	.card {
+		width: 100%;
+	}
+
 	.logo-mql{
 		display: none;
 	}
@@ -299,7 +318,7 @@ body {
 		font-size: 14px;
 	}
 	.card-subject{
-		font-size: 16px;
+		font-size: 14px;
 	}
 
 }

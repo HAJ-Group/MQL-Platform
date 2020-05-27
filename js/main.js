@@ -11,6 +11,7 @@
 // GLOBAL VARS
 let current_component;
 let phone_menu_toggled = false;
+let grant_access = false;
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -48,8 +49,8 @@ function getHeaderContent() {
         {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
         {name: 'Partner', content:'Partenaires'},
-        {name: 'Area', content:'Votre Espace'},
         {name: 'Laureate', content:'Nos Lauréats'},
+        {name: 'Area', content:'Votre Espace'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
@@ -75,6 +76,23 @@ function getHeaderContent() {
         '</div>' +
         '</header>';
     return headerContent;
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+function getSearchBar() {
+    return '<div class="search-block">\n' +
+        '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo">\n' +
+        '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text">\n' +
+        '</div>\n' +
+        '<!-- Text Box -->\n' +
+        '<div id="TextBox" class="modal">\n' +
+        '<span onclick="closeTB()" class="close">&times;</span>\n' +
+        '<div class="box-content">\n' +
+        '<img src="" alt="" id="BoxIcon" class="box-icon">\n' +
+        '<p id="BoxText" class="box-text"></p>\n' +
+        '</div>\n' +
+        '</div>';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -186,6 +204,10 @@ function loadResources() {
     /* ASSIGN DATA ---------------------------------------------------------------------------------------------------*/
     document.getElementById('header').innerHTML = getHeaderContent();
     document.getElementById('footer').innerHTML = getFooterContent();
+    // SEARCH BAR
+    if(document.getElementById('search') !== null) {
+        document.getElementById('search').innerHTML = getSearchBar();
+    }
     /* CURRENT INITIALIZATION ----------------------------------------------------------------------------------------*/
     let current_element = document.getElementsByName(current_component)[0];
     if(current_component === 'Home') document.getElementById('home-logo').
@@ -256,14 +278,16 @@ function addTitleIcon(source) {
 /**
  * Action method show details block
  * @param id
+ * @param def_element
+ * @param def_display
  */
-function show(id) {
+function show(id, def_element = 'details', def_display = 'block') {
     let icon = document.getElementsByName('sh-icon')[id];
     let sep = document.getElementsByClassName('sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
-    icon.setAttribute('onclick','hide('+id+')');
-    let element =document.getElementsByClassName('details')[id];
-    element.style.display = 'block';
+    icon.setAttribute('onclick','hide('+id+', \'' + def_element + '\', \'' + def_display + '\')');
+    let element =document.getElementsByClassName(def_element)[id];
+    element.style.display = def_display;
     sep.style.display='none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -272,15 +296,17 @@ function show(id) {
 /**
  * Action method hide details block
  * @param id
+ * @param def_element
+ * @param def_display
  */
-function hide(id) {
+function hide(id, def_element = 'details', def_display = 'block') {
     let icon = document.getElementsByName('sh-icon')[id];
     let sep = document.getElementsByClassName('sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
-    icon.setAttribute('onclick','show('+id+')');
-    let element = document.getElementsByClassName('details')[id];
+    icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
+    let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
-    sep.style.display='block';
+    sep.style.display=def_display;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -367,6 +393,30 @@ function popIMG(id) {
     modalImg.src = img.src;
     document.getElementById('caption').innerHTML = img.alt;
 }
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Close TextBox
+ */
+function closeTB() {
+    let modal = document.getElementById('TextBox');
+    modal.style.display = 'none';
+}
+/**
+ * Display textbox
+ */
+function popTB(icon, text) {
+    let modal = document.getElementById('TextBox');
+    let el_icon = document.getElementById('BoxIcon');
+    let el_text = document.getElementById('BoxText');
+    el_icon.src = icon;
+    el_text.innerHTML = text;
+    modal.style.display = 'block';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/

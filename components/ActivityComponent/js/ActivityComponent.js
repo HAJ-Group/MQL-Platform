@@ -47,7 +47,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		for (let j = 0; j < semesterI.modules.length; j++) {
 			moduleImage = semesterI.modules[0];
 			if (j === 0) continue;
-			modules += '<li> ' + 'M' + (j) + ' : ' + semesterI.modules[j] + ' </li>';
+			modules += '<li>' + 'M' + (j) + '(' + semesterI.modules[j] + ')</li>';
 		}
 		modules += '</ul>';
 
@@ -167,6 +167,7 @@ ActivityComponent.prototype.printSubjects = function () {
 function collapse(){
 	let coll = document.getElementsByClassName("collapsible");
 	let i;
+
 
 	for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {

@@ -1,0 +1,337 @@
+body { 
+	display:block; 
+	margin:auto; 
+}
+
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
+.access {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 10px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%;
+	/*background-color: rgb(0,0,0);  Fallback color */
+	background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.access-close {
+	float: right;
+	font-size: 40px;
+	color: white;
+	margin-right: 23%;
+	margin-top: 5%;
+	padding: 10px;
+}
+
+.access-close:hover {
+	color: rgb(253, 59, 76);
+	cursor: pointer;
+}
+
+.access-content {
+	width: 70%;
+	height: 60%;
+	padding: 10px;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url('../../../resources/pictures/Area/imgaccess.jpg');
+	border-radius: 30px;
+	align-items: center;
+}
+
+.access-title {
+	margin-top: 40px;
+	text-align: center;
+	font-size: 60px;
+	font-weight: bolder;
+	color: white;
+	text-shadow: 2px 2px #4b4c54;
+}
+
+.access-login {
+	border-radius: 20px;
+	padding: 20px;
+	width: 80%;
+	margin-top: 2%;
+	margin-left: 30%;
+}
+
+.access-error {
+	border: 1px solid crimson;
+	border-radius: 20px;
+	padding: 15px;
+	width: 80%;
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 10%;
+	margin-bottom: 30px;
+	background-color: rgba(233,183,133,0.92);
+	color: crimson;
+	display: none;
+}
+
+.error-icon {
+	float: right;
+	width: 30px;
+	height: 30px;
+}
+
+.access-username, .access-password {
+	border: 1px solid lightgray;
+	border-radius: 20px;
+	padding: 10px;
+	width: 40%;
+	font-size: 20px;
+	font-weight: bold;
+	color: #4b4c54;
+	display: block;
+	text-align: center;
+	opacity: 0.6;
+	margin-bottom: 20px;
+}
+
+.access-username:hover, .access-password:hover {
+	opacity: 1;
+}
+
+.access-username:focus, .access-password:focus {
+	border: none;
+	border-radius: 0;
+}
+
+.access-button {
+	border: none;
+	padding: 20px;
+	background-color: rgba(93,233,77,0.92);
+	font-size: 25px;
+	font-weight: bolder;
+	color: white;
+	opacity: 0.8;
+	width: 15%;
+	margin-left: 13%;
+	margin-top: 20px;
+	border-radius: 20px;
+}
+
+.access-button:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.access-button:active {
+	opacity: 1;
+}
+
+
+
+/* RESTRICTED AREA */
+.profile {
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.phone-profile {
+	display: none;
+}
+
+.profile > img {
+    width: 100%;
+}
+
+.user-block {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.manage-block {
+	width: 100%;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+}
+
+.manage-cards {
+	width: 100%;
+	display: flex;
+}
+
+.manage-card {
+	width: 45%;
+	padding: 10px;
+}
+
+.manage-card > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	opacity: 0.7;
+}
+
+.manage-card > img:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.manage-card > p {
+	font-weight: bolder;
+	font-size: 20px;
+	text-align: center;
+}
+
+.manage-title {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.manage-title > img {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+@media screen and (max-width: 700px){
+
+	.container {
+		background-image: none;
+	}
+
+	.access-close {
+		display: block;
+		font-size: 30px;
+		color: white;
+		margin-left: 20px;
+		margin-top: 5%;
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+
+	.access-content {
+		width: 90%;
+		height: 500px;
+		padding: 10px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-left: 10px;
+		background-image: url('../../../resources/pictures/Area/login.jpg');
+		background-repeat: no-repeat;
+		border-radius: 30px;
+	}
+
+	.access-title {
+		margin-top: 40px;
+		font-size: 30px;
+		font-weight: bolder;
+	}
+
+	.access-login {
+		border-radius: 20px;
+		padding: 20px;
+		width: 80%;
+		margin-top: 2%;
+	}
+
+	.error-icon {
+		float: right;
+		width: 20px;
+		height: 20px;
+	}
+
+	.access-username, .access-password {
+		width: 80%;
+		height: 40px;
+		font-size: 15px;
+		font-weight: bold;
+		color: #4b4c54;
+		display: block;
+		text-align: center;
+		opacity: 0.6;
+		margin-bottom: 15px;
+		margin-left: -68px;
+	}
+
+	.access-button {
+		padding: 15px;
+		background-color: rgba(93,233,77,0.92);
+		font-size: 20px;
+		font-weight: bolder;
+		color: white;
+		opacity: 0.8;
+		width: 50%;
+		height: 60px;
+		margin-left: -10px;
+		margin-top: 15px;
+		border-radius: 15px;
+	}
+
+	.container {
+		display: block;
+	}
+
+	.manage-cards {
+		display: block;
+	}
+
+	.manage-card {
+		width: 97%;
+	}
+
+	.phone-profile {
+		display: flex;
+		width: 97%;
+		border: 1px solid lightgray;
+		border-radius: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-bottom: 20px;
+	}
+
+	.phone-profile > img {
+		width: 50%;
+		margin-right: 20px;
+		margin-left: 10px;
+	}
+
+}
+
+@media screen and (max-width: 1400px){
+	.access-content {
+		width: 80%;
+		height: 600px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-right: auto;
+		margin-left: auto;
+		border-radius: 30px;
+	}
+
+	.access-button {
+		width: 40%;
+		padding: 20px;
+		margin-left: 2%;
+		margin-top: 15px;
+		border-radius: 15px;
+	}
+
+	.access-username, .access-password {
+		width: 60%;
+		height: 40px;
+		margin-left: -8%;
+	}
+}

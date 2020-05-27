@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width" />  
+		<title>AreaComponent</title> 
+		<link rel="stylesheet" href="../../css/style.css"> 
+		<link rel="stylesheet" href="css/AreaComponent.css"> 
+		<script src="../../js/main.js"></script> 
+		<script src="js/data/AreaComponentDataSource.js"></script> 
+		<script src="js/model/Area.js"></script> 
+		<script src="js/service/AreaComponentService.js"></script> 
+		<script src="js/AreaComponent.js"></script> 
+	</head> 
+	<body onload="main()"> 
+		<div class="content"> 
+			<div id="header"></div> 
+			<div id="restricted" class="container">
+				<div class="left-menu">
+					<div class="profile">
+						<img src="../../resources/pictures/Area/profile.gif" alt="">
+						<h1 id="user" class="user-block"></h1>
+					</div>
+				</div>
+				<div class="sub-content">
+					<div class="phone-profile">
+						<img src="../../resources/pictures/Area/profile.gif">
+						<h2 id="phone-user" class="user-block"></h2><hr>
+					</div>
+					<div class="manage-block">
+						<h1 class="manage-title"><img src="../../resources/pictures/Area/manage.png" alt="">Zone de Gestion</h1><hr>
+						<div class="manage-cards">
+							<div class="manage-card">
+								<img src="../../resources/pictures/Area/news.jpg" alt="">
+							</div>
+							<div class="manage-card">
+								<img src="../../resources/pictures/Area/event.jpg" alt="">
+							</div>
+							<div class="manage-card">
+								<img src="../../resources/pictures/Area/event.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- The Modal -->
+			<div id="login-window" class="access">
+				<span onclick="view.cancel()" class="access-close">X</span>
+				<div class="access-content">
+					<h1 class="access-title">Administration</h1>
+					<span id="errorBlock" class="access-error"><img src="../../resources/pictures/Area/error.png" class="error-icon" alt=""><span id="errorMess">Error</span></span>
+					<div class="access-login">
+						<input id="username" type="text" class="access-username" placeholder="Nom d'utilisateur...">
+						<input id="password" type="password" class="access-password" placeholder="Mot de passe...">
+						<button onclick="view.authenticate()" class="access-button">Valider</button>
+					</div>
+				</div>
+			</div>
+			<div id="footer"></div> 
+		</div> 
+	</body> 
+</html> 

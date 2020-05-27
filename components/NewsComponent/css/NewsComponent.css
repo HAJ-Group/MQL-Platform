@@ -1,10 +1,18 @@
 body { 
 	display:block; 
 	margin:auto; 
-} 
+}
+
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
 
 
 
 
-
-
+@media only screen and (max-width: 700px) {
+	.container {
+		background-image: none;
+	}
+}

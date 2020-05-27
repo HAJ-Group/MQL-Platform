@@ -36,10 +36,11 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 			'<div class="card-body">' +
 				'<div class="title">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div><hr>'+
 				'<p class="description">'+onePartner.description+'</p>'+
-				'<p class="colabs">Nombre de collobaroteurs de MQL chez CGi est :'+onePartner.nbr_colla+'</p>'+
+				'<p class="description">Sur : '+onePartner.zone+'.</p>'+
+				'<p class="colabs">Nombre de collobaroteurs de MQL chez '+onePartner.name+' est :'+onePartner.nbr_colla+'</p>'+
 				'<img src="' + onePartner.image + '" class="micro-logo" alt="">' +
 				'<p class="website">Site web officiel : <a href="https://'+onePartner.website+'" target="_blank">'+onePartner.website+'</a></p>'+
-			'</div>'
+			'</div></div>'
 		;
 };
 PartnerComponent.prototype.addMenuPartners = function (onePartner) {
@@ -64,26 +65,18 @@ PartnerComponent.prototype.show = function (id) {
 	this.get('menu-' + this.currentblock).classList.remove('active');
 	let show_block = this.get(id);
 	this.currentblock=id;
-    hide_block.style.display = 'none';
-    show_block.style.display = 'block';
-    show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
+    hide_block.style['display'] = 'none';
+    show_block.style['display'] = 'block';
     this.get('menu-' + id).classList.add('active');
 };
 PartnerComponent.prototype.show2 = function (id) {
-	let hide_block= this.get(this.currentblock);
-	this.get('menu-' + this.currentblock).classList.remove('active');
-	let show_block = this.get(id);
-	this.currentblock=id;
-	hide_block.style.display = 'none';
-	show_block.style.display = 'block';
-	show_block.style.animation = '0.5s ease-in 0s 1 slideInFromRight';
-	this.get('menu-' + id).classList.add('active');
+	view.show(id);
 	window.location.href='#'+id;
 };
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
 		let partner = document.getElementsByClassName('card')[i];
-		partner.style.display = 'none';
+		partner.style['display'] = 'none';
 		document.getElementsByClassName('partner')[i].classList.remove('active');
 	}
 };
