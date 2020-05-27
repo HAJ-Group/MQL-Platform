@@ -70,11 +70,11 @@ LaureateComponent.prototype.fillMain = function () {
 				'<ul>';
 			// STAGE
 			if(laureate.stage !== '') {
-				htmlContent += '<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
 			}
 			// EXPERIENCES
 			if(laureate.experience !== []) {
-				htmlContent += '<li>Expériences<span class="value">';
+				htmlContent += '<li>Expériences : <span class="value">';
 				for(let exp of laureate.experience) {
 					htmlContent += '<span class="left-space">' + exp + '</span>';
 				}
@@ -82,8 +82,8 @@ LaureateComponent.prototype.fillMain = function () {
 			}
 			// ENTERPRISE && CITY
 			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Travaille chez<span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
-					'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
+				htmlContent += '<li>Travaille chez : <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
+					'<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			}
 			// DESCRIPTION
 			if(laureate.rating !== ''){
