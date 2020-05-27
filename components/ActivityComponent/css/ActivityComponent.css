@@ -4,10 +4,6 @@ body {
 }
 
 
-.container {
-	/*padding-left: 30px;*/
-	/*padding-right: 30px;*/
-}
 .sub-content{
 	margin-left: 10%;
 }
@@ -306,7 +302,9 @@ body {
 @media screen and (max-width: 700px){
 
 	.card {
+		height: fit-content;
 		width: 100%;
+		min-height: auto;
 	}
 
 	.logo-mql{
