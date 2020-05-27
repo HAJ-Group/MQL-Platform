@@ -57,7 +57,7 @@ LaureateComponent.prototype.fillMain = function () {
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +'('+laureate.job+')'+
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'</div></div>';
 			// INFO BODY
@@ -68,23 +68,24 @@ LaureateComponent.prototype.fillMain = function () {
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
 				'<ul>';
+			// ENTERPRISE && CITY
+			if(laureate.current_enterprise !== '' && laureate.city !== '') {
+				htmlContent += '<li>Entreprise: <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>';
+			}
 			// STAGE
 			if(laureate.stage !== '') {
-				htmlContent += '<li>Stage<span class="value">' + laureate.stage + '</span></li>';
+				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
 			}
 			// EXPERIENCES
 			if(laureate.experience !== []) {
-				htmlContent += '<li>Expériences<span class="value">';
+				htmlContent += '<li>Expériences : <span class="value">';
 				for(let exp of laureate.experience) {
 					htmlContent += '<span class="left-space">' + exp + '</span>';
 				}
 				htmlContent += '</span></li>';
 			}
-			// ENTERPRISE && CITY
-			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Travaille chez<span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
-					'<li>Email<span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
-			}
+			// Email :
+			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			// DESCRIPTION
 			if(laureate.rating !== ''){
 				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
@@ -119,7 +120,7 @@ LaureateComponent.prototype.navigate = function(page_number, top=false) {
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
@@ -183,6 +184,6 @@ function main() {
 	view.fillMain();
 	view.fillSwitcher();
 	// stays last
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 }
