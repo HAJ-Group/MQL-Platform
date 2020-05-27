@@ -68,6 +68,10 @@ LaureateComponent.prototype.fillMain = function () {
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
 				'<ul>';
+			// ENTERPRISE && CITY
+			if(laureate.current_enterprise !== '' && laureate.city !== '') {
+				htmlContent += '<li>Entreprise: <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>';
+			}
 			// STAGE
 			if(laureate.stage !== '') {
 				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
@@ -80,11 +84,8 @@ LaureateComponent.prototype.fillMain = function () {
 				}
 				htmlContent += '</span></li>';
 			}
-			// ENTERPRISE && CITY
-			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Travaille chez : <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
-					'<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
-			}
+			// Email :
+			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			// DESCRIPTION
 			if(laureate.rating !== ''){
 				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
