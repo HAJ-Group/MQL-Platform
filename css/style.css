@@ -957,3 +957,28 @@ a.links:hover{
         opacity: 0.5;
     }
 }
+
+
+
+#scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+
+    font-size: 18px;
+    border: none;
+
+    /*background-color: red;*/
+    background: url('../resources/pictures/top1.png') no-repeat;
+
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    width: 55px;
+    height: 55px;
+}
+
+#scroll-top:hover {
+    background: url('../resources/pictures/top2.png') no-repeat;
+}
