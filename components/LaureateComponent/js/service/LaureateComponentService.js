@@ -27,6 +27,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 			new Laureate( 
 				dbSource[i].id, 
 				dbSource[i].name,
+				dbSource[i].job,
 				dbSource[i].city,
 				dbSource[i].email,
 				dbSource[i].stage,
@@ -60,8 +61,7 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 			}
 		}
 		if(addPromo) {
-			promo.content = tmp;
-			ret.push(promo);
+			ret.push(new Promotion(promo.id, promo.name, tmp));
 		}
 	}
 	console.log(ret);
