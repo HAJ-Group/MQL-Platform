@@ -963,7 +963,7 @@ a.links:hover{
 #scroll-top {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     right: 30px;
 
     font-size: 18px;
@@ -977,8 +977,17 @@ a.links:hover{
     border-radius: 4px;
     width: 55px;
     height: 55px;
+
 }
 
 #scroll-top:hover {
     background: url('../resources/pictures/top2.png') no-repeat;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    #scroll-top{
+        display: none;
+    }
 }
