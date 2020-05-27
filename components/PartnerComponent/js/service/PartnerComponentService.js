@@ -27,6 +27,7 @@ PartnerComponentService.prototype.load = function(dbSource) {
 				dbSource[i].id,
 				dbSource[i].bg,
 				dbSource[i].name,
+				dbSource[i].color,
 				dbSource[i].ca,
 				dbSource[i].description,
 				dbSource[i].nbr_colla,
