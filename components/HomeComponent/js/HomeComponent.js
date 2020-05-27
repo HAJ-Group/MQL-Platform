@@ -74,6 +74,7 @@ function main() {
 //	view.printSemesters();
 	view.printNews();
 	view.setNewsRoutes();
+
 	// stays last
 	addTitleIcon('../../resources/pictures/title-logo.png');
 	detect_subContent_trigger_left_bar();

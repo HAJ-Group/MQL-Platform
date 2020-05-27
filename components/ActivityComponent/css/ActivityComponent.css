@@ -4,15 +4,13 @@ body {
 }
 
 
-.container {
-	padding-left: 30px;
-	padding-right: 30px;
+.sub-content{
+	margin-left: 10%;
 }
-
 /* Container of the card and its title */
 .big-container{
 	/* background-color: cornflowerblue;*/
-	padding: 10px;
+	margin-bottom: 15px;
 }
 
 .zone-title {
@@ -22,18 +20,13 @@ body {
 }
 
 .container-border{
-	padding: 10px;
-	border-left: 1px solid #bbbbbb;
-	border-bottom: 1px solid #bbbbbb;
-	border-right: 1px solid #bbbbbb;
 	background-color: white;
 }
 
 
 .title-top-cards{
-	display: inline-block;
-	width: 97%;
-	background-color: coral;
+	display: block;
+	background-color: rgb(253, 59, 76);
 }
 
 /* Container of all the cards of one subject */
@@ -48,14 +41,30 @@ body {
 .card {
     position: relative;
 	font-family: MontserratBold, serif;
-	width: 500px;
-	height: 680px;
+	width: 45%;
+	min-height: 700px;
 	border-radius: 5px;
 	box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
 	overflow: hidden; /* otherwise header image won't respect rounded corners */
 	background-color: #f7fbdf;
 	margin: 10px;
 	transition: all .4s ease; /* back to normal */
+}
+
+.semester-description{
+	width: 93%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	padding: 10px;
+	background-color: #f7fbdf;
+	border: 1px solid #c4c4c4;
+	border-radius: 5px;
+
+}
+
+.semester-description > p{
+	padding: 0;
 }
 
 .card-activities{
@@ -65,7 +74,7 @@ body {
     height: 680px;
     border-radius: 5px;
     box-shadow: 0 0 0 rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
-    overflow: hidden; /* otherwise header image won't respect rounded corners */
+    overflow: hidden;
     background-color: whitesmoke;
     margin: 10px;
     transition: all .4s ease; /* back to normal */
@@ -79,7 +88,7 @@ body {
 
 /* Image associated with the card */
 .card-image {
-	width: 100%; /* forces image to maintain its aspect ratio; otherwise image stretches vertically */
+	width: 100%; /* forces image to maintain its aspect ratio*/
 	height: 250px;
 }
 
@@ -102,9 +111,8 @@ body {
 
 /* The text content of the card */
 .card-text {
-	text-align: justify;
-	text-justify: inter-word;
-	font-size: 18px;
+	text-justify: none;
+	font-size: 16px;
 	padding: 20px
 }
 
@@ -130,6 +138,10 @@ body {
 
 }
 
+.schedule-img {
+	width: 100%;
+}
+
 /* Styling the right-side in the footer of the card */
 .right-side {
 	color: #738a94;
@@ -143,7 +155,8 @@ body {
 /* Style for the zone 'collapsible' */
 .collapsible {
 	/*background-color: #2975bf;*/
-	background-image: url("../../../resources/pictures/Activities/wrap.jpg");
+/*	background-image: url("../../../resources/pictures/Activities/semesters-back.png");*/
+	background-color: #1a54b4;
 	color: white;
 	cursor: pointer;
 	padding: 18px;
@@ -152,13 +165,28 @@ body {
 	border-top-left-radius: 7px;
 	text-align: left;
 	outline: none;
+	font-family: MontserratBoldItalic, serif;
 	font-size: 15px;
+}
+
+#collapse-1{
+	background-color: rgb(196, 201, 036);
+}
+
+#collapse-2{
+	background-color: rgb(067, 174, 183);
+}
+#collapse-3{
+	background-color: rgb(204, 027, 074);
+}
+#collapse-4{
+	background-color: rgb(253, 180, 022);
 }
 
 .active-element, .collapsible:hover {
 	/*background-color: #184c8c;*/
 	/*background-image: url("../../../resources/pictures/img.jpg");*/
-	opacity: 0.5;
+	opacity: 0.8;
 
 }
 
@@ -222,18 +250,28 @@ body {
 	list-style-type: none;
 	padding: 5px;
 	margin: 4px;
-	border-bottom: 1px solid chocolate;
+	border-bottom: 1px solid rgb(253, 59, 76);
+    text-align: left;
+}
+
+.subject > p {
+    text-align: left;
 }
 
 .subject > p > span{
     display: inline-block;
-    background-color: #ffb32a;
+    background-color: #ff8057;
     width: 14px;
     height: 14px;
     border-radius: 7px;
     box-shadow: 2px 2px 5px gray;
-    margin-left: 10px;
+    margin-left: -20px;
     margin-right: 5px;
+
+}
+
+.subject > p{
+	padding-left: 20px;
 }
 
 .zone-title{
@@ -253,4 +291,32 @@ body {
 .container-image > img{
 	margin-left: 10%;
 	width:80%;
+}
+
+.formation-video {
+	width: 100%;
+	border: 2px solid cornflowerblue;
+}
+
+
+@media screen and (max-width: 700px){
+
+	.card {
+		height: fit-content;
+		width: 100%;
+		min-height: auto;
+	}
+
+	.logo-mql{
+		display: none;
+	}
+
+	.card-text {
+		overflow: scroll;
+		font-size: 14px;
+	}
+	.card-subject{
+		font-size: 14px;
+	}
+
 }

@@ -3,6 +3,11 @@ body {
 	margin:auto;
 }
 
+.container {
+	background-image: url('../../../resources/pictures/pattern.png');
+	background-repeat: repeat-y;
+}
+
 .main-box{
 	display: flex;
 	margin-top: 5px;
@@ -92,7 +97,9 @@ a:hover {
 	color: rgb(253, 59, 76);
 	cursor: pointer;
 }
-
+.vp{
+	color: cornflowerblue;
+}
 .semester{
 	display: block;
 	text-align: center;
@@ -146,6 +153,15 @@ a:hover {
 	width: 100%;
 	height: 100%;
 }
+.stats-image{
+	width: 80%!important;
+	margin-left: 10%!important;
+}
+
+.mql-video {
+	width: 100%;
+	border: 2px solid cornflowerblue;
+}
 
 /* Animations */
 
@@ -163,6 +179,10 @@ a:hover {
 /* Responsive css ----------------------------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 700px) {
+
+	.container {
+		background-image: none;
+	}
 
 	.main-box {
 		display: block;

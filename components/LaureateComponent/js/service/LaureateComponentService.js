@@ -1,22 +1,22 @@
 function LaureateComponentService() { 
 	//TODO: Intitialize service for LaureateComponent 
-	this.dbP= [];
+	this.db= [];
 } 
 // Add model to database table object 
 LaureateComponentService.prototype.add = function (oneLaureate) { 
-	this.dbP.push(oneLaureate);
+	this.db.push(oneLaureate);
 }; 
 // Remove from database object by index 
 LaureateComponentService.prototype.remove = function(index) { 
-	this.dbP.splice(index, 1);
+	this.db.splice(index, 1);
 }; 
 // get from database object by index 
 LaureateComponentService.prototype.get = function(index) { 
-	return this.dbP[index];
+	return this.db[index];
 }; 
 // elements count of database object 
 LaureateComponentService.prototype.size = function() { 
-	return this.dbP.length;
+	return this.db.length;
 }; 
 // Load all data from source to database object 
 LaureateComponentService.prototype.load = function(dbSource) {
@@ -40,6 +40,34 @@ LaureateComponentService.prototype.load = function(dbSource) {
 	}
 	return tmp;
 };
+
+/**
+ * Defining search action methode
+ * @param title_key
+ * @returns {[]}
+ */
+LaureateComponentService.prototype.searchByKey = function(title_key) {
+	let ret = [];
+	let addPromo;
+	for(let promo of this.db) {
+		let tmp = [];
+		addPromo = false;
+		// Filter Laureates names
+		for(let laureate of promo.content) {
+			if(laureate.name.toLowerCase().includes(title_key.toLowerCase())) {
+				tmp.push(laureate);
+				addPromo = true;
+			}
+		}
+		if(addPromo) {
+			promo.content = tmp;
+			ret.push(promo);
+		}
+	}
+	console.log(ret);
+	return ret;
+};
+
 /**
  * Extraction of all promotions :
  * @param dbPromotions

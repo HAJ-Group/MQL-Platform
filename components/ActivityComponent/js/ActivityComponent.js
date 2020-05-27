@@ -38,8 +38,8 @@ ActivityComponent.prototype.printSemesters = function(){
 		switch (i + 1) {
 			case 1: semesterName = 'Le premier semestre'; break;
 			case 2: semesterName = 'Le deuxième semestre'; break;
-			case 3: semesterName = 'Le troizième semestre'; break;
-			case 4: semesterName = 'Le quatrième semestre'; break;
+			case 3: semesterName = 'Le troisième semestre'; break;
+			case 4: semesterName = 'Le quatrième semestre (Stage pré-embauche)'; break;
 		}
 
 		let modules = '<ul>';
@@ -47,7 +47,7 @@ ActivityComponent.prototype.printSemesters = function(){
 		for (let j = 0; j < semesterI.modules.length; j++) {
 			moduleImage = semesterI.modules[0];
 			if (j === 0) continue;
-			modules += '<li> ' + 'M' + (j) + ' : ' + semesterI.modules[j] + ' </li>';
+			modules += '<li>' + 'M' + (j) + '(' + semesterI.modules[j] + ')</li>';
 		}
 		modules += '</ul>';
 
@@ -63,18 +63,13 @@ ActivityComponent.prototype.printSemesters = function(){
 
 		for (let j = 1; j <= 3; j++) {
 			if (j === 1){
-				cards += '<div class="card">' +
-				'<img class="card-image" src="' + semesterI.description[0] + '" alt="">' +
-					'<div class="card-text">' +
-						'<div class="card-subject"> ' + 'Description' +' </div>' +
-						'<div class="subject"> ' + '<p>' + semesterI.description[1] + '</p>' + ' </div>' +
-					'</div>' +
-					'<div class="card-footer">' +
-						'' +
-							'<img class="logo-mql" src="../../resources/pictures/logo-mql2.png" alt="">' +
-						'' +
-					'</div>' +
-				'</div>';
+
+				cards += '<div class="semester-description">'
+
+							+ '<p>' + semesterI.description[1] + '</p>' +
+
+					     '</div>' +
+					'';
 			}
 
 			if (j === 2){
@@ -96,11 +91,10 @@ ActivityComponent.prototype.printSemesters = function(){
 			}
 			if (j === 3){
 
-
 				cards += '<div class="card" id="card">' +
 					'<img class="card-image" src="' + activityImage + '" alt="">' +
 						'<div class="card-text">' +
-							'<div class="card-subject"> ' + 'Valeurs' +' </div>' +
+							'<div class="card-subject"> ' + 'Objectifs' +' </div>' +
 							'<div class="subject"> ' + activities + ' </div>' +
 						'</div>' +
 						'<div class="card-footer">' +
@@ -112,9 +106,11 @@ ActivityComponent.prototype.printSemesters = function(){
 			}
 		}
 
+
+
 		subjectZone.innerHTML +=
 			'<div class="big-container">' +
-				'<div class="title-top-cards collapsible">' + semesterName +
+				'<div id="collapse-' + (i + 1) + '" class="title-top-cards collapsible">' + semesterName +
 					'' +
 				'</div>' +
 				'<div class="cards-container content-card">' +
@@ -122,7 +118,14 @@ ActivityComponent.prototype.printSemesters = function(){
 				'</div>' +
 			' </div>';
 	}
-}
+};
+
+
+ActivityComponent.prototype.updateView = function () {
+	if(window.innerWidth > 700){
+		window.location.reload();
+	}
+};
 
 /*
 ActivityComponent.prototype.printSubjects = function () {
