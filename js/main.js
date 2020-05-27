@@ -306,7 +306,7 @@ function hide(id, def_element = 'details', def_display = 'block') {
     icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
     let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
-    sep.style.display=def_display;
+    sep.style.display = def_display;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
