@@ -876,3 +876,44 @@ a.links:hover{
         font-size: 10px;
     }
 }
+
+
+.scroll-top{
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+}
+
+.ex{
+    display: inline-block;
+    width: 100px;
+    background-color: chocolate;
+    position: sticky;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+
+#scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+
+    font-size: 18px;
+    border: none;
+
+    /*background-color: red;*/
+    background: url('../resources/pictures/top.png') no-repeat;
+
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    width: 55px;
+    height: 55px;
+}
+
+#scroll-top:hover {
+    background: url('../resources/pictures/top1.png') no-repeat;
+}
