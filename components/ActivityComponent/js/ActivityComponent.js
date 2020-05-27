@@ -94,7 +94,7 @@ ActivityComponent.prototype.printSemesters = function(){
 				cards += '<div class="card" id="card">' +
 					'<img class="card-image" src="' + activityImage + '" alt="">' +
 						'<div class="card-text">' +
-							'<div class="card-subject"> ' + 'Valeurs' +' </div>' +
+							'<div class="card-subject"> ' + 'Objectifs' +' </div>' +
 							'<div class="subject"> ' + activities + ' </div>' +
 						'</div>' +
 						'<div class="card-footer">' +
