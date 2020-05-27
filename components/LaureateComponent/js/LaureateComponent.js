@@ -120,7 +120,7 @@ LaureateComponent.prototype.navigate = function(page_number, top=false) {
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
@@ -184,6 +184,6 @@ function main() {
 	view.fillMain();
 	view.fillSwitcher();
 	// stays last
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 }

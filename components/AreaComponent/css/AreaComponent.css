@@ -22,10 +22,11 @@ body {
 }
 
 .access-close {
+	font-family: "Franklin Gothic Heavy", serif;
 	float: right;
 	font-size: 40px;
 	color: white;
-	margin-right: 23%;
+	margin-right: 15%;
 	margin-top: 5%;
 	padding: 10px;
 }
@@ -37,7 +38,7 @@ body {
 
 .access-content {
 	width: 70%;
-	height: 60%;
+	height: 70%;
 	padding: 10px;
 	animation-name: zoom;
 	animation-duration: 0.6s;
@@ -50,12 +51,12 @@ body {
 }
 
 .access-title {
-	margin-top: 40px;
-	text-align: center;
+	margin-top: 3px;
+	margin-left: 10px;
+	text-align: left;
 	font-size: 60px;
 	font-weight: bolder;
 	color: white;
-	text-shadow: 2px 2px #4b4c54;
 }
 
 .access-login {
@@ -117,20 +118,35 @@ body {
 	font-weight: bolder;
 	color: white;
 	opacity: 0.8;
-	width: 15%;
-	margin-left: 13%;
+	width: fit-content;
+	margin-left: 15%;
 	margin-top: 20px;
 	border-radius: 20px;
 }
 
-.access-button:hover {
+.logout-button {
+	border: none;
+	padding: 20px;
+	background-color: rgba(233,42,25,0.92);
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	opacity: 0.8;
+	width: 100%;
+	margin-top: 20px;
+	border-radius: 20px;
+}
+
+.access-button:hover, .logout-button:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
 
-.access-button:active {
+.access-button:active, .logout-button:active {
 	opacity: 1;
 }
+
+
 
 
 
@@ -204,6 +220,37 @@ body {
 	margin-right: 10px;
 }
 
+@media screen and (max-width: 1400px){
+	h1 {
+		font-size: 1.5em;
+	}
+
+	.access-close {
+		margin-right: 11%;
+	}
+
+	.access-content {
+		width: 80%;
+		height: 600px;
+		animation-name: zoom;
+		animation-duration: 0.6s;
+		margin-top: 5%;
+		margin-right: auto;
+		margin-left: auto;
+		border-radius: 30px;
+	}
+
+	.access-title {
+		font-size: 40px;
+	}
+
+	.access-username, .access-password {
+		width: 60%;
+		height: 40px;
+		margin-left: -8%;
+	}
+}
+
 @media screen and (max-width: 700px){
 
 	.container {
@@ -211,13 +258,8 @@ body {
 	}
 
 	.access-close {
-		display: block;
-		font-size: 30px;
-		color: white;
-		margin-left: 20px;
-		margin-top: 5%;
-		margin-bottom: 10px;
-		padding: 10px;
+		margin-left: 11%;
+		font-size: 20px;
 	}
 
 	.access-content {
@@ -233,10 +275,16 @@ body {
 		border-radius: 30px;
 	}
 
+	.access-button {
+		font-size: 15px;
+	}
+
 	.access-title {
 		margin-top: 40px;
-		font-size: 30px;
-		font-weight: bolder;
+		margin-left: 10px;
+		font-size: 25px;
+		font-weight: bold;
+		text-align: center;
 	}
 
 	.access-login {
@@ -253,30 +301,7 @@ body {
 	}
 
 	.access-username, .access-password {
-		width: 80%;
-		height: 40px;
 		font-size: 15px;
-		font-weight: bold;
-		color: #4b4c54;
-		display: block;
-		text-align: center;
-		opacity: 0.6;
-		margin-bottom: 15px;
-		margin-left: -68px;
-	}
-
-	.access-button {
-		padding: 15px;
-		background-color: rgba(93,233,77,0.92);
-		font-size: 20px;
-		font-weight: bolder;
-		color: white;
-		opacity: 0.8;
-		width: 50%;
-		height: 60px;
-		margin-left: -10px;
-		margin-top: 15px;
-		border-radius: 15px;
 	}
 
 	.container {
@@ -309,29 +334,4 @@ body {
 
 }
 
-@media screen and (max-width: 1400px){
-	.access-content {
-		width: 80%;
-		height: 600px;
-		animation-name: zoom;
-		animation-duration: 0.6s;
-		margin-top: 5%;
-		margin-right: auto;
-		margin-left: auto;
-		border-radius: 30px;
-	}
 
-	.access-button {
-		width: 40%;
-		padding: 20px;
-		margin-left: 2%;
-		margin-top: 15px;
-		border-radius: 15px;
-	}
-
-	.access-username, .access-password {
-		width: 60%;
-		height: 40px;
-		margin-left: -8%;
-	}
-}

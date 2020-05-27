@@ -88,7 +88,7 @@ NewsComponent.prototype.navigate = function(page_number, top=false) {
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
-    addTitleIcon('../../resources/pictures/News-logo.png');
+    addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
     if(top) window.location.href = '#header';
 };
@@ -131,9 +131,8 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	view.fillSwitcher();
-	view.navigate(current_page_number);
 	// stays last
-	addTitleIcon('../../resources/pictures/News-logo.png');
+	addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	view.trigger();
 }
