@@ -284,7 +284,7 @@ q:after{
 	.card-laureate img {
 		width: 25%;
 		height: 100px;
-		margin-left: 35%;
+		margin-left: 37%;
 		border-radius: 10px;
 	}
 
@@ -296,6 +296,10 @@ q:after{
 		font-weight: bolder;
 	}
 
+	.value{
+		margin-left: 5px;
+		float: none;
+	}
 	.card-laureate .item-element {
 		max-width: 90%;
 	}

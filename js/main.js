@@ -11,7 +11,6 @@
 // GLOBAL VARS
 let current_component;
 let phone_menu_toggled = false;
-let grant_access = false;
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -260,16 +259,30 @@ function showMenu() {
 /**
  * Building title configuration (icon + show and hide button)
  * @param source
+ * @param editable
  */
-function addTitleIcon(source) {
+function addTitleIcon(source, editable=false) {
     let titles = document.getElementsByClassName('title');
     let i=0;
     for (let title of titles) {
         let text = title.textContent;
         title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' +
-            text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png"  ' +
+            text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
             'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
+        if(editable && localStorage.getItem('ACCESS') !== 'null') {
+            // ADD EDIT AND DELETE ICONS
+            title.innerHTML += '<img src="../../resources/pictures/icons/edit.png" alt=""  ' +
+                'class="sh-icon">' +
+                '<img src="../../resources/pictures/icons/delete.png" alt=""  ' +
+                'class="sh-icon">';
+        }
         i++;
+    }
+    if(editable && localStorage.getItem('ACCESS') !== 'null') {
+        // ADD NEW ICON BLOCK
+        let saver = document.getElementsByClassName('sub-content')[0];
+        saver.innerHTML = '<div class="new-block"><img src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
+            saver.innerHTML;
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -306,7 +319,7 @@ function hide(id, def_element = 'details', def_display = 'block') {
     icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
     let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
-    sep.style.display=def_display;
+    sep.style.display = def_display;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -475,7 +488,11 @@ function scrollToTop(){
     function scrollFunction() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             button.style.display = "block";
+
         } else {
+            button.style.display = "none";
+        }
+        if(window.innerWidth < 700){
             button.style.display = "none";
         }
     }

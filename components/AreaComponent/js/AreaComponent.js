@@ -35,18 +35,28 @@ AreaComponent.prototype.authenticate = function() {
 	let username = this.get('username').value;
 	let password = this.get('password').value;
 	if(this.service.isExist(username, password)) {
-		// REMOVE RESTRICTIONS
-		this.get('errorBlock').style.display = 'none';
-		this.get('login-window').style.display = 'none';
-		this.get('user').innerHTML = username;
-		this.get('phone-user').innerHTML = username;
-		this.get('restricted').style.display = 'block';
 		// GRANT ACCESS (WORKING ONLY WHEN DATA IS EXTERNAL)
-		grant_access = true;
+		localStorage.setItem('ACCESS', username);
+		this.loadData();
 	} else {
 		this.get('errorMess').innerHTML = 'Username or Password not valid';
 		this.get('errorBlock').style.display = 'block';
 	}
+};
+
+AreaComponent.prototype.logout = function() {
+	// DENY ACCESS
+	localStorage.setItem('ACCESS', null);
+	window.location.reload();
+};
+
+AreaComponent.prototype.loadData = function() {
+	// REMOVE RESTRICTIONS
+	this.get('errorBlock').style.display = 'none';
+	this.get('login-window').style.display = 'none';
+	this.get('user').innerHTML = localStorage.getItem('ACCESS');
+	this.get('phone-user').innerHTML = localStorage.getItem('ACCESS');
+	this.get('restricted').style.display = 'block';
 };
 
 AreaComponent.prototype.cancel = function () {
@@ -59,5 +69,7 @@ function main() {
 	service.load(dbArea);
 	view = new AreaComponent(service); 
 	//view.printAreaList(); Uncomment to print data in table member
-	if(grant_access === false) view.promptLogin();
+	if(localStorage.getItem('ACCESS') !== 'null'){
+		view.loadData();
+	} else view.promptLogin();
 } 
