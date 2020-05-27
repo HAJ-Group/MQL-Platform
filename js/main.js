@@ -217,6 +217,7 @@ function loadResources() {
     current_element.setAttribute('onclick', '');
     current_element.setAttribute('onmouseover', '');
     changePicture(current_component);
+    scrollToTop();
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -462,5 +463,37 @@ function target(target_element) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+function scrollToTop(){
 
+    var button = document.getElementById("scroll-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    }
+
+
+}
+
+function topFunction() {
+/*    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;*/
+
+let timeout;
+
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        window.scrollBy(0,-50);
+        timeout = setTimeout('topFunction()', 8);
+    } else {
+        clearTimeout(timeout);
+    }
+}
 
