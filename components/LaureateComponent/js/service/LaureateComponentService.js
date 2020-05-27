@@ -61,8 +61,7 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 			}
 		}
 		if(addPromo) {
-			promo.content = tmp;
-			ret.push(promo);
+			ret.push(new Promotion(promo.id, promo.name, tmp));
 		}
 	}
 	console.log(ret);
