@@ -67,5 +67,4 @@ EventComponentService.prototype.load = function(dbSource) {
 			)
 		);
 	}
-	this.sort();
-}; 
+};

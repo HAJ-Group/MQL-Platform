@@ -155,7 +155,6 @@ NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 		let target = this.service.get(index);
 		target.title = title;
 		target.description = desc;
-		target.date = new Date();
 		//...
 		this.get('newsSubmit').setAttribute('onclick', 'view.submitData()');
 	}

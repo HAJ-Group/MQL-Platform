@@ -188,11 +188,10 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 		let target = this.service.get(index);
 		target.title = title;
 		target.description = desc;
-		target.date = new Date();
+		//target.date = new Date();
 		//...
 		this.get('eventSubmit').setAttribute('onclick', 'view.submitData()');
 	}
-	this.service.sort();
 	this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
 	closeFORM();
 	this.navigate();

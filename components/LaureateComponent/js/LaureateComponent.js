@@ -52,7 +52,7 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">' +
-			'<p class="date">' + formattedDate(promotion.date) + '</p>';
+			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
 			// LIST ITEM
@@ -205,7 +205,6 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0') 
 	if(action === 'edit') {
 		let target = this.service.get(index);
 		target.name = name;
-		target.date = new Date();
 		//...
 		this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
 	}
