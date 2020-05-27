@@ -297,6 +297,11 @@ body {
 	width:80%;
 }
 
+.formation-video {
+	width: 100%;
+	border: 2px solid cornflowerblue;
+}
+
 
 @media screen and (max-width: 700px){
 
