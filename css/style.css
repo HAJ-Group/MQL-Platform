@@ -878,22 +878,6 @@ a.links:hover{
 }
 
 
-.scroll-top{
-    position: fixed;
-    bottom: 10px;
-    right: 30px;
-}
-
-.ex{
-    display: inline-block;
-    width: 100px;
-    background-color: chocolate;
-    position: sticky;
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
-
-
 
 #scroll-top {
     display: none;
@@ -905,7 +889,7 @@ a.links:hover{
     border: none;
 
     /*background-color: red;*/
-    background: url('../resources/pictures/top.png') no-repeat;
+    background: url('../resources/pictures/top1.png') no-repeat;
 
     cursor: pointer;
     padding: 15px;
@@ -915,5 +899,5 @@ a.links:hover{
 }
 
 #scroll-top:hover {
-    background: url('../resources/pictures/top1.png') no-repeat;
+    background: url('../resources/pictures/top2.png') no-repeat;
 }
