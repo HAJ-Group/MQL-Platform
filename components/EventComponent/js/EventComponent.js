@@ -155,6 +155,11 @@ EventComponent.prototype.filterKey = function () {
 };
 
 /* FORM SERVICES */
+EventComponent.prototype.addData = function() {
+	this.get('eventSubmit').setAttribute('onclick', 'view.submitData()');
+	popFORM();
+};
+
 EventComponent.prototype.editData = function(index) {
 	let el_title = this.get('eventTitle');
 	let el_desc = this.get('eventDescription');

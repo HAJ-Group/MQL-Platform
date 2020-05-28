@@ -281,7 +281,7 @@ function addTitleIcon(source, editable=false) {
     if(editable && localStorage.getItem('ACCESS') !== 'null') {
         // ADD NEW ICON BLOCK
         let saver = document.getElementsByClassName('sub-content')[0];
-        saver.innerHTML = '<div class="new-block"><img onclick="popFORM()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
+        saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
             saver.innerHTML;
     }
 }

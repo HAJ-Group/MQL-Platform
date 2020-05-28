@@ -122,6 +122,11 @@ NewsComponent.prototype.filterKey = function () {
 };
 
 /* FORM SERVICES */
+NewsComponent.prototype.addData = function() {
+	this.get('newsSubmit').setAttribute('onclick', 'view.submitData()');
+	popFORM();
+};
+
 NewsComponent.prototype.editData = function(index) {
 	let el_title = this.get('newsTitle');
 	let el_desc = this.get('newsDescription');

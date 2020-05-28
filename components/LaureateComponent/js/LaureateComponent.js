@@ -208,6 +208,11 @@ LaureateComponent.prototype.filterKey = function () {
 };
 
 /* FORM SERVICES */
+LaureateComponent.prototype.addData = function() {
+	this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	popFORM();
+};
+
 LaureateComponent.prototype.editData = function(index) {
 	let el_name = this.get('promotionName');
 	//....
