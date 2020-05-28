@@ -1,5 +1,20 @@
 /* Global data source table for LaureateComponent */
-
+let dbLaureat11=[
+	{
+		id:1,
+		name:'HJIRA Saad',
+		gender: 'M',
+		job:'Consultant Senior JAVA/JAVA EE',
+		city:'Casablanca',
+		email:'',
+		stage:'IB Maroc',
+		current_enterprise : 'Capgemini',
+		experience:['Devoceon','Apprism','Digital Factory'],
+		photo:'',
+		rating : 'Très belle formation, reconnue par toutes les entreprises marocaines, et j\'ai eu la chance de travailler avec plusieurs lauréat MQL dans les grandes SS2I marocaine ou internationales. ',
+		linked_in :'www.linkedin.com/in/saad-hjira-58458734',
+	},
+];
 let dbLaureat14=[
 	{
 		id:1,
@@ -13,6 +28,22 @@ let dbLaureat14=[
 		experience:['Capgemini'],
 		photo:'',
 		rating : '',
+		linked_in :'',
+	},
+];
+let dbLaureat16=[
+	{
+		id:1,
+		name:'DIB Brahim',
+		gender: 'M',
+		job:'Professeur du deuxième cycle',
+		city:'Fes',
+		email:'',
+		stage:'USMBA presidence',
+		current_enterprise : ' Ministère de l\'Education Nationale',
+		experience:[''],
+		photo:'',
+		rating : 'Une formation trop utile pour accéder au marché du travail ',
 		linked_in :'',
 	},
 ];
@@ -116,6 +147,20 @@ let dbLaureat18=[
 		rating : '',
 		linked_in :'',
 		special:true,
+	},
+	{
+		id:8,
+		name:'GAMRANI Ayoub',
+		gender: 'M',
+		job:'I.E.D Java/JavaEE - NodeJs',
+		city:'Paris,France',
+		email:'',
+		stage:'CGI',
+		current_enterprise : 'CGI',
+		experience:['CGI Casablanca'],
+		photo:'',
+		rating : 'La meilleure formation dans le domaine informatique et la plus adaptée au marché de travail au Maroc',
+		linked_in :'',
 	},
 ];
 let dbLaureat19=[
@@ -261,6 +306,48 @@ let dbLaureat19=[
 		rating : '',
 		linked_in :'',
 	},
+	{
+		id:11,
+		name:'Houda OULACHGUER',
+		gender: 'F',
+		job:'Ingénieur de projet',
+		city:'Casablanca',
+		email:'elgaddarchaimae@gmail.com',
+		stage:'S2M',
+		current_enterprise : 'HPS',
+		experience:['S2M'],
+		photo:'',
+		rating : '',
+		linked_in :'www.linkedin.com/in/houda-oulachguer/',
+	},
+	{
+		id:12,
+		name:'Salma Taleb',
+		gender: 'F',
+		job:'Consultante BI',
+		city:'Casablanca',
+		email:'houda.oulachguer@hotmail.com',
+		stage:'UMANIS',
+		current_enterprise : 'UMANIS',
+		experience:[''],
+		photo:'',
+		rating : '',
+		linked_in :'www.linkedin.com/in/salma-taleb-724932142/',
+	},
+	{
+		id:13,
+		name:'Berrada Hamza',
+		gender: 'M',
+		job:'I.E.D C/proC',
+		city:'Casablanca',
+		email:'',
+		stage:'Capgemini',
+		current_enterprise : 'Capgemini',
+		experience:[''],
+		photo:'',
+		rating : 'Une formation complète et adaptée au monde d’entreprise',
+		linked_in :'www.linkedin.com/in/hamza-berrada67/',
+	},
 ];
 let dbPromotion= [
 	// Add object structure associated with the model created
@@ -269,6 +356,12 @@ let dbPromotion= [
 		name:'Promotion 2012-2014',
 		date:'01-06-2014',
 		content : dbLaureat14,
+	},
+	{
+		id : 'p1416',
+		name:'Promotion 2014-2016',
+		date:'01-06-2016',
+		content : dbLaureat16,
 	},
 	{
 		id : 'p1618',
