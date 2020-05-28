@@ -4,6 +4,7 @@ let dbLaureat14=[
 	{
 		id:1,
 		name:'Badr ZEROUAL',
+		gender: 'M',
 		job:'coach agile',
 		city:'France',
 		email:'badr.zer@gmail.com',
@@ -19,6 +20,7 @@ let dbLaureat18=[
 	{
 		id:1,
 		name:'Hammioui Aymane',
+		gender: 'M',
 		job:'Consultant technique',
 		city:'Casablanca',
 		email:'aymane.hammioui@gmail.com',
@@ -32,6 +34,7 @@ let dbLaureat18=[
 	{
 		id:2,
 		name:'Filali Sadiq Safae',
+		gender: 'F',
 		city:'Rabat',
 		job:'Concepteur devloppeur',
 		email:'safae.filali.sadiq@gmail.com',
@@ -45,6 +48,7 @@ let dbLaureat18=[
 	{
 		id:3,
 		name:'Dadi Ayoub',
+		gender: 'M',
 		job:'I.E.D',
 		city:'Casablanca',
 		email:'ayoub.dadi25@gmail.com',
@@ -58,6 +62,7 @@ let dbLaureat18=[
 	{
 		id:4,
 		name:'EL MANSOUR RIAD',
+		gender: 'M',
 		job:'I.E.D,MOE',
 		city:'Casablanca',
 		email:'el.mansour@hotmail.fr',
@@ -72,6 +77,7 @@ let dbLaureat18=[
 	{
 		id:5,
 		name:'Yakoubi Nizar',
+		gender: 'M',
 		job:'I.E.D,JavaEE',
 		city:'Toulouse,France',
 		email:'nizar.yakoubi@usmba.ac.ma',
@@ -85,6 +91,7 @@ let dbLaureat18=[
 	{
 		id:6,
 		name:'Salma EL Mansour',
+		gender: 'F',
 		job:'Software Engineer',
 		city:'Casablanca',
 		email:'selma.elmansour@gmail.com',
@@ -98,6 +105,7 @@ let dbLaureat18=[
 	{
 		id:7,
 		name:'GAMRANI Ayoub',
+		gender: 'M',
 		job:'Consultant Java JEE',
 		city:'France',
 		email:'gamrani.ayoub@gmail.com',
@@ -114,6 +122,7 @@ let dbLaureat19=[
 	{
 		id:1,
 		name:'EL MORABET Hicham',
+		gender: 'M',
 		job:'I.E.D',
 		city:'Lyon',
 		email:'elmorabethicham@gmail.com',
@@ -128,6 +137,7 @@ let dbLaureat19=[
 	{
 		id:2,
 		name:'El khairy Ibtissam',
+		gender: 'F',
 		job:'I.D.L',
 		city:'Casablanca',
 		email:'elkhairy.ibtissam96@gmail.com',
@@ -142,6 +152,7 @@ let dbLaureat19=[
 	{
 		id:3,
 		name:'EL HAKMI Ghita',
+		gender: 'F',
 		job:'Software Engineer',
 		city:'Rabat',
 		email:'ghita.lvsl@gmail.com',
@@ -155,6 +166,7 @@ let dbLaureat19=[
 	{
 		id:4,
 		name:'BELARBI Ahmed',
+		gender: 'M',
 		job:'Software engineer PL/SQL',
 		city:'Casablanca',
 		email:'belarbi.ahmed21@gmail.com',
@@ -168,6 +180,7 @@ let dbLaureat19=[
 	{
 		id:5,
 		name:'Laalahmi chaimae',
+		gender: 'F',
 		job:'Software engineer',
 		city:'Rabat',
 		email:'chaimae.laalahmi@gmail.com',
@@ -181,6 +194,7 @@ let dbLaureat19=[
 	{
 		id:6,
 		name:'MAJDOULIF Anouar',
+		gender: 'M',
 		job:'Technical Consultant',
 		city:'Casablanca',
 		email:'anouarmajdoulif@gmail.com',
@@ -194,6 +208,7 @@ let dbLaureat19=[
 	{
 		id:7,
 		name:'MAHBOUB Marwa',
+		gender: 'F',
 		job:'I.E.D',
 		city:'Casablanca',
 		email:'mahboub.marwa.96@gmail.com',
@@ -207,6 +222,7 @@ let dbLaureat19=[
 	{
 		id:8,
 		name:'BOUZRIA Souhayla',
+		gender: 'F',
 		job:'Software Engineer',
 		city:'Casablanca',
 		email:'bouzria.souhayla@gmail.com',
@@ -220,6 +236,7 @@ let dbLaureat19=[
 	{
 		id:9,
 		name:'CHRAIBI Mouna',
+		gender: 'F',
 		job:'Consultante BI',
 		city:'Casablanca',
 		email:'chr.mouna@gmail.com',
@@ -233,6 +250,7 @@ let dbLaureat19=[
 	{
 		id:10,
 		name:'Chaimae EL GADDAR',
+		gender: 'F',
 		job:'Software Engineer',
 		city:'Rabat',
 		email:'elgaddarchaimae@gmail.com',

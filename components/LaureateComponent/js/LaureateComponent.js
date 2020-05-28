@@ -3,7 +3,8 @@ let view;
 let service;
 let current_page_number = 1;
 const MAX_PROMOTION_PER_PAGE = 5;
-const DEFAULT_PROFILE_IMAGE = '../../resources/pictures/profile.png';
+const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
+const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
 /*Default class*/ 
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
@@ -48,6 +49,7 @@ LaureateComponent.prototype.fillNavigation = function () {
 
 LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
+	let img;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
@@ -55,7 +57,9 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div class="details">' +
 			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
 		for (let laureate of promotion.content) {
-			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
+			if((laureate.photo === '')){
+				img = DEFAULT_PROFILE_IMAGE[laureate.gender];
+			} else img = laureate.photo;
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
@@ -64,7 +68,7 @@ LaureateComponent.prototype.fillMain = function () {
 				'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img src="' + laureate.photo + '" alt="">' +
+				'<img src="' + img + '" alt="">' +
 				'<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
@@ -94,19 +98,19 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
-LaureateComponent.prototype.fillRecomondation=function(){
-	let PROFILE='../../resources/pictures/top-profile.jpg';
+LaureateComponent.prototype.fillRecomondation =function(){
+	let img;
 	let html_content='';
 	for(let promotion of this.service.db){
 		for(let laureate of promotion.content){
 			if(laureate.special){
-				if(laureate.photo !== ''){
-					PROFILE=laureate.photo;
-				}
+				if(laureate.photo === ''){
+					img = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+				} else img = laureate.photo;
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
-					'<img src="'+PROFILE+'" alt="">' +
+					'<img src="' + img + '" alt="">' +
 					'</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
