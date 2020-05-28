@@ -51,13 +51,14 @@ LaureateComponent.prototype.fillMain = function () {
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
-			'<div class="details">';
+			'<div class="details">' +
+			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +'('+laureate.job+')'+
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'</div></div>';
 			// INFO BODY
@@ -68,6 +69,10 @@ LaureateComponent.prototype.fillMain = function () {
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
 				'<ul>';
+			// ENTERPRISE && CITY
+			if(laureate.current_enterprise !== '' && laureate.city !== '') {
+				htmlContent += '<li>Entreprise: <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>';
+			}
 			// STAGE
 			if(laureate.stage !== '') {
 				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
@@ -80,11 +85,8 @@ LaureateComponent.prototype.fillMain = function () {
 				}
 				htmlContent += '</span></li>';
 			}
-			// ENTERPRISE && CITY
-			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Travaille chez : <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>' +
-					'<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
-			}
+			// Email :
+			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			// DESCRIPTION
 			if(laureate.rating !== ''){
 				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
@@ -114,12 +116,12 @@ LaureateComponent.prototype.fillSwitcher = function () {
  * @param page_number
  * @param top
  */
-LaureateComponent.prototype.navigate = function(page_number, top=false) {
+LaureateComponent.prototype.navigate = function(page_number=1, top=false) {
 	current_page_number = page_number;
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
@@ -170,7 +172,46 @@ LaureateComponent.prototype.filterKey = function () {
 		this.get('key').value = '';
 		this.filterKey();
 	}
-	this.navigate(1);
+	this.navigate();
+};
+
+/* FORM SERVICES */
+LaureateComponent.prototype.editData = function(index) {
+	let el_name = this.get('promotionName');
+	//....
+	let target = this.service.get(index);
+	el_name.value = target.name;
+	//...
+	this.get('promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	popFORM();
+};
+
+LaureateComponent.prototype.deleteData = function(index) {
+	if(confirm('Are you sure you want to delete this Promotion ?')) {
+		this.service.remove(index);
+		//....
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+		this.navigate();
+	}
+};
+
+LaureateComponent.prototype.submitData = function (action = 'add', index = '0') {
+	// GETTING DATA MEMBERS
+	let name = this.get('promotionName').value;
+	//...
+	if(action === 'add') {
+		this.service.add(new Promotion(this.service.size() + 1,name,new Date()));
+	}
+	if(action === 'edit') {
+		let target = this.service.get(index);
+		target.name = name;
+		//...
+		this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	}
+	this.service.sort();
+	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+	closeFORM();
+	this.navigate();
 };
 
 
@@ -183,6 +224,6 @@ function main() {
 	view.fillMain();
 	view.fillSwitcher();
 	// stays last
-	addTitleIcon('../../resources/pictures/laureate-logo.png');
+	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 }

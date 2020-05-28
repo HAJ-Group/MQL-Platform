@@ -27,6 +27,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 			new Laureate( 
 				dbSource[i].id, 
 				dbSource[i].name,
+				dbSource[i].job,
 				dbSource[i].city,
 				dbSource[i].email,
 				dbSource[i].stage,
@@ -60,12 +61,16 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 			}
 		}
 		if(addPromo) {
-			promo.content = tmp;
-			ret.push(promo);
+			ret.push(new Promotion(promo.id, promo.name, tmp));
 		}
 	}
 	console.log(ret);
 	return ret;
+};
+
+LaureateComponentService.prototype.sort = function() {
+	// SORT BY DATE
+	this.db = this.db.sort((a, b) => b.date - a.date);
 };
 
 /**
@@ -75,8 +80,9 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 LaureateComponentService.prototype.loadPromotion = function (dbPromotions) {
 	for (let promotion of dbPromotions){
 		this.add(
-			new Promotion(promotion.id,promotion.name, this.load(promotion.content)
+			new Promotion(promotion.id,promotion.name,new Date(transformDate(promotion.date)), this.load(promotion.content)
 			)
 		)
 	}
+	this.sort();
 };

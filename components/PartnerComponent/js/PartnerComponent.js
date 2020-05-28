@@ -34,7 +34,7 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 				'<img src="'+onePartner.bg+'" alt="">' +
 			'</div>'+
 			'<div class="card-body">' +
-				'<div class="title">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div><hr>'+
+				'<div class="title" style="color: ' + onePartner.color + '">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div><hr>'+
 				'<p class="description">'+onePartner.description+'</p>'+
 				'<p class="description">Sur : '+onePartner.zone+'.</p>'+
 				'<p class="colabs">Nombre de collobaroteurs de MQL chez '+onePartner.name+' est :'+onePartner.nbr_colla+'</p>'+

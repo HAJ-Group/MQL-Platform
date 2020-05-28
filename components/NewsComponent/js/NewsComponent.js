@@ -54,7 +54,7 @@ NewsComponent.prototype.fillMain = function () {
 		htmlContent += '<div id="' + news.id + '" >' +
 			'<div class="title">\n' + news.title + '</div>\n' +
 			'<div class="details">' +
-			'<p class="date">' + news.date + '</p>' +
+			'<p class="date">' + formattedDate(news.date) + '</p>' +
 			'<p>' + news.description + '</p>\n' +
 			'<div class="row"><span class="column">';
 		for(let image of news.images) {
@@ -83,12 +83,12 @@ NewsComponent.prototype.fillSwitcher = function () {
  * @param page_number
  * @param top
  */
-NewsComponent.prototype.navigate = function(page_number, top=false) {
+NewsComponent.prototype.navigate = function(page_number=1, top=false) {
 	current_page_number = page_number;
 	this.fillNavigation();
 	this.fillMain();
 	this.fillSwitcher();
-    addTitleIcon('../../resources/pictures/News-logo.png');
+    addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
     if(top) window.location.href = '#header';
 };
@@ -118,9 +118,51 @@ NewsComponent.prototype.filterKey = function () {
 		this.get('key').value = '';
 		this.filterKey();
 	}
-	this.navigate(1);
+	this.navigate();
 };
 
+/* FORM SERVICES */
+NewsComponent.prototype.editData = function(index) {
+	let el_title = this.get('newsTitle');
+	let el_desc = this.get('newsDescription');
+	//....
+	let target = this.service.get(index);
+	el_title.value = target.title;
+	el_desc.value = target.description;
+	//...
+	this.get('newsSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	popFORM();
+};
+
+NewsComponent.prototype.deleteData = function(index) {
+	if(confirm('Are you sure you want to delete this News ?')) {
+		this.service.remove(index);
+		//....
+		this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
+		this.navigate();
+	}
+};
+
+NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
+	// GETTING DATA MEMBERS
+	let title = this.get('newsTitle').value;
+	let desc = this.get('newsDescription').value;
+	//...
+	if(action === 'add') {
+		this.service.add(new News(this.service.size() + 1, title, new Date(), desc));
+	}
+	if(action === 'edit') {
+		let target = this.service.get(index);
+		target.title = title;
+		target.description = desc;
+		//...
+		this.get('newsSubmit').setAttribute('onclick', 'view.submitData()');
+	}
+	this.service.sort();
+	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
+	closeFORM();
+	this.navigate();
+};
 
 /* Main Function */ 
 function main() { 
@@ -131,9 +173,8 @@ function main() {
 	view.fillNavigation();
 	view.fillMain();
 	view.fillSwitcher();
-	view.navigate(current_page_number);
 	// stays last
-	addTitleIcon('../../resources/pictures/News-logo.png');
+	addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	view.trigger();
 }

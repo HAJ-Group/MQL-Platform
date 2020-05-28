@@ -251,6 +251,7 @@ header {
 .sh-icon{
     float: right;
     cursor: pointer;
+    margin-left: 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .sh-icon:hover{
@@ -347,14 +348,84 @@ header {
     display: block;
     width: 100%;
     max-width: 1000px;
-}
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* Add Animation */
-.modal-content {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* FORM MODAL --------------------------------------------------------------------------------------------------------*/
+.form-content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    display: block;
+    width: 70%;
+    max-width: 1000px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    border-radius: 20px;
+    background-color: white;
+    padding: 30px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-title {
+    font-family: "Agency FB", serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(253, 59, 76);
+    padding: 15px 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-text {
+    display: block;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    background-color: #f5f5f5;
+    opacity: 0.7;
+    overflow: auto;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-submit {
+    display: block;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #5de94d;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 10px;
+    opacity: 0.6;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-submit:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-text:hover {
+    opacity: 1;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.form-text:focus {
+    border: none;
+    border-radius: 0;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* The Close Button */
@@ -935,6 +1006,53 @@ a.links:hover{
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* FIXING MODIFICATIONS*/
 /*--------------------------------------------------------------------------------------------------------------------*/
+.new-block {
+    width: 98%;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    opacity: 0.4;
+}
+
+.new-block:hover {
+    opacity: 1;
+}
+
+.new-icon {
+    width: fit-content;
+    margin-left: 40%;
+    opacity: 0.6;
+}
+
+.new-icon:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+#scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+
+    font-size: 18px;
+    border: none;
+
+    /*background-color: red;*/
+    background: url('../resources/pictures/top1.png') no-repeat;
+
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    width: 55px;
+    height: 55px;
+
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+#scroll-top:hover {
+    background: url('../resources/pictures/top2.png') no-repeat;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 800px){
     .content {
         max-width: 100%;
@@ -957,35 +1075,7 @@ a.links:hover{
         opacity: 0.5;
     }
 }
-
-
-
-#scroll-top {
-    display: none;
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-
-    font-size: 18px;
-    border: none;
-
-    /*background-color: red;*/
-    background: url('../resources/pictures/top1.png') no-repeat;
-
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
-    width: 55px;
-    height: 55px;
-
-}
-
-#scroll-top:hover {
-    background: url('../resources/pictures/top2.png') no-repeat;
-}
-
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 700px) {
     #scroll-top{
         display: none;

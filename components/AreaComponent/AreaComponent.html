@@ -20,24 +20,25 @@
 					<div class="profile">
 						<img src="../../resources/pictures/Area/profile.gif" alt="">
 						<h1 id="user" class="user-block"></h1>
+						<button class="logout-button" onclick="view.logout()">Sortir</button>
 					</div>
 				</div>
 				<div class="sub-content">
 					<div class="phone-profile">
-						<img src="../../resources/pictures/Area/profile.gif">
+						<img src="../../resources/pictures/Area/profile.gif" alt="">
 						<h2 id="phone-user" class="user-block"></h2><hr>
 					</div>
 					<div class="manage-block">
 						<h1 class="manage-title"><img src="../../resources/pictures/Area/manage.png" alt="">Zone de Gestion</h1><hr>
 						<div class="manage-cards">
 							<div class="manage-card">
-								<img src="../../resources/pictures/Area/news.jpg" alt="">
+								<img onclick="route('../News')" src="../../resources/pictures/Area/news.jpg" alt="">
 							</div>
 							<div class="manage-card">
-								<img src="../../resources/pictures/Area/event.jpg" alt="">
+								<img onclick="route('../Event')" src="../../resources/pictures/Area/event.jpg" alt="">
 							</div>
 							<div class="manage-card">
-								<img src="../../resources/pictures/Area/event.jpg" alt="">
+								<img onclick="route('../Laureate')" src="../../resources/pictures/Area/laureate.jpg" alt="">
 							</div>
 						</div>
 					</div>
