@@ -15,6 +15,7 @@ function LaureateComponent(service) {
 	this.block_nav = this.get('navigation');
 	this.block_main = this.get('main');
 	this.block_switch = this.get('switcher');
+	this.block_recommendation=this.get('list-recommendation');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
@@ -78,12 +79,8 @@ LaureateComponent.prototype.fillMain = function () {
 				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
 			}
 			// EXPERIENCES
-			if(laureate.experience !== []) {
-				htmlContent += '<li>Expériences : <span class="value">';
-				for(let exp of laureate.experience) {
-					htmlContent += '<span class="left-space">' + exp + '</span>';
-				}
-				htmlContent += '</span></li>';
+			if(laureate.experience.length!==0) {
+				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
 			}
 			// Email :
 			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
@@ -97,7 +94,42 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
-
+LaureateComponent.prototype.fillRecomondation=function(){
+	let PROFILE='../../resources/pictures/top-profile.jpg';
+	let html_content='';
+	for(let promotion of this.service.db){
+		for(let laureate of promotion.content){
+			if(laureate.special){
+				if(laureate.photo !== ''){
+					PROFILE=laureate.photo;
+				}
+				html_content+='<div class="recommendation">' +
+					'<div class="image-and-infos">' +
+					'<div class="image-person">' +
+					'<img src="'+PROFILE+'" alt="">' +
+					'</div>' +
+					'<div class="infos">' +
+					'<div class="name">' +
+					laureate.name+
+					'</div>' +
+					'<div class="society">' +
+					laureate.job+' à '+laureate.current_enterprise+
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<div class="opinion">' +
+					'<p>' +
+					'<q>' +
+					laureate.rating+
+					'</q>' +
+					'</p>' +
+					'</div>' +
+					'</div>'
+			}
+		}
+	}
+	this.block_recommendation.innerHTML = html_content;
+};
 /**
  * Create page switcher dynamically
  */
@@ -221,6 +253,7 @@ function main() {
 	service.loadPromotion(dbPromotion);
 	view = new LaureateComponent(service);
 	view.fillNavigation();
+	view.fillRecomondation();
 	view.fillMain();
 	view.fillSwitcher();
 	// stays last

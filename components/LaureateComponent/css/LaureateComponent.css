@@ -256,6 +256,11 @@ q:after{
 	background-image: url('../../../resources/pictures/pattern.png');
 	background-repeat: repeat-y;
 }
+@media screen and (max-width: 1000px) {
+	.recommendation{
+		width: 90%;
+	}
+}
 
 @media screen and (max-width: 310px) {
 	.list-recommendations{
@@ -360,6 +365,12 @@ q:after{
 	.society{
 		width: 100%;
 	}
+	.card-laureate .element {
+		font-size: 20px;
+	}
+	.details >*{
+		text-align: left;
+	}
 }
 
 @media screen and (max-width: 450px) {
@@ -372,9 +383,4 @@ q:after{
 
 }
 
-.promotions-style{
-	padding: 10px;
-	margin: 10px;
-	border: 1px solid chocolate;
-	border-radius: 5px;
-}
+

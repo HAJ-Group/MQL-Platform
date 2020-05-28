@@ -5,7 +5,7 @@ function Promotion(id,name,date,content=[]){
 	this.date=date;
 	this.content=content;
 }
-function Laureate(id,name,job,city,email,stage,current_enterprise,experience='',photo='',rating='',linked_in='') {
+function Laureate(id,name,job,city,email,stage,current_enterprise,experience='',photo='',rating='',linked_in='',special) {
 	//TODO: Intitialize model properties
 	this.id = id;
 	this.name = name;
@@ -18,4 +18,6 @@ function Laureate(id,name,job,city,email,stage,current_enterprise,experience='',
 	this.photo = photo;
 	this.rating = rating;
 	this.linked_in = linked_in;
+	if(special!==undefined)
+		this.special=special;
 }

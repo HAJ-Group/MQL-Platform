@@ -153,16 +153,14 @@ a:hover {
 	width: 100%;
 	height: 100%;
 }
-.stats-image{
-	width: 80%!important;
-	margin-left: 10%!important;
-}
-
 .mql-video {
 	width: 100%;
 	border: 2px solid cornflowerblue;
 }
-
+.stats-image:hover{
+	opacity: 0.7;
+	cursor: pointer;
+}
 /* Animations */
 
 @keyframes slideShow {

@@ -36,6 +36,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 				dbSource[i].photo,
 				dbSource[i].rating,
 				dbSource[i].linked_in,
+				dbSource[i].special,
 			)
 		)
 	}

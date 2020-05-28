@@ -67,6 +67,7 @@ let dbLaureat18=[
 		photo:'',
 		rating : '',
 		linked_in :'',
+		special:true,
 	},
 	{
 		id:5,
@@ -106,6 +107,7 @@ let dbLaureat18=[
 		photo:'',
 		rating : '',
 		linked_in :'',
+		special:true,
 	},
 ];
 let dbLaureat19=[
@@ -117,16 +119,17 @@ let dbLaureat19=[
 		email:'elmorabethicham@gmail.com',
 		stage:'Umanis',
 		current_enterprise : 'Capgemini',
-		experience:['Umanis, Casablanca'],
+		experience:['Umanis'],
 		photo:'',
 		rating : '',
 		linked_in :'',
+		special:true,
 	},
 	{
 		id:2,
 		name:'El khairy Ibtissam',
 		job:'I.D.L',
-		city:'Lyon',
+		city:'Casablanca',
 		email:'elkhairy.ibtissam96@gmail.com',
 		stage:'Cegedim',
 		current_enterprise : 'BITS',
@@ -134,6 +137,7 @@ let dbLaureat19=[
 		photo:'',
 		rating : '',
 		linked_in :'',
+		special :true,
 	},
 	{
 		id:3,
