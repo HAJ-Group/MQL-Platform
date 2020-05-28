@@ -27,6 +27,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 			new Laureate( 
 				dbSource[i].id, 
 				dbSource[i].name,
+				dbSource[i].gender,
 				dbSource[i].job,
 				dbSource[i].city,
 				dbSource[i].email,
