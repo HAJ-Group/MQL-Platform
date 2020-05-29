@@ -40,9 +40,11 @@ HomeComponent.prototype.addNews=function (news) {
 	row.insertCell().innerHTML = formattedDate(news.date);
 	row.insertCell().innerHTML = news.title;
 };
+
 HomeComponent.prototype.printNews=function (max = 5) {
 	let service = new NewsComponentService();
 	service.load(dbNews);
+	if(max > service.size()) max = service.size();
 	for (let i = 0; i < max; i++) {
 		this.addNews(service.get(i));
 	}
