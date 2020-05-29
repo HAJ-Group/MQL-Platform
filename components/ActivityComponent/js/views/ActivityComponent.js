@@ -1,6 +1,3 @@
-/*Global Variables*/
-let view;
-let service;
 /*Default class*/
 function ActivityComponent(service) {
 	//TODO: Intitialize controller for ActivityComponent
@@ -182,12 +179,4 @@ function collapse(){
 	}
 }
 
-function main() {
-	service = new ActivityComponentService();
-	service.load(dbActivity);
-	view = new ActivityComponent(service);
-	view.printSemesters();
-	collapse();
-	addTitleIcon('../../resources/pictures/Activity-logo.png');
-	//view.printActivityList(); Uncomment to print data in table member
-}
+

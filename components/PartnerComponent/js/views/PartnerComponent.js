@@ -1,7 +1,4 @@
-/*Global Variables*/ 
-let view; 
-let service; 
-/*Default class*/ 
+/*Default class*/
 function PartnerComponent(service) { 
 	//TODO: Intitialize controller for PartnerComponent 
 	current_component = 'Partner'; 
@@ -96,14 +93,3 @@ PartnerComponent.prototype.ajustLinks = function () {
 		link.setAttribute('onclick', 'view.show2(\'' + link.id + '\')');
 	}
 };
-/* Main Function */ 
-function main() { 
-	service = new PartnerComponentService(); 
-	service.load(dbPartner);
-	view = new PartnerComponent(service); 
-	//view.printPartnerList(); Uncomment to print data in table member
-	view.printPartners();
-	view.hideAll();
-	view.trigger();
-	view.ajustLinks();
-} 

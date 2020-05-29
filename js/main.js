@@ -496,7 +496,7 @@ function createBook(images=[], default_element_id = 'book') {
             default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
     }
     element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
-    $( default_element_id + '-img')[current_img - 1].style.display = 'block';
+    $( '.'+default_element_id + '-img')[current_img - 1].style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/

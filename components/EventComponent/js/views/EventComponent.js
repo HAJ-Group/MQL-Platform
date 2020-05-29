@@ -1,6 +1,4 @@
-/*Global Variables*/ 
-let view; 
-let service;
+/*Global Variables*/
 let current_page_number = 1;
 const MAX_EVENT_PER_PAGE = 5;
 /*Default class*/ 
@@ -203,17 +201,3 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 	this.navigate();
 };
 
-/* Main Function */ 
-function main() { 
-	service = new EventComponentService(); 
-	service.load(dbEvent);
-	view = new EventComponent(service); 
-	//view.printEventList(); Uncomment to print data in table member
-	//view.printEventList(); Uncomment to print data in table member
-	view.fillNavigation();
-	view.fillMain();
-	view.fillSwitcher();
-	// Stays last
-	addTitleIcon('../../resources/pictures/Event-logo.png', true);
-	detect_subContent_trigger_left_bar();
-}

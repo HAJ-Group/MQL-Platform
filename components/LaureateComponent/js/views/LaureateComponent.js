@@ -1,6 +1,4 @@
-/*Global Variables*/ 
-let view; 
-let service;
+/*Global Variables*/
 let current_page_number = 1;
 const MAX_PROMOTION_PER_PAGE = 5;
 const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
@@ -257,17 +255,3 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0') 
 	this.navigate();
 };
 
-
-/* Main Function */
-function main() { 
-	service = new LaureateComponentService(); 
-	service.loadPromotion(dbPromotion);
-	view = new LaureateComponent(service);
-	view.fillNavigation();
-	view.fillRecomondation();
-	view.fillMain();
-	view.fillSwitcher();
-	// stays last
-	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
-	detect_subContent_trigger_left_bar();
-}
