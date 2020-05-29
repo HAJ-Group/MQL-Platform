@@ -106,11 +106,12 @@ LaureateComponent.prototype.fillRecomondation =function(){
 			if(laureate.special){
 				if(laureate.photo === ''){
 					img = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
-				} else img = laureate.photo;
+				}
+				else img = laureate.photo;
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
-					'<img src="' + img + '" alt="">' +
+					'<img  src="' + img + '" alt="">' +
 					'</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
