@@ -1047,7 +1047,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus{
 
     background-color: #ddd;
-    outline: none;
+    outline: 2px solid #68b0ee;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1082,9 +1082,12 @@ textarea {
 }
 
 
-.button-contact:hover, .button-contact-2:hover{
+.button-contact:hover,.button-contact:focus, .button-contact-2:hover{
     opacity:1;
+    outline: none;
 }
+
+
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
