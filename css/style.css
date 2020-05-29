@@ -1006,7 +1006,7 @@ a.links:hover{
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
     #scroll-top{
         display: none;
     }
@@ -1038,9 +1038,8 @@ textarea {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.button-contact {
-    background-color: #89c926;
-    color: white;
+.button-contact-2, .button-contact {
+
     padding: 10px;
     margin: 8px 0 0 10px;
     border: none;
@@ -1051,14 +1050,27 @@ textarea {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.button-contact:hover {
+
+.button-contact-2{
+    background-color: #89c926;
+    color: white;
+}
+
+.button-contact {
+    background-color: #f6f8b2;
+    color: #4B4C54;
+    font-weight: bold;
+}
+
+
+.button-contact:hover, .button-contact-2:hover{
     opacity:1;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 .cancel-button {
-    background-color: #f44336;
+    background-color: #FD3B4C;
     width: 80px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1193,10 +1205,11 @@ textarea {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: #fefefe;
+    background-color: white;
     margin-left: 60px;
     padding: 0;
     border: 1px solid #888;
+    border-radius: 5px;
     width: 350px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -1224,7 +1237,8 @@ textarea {
     border:none;
     height: 30px;
     text-align: center;
-    background-color: #3793d3;
+    border-radius: 5px 5px 0 0;
+    background-color: whitesmoke;
     font-weight: bold;
     font-size: 22px;
 }
@@ -1261,6 +1275,7 @@ textarea {
     margin: auto;
     cursor: pointer;
     background-color: limegreen;
+    border-radius: 5px;
     border: none;
     opacity: 0.9;
 }
@@ -1274,3 +1289,19 @@ textarea {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+.modal-body > p{
+    padding: 5px;
+    background-color: #e23544;
+    font-family: "Open sans", sans-serif;
+    font-size: 16px;
+    text-align: justify;
+
+    border-radius: 4px;
+}
+
+.modal-header > span{
+    text-align: center;
+    font-family: MontserratBold, serif;
+    font-size: 19px;
+
+}
