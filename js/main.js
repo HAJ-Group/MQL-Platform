@@ -101,6 +101,7 @@ function getSearchBar() {
  * @returns {string}
  */
 function getFooterContent() {
+
     let partners = [
         {name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
         {name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
@@ -165,7 +166,13 @@ function getFooterContent() {
             ],
         }
     ];
+
     let footerContent = '<hr><footer>' +
+        '<div class="text-news-letter" onclick="document.getElementById(\'news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
+        '   <span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
+        '</div><hr>\n';
+
+         footerContent += '' +
         '<div class="text-partenaire">\n' +
         '<img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" ' +
         'width="80" height="46"><span>Partenaires</span> \n' +
@@ -631,9 +638,12 @@ function closeModal() {
     // Get the button that opens the modal
     let btn = document.getElementById("news-button");
 
+    // showing and hiding newsLetter blocks
+
     // When the user clicks the button, open the modal
     btn.onclick = function() {
         newsModal.style.display = "block";
+        btn.style.display = 'none';
     }
 
     // Get the <span> element that closes the modal
@@ -642,16 +652,25 @@ function closeModal() {
        // When the user clicks on <span> (x), close the modal
        span.onclick = function() {
            newsModal.style.display = "none";
+           if(window.innerWidth > 1300){
+               btn.style.display = 'block';
+           }
        }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target === newsModal) {
                 newsModal.style.display = "none";
+                if(window.innerWidth > 1300){
+                    btn.style.display = 'block';
+                }
             }
             else if(event.target === modal){
                 modal.style.display = "none";
             }
+
         }
 
 }
+
+
