@@ -195,10 +195,7 @@ function getFooterContent() {
                     list_content:'noureddine.chenfour@usmba.ac.ma'
                 },
                 {
-                    type:'list',
-                    list_title:'direct-contact'
-                    /*,
-                    list_content:'noureddine.chenfour@usmba.ac.ma'*/
+                    type: 'direct-contact'
                 }
             ],
         }
@@ -231,10 +228,11 @@ function getFooterContent() {
                     footerContent += '<li><a class="links" href="' + c.link_address + '">' + c.link_name + '</a></li>\n';
                 }
                 if(c.type === 'list') {
-                    footerContent += '<li><strong>' + c.list_title + '</strong>' + c.list_content + '</li>\n';
-                    if(c.list_title === 'direct-contact'){
-                        footerContent += '<li><button onclick="document.getElementById(\'form-contact-id\').style.display=\'block\'" style="width:auto;" class="button-contact">Contactez-nous directement !</button></li>';
-                    }
+                    footerContent += '<li id="direct-contact-element"><strong>' + c.list_title + '</strong>' + c.list_content + '</li>\n';
+
+                }
+                if(c.type === 'direct-contact'){
+                    footerContent += '<li><button onclick="document.getElementById(\'form-contact-id\').style.display=\'block\'" style="width:auto;" class="button-contact">Contactez-nous directement !</button></li>';
                 }
                 if(c.type === 'geo') {
                     footerContent += '<div class="map"><div class="over-flow">\n' +
