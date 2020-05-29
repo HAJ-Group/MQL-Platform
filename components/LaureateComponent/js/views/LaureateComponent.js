@@ -171,21 +171,21 @@ LaureateComponent.prototype.printPromotionsCards = function () {
 // Collapse cards
 LaureateComponent.prototype.showInfos = function(id) {
 	let item = this.$('item-' + id);
-	item.style.display = 'none';
+	item.style['display'] = 'none';
 	let info = this.$(id);
 	if(window.innerWidth <= 700){
-		info.style.display = 'block';
+		info.style['display']= 'block';
 	}
-	else info.style.display = 'flex';
+	else info.style['display']= 'flex';
 };
 LaureateComponent.prototype.hideInfos = function (id) {
 	let item = this.$('item-' + id);
 	if(window.innerWidth <= 700){
-		item.style.display = 'block';
+		item.style['display'] = 'block';
 	}
-	else item.style.display = 'flex';
+	else item.style['display'] = 'flex';
 	let info = this.$(id);
-	info.style.display = 'none';
+	info.style['display'] = 'none';
 };
 LaureateComponent.prototype.updateView = function () {
 	//

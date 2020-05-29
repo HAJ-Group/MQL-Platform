@@ -247,10 +247,10 @@ function showMenu() {
     function toggle(media) {
         let menu = $('.topnav')[0];
         if (media.matches) { // If media query matches
-            if(phone_menu_toggled) menu.style.display = 'block';
-            if(!phone_menu_toggled) menu.style.display = 'none';
+            if(phone_menu_toggled) menu.style['display'] = 'block';
+            if(!phone_menu_toggled) menu.style['display'] = 'none';
         } else {
-            menu.style.display = 'block';
+            menu.style['display']= 'block';
         }
     }
     phone_menu_toggled = !phone_menu_toggled;
@@ -305,14 +305,14 @@ function show(id, def_element = 'details', def_display = 'block') {
     icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
     icon.setAttribute('onclick','hide('+id+', \'' + def_element + '\', \'' + def_display + '\')');
     let element =$('.'+def_element)[id];
-    element.style.display = def_display;
-    sep.style.display='none';
+    element.style['display'] = def_display;
+    sep.style['display']='none';
     // HIDE EDIT AND DELETE IF EXISTS
     if(localStorage.getItem('ACCESS') !== 'null') {
         let edit = document.getElementsByName('edit-icon')[id];
         let delt = document.getElementsByName('delete-icon')[id];
-        edit.style.display = 'block';
-        delt.style.display = 'block';
+        edit.style['display'] = 'block';
+        delt.style['display'] = 'block';
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -330,14 +330,14 @@ function hide(id, def_element = 'details', def_display = 'block') {
     icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
     icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
     let element = $('.'+def_element)[id];
-    element.style.display = 'none';
-        sep.style.display = def_display;
+    element.style['display'] = 'none';
+        sep.style['display'] = def_display;
     // HIDE EDIT AND DELETE IF EXISTS
     if(localStorage.getItem('ACCESS') !== 'null') {
         let edit = $('.edit-icon')[id];
         let delt = $('.delete-icon')[id];
-        edit.style.display = 'none';
-        delt.style.display = 'none';
+        edit.style['display'] = 'none';
+        delt.style['display'] = 'none';
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -409,7 +409,7 @@ function split(array, n) {
  */
 function closeIMG() {
     let modal = $('myModal');
-    modal.style.display = 'none';
+    modal.style['display'] = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -421,7 +421,7 @@ function popIMG(id) {
     let modal = $('myModal');
     let img = $(id);
     let modalImg = $('modal_img');
-    modal.style.display = 'block';
+    modal.style['display']= 'block';
     modalImg.src = img.src;
     $('caption').innerHTML = img.alt;
 }
@@ -433,7 +433,7 @@ function popIMG(id) {
  */
 function closeTB() {
     let modal = $('TextBox');
-    modal.style.display = 'none';
+    modal.style['display'] = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -447,7 +447,7 @@ function popTB(icon, text) {
     let el_text = $('BoxText');
     el_icon.src = icon;
     el_text.innerHTML = text;
-    modal.style.display = 'block';
+    modal.style['display'] = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -457,7 +457,7 @@ function popTB(icon, text) {
  */
 function closeFORM() {
     let modal = $('form');
-    modal.style.display = 'none';
+    modal.style['display'] = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -467,7 +467,7 @@ function closeFORM() {
  */
 function popFORM() {
     let modal = $('form');
-    modal.style.display = 'block';
+    modal.style['display'] = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -496,7 +496,7 @@ function createBook(images=[], default_element_id = 'book') {
             default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
     }
     element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
-    $( '.'+default_element_id + '-img')[current_img - 1].style.display = 'block';
+    $( '.'+default_element_id + '-img')[current_img - 1].style['display'] = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -509,9 +509,9 @@ function target(target_element) {
     else if(current_img > images_size) target(--current_img);
     else {
         for(let i=0; i<images_size; i++) {
-            $( '.'+target_element + '-img')[i].style.display = 'none';
+            $( '.'+target_element + '-img')[i].style['display'] = 'none';
         }
-        $( '.'+target_element + '-img')[current_img - 1].style.display = 'block';
+        $( '.'+target_element + '-img')[current_img - 1].style['display'] = 'block';
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -525,13 +525,13 @@ function scrollToTop(){
     };
     function scrollFunction() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            button.style.display = "block";
+            button.style['display'] = "block";
 
         } else {
-            button.style.display = "none";
+            button.style['display'] = "none";
         }
         if(window.innerWidth < 700){
-            button.style.display = "none";
+            button.style['display'] = "none";
         }
     }
 }

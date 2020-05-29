@@ -25,9 +25,9 @@ AreaComponent.prototype.printAreaList = function () {
 };
 
 AreaComponent.prototype.promptLogin = function () {
-	this.$('restricted').style.display = 'none';
+	this.$('restricted').style['display'] = 'none';
 	let window = this.$('login-window');
-	window.style.display = 'block';
+	window.style['display'] = 'block';
 };
 
 AreaComponent.prototype.authenticate = function() {
@@ -39,7 +39,7 @@ AreaComponent.prototype.authenticate = function() {
 		this.loadData();
 	} else {
 		this.$('errorMess').innerHTML = 'Username or Password not valid';
-		this.$('errorBlock').style.display = 'block';
+		this.$('errorBlock').style['display'] = 'block';
 	}
 };
 
@@ -51,11 +51,11 @@ AreaComponent.prototype.logout = function() {
 
 AreaComponent.prototype.loadData = function() {
 	// REMOVE RESTRICTIONS
-	this.$('errorBlock').style.display = 'none';
-	this.$('login-window').style.display = 'none';
+	this.$('errorBlock').style['display'] = 'none';
+	this.$('login-window').style['display'] = 'none';
 	this.$('user').innerHTML = localStorage.getItem('ACCESS');
 	this.$('phone-user').innerHTML = localStorage.getItem('ACCESS');
-	this.$('restricted').style.display = 'block';
+	this.$('restricted').style['display']= 'block';
 };
 
 AreaComponent.prototype.cancel = function () {
