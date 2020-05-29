@@ -1011,3 +1011,266 @@ a.links:hover{
         display: none;
     }
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+input[type=text], input[type=password], input[type=email], textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    /* display: inline-block;*/
+    border: none;
+    background: #f1f1f1;
+    font-size: 18px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus{
+
+    background-color: #ddd;
+    outline: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+textarea {
+    resize: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-contact {
+    background-color: #89c926;
+    color: white;
+    padding: 10px;
+    margin: 8px 0 0 10px;
+    border: none;
+    cursor: pointer;
+    /*    width: 100%;*/
+    opacity: 0.8;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-contact:hover {
+    opacity:1;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.cancel-button {
+    background-color: #f44336;
+    width: 80px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.submit-button {
+    width: 80px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.form-footer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.contact-container {
+    padding: 16px;
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* The Modal (background) */
+.modal-style {
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Modal Content/Box */
+.modal-contact-content {
+
+    background-color: white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.contact-container > hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* The Close Button (x) */
+.close-modal-contact {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.close-modal-contact:hover,
+.close-modal-contact:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .form-footer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-news {
+    position: fixed;
+    left: 0;
+    top: 200px;
+    width: auto;
+    height: 30px;
+    padding: 8px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none; /* remove underline from anchors */
+    background-color: #dd4b39;
+    color: white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-news:hover {
+    background-color: darkslateblue;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.news-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Modal Content */
+.news-modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fefefe;
+    margin-left: 60px;
+    padding: 0;
+    border: 1px solid #888;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {left:-300px; opacity:0}
+    to {left:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {left:-300px; opacity:0}
+    to {left:0; opacity:1}
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* The Close Button */
+
+.close-part{
+    border:none;
+    height: 30px;
+    text-align: center;
+    background-color: #3793d3;
+    font-weight: bold;
+    font-size: 22px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.close-part:hover,
+.close-part:focus {
+
+    background-color: #d84b4b;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.modal-header {
+    text-align: center;
+    padding: 10px;
+    background-color: #3793d3;
+    color: white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.modal-body {
+    padding: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.subscribe-button{
+    height: 50px;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+    background-color: limegreen;
+    border: none;
+    opacity: 0.9;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.subscribe-button:hover,.subscribe-button:active {
+    opacity: 1;
+    outline:0;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
