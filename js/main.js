@@ -303,7 +303,7 @@ function show(id, def_element = 'details', def_display = 'block') {
     element.style.display = def_display;
     sep.style.display='none';
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== null) {
+    if(localStorage.getItem('ACCESS') !== 'null') {
         let edit = document.getElementsByName('edit-icon')[id];
         let delt = document.getElementsByName('delete-icon')[id];
         edit.style.display = 'block';
@@ -326,9 +326,9 @@ function hide(id, def_element = 'details', def_display = 'block') {
     icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
     let element = document.getElementsByClassName(def_element)[id];
     element.style.display = 'none';
-    sep.style.display = def_display;
+        sep.style.display = def_display;
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== null) {
+    if(localStorage.getItem('ACCESS') !== 'null') {
         let edit = document.getElementsByName('edit-icon')[id];
         let delt = document.getElementsByName('delete-icon')[id];
         edit.style.display = 'none';

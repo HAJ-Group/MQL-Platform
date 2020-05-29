@@ -477,12 +477,14 @@ header {
 .arrow-left, .arrow-right {
     font-family: "Bahnschrift", serif;
     text-align: center;
-    font-size: 100px;
-    opacity: 0.1;
+    font-size: 80px;
+    opacity: 0.3;
     color: rgb(253, 59, 76);
     background-color: white;
     border: 1px solid lightgray;
     width: 80px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .arrow-left:hover, .arrow-right:hover {
