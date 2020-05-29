@@ -50,7 +50,6 @@ body {
 .card-laureate .item-element {
 	color: white;
 	margin-left: 20px;
-	max-width: 100%;
 	font-size: 25px;
 	font-weight: bold;
 }
@@ -87,8 +86,8 @@ body {
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 40px;
-	float: right;
-	margin-right: auto;
+	display: block;
+	margin-left: auto;
 }
 
 .linkedin:hover {
@@ -289,16 +288,17 @@ q:after{
 	.card-laureate img {
 		width: 25%;
 		height: 100px;
-		margin-left: 37%;
 		border-radius: 10px;
 	}
 
 	.card-laureate .element {
 		color: white;
-		margin-left: 20px;
-		max-width: 90%;
+		display: block;
+		margin-left: 30%;
+		max-width: 50%;
 		font-size: 25px;
 		font-weight: bolder;
+		margin-top: -80px;
 	}
 
 	.value{
@@ -306,10 +306,11 @@ q:after{
 		float: none;
 	}
 	.card-laureate .item-element {
-		max-width: 90%;
+		max-width: 75%;
 	}
+
 	.linkedin {
-		margin-right: 20px;
+		margin-right: 15px;
 	}
 
 }
@@ -353,7 +354,7 @@ q:after{
 		text-align: justify;
 	}
 	.infos{
-		padding: 3px 0px 0px 3px;
+		padding: 3px 0 0 3px;
 		min-width: 190px;
 		width: 100%;
 		text-align: center;

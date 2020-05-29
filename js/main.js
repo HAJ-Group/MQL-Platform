@@ -266,8 +266,8 @@ function addTitleIcon(source, editable=false) {
     let i=0;
     for (let title of titles) {
         let text = title.textContent;
-        title.innerHTML = '<img src="' + source + '" alt="title" class="title-logo">' +
-            text+'<img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
+        title.innerHTML = '<div class="title-content"><img src="' + source + '" alt="title" class="title-logo">' +
+            text+'</div><img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
             'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
         if(editable && localStorage.getItem('ACCESS') !== 'null') {
             // ADD EDIT AND DELETE ICONS
@@ -500,13 +500,21 @@ function createBook(images=[], default_element_id = 'book') {
  * Target function for image switching
  */
 function target(target_element) {
-    if(current_img < 1 ) target(++current_img);
-    else if(current_img > images_size) target(--current_img);
+    if(current_img < 1 ){
+        current_img = images_size;
+        target(target_element);
+    }
+    else if(current_img > images_size){
+        current_img = 1;
+        target(target_element);
+    }
     else {
-        for(let i=0; i<images_size; i++) {
-            document.getElementsByClassName( target_element + '-img')[i].style.display = 'none';
-        }
-        document.getElementsByClassName( target_element + '-img')[current_img - 1].style.display = 'block';
+        try{
+            for(let i=0; i<images_size; i++) {
+                document.getElementsByClassName( target_element + '-img')[i].style.display = 'none';
+            }
+            document.getElementsByClassName( target_element + '-img')[current_img - 1].style.display = 'block';
+        } catch (e) {}
     }
 }
 //----------------------------------------------------------------------------------------------------------------------

@@ -205,4 +205,9 @@ a:hover {
 		width: 90%;
 	}
 
+	li {
+		margin-left: 0;
+		text-align: left;
+	}
+
 }

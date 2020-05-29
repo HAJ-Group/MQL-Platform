@@ -52,7 +52,7 @@ NewsComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<div id="' + news.id + '" >' +
-			'<div class="title">\n' + news.title + '</div>\n' +
+			'<div class="title">' + news.title + '</div>\n' +
 			'<div class="details">' +
 			'<p class="date">' + formattedDate(news.date) + '</p>' +
 			'<p>' + news.description + '</p>\n' +

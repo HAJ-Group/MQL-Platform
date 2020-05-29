@@ -26,6 +26,7 @@ body {
 	float: right;
 	font-size: 40px;
 	color: white;
+	display: block;
 	margin-right: 15%;
 	margin-top: 5%;
 	padding: 10px;
@@ -64,7 +65,9 @@ body {
 	padding: 20px;
 	width: 80%;
 	margin-top: 2%;
-	margin-left: 30%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .access-error {
@@ -74,7 +77,8 @@ body {
 	width: 80%;
 	font-size: 20px;
 	font-weight: bold;
-	margin-left: 10%;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 30px;
 	background-color: rgba(233,183,133,0.92);
 	color: crimson;
@@ -99,6 +103,8 @@ body {
 	text-align: center;
 	opacity: 0.6;
 	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .access-username:hover, .access-password:hover {
@@ -119,8 +125,10 @@ body {
 	color: white;
 	opacity: 0.8;
 	width: fit-content;
-	margin-left: 15%;
+	display: block;
 	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 20px;
 }
 
@@ -145,9 +153,6 @@ body {
 .access-button:active, .logout-button:active {
 	opacity: 1;
 }
-
-
-
 
 
 /* RESTRICTED AREA */
@@ -225,19 +230,9 @@ body {
 		font-size: 1.5em;
 	}
 
-	.access-close {
-		margin-right: 11%;
-	}
-
 	.access-content {
 		width: 80%;
 		height: 600px;
-		animation-name: zoom;
-		animation-duration: 0.6s;
-		margin-top: 5%;
-		margin-right: auto;
-		margin-left: auto;
-		border-radius: 30px;
 	}
 
 	.access-title {
@@ -245,10 +240,11 @@ body {
 	}
 
 	.access-username, .access-password {
+		font-size: 20px;
 		width: 60%;
-		height: 40px;
-		margin-left: -8%;
+		height: 30px;
 	}
+
 }
 
 @media screen and (max-width: 700px){
@@ -258,21 +254,18 @@ body {
 	}
 
 	.access-close {
-		margin-left: 11%;
-		font-size: 20px;
+		font-size: 25px;
+		margin-right: 5%;
 	}
 
 	.access-content {
 		width: 90%;
 		height: 500px;
-		padding: 10px;
-		animation-name: zoom;
-		animation-duration: 0.6s;
 		margin-top: 5%;
-		margin-left: 10px;
+		margin-left: auto;
+		margin-right: auto;
 		background-image: url('../../../resources/pictures/Area/login.jpg');
 		background-repeat: no-repeat;
-		border-radius: 30px;
 	}
 
 	.access-button {
@@ -280,11 +273,8 @@ body {
 	}
 
 	.access-title {
-		margin-top: 40px;
-		margin-left: 10px;
 		font-size: 25px;
 		font-weight: bold;
-		text-align: center;
 	}
 
 	.access-login {
@@ -302,6 +292,8 @@ body {
 
 	.access-username, .access-password {
 		font-size: 15px;
+		width: 80%;
+		height: 40px;
 	}
 
 	.container {

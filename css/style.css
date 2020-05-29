@@ -244,6 +244,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .title-logo {
+    float: left;
     padding-right: 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -261,22 +262,27 @@ header {
 .sh-sep{
     border-top: 2px solid lightgray ;
     display: none;
+    margin-top: 15px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details{
     font-family: "Open sans", serif;
     font-size: 18px;
     text-align: justify;
-    padding: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
-
+    padding: 15px 10px 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details > * {
     text-align: justify;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.details div {
+    margin-left: auto;
+    margin-right: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Images Grids ------------------------------------------------------------------------------------------------------*/
@@ -938,6 +944,10 @@ a.links:hover{
         margin-left: 0;
     }
 
+    .title-content {
+        width: 60%;
+    }
+
     .details  {
         font-size: 14px;
     }
@@ -951,9 +961,17 @@ a.links:hover{
         height: 300px;
     }
 
+    .book-images {
+        width: 96%;
+    }
+
     .book-images img {
         width: 70%;
         height: 50%;
+    }
+
+    .arrow-left, .arrow-right {
+        border: none;
     }
 
     .column img {
@@ -968,7 +986,7 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER ------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 700px){
+@media only screen and (max-width: 700px){
 
     .partenaire{
         height: 400px;
@@ -1022,7 +1040,9 @@ a.links:hover{
 
 .new-icon {
     width: fit-content;
-    margin-left: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 0.6;
 }
 
@@ -1055,7 +1075,7 @@ a.links:hover{
     background: url('../resources/pictures/top2.png') no-repeat;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
     .content {
         max-width: 100%;
     }
@@ -1078,12 +1098,14 @@ a.links:hover{
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
     #scroll-top{
         display: none;
     }
     .title{
         font-size: 20px;
     }
-    .
+    .new-block {
+        width: 95%;
+    }
 }
