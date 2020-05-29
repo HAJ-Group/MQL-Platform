@@ -653,7 +653,7 @@ function closeModal() {
        span.onclick = function() {
            newsModal.style.display = "none";
            if(window.innerWidth > 1300){
-               btn.style.display = 'block';
+               btn.style.display = 'flex';
            }
        }
 
@@ -662,7 +662,7 @@ function closeModal() {
             if (event.target === newsModal) {
                 newsModal.style.display = "none";
                 if(window.innerWidth > 1300){
-                    btn.style.display = 'block';
+                    btn.style.display = 'flex';
                 }
             }
             else if(event.target === modal){
