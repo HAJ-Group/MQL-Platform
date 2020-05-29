@@ -64,6 +64,8 @@ HomeComponent.prototype.setNewsRoutes = function () {
 };
 
 
+
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
@@ -77,3 +79,5 @@ function main() {
 	detect_subContent_trigger_left_bar();
 	createBook(dbHomeImages);
 }
+
+
