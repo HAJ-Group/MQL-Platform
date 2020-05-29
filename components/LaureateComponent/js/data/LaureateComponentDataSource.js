@@ -366,6 +366,12 @@ let dbLaureat19=[
 let dbPromotion= [
 	// Add object structure associated with the model created
 	{
+		id : 'p0911',
+		name:'Promotion 2009-2011',
+		date:'01-06-2011',
+		content : dbLaureat11,
+	},
+	{
 		id : 'p1214',
 		name:'Promotion 2012-2014',
 		date:'01-06-2014',
