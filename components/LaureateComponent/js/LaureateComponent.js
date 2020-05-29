@@ -13,19 +13,21 @@ function LaureateComponent(service) {
 	this.service = service; 
 	//this.table = this.get('table-LaureateID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
 	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-	this.block_nav = this.get('navigation');
-	this.block_main = this.get('main');
-	this.block_switch = this.get('switcher');
-	this.block_recommendation=this.get('list-recommendation');
+	this.block_nav = this.$('navigation');
+	this.block_main = this.$('main');
+	this.block_switch = this.$('switcher');
+	this.block_recommendation=this.$('list-recommendation');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 } 
-LaureateComponent.prototype.get = function (id) { 
-	return document.getElementById(id); 
-}; 
+LaureateComponent.prototype.$ = function (id) {
+	if(id.startsWith('.')) return document.getElementsByClassName(id.substring(1));
+	return document.getElementById(id);
+};
+
 // Adding a row in the table member 
 LaureateComponent.prototype.addLaureateRow = function (oneLaureate) { 
 	let row = this.table.insertRow(); 
@@ -170,21 +172,21 @@ LaureateComponent.prototype.printPromotionsCards = function () {
 };
 // Collapse cards
 LaureateComponent.prototype.showInfos = function(id) {
-	let item = this.get('item-' + id);
+	let item = this.$('item-' + id);
 	item.style.display = 'none';
-	let info = this.get(id);
+	let info = this.$(id);
 	if(window.innerWidth <= 700){
 		info.style.display = 'block';
 	}
 	else info.style.display = 'flex';
 };
 LaureateComponent.prototype.hideInfos = function (id) {
-	let item = this.get('item-' + id);
+	let item = this.$('item-' + id);
 	if(window.innerWidth <= 700){
 		item.style.display = 'block';
 	}
 	else item.style.display = 'flex';
-	let info = this.get(id);
+	let info = this.$(id);
 	info.style.display = 'none';
 };
 LaureateComponent.prototype.updateView = function () {
@@ -195,7 +197,7 @@ LaureateComponent.prototype.updateView = function () {
  * Filtering function works with search box
  */
 LaureateComponent.prototype.filterKey = function () {
-	let key = this.get('key').value;
+	let key = this.$('key').value;
 	if(key === '') {
 		// LOAD ALL DATA
 		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
@@ -205,7 +207,7 @@ LaureateComponent.prototype.filterKey = function () {
 	}
 	if(this.page_blocks.length === 0) {
 		popTB('../../resources/pictures/nf.png', 'LAUREATE NOT FOUND !!');
-		this.get('key').value = '';
+		this.$('key').value = '';
 		this.filterKey();
 	}
 	this.navigate();
@@ -213,17 +215,17 @@ LaureateComponent.prototype.filterKey = function () {
 
 /* FORM SERVICES */
 LaureateComponent.prototype.addData = function() {
-	this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	this.$('promotionSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
 
 LaureateComponent.prototype.editData = function(index) {
-	let el_name = this.get('promotionName');
+	let el_name = this.$('promotionName');
 	//....
 	let target = this.service.get(index);
 	el_name.value = target.name;
 	//...
-	this.get('promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	this.$('promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
 
@@ -238,7 +240,7 @@ LaureateComponent.prototype.deleteData = function(index) {
 
 LaureateComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
-	let name = this.get('promotionName').value;
+	let name = this.$('promotionName').value;
 	//...
 	if(action === 'add') {
 		this.service.add(new Promotion(this.service.size() + 1,name,new Date()));
@@ -247,7 +249,7 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0') 
 		let target = this.service.get(index);
 		target.name = name;
 		//...
-		this.get('promotionSubmit').setAttribute('onclick', 'view.submitData()');
+		this.$('promotionSubmit').setAttribute('onclick', 'view.submitData()');
 	}
 	this.service.sort();
 	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);

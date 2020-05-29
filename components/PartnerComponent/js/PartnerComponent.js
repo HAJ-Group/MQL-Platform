@@ -8,13 +8,14 @@ function PartnerComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = this.get('table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.block=this.get('container');
-	this.partners=this.get('partners');
+	this.block=this.$('container');
+	this.partners=this.$('partners');
 	this.currentblock=null;
 }
-PartnerComponent.prototype.get = function (id) { 
-	return document.getElementById(id); 
-}; 
+PartnerComponent.prototype.$ = function (id) {
+	if(id.startsWith('.')) return document.getElementsByClassName(id.substring(1));
+	return document.getElementById(id);
+};
 // Adding a row in the table member 
 PartnerComponent.prototype.addPartnerRow = function (onePartner) { 
 	let row = this.table.insertRow(); 
@@ -61,13 +62,13 @@ PartnerComponent.prototype.printPartners = function () {
 
 
 PartnerComponent.prototype.show = function (id) {
-    let hide_block= this.get(this.currentblock);
-	this.get('menu-' + this.currentblock).classList.remove('active');
-	let show_block = this.get(id);
+    let hide_block= this.$(this.currentblock);
+	this.$('menu-' + this.currentblock).classList.remove('active');
+	let show_block = this.$(id);
 	this.currentblock=id;
     hide_block.style['display'] = 'none';
     show_block.style['display'] = 'block';
-    this.get('menu-' + id).classList.add('active');
+    this.$('menu-' + id).classList.add('active');
 };
 PartnerComponent.prototype.show2 = function (id) {
 	view.show(id);
@@ -75,22 +76,22 @@ PartnerComponent.prototype.show2 = function (id) {
 };
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
-		let partner = document.getElementsByClassName('card')[i];
+		let partner = this.$('.card')[i];
 		partner.style['display'] = 'none';
-		document.getElementsByClassName('partner')[i].classList.remove('active');
+		this.$('.partner')[i].classList.remove('active');
 	}
 };
 
 PartnerComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
 	if(anchor !== undefined) {
-		this.get('menu-' + anchor).click();
+		this.$('menu-' + anchor).click();
 		window.location.href = '#' + anchor;
 	}
 };
 
 PartnerComponent.prototype.ajustLinks = function () {
-	let links = document.getElementsByClassName('img-partenaire');
+	let links = this.$('.img-partenaire');
 	for(let link of links) {
 		link.setAttribute('onclick', 'view.show2(\'' + link.id + '\')');
 	}

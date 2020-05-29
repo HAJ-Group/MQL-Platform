@@ -9,9 +9,10 @@ function AreaComponent(service) {
 	this.service = service; 
 	//this.table = this.get('table-AreaID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods) 
 } 
-AreaComponent.prototype.get = function (id) {
-	return document.getElementById(id); 
-}; 
+AreaComponent.prototype.$ = function (id) {
+	if(id.startsWith('.')) return document.getElementsByClassName(id.substring(1));
+	return document.getElementById(id);
+};
 // Adding a row in the table member 
 AreaComponent.prototype.addAreaRow = function (oneArea) { 
 	let row = this.table.insertRow(); 
@@ -26,21 +27,21 @@ AreaComponent.prototype.printAreaList = function () {
 };
 
 AreaComponent.prototype.promptLogin = function () {
-	this.get('restricted').style.display = 'none';
-	let window = this.get('login-window');
+	this.$('restricted').style.display = 'none';
+	let window = this.$('login-window');
 	window.style.display = 'block';
 };
 
 AreaComponent.prototype.authenticate = function() {
-	let username = this.get('username').value;
-	let password = this.get('password').value;
+	let username = this.$('username').value;
+	let password = this.$('password').value;
 	if(this.service.isExist(username, password)) {
 		// GRANT ACCESS (WORKING ONLY WHEN DATA IS EXTERNAL)
 		localStorage.setItem('ACCESS', username);
 		this.loadData();
 	} else {
-		this.get('errorMess').innerHTML = 'Username or Password not valid';
-		this.get('errorBlock').style.display = 'block';
+		this.$('errorMess').innerHTML = 'Username or Password not valid';
+		this.$('errorBlock').style.display = 'block';
 	}
 };
 
@@ -52,11 +53,11 @@ AreaComponent.prototype.logout = function() {
 
 AreaComponent.prototype.loadData = function() {
 	// REMOVE RESTRICTIONS
-	this.get('errorBlock').style.display = 'none';
-	this.get('login-window').style.display = 'none';
-	this.get('user').innerHTML = localStorage.getItem('ACCESS');
-	this.get('phone-user').innerHTML = localStorage.getItem('ACCESS');
-	this.get('restricted').style.display = 'block';
+	this.$('errorBlock').style.display = 'none';
+	this.$('login-window').style.display = 'none';
+	this.$('user').innerHTML = localStorage.getItem('ACCESS');
+	this.$('phone-user').innerHTML = localStorage.getItem('ACCESS');
+	this.$('restricted').style.display = 'block';
 };
 
 AreaComponent.prototype.cancel = function () {

@@ -6,12 +6,13 @@ function HomeComponent(service) {
 	current_component = 'Home';
 	loadResources();
 	this.service = service;
-	this.table=this.get("table-program");
-	this.table_news=this.get("table-news");
+	this.table=this.$("table-program");
+	this.table_news=this.$("table-news");
 	this.news_idSaver = [];
 }
 
-HomeComponent.prototype.get = function (id) {
+HomeComponent.prototype.$ = function (id) {
+	if(id.startsWith('.')) return document.getElementsByClassName(id.substring(1));
 	return document.getElementById(id);
 };
 

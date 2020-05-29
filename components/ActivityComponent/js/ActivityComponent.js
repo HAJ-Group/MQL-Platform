@@ -9,7 +9,8 @@ function ActivityComponent(service) {
 	this.service = service;
 	//this.table = this.get('table-ActivityID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
 }
-ActivityComponent.prototype.get = function (id) {
+ActivityComponent.prototype.$ = function (id) {
+	if(id.startsWith('.')) return document.getElementsByClassName(id.substring(1));
 	return document.getElementById(id);
 };
 
@@ -30,7 +31,7 @@ ActivityComponent.prototype.printActivityList = function () {
 */
 
 ActivityComponent.prototype.printSemesters = function(){
-	let subjectZone = this.get('zone');
+	let subjectZone = this.$('zone');
 	for (let i = 0; i < this.service.size(); i++) {
 		let semesterI = this.service.get(i);
 
@@ -165,10 +166,8 @@ ActivityComponent.prototype.printSubjects = function () {
 
 
 function collapse(){
-	let coll = document.getElementsByClassName("collapsible");
+	let coll = view.$(".collapsible");
 	let i;
-
-
 	for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
 			this.classList.toggle("active-element");
