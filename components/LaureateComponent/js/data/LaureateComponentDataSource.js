@@ -150,9 +150,9 @@ let dbLaureat18=[
 	},
 	{
 		id:8,
-		name:'GAMRANI Ayoub',
+		name:'Mohammed Chekroud',
 		gender: 'M',
-		job:'I.E.D Java/JavaEE - NodeJs',
+		job:'I.E.D JavaEE - NodeJs',
 		city:'Paris,France',
 		email:'',
 		stage:'CGI',
@@ -347,6 +347,20 @@ let dbLaureat19=[
 		photo:'',
 		rating : 'Une formation complète et adaptée au monde d’entreprise',
 		linked_in :'www.linkedin.com/in/hamza-berrada67/',
+	},
+	{
+		id:14,
+		name:'Benabbou Zakaryae',
+		gender: 'M',
+		job:'Software Engineer Java / Cobol',
+		city:'Casablanca',
+		email:'zakaryaebenabbouu@gmail.com',
+		stage:'Capgemini',
+		current_enterprise : 'Capgemini',
+		experience:[''],
+		photo:'',
+		rating : '',
+		linked_in :'',
 	},
 ];
 let dbPromotion= [
