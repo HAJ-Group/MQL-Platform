@@ -10,20 +10,18 @@ function NewsComponent(service) {
 	this.service = service;
 	// this.table = this.get('table-NewsID');
 	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
-	this.block_nav = this.get('navigation');
-	this.block_main = this.get('main');
-	this.block_switch = this.get('switcher');
+	this.block_nav = $('#navigation');
+	this.block_main = $('#main');
+	this.block_switch = $('#switcher');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 }
-NewsComponent.prototype.get = function (id) {
-	return document.getElementById(id);
-};
+
 NewsComponent.prototype.addNewsRow =function (news) {
-	let row=this.table.insertRow();
+	let row = this.table.insertRow();
 	row.insertCell().innerHTML =news.date;
 	row.insertCell().innerHTML =news.title;
 };
@@ -96,7 +94,7 @@ NewsComponent.prototype.navigate = function(page_number=1, top=false) {
 NewsComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
 	if(anchor !== undefined && anchor !== 'header') {
-		this.get('nav' + anchor).click();
+		$('#nav' + anchor).click();
 	}
 };
 
@@ -104,7 +102,7 @@ NewsComponent.prototype.trigger = function () {
  * Filtering function works with search box
  */
 NewsComponent.prototype.filterKey = function () {
-	let key = this.get('key').value;
+	let key = $('#key').value;
 	if(key === '') {
 		// LOAD ALL DATA
 		this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
@@ -114,28 +112,31 @@ NewsComponent.prototype.filterKey = function () {
 		console.log(this.service.searchByKey(key));
 	}
 	if(this.page_blocks.length === 0) {
-		popTB('../../resources/pictures/nf.png', 'NEWS NOT FOUND !!');
-		this.get('key').value = '';
-		this.filterKey();
+		$('.error-message')[0].innerHTML = 'News not Found !';
+		$('#key').setAttribute('class', 'search-error');
+		showEmptyErrorResult();
+	} else {
+		$('.error-message')[0].innerHTML = '';
+		$('#key').setAttribute('class', 'search-input');
 	}
 	this.navigate();
 };
 
 /* FORM SERVICES */
 NewsComponent.prototype.addData = function() {
-	this.get('newsSubmit').setAttribute('onclick', 'view.submitData()');
+	$('#newsSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
 
 NewsComponent.prototype.editData = function(index) {
-	let el_title = this.get('newsTitle');
-	let el_desc = this.get('newsDescription');
+	let el_title = $('#newsTitle');
+	let el_desc = $('#newsDescription');
 	//....
 	let target = this.service.get(index);
 	el_title.value = target.title;
 	el_desc.value = target.description;
 	//...
-	this.get('newsSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	$('#newsSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
 
@@ -150,8 +151,8 @@ NewsComponent.prototype.deleteData = function(index) {
 
 NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
-	let title = this.get('newsTitle').value;
-	let desc = this.get('newsDescription').value;
+	let title = $('#newsTitle').value;
+	let desc = $('#newsDescription').value;
 	//...
 	if(action === 'add') {
 		this.service.add(new News(this.service.size() + 1, title, new Date(), desc));
@@ -161,14 +162,14 @@ NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 		target.title = title;
 		target.description = desc;
 		//...
-		this.get('newsSubmit').setAttribute('onclick', 'view.submitData()');
+		$('#newsSubmit').setAttribute('onclick', 'view.submitData()');
 	}
 	this.service.sort();
 	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
 	closeFORM();
 	this.navigate();
 };
-
+/**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() { 
 	service = new NewsComponentService();

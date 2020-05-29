@@ -6,22 +6,18 @@ function HomeComponent(service) {
 	current_component = 'Home';
 	loadResources();
 	this.service = service;
-	this.table=this.get("table-program");
-	this.table_news=this.get("table-news");
+	this.table= $("#table-program");
+	this.table_news= $("#table-news");
 	this.news_idSaver = [];
 }
-
-HomeComponent.prototype.get = function (id) {
-	return document.getElementById(id);
-};
 
 /**
  * Program table builder
  * @param program
  */
 HomeComponent.prototype.addColumn=function (program) {
-	let row=this.table.insertRow();
-	let cell=row.insertCell();
+	let row = this.table.insertRow();
+	let cell = row.insertCell();
 	cell.innerHTML += "<span class='semester'>Semestre"+program.id +"</span>" + "<hr>" + "<ul>";
 	for (let i = 0; i < program.modules.length ; i++) {
 		cell.innerHTML+="<li>"+"M"+(i+1)+":"+program.modules[i]+"</li>";

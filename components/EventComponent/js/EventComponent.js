@@ -11,18 +11,16 @@ function EventComponent(service) {
 	this.service = service; 
 	//this.table = this.get('table-EventID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
 	this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
-	this.block_nav = this.get('navigation');
-	this.block_main = this.get('main');
-	this.block_switch = this.get('switcher');
+	this.block_nav = $('#navigation');
+	this.block_main = $('#main');
+	this.block_switch = $('#switcher');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 } 
-EventComponent.prototype.get = function (id) { 
-	return document.getElementById(id); 
-}; 
+
 // Adding a row in the table member 
 EventComponent.prototype.addEventRow = function (oneEvent) { 
 	let row = this.table.insertRow(); 
@@ -137,7 +135,7 @@ EventComponent.prototype.navigate = function(page_number=1, top=false) {
  * Filtering function works with search box
  */
 EventComponent.prototype.filterKey = function () {
-	let key = this.get('key').value;
+	let key = $('#key').value;
 	if(key === '') {
 		// LOAD ALL DATA
 		this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
@@ -147,28 +145,32 @@ EventComponent.prototype.filterKey = function () {
 		console.log(this.service.searchByKey(key));
 	}
 	if(this.page_blocks.length === 0) {
-		popTB('../../resources/pictures/nf.png', 'EVENT NOT FOUND !!');
-		this.get('key').value = '';
-		this.filterKey();
+		$('.error-message')[0].innerHTML = 'Event not Found !';
+		$('#key').setAttribute('class', 'search-error');
+		showEmptyErrorResult();
+	}
+	else {
+		$('.error-message')[0].innerHTML = '';
+		$('#key').setAttribute('class', 'search-input');
 	}
 	this.navigate();
 };
 
 /* FORM SERVICES */
 EventComponent.prototype.addData = function() {
-	this.get('eventSubmit').setAttribute('onclick', 'view.submitData()');
+	$('#eventSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
 
 EventComponent.prototype.editData = function(index) {
-	let el_title = this.get('eventTitle');
-	let el_desc = this.get('eventDescription');
+	let el_title = $('#eventTitle');
+	let el_desc = $('#eventDescription');
 	//....
 	let target = this.service.get(index);
 	el_title.value = target.title;
 	el_desc.value = target.description;
 	//...
-	this.get('eventSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	$('#eventSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
 
@@ -183,8 +185,8 @@ EventComponent.prototype.deleteData = function(index) {
 
 EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
-	let title = this.get('eventTitle').value;
-	let desc = this.get('eventDescription').value;
+	let title = $('#eventTitle').value;
+	let desc = $('#eventDescription').value;
 	//...
 	if(action === 'add') {
 		this.service.add(new EventModel(this.service.size() + 1, title, new Date(), desc));
@@ -195,13 +197,13 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 		target.description = desc;
 		//target.date = new Date();
 		//...
-		this.get('eventSubmit').setAttribute('onclick', 'view.submitData()');
+		$('#eventSubmit').setAttribute('onclick', 'view.submitData()');
 	}
 	this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
 	closeFORM();
 	this.navigate();
 };
-
+/**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() { 
 	service = new EventComponentService(); 

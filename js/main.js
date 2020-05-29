@@ -34,6 +34,20 @@ function route(component, tag_id=null) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /**
+ * Custom selector used to simplify getting html dom elements
+ * @param target_element
+ * @returns {HTMLElement|HTMLCollectionOf<HTMLElementTagNameMap[*]>|HTMLCollectionOf<Element>|NodeListOf<HTMLElement>}
+ */
+function $(target_element) {
+    if(target_element.startsWith('#')) return document.getElementById(target_element.substring(1));
+    if(target_element.startsWith('.')) return document.getElementsByClassName(target_element.substring(1));
+    if(target_element.startsWith('+')) return document.getElementsByName(target_element.substring(1));
+    else return document.getElementsByTagName(target_element);
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
  * Build up the header using given parameters
  * @returns {string}
  */
@@ -83,6 +97,7 @@ function getSearchBar() {
     return '<div class="search-block">\n' +
         '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo">\n' +
         '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text">\n' +
+        '<span class="error-message"></span>' +
         '</div>\n' +
         '<!-- Text Box -->\n' +
         '<div id="TextBox" class="modal">\n' +
@@ -92,6 +107,16 @@ function getSearchBar() {
         '<p id="BoxText" class="box-text"></p>\n' +
         '</div>\n' +
         '</div>';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+function showEmptyErrorResult() {
+    $('#main').innerHTML = '<div>' +
+        '<img alt="" class="mini-logo" src="../../resources/pictures/Area/error.png">' +
+        '</div>';
+    $('#navigation').innerHTML = null;
+    $('#switcher').innerHTML = null;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -201,15 +226,15 @@ function getFooterContent() {
 /*--------------------------------------------------------------------------------------------------------------------*/
 function loadResources() {
     /* ASSIGN DATA ---------------------------------------------------------------------------------------------------*/
-    document.getElementById('header').innerHTML = getHeaderContent();
-    document.getElementById('footer').innerHTML = getFooterContent();
+    $('#header').innerHTML = getHeaderContent();
+    $('#footer').innerHTML = getFooterContent();
     // SEARCH BAR
-    if(document.getElementById('search') !== null) {
-        document.getElementById('search').innerHTML = getSearchBar();
+    if($('#search') !== null) {
+        $('#search').innerHTML = getSearchBar();
     }
     /* CURRENT INITIALIZATION ----------------------------------------------------------------------------------------*/
-    let current_element = document.getElementsByName(current_component)[0];
-    if(current_component === 'Home') document.getElementById('home-logo').
+    let current_element = $('+' + current_component)[0];
+    if(current_component === 'Home') $('#home-logo').
     setAttribute('src', '../../resources/pictures/homeactive.png')
     current_element.setAttribute('class', current_element.
     getAttribute('class') + ' active');
@@ -227,7 +252,7 @@ function loadResources() {
  * @param element
  */
 function changePicture(element) {
-    let image = document.getElementById('title-image');
+    let image = $('#title-image');
     let source = element + '.jpg';
     image.setAttribute('src', '../../resources/pictures/' + source);
     image.setAttribute('class', 'def-img');
@@ -240,7 +265,7 @@ function changePicture(element) {
  */
 function showMenu() {
     function toggle(media) {
-        let menu = document.getElementsByClassName('topnav')[0];
+        let menu = $('.topnav')[0];
         if (media.matches) { // If media query matches
             if(phone_menu_toggled) menu.style.display = 'block';
             if(!phone_menu_toggled) menu.style.display = 'none';
@@ -262,7 +287,7 @@ function showMenu() {
  * @param editable
  */
 function addTitleIcon(source, editable=false) {
-    let titles = document.getElementsByClassName('title');
+    let titles = $('.title');
     let i=0;
     for (let title of titles) {
         let text = title.textContent;
@@ -280,7 +305,7 @@ function addTitleIcon(source, editable=false) {
     }
     if(editable && localStorage.getItem('ACCESS') !== 'null') {
         // ADD NEW ICON BLOCK
-        let saver = document.getElementsByClassName('sub-content')[0];
+        let saver = $('.sub-content')[0];
         saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
             saver.innerHTML;
     }
@@ -295,17 +320,17 @@ function addTitleIcon(source, editable=false) {
  * @param def_display
  */
 function show(id, def_element = 'details', def_display = 'block') {
-    let icon = document.getElementsByName('sh-icon')[id];
-    let sep = document.getElementsByClassName('sh-sep')[id];
+    let icon = $('+sh-icon')[id];
+    let sep = $('.sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/minus-icon.png');
     icon.setAttribute('onclick','hide('+id+', \'' + def_element + '\', \'' + def_display + '\')');
-    let element =document.getElementsByClassName(def_element)[id];
+    let element = $('.' + def_element)[id];
     element.style.display = def_display;
     sep.style.display='none';
     // HIDE EDIT AND DELETE IF EXISTS
     if(localStorage.getItem('ACCESS') !== 'null') {
-        let edit = document.getElementsByName('edit-icon')[id];
-        let delt = document.getElementsByName('delete-icon')[id];
+        let edit = $('+edit-icon')[id];
+        let delt = $('+delete-icon')[id];
         edit.style.display = 'block';
         delt.style.display = 'block';
     }
@@ -320,17 +345,17 @@ function show(id, def_element = 'details', def_display = 'block') {
  * @param def_display
  */
 function hide(id, def_element = 'details', def_display = 'block') {
-    let icon = document.getElementsByName('sh-icon')[id];
-    let sep = document.getElementsByClassName('sh-sep')[id];
+    let icon = $('+sh-icon')[id];
+    let sep = $('.sh-sep')[id];
     icon.setAttribute('src','../../resources/pictures/icons/plus-icon.png');
     icon.setAttribute('onclick','show(' + id + ', \'' + def_element + '\', \'' + def_display + '\')');
-    let element = document.getElementsByClassName(def_element)[id];
+    let element = $('.' + def_element)[id];
     element.style.display = 'none';
         sep.style.display = def_display;
     // HIDE EDIT AND DELETE IF EXISTS
     if(localStorage.getItem('ACCESS') !== 'null') {
-        let edit = document.getElementsByName('edit-icon')[id];
-        let delt = document.getElementsByName('delete-icon')[id];
+        let edit = $('+edit-icon')[id];
+        let delt = $('+delete-icon')[id];
         edit.style.display = 'none';
         delt.style.display = 'none';
     }
@@ -342,7 +367,7 @@ function hide(id, def_element = 'details', def_display = 'block') {
  * Auto-add detection on left-menu bar for auto hovering on target article
  */
 function detect_subContent_trigger_left_bar() {
-    let element0 = document.getElementsByClassName('left-menu')[0];
+    let element0 = $('.left-menu')[0];
     for(let child of element0.childNodes) {
         if(child.innerHTML !== undefined && child instanceof HTMLDivElement) {
             let target = child.firstChild;
@@ -352,7 +377,7 @@ function detect_subContent_trigger_left_bar() {
             }
         }
     }
-    let element = document.getElementsByClassName('sub-content')[0];
+    let element = $('.sub-content')[0];
     for(let child of element.childNodes) {
         if(child.innerHTML !== undefined) {
             child.setAttribute('onmouseover', 'lightNav(this.id)');
@@ -368,7 +393,9 @@ function detect_subContent_trigger_left_bar() {
  * @param id
  */
 function lightNav(id) {
-    document.getElementById('nav' + id).classList.add('wrap-red');
+    try {
+        $('#nav' + id).classList.add('wrap-red');
+    } catch (e) {}
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -378,7 +405,9 @@ function lightNav(id) {
  * @param id
  */
 function offLight(id) {
-    document.getElementById('nav' + id).classList.remove('wrap-red');
+    try {
+        $('#nav' + id).classList.remove('wrap-red');
+    } catch (e) {}
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -403,7 +432,7 @@ function split(array, n) {
  * Close popped image
  */
 function closeIMG() {
-    let modal = document.getElementById('myModal');
+    let modal = $('#myModal');
     modal.style.display = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -413,12 +442,12 @@ function closeIMG() {
  * Display image
  */
 function popIMG(id) {
-    let modal = document.getElementById('myModal');
-    let img = document.getElementById(id);
-    let modalImg = document.getElementById('modal_img');
+    let modal = $('#myModal');
+    let img = $('#' + id);
+    let modalImg = $('#modal_img');
     modal.style.display = 'block';
     modalImg.src = img.src;
-    document.getElementById('caption').innerHTML = img.alt;
+    $('#caption').innerHTML = img.alt;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -427,7 +456,7 @@ function popIMG(id) {
  * Close TextBox
  */
 function closeTB() {
-    let modal = document.getElementById('TextBox');
+    let modal = $('#TextBox');
     modal.style.display = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -437,9 +466,9 @@ function closeTB() {
  * Display textbox
  */
 function popTB(icon, text) {
-    let modal = document.getElementById('TextBox');
-    let el_icon = document.getElementById('BoxIcon');
-    let el_text = document.getElementById('BoxText');
+    let modal = $('#TextBox');
+    let el_icon = $('#BoxIcon');
+    let el_text = $('#BoxText');
     el_icon.src = icon;
     el_text.innerHTML = text;
     modal.style.display = 'block';
@@ -451,7 +480,7 @@ function popTB(icon, text) {
  * Close Form
  */
 function closeFORM() {
-    let modal = document.getElementById('form');
+    let modal = $('#form');
     modal.style.display = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -461,7 +490,7 @@ function closeFORM() {
  * Display form
  */
 function popFORM() {
-    let modal = document.getElementById('form');
+    let modal = $('#form');
     modal.style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -484,14 +513,14 @@ let images_size = 0;
 function createBook(images=[], default_element_id = 'book') {
     current_img = 1;
     images_size = images.length;
-    let element = document.getElementById(default_element_id);
+    let element = $('#' + default_element_id);
     element.innerHTML = '<div onclick="target(\''+ default_element_id + '\',--current_img)" class="arrow-left"><</div>';
     for(let i = 1; i<=images.length; i++) {
         element.innerHTML += '<img onclick="popIMG(this.id)" id="' + default_element_id + '-img' + i + '" class="' +
             default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
     }
     element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
-    document.getElementsByClassName( default_element_id + '-img')[current_img - 1].style.display = 'block';
+    $( '.' + default_element_id + '-img')[current_img - 1].style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -511,9 +540,9 @@ function target(target_element) {
     else {
         try{
             for(let i=0; i<images_size; i++) {
-                document.getElementsByClassName( target_element + '-img')[i].style.display = 'none';
+                $( '.' + target_element + '-img')[i].style.display = 'none';
             }
-            document.getElementsByClassName( target_element + '-img')[current_img - 1].style.display = 'block';
+            $( '.' + target_element + '-img')[current_img - 1].style.display = 'block';
         } catch (e) {}
     }
 }
@@ -521,7 +550,7 @@ function target(target_element) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 function scrollToTop(){
-    let button = document.getElementById("scroll-top");
+    let button = $("#scroll-top");
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {
         scrollFunction()
