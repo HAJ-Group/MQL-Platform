@@ -577,8 +577,8 @@ function loadContactForm() {
         '\n' +
         '\n' +
         '\t\t\t\t\t<div class="form-footer">\n' +
-        '\t\t\t\t\t\t<button type="button" onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="button-contact cancel-button">Annuler</button>\n' +
-        '\t\t\t\t\t\t<button type="submit" class="button-contact submit-button">Envoyer</button>\n' +
+        '\t\t\t\t\t\t<button type="button" onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button>\n' +
+        '\t\t\t\t\t\t<button type="submit" class="button-contact-2 submit-button">Envoyer</button>\n' +
         '\t\t\t\t\t</div>\n' +
         '\t\t\t\t</div>\n' +
         '\t\t\t</form>\n' +
@@ -601,9 +601,10 @@ function loadNewsLetter() {
         '            <form class="news-modal-content" action="#" method="post">\n' +
         '                <span class="close-part" onclick="document.getElementById(\'news-modal-id\').style.display = \'none\'">&times;</span>\n' +
         '                <div class="modal-header">\n' +
-        '                    <span style="text-align: center">NewsLetter</span>\n' +
+        '                    <span>NewsLetter</span>\n' +
         '                </div>\n' +
         '                <div class="modal-body">\n' +
+        '                <p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
         '                    <lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>\n' +
         '                    <input type="text" name="full-name" placeholder="Nom...">\n' +
         '                    <lebel for="email" style="font-size: 18px;">Votre Email : </lebel>\n' +
