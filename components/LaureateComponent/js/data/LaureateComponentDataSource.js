@@ -362,7 +362,22 @@ let dbLaureat19=[
 		rating : '',
 		linked_in :'',
 	},
+	{
+		id:15,
+		name:'Hassan El-mzabi',
+		gender: 'M',
+		job:'Software Engineer',
+		city:'Casablanca',
+		email:'',
+		stage:'Capgemini',
+		current_enterprise : 'Capgemini',
+		experience:[''],
+		photo:'',
+		rating : '',
+		linked_in :'',
+	},
 ];
+
 let dbPromotion= [
 	// Add object structure associated with the model created
 	{
