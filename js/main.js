@@ -155,6 +155,12 @@ function getFooterContent() {
                     type:'list',
                     list_title:'E.mail : ',
                     list_content:'noureddine.chenfour@usmba.ac.ma'
+                },
+                {
+                    type:'list',
+                    list_title:'direct-contact'
+                    /*,
+                    list_content:'noureddine.chenfour@usmba.ac.ma'*/
                 }
             ],
         }
@@ -182,6 +188,9 @@ function getFooterContent() {
                 }
                 if(c.type === 'list') {
                     footerContent += '<li><strong>' + c.list_title + '</strong>' + c.list_content + '</li>\n';
+                    if(c.list_title === 'direct-contact'){
+                        footerContent += '<li><button onclick="document.getElementById(\'form-contact-id\').style.display=\'block\'" style="width:auto;" class="button-contact">Contactez-nous directement !</button></li>';
+                    }
                 }
                 if(c.type === 'geo') {
                     footerContent += '<div class="map"><div class="over-flow">\n' +
@@ -189,12 +198,25 @@ function getFooterContent() {
                         'allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>\n' +
                         '</div></div>\n';
                 }
+
             }
             footerContent += '</ul></div>\n';
         }
+
+
+
+        // Copy-right
         footerContent += '</div><div class="copy-right"><span>Master Qualité du Logiciel,' +
             '<a href="#"> Faculté des sciences</a></span><span>&copy; 2020 All rights reserved</span></div>';
-    return footerContent;
+
+         // Elements for form-contact
+
+        footerContent += '<div id="form-contact"></div>';
+
+         // Elements for newsLetter
+        footerContent += '<a href="#" class="button-news" id="news-button">News ></a>';
+        footerContent += '<div id="news-cont"></div>';
+        return footerContent;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -217,6 +239,11 @@ function loadResources() {
     current_element.setAttribute('onmouseover', '');
     changePicture(current_component);
     scrollToTop();
+    loadContactForm();
+    loadNewsLetter();
+
+    closeModal();
+
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -475,7 +502,9 @@ function target(target_element) {
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-
+/**
+ * A function to test if the right icon will be displayed or not
+ */
 function scrollToTop(){
 
     var button = document.getElementById("scroll-top");
@@ -496,9 +525,13 @@ function scrollToTop(){
             button.style.display = "none";
         }
     }
-
-
 }
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * scrolling to top
+ */
 
 function topFunction() {
 /*    document.body.scrollTop = 0;
@@ -514,3 +547,110 @@ let timeout;
     }
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Load the content of the form contact
+ */
+function loadContactForm() {
+    let form = document.getElementById('form-contact');
+    form.innerHTML += '\n' +
+        '\t\t<div id="form-contact-id" class="modal-style">\n' +
+        '\t\t\t<span onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="close-modal-contact" title="Close Modal">&times;</span>\n' +
+        '\t\t\t<form class="modal-contact-content" action="#" method="post">\n' +
+        '\t\t\t\t<div class="contact-container">\n' +
+        '\t\t\t\t\t<h3 style="text-align: center">Contactez-nous directement</h3>\n' +
+        '\n' +
+        '\t\t\t\t\t<hr>\n' +
+        '\t\t\t\t\t<label for="first-name"><b>Prénom </b></label>\n' +
+        '\t\t\t\t\t<input type="text" placeholder="Prénom..." name="first-name">\n' +
+        '\n' +
+        '\t\t\t\t\t<label for="last-name"><b>Nom </b></label>\n' +
+        '\t\t\t\t\t<input type="text" placeholder="Nom..." name="last-name">\n' +
+        '\n' +
+        '\t\t\t\t\t<label for="email"><b>Email </b></label>\n' +
+        '\t\t\t\t\t<input type="email" placeholder="Email..." name="email">\n' +
+        '\n' +
+        '\t\t\t\t\t<label for="subject">Sujet </label>\n' +
+        '\t\t\t\t\t<textarea id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>\n' +
+        '\n' +
+        '\n' +
+        '\t\t\t\t\t<div class="form-footer">\n' +
+        '\t\t\t\t\t\t<button type="button" onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="button-contact cancel-button">Annuler</button>\n' +
+        '\t\t\t\t\t\t<button type="submit" class="button-contact submit-button">Envoyer</button>\n' +
+        '\t\t\t\t\t</div>\n' +
+        '\t\t\t\t</div>\n' +
+        '\t\t\t</form>\n' +
+        '\t\t</div>';
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Load the content of the NewsLetter
+ */
+function loadNewsLetter() {
+    let newsLetter = document.getElementById('news-cont');
+    newsLetter.innerHTML += '<!-- The Modal -->\n' +
+        '        <div id="news-modal-id" class="news-modal">\n' +
+        '\n' +
+        '            <!-- Modal content -->\n' +
+        '            <form class="news-modal-content" action="#" method="post">\n' +
+        '                <span class="close-part" onclick="document.getElementById(\'news-modal-id\').style.display = \'none\'">&times;</span>\n' +
+        '                <div class="modal-header">\n' +
+        '                    <span style="text-align: center">NewsLetter</span>\n' +
+        '                </div>\n' +
+        '                <div class="modal-body">\n' +
+        '                    <lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>\n' +
+        '                    <input type="text" name="full-name" placeholder="Nom...">\n' +
+        '                    <lebel for="email" style="font-size: 18px;">Votre Email : </lebel>\n' +
+        '                    <input type="email" name="email" placeholder="Email...">\n' +
+        '                </div>\n' +
+        '                <button class="subscribe-button" type="submit">S\'inscrire</button>\n' +
+        '            </form>\n' +
+        '        </div>';
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Responsible for enabling listeners for contact-form and news-letter on click !
+ */
+function closeModal() {
+    // Get the modal
+    let modal = document.getElementById('form-contact-id');
+    // When the user clicks anywhere outside of the modal, close it
+
+     let newsModal = document.getElementById('news-modal-id');
+    // Get the button that opens the modal
+    let btn = document.getElementById("news-button");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        newsModal.style.display = "block";
+    }
+
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close-part")[0];
+
+       // When the user clicks on <span> (x), close the modal
+       span.onclick = function() {
+           newsModal.style.display = "none";
+       }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === newsModal) {
+                newsModal.style.display = "none";
+            }
+            else if(event.target === modal){
+                modal.style.display = "none";
+            }
+        }
+
+}
