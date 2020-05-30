@@ -1,13 +1,15 @@
 /* Default Model for LaureateComponent */ 
-function Promotion(id,name,content){
+function Promotion(id,name,date,content=[]){
 	this.id=id;
 	this.name=name;
+	this.date=date;
 	this.content=content;
 }
-function Laureate(id,name,job,city,email,stage,current_enterprise,experience='',photo='',rating='',linked_in='') {
+function Laureate(id,name,gender,job,city,email,stage,current_enterprise,experience='',photo='',rating='',linked_in='',special) {
 	//TODO: Intitialize model properties
 	this.id = id;
 	this.name = name;
+	this.gender = gender;
 	this.job=job;
 	this.city = city;
    	this.email = email;
@@ -17,4 +19,6 @@ function Laureate(id,name,job,city,email,stage,current_enterprise,experience='',
 	this.photo = photo;
 	this.rating = rating;
 	this.linked_in = linked_in;
+	if(special!==undefined)
+		this.special=special;
 }

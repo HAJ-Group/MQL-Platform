@@ -3,7 +3,8 @@ let view;
 let service;
 let current_page_number = 1;
 const MAX_PROMOTION_PER_PAGE = 5;
-const DEFAULT_PROFILE_IMAGE = '../../resources/pictures/profile.png';
+const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
+const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
 /*Default class*/ 
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
@@ -12,18 +13,17 @@ function LaureateComponent(service) {
 	this.service = service; 
 	//this.table = this.get('table-LaureateID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
 	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-	this.block_nav = this.get('navigation');
-	this.block_main = this.get('main');
-	this.block_switch = this.get('switcher');
+	this.block_nav = $('#navigation');
+	this.block_main = $('#main');
+	this.block_switch = $('#switcher');
+	this.block_recommendation = $('#list-recommendation');
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 } 
-LaureateComponent.prototype.get = function (id) { 
-	return document.getElementById(id); 
-}; 
+
 // Adding a row in the table member 
 LaureateComponent.prototype.addLaureateRow = function (oneLaureate) { 
 	let row = this.table.insertRow(); 
@@ -47,22 +47,26 @@ LaureateComponent.prototype.fillNavigation = function () {
 
 LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
+	let img;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
-			'<div class="details">';
+			'<div class="details">' +
+			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
 		for (let laureate of promotion.content) {
-			if((laureate.photo === '')) laureate.photo = DEFAULT_PROFILE_IMAGE;
+			if((laureate.photo === '')){
+				img = DEFAULT_PROFILE_IMAGE[laureate.gender];
+			} else img = laureate.photo;
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +'('+laureate.job+')'+
-				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'+
+				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span>\n' +
 				'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img src="' + laureate.photo + '" alt="">' +
+				'<img src="' + img + '" alt="">' +
 				'<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
@@ -77,12 +81,8 @@ LaureateComponent.prototype.fillMain = function () {
 				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
 			}
 			// EXPERIENCES
-			if(laureate.experience !== []) {
-				htmlContent += '<li>Expériences : <span class="value">';
-				for(let exp of laureate.experience) {
-					htmlContent += '<span class="left-space">' + exp + '</span>';
-				}
-				htmlContent += '</span></li>';
+			if(laureate.experience.length!==0) {
+				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
 			}
 			// Email :
 			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
@@ -96,7 +96,43 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
-
+LaureateComponent.prototype.fillRecomondation =function(){
+	let img;
+	let html_content='';
+	for(let promotion of this.service.db){
+		for(let laureate of promotion.content){
+			if(laureate.special){
+				if(laureate.photo === ''){
+					img = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+				}
+				else img = laureate.photo;
+				html_content+='<div class="recommendation">' +
+					'<div class="image-and-infos">' +
+					'<div class="image-person">' +
+					'<img  src="' + img + '" alt="">' +
+					'</div>' +
+					'<div class="infos">' +
+					'<div class="name">' +
+					laureate.name+
+					'</div>' +
+					'<div class="society">' +
+					laureate.job+' à '+laureate.current_enterprise+
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<div class="opinion">' +
+					'<p>' +
+					'<q>' +
+					laureate.rating+
+					'</q>' +
+					'</p>' +
+					'</div>' +
+					'</div>'
+			}
+		}
+	}
+	this.block_recommendation.innerHTML = html_content;
+};
 /**
  * Create page switcher dynamically
  */
@@ -115,7 +151,7 @@ LaureateComponent.prototype.fillSwitcher = function () {
  * @param page_number
  * @param top
  */
-LaureateComponent.prototype.navigate = function(page_number, top=false) {
+LaureateComponent.prototype.navigate = function(page_number=1, top=false) {
 	current_page_number = page_number;
 	this.fillNavigation();
 	this.fillMain();
@@ -133,21 +169,21 @@ LaureateComponent.prototype.printPromotionsCards = function () {
 };
 // Collapse cards
 LaureateComponent.prototype.showInfos = function(id) {
-	let item = this.get('item-' + id);
+	let item = $('#item-' + id);
 	item.style.display = 'none';
-	let info = this.get(id);
+	let info = $('#' + id);
 	if(window.innerWidth <= 700){
 		info.style.display = 'block';
 	}
 	else info.style.display = 'flex';
 };
 LaureateComponent.prototype.hideInfos = function (id) {
-	let item = this.get('item-' + id);
+	let item = $('#item-' + id);
 	if(window.innerWidth <= 700){
 		item.style.display = 'block';
 	}
 	else item.style.display = 'flex';
-	let info = this.get(id);
+	let info = $('#' + id);
 	info.style.display = 'none';
 };
 LaureateComponent.prototype.updateView = function () {
@@ -158,7 +194,8 @@ LaureateComponent.prototype.updateView = function () {
  * Filtering function works with search box
  */
 LaureateComponent.prototype.filterKey = function () {
-	let key = this.get('key').value;
+	let key = $('#key').value;
+	let init_size = this.page_blocks.length;
 	if(key === '') {
 		// LOAD ALL DATA
 		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
@@ -167,20 +204,68 @@ LaureateComponent.prototype.filterKey = function () {
 		this.page_blocks = split(this.service.searchByKey(key), MAX_PROMOTION_PER_PAGE);
 	}
 	if(this.page_blocks.length === 0) {
-		popTB('../../resources/pictures/nf.png', 'LAUREATE NOT FOUND !!');
-		this.get('key').value = '';
-		this.filterKey();
+		$('.error-message')[0].innerHTML = 'Laureate not Found !';
+		$('#key').setAttribute('class', 'search-error');
+		showEmptyErrorResult();
 	}
-	this.navigate(1);
+	else {
+		$('.error-message')[0].innerHTML = '';
+		$('#key').setAttribute('class', 'search-input');
+	}
+	this.navigate();
 };
 
+/* FORM SERVICES */
+LaureateComponent.prototype.addData = function() {
+	$('#promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	popFORM();
+};
 
+LaureateComponent.prototype.editData = function(index) {
+	let el_name = $('#promotionName');
+	//....
+	let target = this.service.get(index);
+	el_name.value = target.name;
+	//...
+	$('#promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
+	popFORM();
+};
+
+LaureateComponent.prototype.deleteData = function(index) {
+	if(confirm('Are you sure you want to delete this Promotion ?')) {
+		this.service.remove(index);
+		//....
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+		this.navigate();
+	}
+};
+
+LaureateComponent.prototype.submitData = function (action = 'add', index = '0') {
+	// GETTING DATA MEMBERS
+	let name = $('#promotionName').value;
+	//...
+	if(action === 'add') {
+		this.service.add(new Promotion(this.service.size() + 1,name,new Date()));
+	}
+	if(action === 'edit') {
+		let target = this.service.get(index);
+		target.name = name;
+		//...
+		$('#promotionSubmit').setAttribute('onclick', 'view.submitData()');
+	}
+	this.service.sort();
+	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+	closeFORM();
+	this.navigate();
+};
+/**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */
 function main() { 
 	service = new LaureateComponentService(); 
 	service.loadPromotion(dbPromotion);
 	view = new LaureateComponent(service);
 	view.fillNavigation();
+	view.fillRecomondation();
 	view.fillMain();
 	view.fillSwitcher();
 	// stays last

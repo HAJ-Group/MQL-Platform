@@ -10,7 +10,7 @@
 		<script src="js/data/NewsComponentDataSource.js"></script> 
 		<script src="js/model/News.js"></script> 
 		<script src="js/service/NewsComponentService.js"></script> 
-		<script src="js/NewsComponent.js"></script> 
+		<script src="js/NewsComponent.js"></script>
 	</head> 
 	<body onload="main()"> 
 		<div class="content"> 
@@ -24,8 +24,19 @@
 				<!-- The Modal -->
 				<div id="myModal" class="modal">
 					<span onclick="closeIMG()" class="close">&times;</span>
-					<img class="modal-content" id="modal_img">
+					<img class="modal-content" id="modal_img" alt="" src="">
 					<div id="caption"></div>
+				</div>
+				<!-- FORM MODAL -->
+				<div id="form" class="modal">
+					<span onclick="closeFORM()" class="close">&times;</span>
+					<div class="form-content" id="formContent">
+						<img src="../../resources/pictures/News-logo.png" alt="">
+						<p class="form-title">NEWS COMPONENT</p>
+						<input id="newsTitle" type="text" class="form-text" placeholder="News Title...">
+						<textarea id="newsDescription" class="form-text" placeholder="News Description" rows="5"></textarea>
+						<p id="newsSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
+					</div>
 				</div>
 				<div id="switcher" class="page_numbers"></div>
 			</div>

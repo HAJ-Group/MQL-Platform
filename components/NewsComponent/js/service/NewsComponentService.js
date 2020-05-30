@@ -32,16 +32,22 @@ NewsComponentService.prototype.searchByKey = function(title_key) {
     return ret;
 };
 
+NewsComponentService.prototype.sort = function() {
+    // SORT BY DATE
+    this.db = this.db.sort((a, b) => b.date - a.date);
+};
+
 NewsComponentService.prototype.load = function(dbSource) {
     for (let i = 0; i < dbSource.length; i++) {
         this.add(
             new News(
                 dbSource[i].id,
                 dbSource[i].title,
-                dbSource[i].date,
+                new Date(transformDate(dbSource[i].date)),
                 dbSource[i].desciption,
                 dbSource[i].images,
             )
         )
     }
+    this.sort();
 };

@@ -44,6 +44,11 @@ EventComponentService.prototype.searchByKey = function(title_key) {
 	return ret;
 };
 
+EventComponentService.prototype.sort = function() {
+	// SORT BY DATE
+	this.db = this.db.sort((a, b) => b.date - a.date);
+};
+
 // Load all data from source to database object 
 EventComponentService.prototype.load = function(dbSource) {
 	for (let i = 0; i < dbSource.length; i++) {
@@ -56,10 +61,10 @@ EventComponentService.prototype.load = function(dbSource) {
 		this.add(
 			new EventModel(dbSource[i].id,
 				dbSource[i].title,
-				dbSource[i].date,
+				new Date(transformDate(dbSource[i].date)),
 				dbSource[i].description,
 				container,
 			)
 		);
-	} 
-}; 
+	}
+};
