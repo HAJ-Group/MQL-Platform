@@ -169,6 +169,10 @@ NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 	closeFORM();
 	this.navigate();
 };
+NewsComponent.prototype.triggerSubmit = function () {
+	let submit_element = $('#newsSubmit');
+	submit_element.click();
+};
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() { 
@@ -183,5 +187,6 @@ function main() {
 	addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	view.trigger();
+	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 }
 

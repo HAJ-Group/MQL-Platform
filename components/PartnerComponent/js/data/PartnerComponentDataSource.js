@@ -57,7 +57,7 @@ let dbPartner = [
 		ca :  '457 millions € en 2017',
 		description : 'Fondée en 1969, Cegedim est une entreprise innovante de technologies et de services spécialisée dans la gestion des flux numériques de l’écosystème santé et BtoB, ainsi que dans la conception de logiciels métier destinés aux professionnels de santé et de l’assurance. Cegedim compte plus de 4 200 collaborateurs dans plus de 10 pays. ',
 		nbr_colla : '7',
-		zone : ["Rabat"],
+		zone : ["Rabat Agdal"],
 		website: 'www.cegedim.com',
 		image : '../../resources/partenaires/cegedim.png',
 	},

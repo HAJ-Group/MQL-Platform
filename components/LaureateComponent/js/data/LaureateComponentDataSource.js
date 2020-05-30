@@ -47,6 +47,36 @@ let dbLaureat16=[
 		rating : 'Une formation trop utile pour accéder au marché du travail ',
 		linked_in :'',
 	},
+	{
+		id:2,
+		name:'Abdelhamid El Guarti',
+		gender: 'M',
+		job:'I.E.D Confirmé (Java/Java EE)',
+		city:'France',
+		email:'abdelhamid.elguarti@usmba.ac.ma',
+		stage:'CEGEDIM',
+		current_enterprise : 'Menisys',
+		experience:['CEGEDIM','CGI'],
+		photo:'',
+		rating : '',
+		linked_in :'',
+	},
+];
+let dbLaureat17=[
+	{
+		id:1,
+		name:'Mouhim Youness',
+		gender: 'M',
+		job:'Consultant Oracle applications confirmé',
+		city:'France',
+		email:'youness.mouhim1@gmail.com',
+		stage:'CGI',
+		current_enterprise : 'Vivaliente Inc',
+		experience:['CGI'],
+		photo:path+'Youness-Mouhim',
+		rating : '',
+		linked_in :'',
+	},
 ];
 let dbLaureat18=[
 	{
@@ -398,6 +428,12 @@ let dbPromotion= [
 		name:'Promotion 2014-2016',
 		date:'01-06-2016',
 		content : dbLaureat16,
+	},
+	{
+		id : 'p1517',
+		name:'Promotion 2015-2017',
+		date:'01-06-2017',
+		content : dbLaureat17,
 	},
 	{
 		id : 'p1618',

@@ -4,7 +4,7 @@ let dbActivity = [
 
 	{
 		id: 1,
-		description: ['../../resources/pictures/cafe.png', 'Le premier semestre constitue une formation de base importante pour l\'étudiant, dans lequel ce dernier acquis un bagage théorique et pratique à travers un ensemble de sous-formations (modules) techniques (LES BONNES PRATIQUES), d\'autres visent la communication et le développement des SoftSkills grâce à des présentations ou des travaux d\'équipes (les étudiants sont amenés de travailler en grouep afin de réaliser un projet web et mobile(en s2) en se basant sur les principes de la gestion des projets et les méthodes agiles) . L\'objectif est que chaque étudiant aie des fortes connaissances techniques individuelles avec un développement sur le côté Softskills.'],
+		description: ['../../resources/pictures/cafe.png', 'Le premier semestre constitue une formation de base importante pour l\'étudiant, dans lequel ce dernier acquis un bagage théorique et pratique à travers un ensemble de sous-formations (modules) techniques (LES BONNES PRATIQUES), d\'autres visent la communication et le développement des SoftSkills grâce à des présentations ou des travaux d\'équipes (les étudiants sont amenés de travailler en groupe afin de réaliser un projet web et mobile(en s2) en se basant sur les principes de la gestion des projets et les méthodes agiles) . L\'objectif est que chaque étudiant aie des fortes connaissances techniques individuelles avec un développement sur le côté Softskills.'],
 		modules: [
 		        '../../resources/pictures/Activities/modules3.jpg',
 				'Ingénierie de l\'objet et thechnologie Java',

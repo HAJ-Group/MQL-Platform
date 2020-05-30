@@ -74,8 +74,8 @@ function getHeaderContent() {
         {name: 'Event', content:'Evénements'},
         {name: 'Activity', content:'Activités'},
         {name: 'Partner', content:'Partenaires'},
-        {name: 'Laureate', content:'Nos Lauréats'},
-        {name: 'Area', content:'Votre Espace'},
+        {name: 'Laureate', content:'Lauréats'},
+        {name: 'Area', content:'Administration'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
@@ -86,14 +86,14 @@ function getHeaderContent() {
         '<div class="move-right" onclick="showMenu()"><img src="../../resources/pictures/menu-phone.png" alt="mp" ' +
         'id="menu-button" width="60" height="60"></div>' +
         '</div>' +
-        '<div class="topnav">\n';
+        '<div class="topnav"> ';
     // DYNAMIC NAVS
     for(let nav of navs) {
         headerContent += '<a href="#' + nav.name +
             '"class="left" onclick="route(\'../' + nav.name + '\')"' +
             'onmouseover="changePicture(this.name)" ' +
             'onmouseleave="changePicture(current_component)" ' +
-            'name="' + nav.name + '">' + nav.content + '</a>\n'
+            'name="' + nav.name + '">' + nav.content + '</a> '
     }
     // ABOUT NAV
     headerContent += '<a href="#footer" class="right"><img class="def-img" src="../../resources/pictures/about.png" ' +
@@ -106,18 +106,18 @@ function getHeaderContent() {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 function getSearchBar() {
-    return '<div class="search-block">\n' +
-        '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo">\n' +
-        '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text">\n' +
+    return '<div class="search-block"> ' +
+        '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo"> ' +
+        '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text"> ' +
         '<span class="error-message"></span>' +
-        '</div>\n' +
-        '<!-- Text Box -->\n' +
-        '<div id="TextBox" class="modal">\n' +
-        '<span onclick="closeTB()" class="close">&times;</span>\n' +
-        '<div class="box-content">\n' +
-        '<img src="" alt="" id="BoxIcon" class="box-icon">\n' +
-        '<p id="BoxText" class="box-text"></p>\n' +
-        '</div>\n' +
+        '</div> ' +
+        '<!-- Text Box --> ' +
+        '<div id="TextBox" class="modal"> ' +
+        '<span onclick="closeTB()" class="close">&times;</span> ' +
+        '<div class="box-content"> ' +
+        '<img src="" alt="" id="BoxIcon" class="box-icon"> ' +
+        '<p id="BoxText" class="box-text"></p> ' +
+        '</div> ' +
         '</div>';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -202,59 +202,54 @@ function getFooterContent() {
     ];
 
     let footerContent = '<hr><footer>' +
-        '<div class="text-news-letter" onclick="document.getElementById(\'news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
+        '<div class="text-news-letter" onclick="$(\'#news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
         '   <span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
-        '</div><hr>\n';
+        '</div><hr> ';
 
          footerContent += '' +
-        '<div class="text-partenaire">\n' +
+        '<div class="text-partenaire"> ' +
         '<img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" ' +
-        'width="80" height="46"><span>Partenaires</span> \n' +
-        '</div><hr>\n' +
-        '<div class="partenaire">\n';
+        'width="80" height="46"><span>Partenaires</span>  ' +
+        '</div><hr> ' +
+        '<div class="partenaire"> ';
     for(let partner of partners) {
         footerContent += '<span><a><img id="' + partner.name + '" onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
-            partner.name + '"></a></span>\n';
+            partner.name + '"></a></span> ';
     }
-    footerContent += '</div>\n' +
-        '<div class="background-space"></div>\n' +
-        '<div class="flex-container">\n';
+    footerContent += '</div> ' +
+        '<div class="background-space"></div> ' +
+        '<div class="flex-container"> ';
         for(let foot of foots) {
-            footerContent += '<div>\n' +
-                '<h5>' + foot.title + '</h5>\n' +
-                '<ul class="remove-space">\n';
+            footerContent += '<div> ' +
+                '<h5>' + foot.title + '</h5> ' +
+                '<ul class="remove-space"> ';
             for(let c of foot.content) {
                 if(c.type === 'link') {
-                    footerContent += '<li><a class="links" href="' + c.link_address + '">' + c.link_name + '</a></li>\n';
+                    footerContent += '<li><a class="links" href="' + c.link_address + '">' + c.link_name + '</a></li> ';
                 }
                 if(c.type === 'list') {
-                    footerContent += '<li id="direct-contact-element"><strong>' + c.list_title + '</strong>' + c.list_content + '</li>\n';
+                    footerContent += '<li id="direct-contact-element"><strong>' + c.list_title + '</strong>' + c.list_content + '</li> ';
 
                 }
                 if(c.type === 'direct-contact'){
-                    footerContent += '<li><button onclick="document.getElementById(\'form-contact-id\').style.display=\'block\'" style="width:auto;" class="button-contact">Contactez-nous directement !</button></li>';
+                    footerContent += '<li><button onclick="$(\'#form-contact-id\').style.display=\'block\'" style="width:auto;" class="button-contact">Contactez-nous directement !</button></li>';
                 }
                 if(c.type === 'geo') {
-                    footerContent += '<div class="map"><div class="over-flow">\n' +
+                    footerContent += '<div class="map"><div class="over-flow"> ' +
                         '<iframe src="' + c.source + '" class="map-size" frameborder="0" style="border:0;" ' +
-                        'allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>\n' +
-                        '</div></div>\n';
+                        'allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe> ' +
+                        '</div></div> ';
                 }
 
             }
-            footerContent += '</ul></div>\n';
+            footerContent += '</ul></div> ';
         }
-
-
-
         // Copy-right
         footerContent += '</div><div class="copy-right"><span>Master Qualité du Logiciel,' +
             '<a href="#"> Faculté des sciences</a></span><span>&copy; 2020 All rights reserved</span></div>';
 
          // Elements for form-contact
-
         footerContent += '<div id="form-contact"></div>';
-
          // Elements for newsLetter
         footerContent += '<a href="#" class="button-news" id="news-button">News ></a>';
         footerContent += '<div id="news-cont"></div>';
@@ -283,9 +278,7 @@ function loadResources() {
     scrollToTop();
     loadContactForm();
     loadNewsLetter();
-
     closeModal();
-
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -543,8 +536,8 @@ function popTB(icon, text) {
 /**
  * Close Form
  */
-function closeFORM() {
-    let modal = $('#form');
+function closeFORM(target_block = 'form') {
+    let modal = $('#' + target_block);
     modal.style.display = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -553,8 +546,8 @@ function closeFORM() {
 /**
  * Display form
  */
-function popFORM() {
-    let modal = $('#form');
+function popFORM(target_block = 'form') {
+    let modal = $('#' + target_block);
     modal.style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -693,37 +686,29 @@ function wait(ms){
  */
 function loadContactForm() {
     let form = $('#form-contact');
-    form.innerHTML += '\n' +
-        '\t\t<div id="form-contact-id" class="modal-style">\n' +
-        '\t\t\t<span onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="close-modal-contact" title="Close Modal">&times;</span>\n' +
-        '\t\t\t<form class="modal-contact-content" action="#" method="post">\n' +
-        '\t\t\t\t<div class="contact-container">\n' +
-        '\t\t\t\t\t<h3 style="text-align: center">Contactez-nous directement</h3>\n' +
-        '\n' +
-        '\t\t\t\t\t<hr>\n' +
-        '\t\t\t\t\t<label for="first-name"><b>Prénom </b></label>\n' +
-        '\t\t\t\t\t<input class="zone-text-contact-news" type="text" placeholder="Prénom..." name="first-name">\n' +
-        '\n' +
-        '\t\t\t\t\t<label for="last-name"><b>Nom </b></label>\n' +
-        '\t\t\t\t\t<input class="zone-text-contact-news" type="text" placeholder="Nom..." name="last-name">\n' +
-        '\n' +
-        '\t\t\t\t\t<label for="email"><b>Email </b></label>\n' +
-        '\t\t\t\t\t<input class="zone-text-contact-news" type="email" placeholder="Email..." name="email">\n' +
-        '\n' +
-        '\t\t\t\t\t<label for="subject">Sujet </label>\n' +
-        '\t\t\t\t\t<textarea class="zone-text-contact-news" id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>\n' +
-        '\n' +
-        '\n' +
-        '\t\t\t\t\t<div class="form-footer">\n' +
-        '\t\t\t\t\t\t<button type="button" onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button>\n' +
-        '\t\t\t\t\t\t<button type="submit" class="button-contact-2 submit-button">Envoyer</button>\n' +
-        '\t\t\t\t\t</div>\n' +
-        '\t\t\t\t</div>\n' +
-        '\t\t\t</form>\n' +
-        '\t\t</div>';
-
+    form.innerHTML += ' ' +
+        '<div id="form-contact-id" class="modal-style">' +
+        '<span onclick="$(\'#form-contact-id\').style.display=\'none\'" class="close-modal-contact" title="Close Modal">&times;</span> ' +
+        '<form class="modal-contact-content" action="#" method="post"> ' +
+        '<div class="contact-container">' +
+        '<h3 style="text-align: center">Contactez-nous directement</h3>' +
+        '<hr>' +
+        '<label for="first-name"><b>Prénom</b></label>' +
+        '<input type="text" placeholder="Prénom..." name="first-name">' +
+        '<label for="last-name"><b>Nom </b></label>' +
+        '<input type="text" placeholder="Nom..." name="last-name">' +
+        '<label for="email"><b>Email </b></label>' +
+        '<input type="email" placeholder="Email..." name="email">' +
+        '<label for="subject">Sujet </label>' +
+        '<textarea id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>' +
+        '<div class="form-footer"> ' +
+        '<button type="button" onclick="$(\'#form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button> ' +
+        '<button type="submit" class="button-contact-2 submit-button">Envoyer</button> ' +
+        '</div>' +
+        '</div>' +
+        '</form>' +
+        '</div>';
 }
-
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -732,28 +717,25 @@ function loadContactForm() {
  */
 function loadNewsLetter() {
     let newsLetter = $('#news-cont');
-    newsLetter.innerHTML += '<!-- The Modal -->\n' +
-        '        <div id="news-modal-id" class="news-modal">\n' +
-        '\n' +
-        '            <!-- Modal content -->\n' +
-        '            <form class="news-modal-content" action="#" method="post">\n' +
-        '                <span class="close-part" onclick="document.getElementById(\'news-modal-id\').style.display = \'none\'">&times;</span>\n' +
-        '                <div class="modal-header">\n' +
-        '                    <span>NewsLetter</span>\n' +
-        '                </div>\n' +
-        '                <div class="modal-body">\n' +
-        '                <p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
-        '                    <lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>\n' +
-        '                    <input class="zone-text-contact-news" type="text" name="full-name" placeholder="Nom...">\n' +
-        '                    <lebel for="email" style="font-size: 18px;">Votre Email : </lebel>\n' +
-        '                    <input class="zone-text-contact-news" type="email" name="email" placeholder="Email...">\n' +
-        '                </div>\n' +
-        '                <button class="subscribe-button" type="submit">S\'inscrire</button>\n' +
-        '            </form>\n' +
-        '        </div>';
-
+    newsLetter.innerHTML += '<!-- The Modal -->' +
+        '<div id="news-modal-id" class="news-modal">' +
+        '<!-- Modal content -->' +
+        '<form class="news-modal-content" action="#" method="post"> ' +
+        '<span class="close-part" onclick="$(\'#news-modal-id\').style.display = \'none\'">&times;</span>' +
+        '<div class="modal-header">' +
+        '<span>NewsLetter</span>' +
+        '</div>' +
+        '<div class="modal-body">' +
+        '<p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
+        '<lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>' +
+        '<input type="text" name="full-name" placeholder="Nom..."> ' +
+        '<lebel for="email" style="font-size: 18px;">Votre Email : </lebel>' +
+        '<input type="email" name="email" placeholder="Email..."> ' +
+        '</div>' +
+        '<button class="subscribe-button" type="submit">S\'inscrire</button>' +
+        '</form>' +
+        '</div>';
 }
-
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -775,19 +757,16 @@ function closeModal() {
     btn.onclick = function() {
         newsModal.style.display = "block";
         btn.style.display = 'none';
-    }
-
+    };
     // Get the <span> element that closes the modal
     let span =$(".close-part")[0];
-
        // When the user clicks on <span> (x), close the modal
        span.onclick = function() {
            newsModal.style.display = "none";
            if(window.innerWidth > 1300){
                btn.style.display = 'flex';
            }
-       }
-
+       };
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target === newsModal) {
@@ -801,7 +780,26 @@ function closeModal() {
             }
 
         }
-
 }
-
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/**
+ *
+ * @param target_block
+ * @param target_function
+ * @param target_key
+ * @param isClass
+ */
+function setKeysAction(target_block,target_function,target_key='Enter',isClass=false) {
+    let block = isClass? $(target_block)[0] : $(target_block);
+    try{
+        block.addEventListener('keypress',function (event) {
+            let key = event.key;
+                if(key===target_key) target_function();
+        });
+    } catch (e) {
+       setKeysAction(target_block,target_function,target_key,true);
+    }
+}
 

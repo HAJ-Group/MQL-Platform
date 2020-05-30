@@ -203,6 +203,10 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 	closeFORM();
 	this.navigate();
 };
+EventComponent.prototype.triggerSubmit = function () {
+	let submit_element = $('#eventSubmit');
+	submit_element.click();
+};
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() { 
@@ -217,4 +221,6 @@ function main() {
 	// Stays last
 	addTitleIcon('../../resources/pictures/Event-logo.png', true);
 	detect_subContent_trigger_left_bar();
+	setKeysAction('.form-content',view.triggerSubmit.bind(view));
+
 }

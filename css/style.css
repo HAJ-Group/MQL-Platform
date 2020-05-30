@@ -42,6 +42,12 @@ hr {
     margin-left: auto;
     margin-right: auto;
 }
+.splash-content p {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -357,7 +363,7 @@ header {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 150px; /* Location of the box */
+    padding-top: 5%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -381,10 +387,10 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Modal Content (image) */
 .modal-content {
-    margin: 0 auto;
-    display: block;
     width: 100%;
     max-width: 1000px;
+    display: block;
+    margin: 0 auto;
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -405,7 +411,7 @@ header {
     animation-duration: 0.6s;
     border-radius: 20px;
     background-color: white;
-    padding: 30px;
+    padding: 50px 50px 80px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-title {
@@ -469,7 +475,7 @@ header {
 /* The Close Button */
 .close {
     position: absolute;
-    top: 70px;
+    top: 2%;
     right: 23.2%;
     background-color: rgb(253, 59, 76);
     color: white;
@@ -1098,6 +1104,12 @@ a.links:hover{
     opacity: 0.4;
 }
 
+.new-laureate {
+    width: 97%;
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
 .new-block:hover {
     opacity: 1;
 }
@@ -1345,18 +1357,10 @@ textarea {
     color: white;
 
 }
-
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .button-news:hover {
     background-color: darkslateblue;
-
 }
-
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 .news-modal {
@@ -1373,7 +1377,6 @@ textarea {
     background-color: rgba(0,0,0,0.4);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* Modal Content */
 .news-modal-content {
     display: flex;
@@ -1392,7 +1395,6 @@ textarea {
     animation-duration: 0.5s
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* Animation for the newsletter */
 @-webkit-keyframes animatetop {
     from {left:-300px; opacity:0}
@@ -1404,9 +1406,7 @@ textarea {
     to {left:0; opacity:1}
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* The Close Button */
-
 .close-part{
     border:none;
     height: 30px;
@@ -1417,32 +1417,24 @@ textarea {
     font-size: 22px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
-.close-part:hover,
-.close-part:focus {
-
+.close-part:hover, .close-part:focus {
     background-color: #d84b4b;
     color: white;
     text-decoration: none;
     cursor: pointer;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-header {
     text-align: center;
     padding: 10px;
     background-color: #3793d3;
     color: white;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-body {
     padding: 10px;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .subscribe-button{
     height: 50px;
     width: 100%;
@@ -1453,53 +1445,40 @@ textarea {
     border: none;
     opacity: 0.9;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .subscribe-button:hover,.subscribe-button:active {
     opacity: 1;
     outline:0;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-body > p{
     padding: 5px;
     background-color: #e23544;
     font-family: "Open sans", sans-serif;
     font-size: 16px;
     text-align: justify;
-
     border-radius: 4px;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-header > span{
     text-align: center;
     font-family: MontserratBold, serif;
     font-size: 19px;
-
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 700px) {
     .news-modal-content{
         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
         width: 40%; /* Could be more or less, depending on screen size */
-
     }
-
 }
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1349px) {
     #news-button{
         display: none;
     }
-
 }
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width: 1350px) {
     #newsBlocks{
         display: none;

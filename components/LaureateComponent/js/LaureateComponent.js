@@ -54,10 +54,22 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">' +
 			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
+		if(localStorage.getItem('ACCESS') !== 'null') {
+			htmlContent += '<div class="new-block new-laureate">' +
+				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
+				'</div>';
+		}
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')){
 				img = DEFAULT_PROFILE_IMAGE[laureate.gender];
 			} else img = laureate.photo;
+			// EDIT AND DELETE
+			if(localStorage.getItem('ACCESS') !== 'null') {
+				htmlContent += '<div class="laureate-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
+					'class="sh-icon" onclick="view.editData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')">' +
+					'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
+					'class="sh-icon" onclick="view.deleteData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')"></div>';
+			}
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
@@ -66,7 +78,7 @@ LaureateComponent.prototype.fillMain = function () {
 				'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img src="' + img + '" alt="">' +
+				'<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="' + ((laureate.photo !== "") ? "l-img" : "") +  '" src="' + img + '" alt="" onclick="popIMG(this.id)">' +
 				'<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
@@ -96,6 +108,7 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
+
 LaureateComponent.prototype.fillRecomondation =function(){
 	let img;
 	let html_content='';
@@ -109,7 +122,7 @@ LaureateComponent.prototype.fillRecomondation =function(){
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
-					'<img  src="' + img + '" alt="">' +
+					'<img class="' + ((laureate.photo !== "") ? "l-img" : "") + '" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">' +
 					'</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
@@ -216,47 +229,138 @@ LaureateComponent.prototype.filterKey = function () {
 };
 
 /* FORM SERVICES */
-LaureateComponent.prototype.addData = function() {
-	$('#promotionSubmit').setAttribute('onclick', 'view.submitData()');
-	popFORM();
-};
-
-LaureateComponent.prototype.editData = function(index) {
-	let el_name = $('#promotionName');
-	//....
-	let target = this.service.get(index);
-	el_name.value = target.name;
-	//...
-	$('#promotionSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
-	popFORM();
-};
-
-LaureateComponent.prototype.deleteData = function(index) {
-	if(confirm('Are you sure you want to delete this Promotion ?')) {
-		this.service.remove(index);
-		//....
-		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-		this.navigate();
-	}
-};
-
-LaureateComponent.prototype.submitData = function (action = 'add', index = '0') {
-	// GETTING DATA MEMBERS
-	let name = $('#promotionName').value;
-	//...
-	if(action === 'add') {
-		this.service.add(new Promotion(this.service.size() + 1,name,new Date()));
-	}
-	if(action === 'edit') {
-		let target = this.service.get(index);
-		target.name = name;
-		//...
+LaureateComponent.prototype.addData = function(target_el = 'promotion') {
+	if(target_el === 'promotion') {
 		$('#promotionSubmit').setAttribute('onclick', 'view.submitData()');
+		popFORM(target_el);
+	} else {
+		console.log('target added laureate index = ' + target_el);
+		let value = target_el.split(',');
+		$('#' + value[1] + 'Submit').setAttribute('onclick', 'view.submitData(\'add\', \'' + value[0] + '\', \'' + value[1] + '\')');
+		popFORM(value[1]);
+	}
+};
+
+LaureateComponent.prototype.editData = function(index, target_el = 'promotion') {
+	let el_name = $('#' + target_el + 'Name');
+	//....
+	let target;
+	if(target_el === 'promotion') {
+		target = this.service.get(index);
+		el_name.value = target.name;
+	}
+	else {
+		// LAUREATE
+		let el_gender = $('#' + target_el + 'Gender');
+		let el_email = $('#' + target_el + 'Email');
+		let el_job = $('#' + target_el + 'Job');
+		let el_stage = $('#' + target_el + 'Stage');
+		let el_ce = $('#' + target_el + 'CE');
+		let el_exp = $('#' + target_el + 'Exp');
+		let el_rating = $('#' + target_el + 'Rating');
+		//...
+		let keys = index.split(',');
+		target = this.service.getLaureate(keys[0], parseInt(keys[1]));
+		el_name.value = target.name;
+		el_gender.value = target.gender;
+		el_email.value = target.email;
+		el_job.value = target.job;
+		el_job.city = target.city;
+		el_stage.value = target.stage;
+		el_ce.value = target.current_enterprise;
+		try {
+			el_exp.value = target.experience.join(',');
+		} catch (e) {}
+		el_rating.value = target.rating;
+	}
+	//...
+	$('#' + target_el + 'Submit').setAttribute('onclick', 'view.submitData(\'edit\', \'' + index + '\', \'' + target_el + '\')');
+	popFORM(target_el);
+};
+
+LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion') {
+	if(target_el === 'promotion') {
+		if(confirm('Are you sure you want to delete this Promotion ?')) {
+			this.service.remove(index);
+			//....
+		}
+	} else {
+		// LAUREATES
+		if(confirm('Are you sure you want to delete this Laureate ?')) {
+			let keys = index.split(',');
+			this.service.removeLaureate(keys[0], parseInt(keys[1]));
+			//....
+		}
+	}
+	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+	this.navigate();
+};
+
+LaureateComponent.prototype.submitData = function (action = 'add', index = '0', target_el = 'promotion') {
+	// PROMOTION
+	if(target_el === 'promotion') {
+		// GETTING DATA MEMBERS
+		let name = $('#promotionName').value;
+		//..
+		if (action === 'add') {
+			if(this.service.isUpToDate('p' + (new Date()).getFullYear())){
+				alert((new Date()).getFullYear() + ' Promotion is already exists can\'t add new promotion before next year !');
+			} else {
+				this.service.add(new Promotion('p' + (new Date()).getFullYear(),name,new Date()));
+			}
+		}
+		if(action === 'edit') {
+			let target = this.service.get(index);
+			target.name = name;
+			//...
+		}
+	}
+	// LAUREATE
+	else {
+		// GETTING DATA MEMBERS
+		let name = $('#' + target_el + 'Name').value;
+		let gender = $('#' + target_el + 'Gender').value;
+		let email = $('#' + target_el + 'Email').value;
+		let job = $('#' + target_el + 'Job').value;
+		let city = $('#' + target_el + 'City').value;
+		let ce = $('#' + target_el + 'CE').value;
+		let exp;
+		try {
+			exp = $('#' + target_el + 'Exp').value.split(',');
+		} catch (e) {}
+		let stage = $('#' + target_el + 'Stage').value;
+		let rating = $('#' + target_el + 'Rating').value;
+		//..
+		if(action === 'add') {
+			this.service.addLaureate(index, new Laureate(this.service.sizeLaureates(index) + 1, name, gender, job, city, email, ce, exp, '', rating, ''));
+			this.service.sortLaureates(index);
+		}
+		if(action === 'edit') {
+			let keys = index.split(',');
+			console.log(keys);
+			let target = this.service.getLaureate(keys[0], parseInt(keys[1]));
+			target.name = name;
+			target.gender = gender;
+			target.email = email;
+			target.job = job;
+			target.city = city;
+			target.current_enterprise = ce;
+			try {
+				target.experience = exp.join(',');
+			} catch (e) {}
+			target.stage = stage;
+			target.rating = rating;
+			//..
+		}
 	}
 	this.service.sort();
 	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-	closeFORM();
+	closeFORM(target_el);
 	this.navigate();
+};
+LaureateComponent.prototype.triggerSubmit = function () {
+	let submit_element = $('#promotionSubmit');
+	submit_element.click();
 };
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */
@@ -271,4 +375,6 @@ function main() {
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
+	setKeysAction('.form-content',view.triggerSubmit.bind(view));
+
 }
