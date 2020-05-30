@@ -692,7 +692,7 @@ function wait(ms){
  * Load the content of the form contact
  */
 function loadContactForm() {
-    let form = document.getElementById('form-contact');
+    let form = $('#form-contact');
     form.innerHTML += '\n' +
         '\t\t<div id="form-contact-id" class="modal-style">\n' +
         '\t\t\t<span onclick="document.getElementById(\'form-contact-id\').style.display=\'none\'" class="close-modal-contact" title="Close Modal">&times;</span>\n' +
@@ -702,16 +702,16 @@ function loadContactForm() {
         '\n' +
         '\t\t\t\t\t<hr>\n' +
         '\t\t\t\t\t<label for="first-name"><b>Prénom </b></label>\n' +
-        '\t\t\t\t\t<input type="text" placeholder="Prénom..." name="first-name">\n' +
+        '\t\t\t\t\t<input class="zone-text-contact-news" type="text" placeholder="Prénom..." name="first-name">\n' +
         '\n' +
         '\t\t\t\t\t<label for="last-name"><b>Nom </b></label>\n' +
-        '\t\t\t\t\t<input type="text" placeholder="Nom..." name="last-name">\n' +
+        '\t\t\t\t\t<input class="zone-text-contact-news" type="text" placeholder="Nom..." name="last-name">\n' +
         '\n' +
         '\t\t\t\t\t<label for="email"><b>Email </b></label>\n' +
-        '\t\t\t\t\t<input type="email" placeholder="Email..." name="email">\n' +
+        '\t\t\t\t\t<input class="zone-text-contact-news" type="email" placeholder="Email..." name="email">\n' +
         '\n' +
         '\t\t\t\t\t<label for="subject">Sujet </label>\n' +
-        '\t\t\t\t\t<textarea id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>\n' +
+        '\t\t\t\t\t<textarea class="zone-text-contact-news" id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>\n' +
         '\n' +
         '\n' +
         '\t\t\t\t\t<div class="form-footer">\n' +
@@ -731,7 +731,7 @@ function loadContactForm() {
  * Load the content of the NewsLetter
  */
 function loadNewsLetter() {
-    let newsLetter = document.getElementById('news-cont');
+    let newsLetter = $('#news-cont');
     newsLetter.innerHTML += '<!-- The Modal -->\n' +
         '        <div id="news-modal-id" class="news-modal">\n' +
         '\n' +
@@ -744,9 +744,9 @@ function loadNewsLetter() {
         '                <div class="modal-body">\n' +
         '                <p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
         '                    <lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>\n' +
-        '                    <input type="text" name="full-name" placeholder="Nom...">\n' +
+        '                    <input class="zone-text-contact-news" type="text" name="full-name" placeholder="Nom...">\n' +
         '                    <lebel for="email" style="font-size: 18px;">Votre Email : </lebel>\n' +
-        '                    <input type="email" name="email" placeholder="Email...">\n' +
+        '                    <input class="zone-text-contact-news" type="email" name="email" placeholder="Email...">\n' +
         '                </div>\n' +
         '                <button class="subscribe-button" type="submit">S\'inscrire</button>\n' +
         '            </form>\n' +
@@ -762,12 +762,12 @@ function loadNewsLetter() {
  */
 function closeModal() {
     // Get the modal
-    let modal = document.getElementById('form-contact-id');
+    let modal = $('#form-contact-id');
     // When the user clicks anywhere outside of the modal, close it
 
-     let newsModal = document.getElementById('news-modal-id');
+     let newsModal = $('#news-modal-id');
     // Get the button that opens the modal
-    let btn = document.getElementById("news-button");
+    let btn = $("#news-button");
 
     // showing and hiding newsLetter blocks
 
@@ -778,7 +778,7 @@ function closeModal() {
     }
 
     // Get the <span> element that closes the modal
-    let span = document.getElementsByClassName("close-part")[0];
+    let span =$(".close-part")[0];
 
        // When the user clicks on <span> (x), close the modal
        span.onclick = function() {
