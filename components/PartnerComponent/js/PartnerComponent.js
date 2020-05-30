@@ -1,9 +1,6 @@
 /*Global Variables*/ 
 let view; 
 let service;
-// initaliser first blocks :
-let menu=$('#partners-menu');
-let container=$('#partners-container');
 /*Default class*/
 function PartnerComponent(service) { 
 	//TODO: Intitialize controller for PartnerComponent 
@@ -11,9 +8,14 @@ function PartnerComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = $('#table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.block = $('#partners-container');
-	this.partners = $('#partners-menu');
 	this.currentblock=null;
+	this.block_menu = $('#partners-menu');
+	this.block_container = $('#partners-container');
+	this.htmlSaver = {
+		menu: this.block_menu.innerHTML,
+		container: this.block_container.innerHTML
+	};
+	console.log(this.htmlSaver);
 }
 
 // Adding a row in the table member 
@@ -30,7 +32,7 @@ PartnerComponent.prototype.printPartnerList = function () {
 };
 
 PartnerComponent.prototype.addOnePartner = function (onePartner) {
-	this.block.innerHTML +=
+	this.block_container.innerHTML +=
 		'<div class="card" id="'+onePartner.name+'">' +
 			'<div class="card-image">' +
 				'<img src="'+onePartner.bg+'" alt="">' +
@@ -46,7 +48,7 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 		;
 };
 PartnerComponent.prototype.addMenuPartners = function (onePartner) {
-	this.partners.innerHTML +=
+	this.block_menu.innerHTML +=
 			'<div id="menu-' + onePartner.name + '" class="partner active" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
 };
 // Printing all service data into the table member
@@ -55,7 +57,7 @@ PartnerComponent.prototype.printPartners = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addMenuPartners(this.service.get(i));
 	}
-	this.partners.innerHTML += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">'
+	this.block_menu.innerHTML += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">'
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addOnePartner(this.service.get(i));
 	}
@@ -71,13 +73,11 @@ PartnerComponent.prototype.show = function (id) {
 };
 PartnerComponent.prototype.show2 = function (id) {
 	view.show(id);
-	route('#'+id);
 };
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
 		let partner = $('.card')[i];
 		partner.style['display'] = 'none';
-		if($('.partner')[i]!==undefined)
 		$('.partner')[i].classList.remove('active');
 	}
 };
@@ -181,6 +181,8 @@ PartnerComponent.prototype.addButtons = function() {
 	}
 };
 PartnerComponent.prototype.navigate = function() {
+	this.block_menu.innerHTML = this.htmlSaver.menu;
+	this.block_container.innerHTML = this.htmlSaver.container;
 	view.printPartners();
 	view.hideAll();
 	view.trigger();
@@ -190,7 +192,7 @@ PartnerComponent.prototype.navigate = function() {
 };
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
-function main() { 
+function main() {
 	service = new PartnerComponentService(); 
 	service.load(dbPartner);
 	view = new PartnerComponent(service); 
@@ -199,6 +201,6 @@ function main() {
 	view.hideAll();
 	view.trigger();
 	view.ajustLinks();
-	view.addButtons();
+	//view.addButtons();
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 }
