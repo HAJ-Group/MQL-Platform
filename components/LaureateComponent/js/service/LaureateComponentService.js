@@ -3,21 +3,58 @@ function LaureateComponentService() {
 	this.db= [];
 } 
 // Add model to database table object 
-LaureateComponentService.prototype.add = function (oneLaureate) { 
-	this.db.push(oneLaureate);
-}; 
+LaureateComponentService.prototype.add = function (onePromotion) {
+	this.db.push(onePromotion);
+};
+// Add laureate to a specific promotion by ID
+LaureateComponentService.prototype.addLaureate = function (promotion_id, oneLaureate) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			promotion.content.push(oneLaureate);
+		}
+	}
+	console.log(this.db);
+};
 // Remove from database object by index 
-LaureateComponentService.prototype.remove = function(index) { 
+LaureateComponentService.prototype.remove = function(index, laureate_id = null) {
 	this.db.splice(index, 1);
-}; 
+};
+// Remove Laureate in a specific promotion by ID
+LaureateComponentService.prototype.removeLaureate = function(promotion_id, laureate_id) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			for(let i = 0; i<promotion.content.length; i++) {
+				if(promotion.content[i].id === laureate_id) promotion.content.splice(i,1);
+			}
+		}
+	}
+};
 // get from database object by index 
-LaureateComponentService.prototype.get = function(index) { 
+LaureateComponentService.prototype.get = function(index) {
 	return this.db[index];
-}; 
+};
+// get Laureate in a specific promotion by ID
+LaureateComponentService.prototype.getLaureate = function(promotion_id, laureate_id) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			for(let laureate of promotion.content) {
+				if(laureate.id === laureate_id) return laureate;
+			}
+		}
+	}
+};
 // elements count of database object 
 LaureateComponentService.prototype.size = function() { 
 	return this.db.length;
-}; 
+};
+// Number of laureates in a specific promotion
+LaureateComponentService.prototype.sizeLaureates = function(promotion_id) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			return promotion.content.length;
+		}
+	}
+};
 // Load all data from source to database object 
 LaureateComponentService.prototype.load = function(dbSource) {
 	let tmp=[];
@@ -41,6 +78,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 			)
 		)
 	}
+	tmp.sort((a, b) => a.name.localeCompare(b.name));
 	return tmp;
 };
 
@@ -70,9 +108,26 @@ LaureateComponentService.prototype.searchByKey = function(title_key) {
 	return ret;
 };
 
+LaureateComponentService.prototype.isUpToDate = function(promotion_id) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			return true;
+		}
+	}
+	return false;
+};
+
 LaureateComponentService.prototype.sort = function() {
 	// SORT BY DATE
 	this.db = this.db.sort((a, b) => b.date - a.date);
+};
+
+LaureateComponentService.prototype.sortLaureates = function(promotion_id) {
+	for(let promotion of this.db) {
+		if(promotion.id === promotion_id) {
+			promotion.content.sort((a, b) => a.name.localeCompare(b.name));
+		}
+	}
 };
 
 /**

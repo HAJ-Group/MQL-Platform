@@ -536,8 +536,8 @@ function popTB(icon, text) {
 /**
  * Close Form
  */
-function closeFORM() {
-    let modal = $('#form');
+function closeFORM(target_block = 'form') {
+    let modal = $('#' + target_block);
     modal.style.display = 'none';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -546,8 +546,8 @@ function closeFORM() {
 /**
  * Display form
  */
-function popFORM() {
-    let modal = $('#form');
+function popFORM(target_block = 'form') {
+    let modal = $('#' + target_block);
     modal.style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------

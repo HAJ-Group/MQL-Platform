@@ -35,9 +35,9 @@
 				    </div>
 				    <div id="main" class="sub-content">
 				    </div>
-                    <!-- FORM MODAL -->
-                    <div id="form" class="modal">
-                        <span onclick="closeFORM()" class="close">&times;</span>
+                    <!-- FORM MODAL PROMOTION-->
+                    <div id="promotion" class="modal">
+                        <span onclick="closeFORM('promotion')" class="close">&times;</span>
                         <div class="form-content" id="formContent">
                             <img src="../../resources/pictures/laureate-logo.png" alt="">
                             <p class="form-title">LAUREATE COMPONENT</p>
@@ -45,6 +45,24 @@
                             <p id="promotionSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
                         </div>
                     </div>
+					<!-- FORM MODAL LAUREATE -->
+					<div id="laureate" class="modal">
+						<span onclick="closeFORM('laureate')" class="close">&times;</span>
+						<div class="form-content" id="formContent-laureate">
+							<img src="../../resources/pictures/laureate-logo.png" alt="">
+							<p class="form-title">LAUREATE COMPONENT</p>
+							<input id="laureateName" type="text" class="form-text" placeholder="Laureate Name...">
+							<input id="laureateGender" type="text" class="form-text" placeholder="Laureate Gender M for Man, F for Woman...">
+							<input id="laureateEmail" type="email" class="form-text" placeholder="Laureate Email...">
+							<input id="laureateJob" type="text" class="form-text" placeholder="Laureate Job... Software Engineer for example...">
+							<input id="laureateCity" type="text" class="form-text" placeholder="Laureate City...">
+							<input id="laureateStage" type="text" class="form-text" placeholder="Laureate Practical Experience Enterprise...">
+							<input id="laureateCE" type="text" class="form-text" placeholder="Laureate Current Work Enterprise...">
+							<input id="laureateExp" type="text" class="form-text" placeholder="Other Experiences: exp1, exp2, ...">
+							<textarea id="laureateRating" class="form-text" rows="5" placeholder="Say something about MQL ? ...."></textarea>
+							<p id="laureateSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
+						</div>
+					</div>
                     <div id="switcher" class="page_numbers"></div>
                 </div>
 			</div>

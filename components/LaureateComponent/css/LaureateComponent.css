@@ -255,6 +255,11 @@ q:after{
 	background-image: url('../../../resources/pictures/pattern.png');
 	background-repeat: repeat-y;
 }
+
+.laureate-icons {
+	margin-bottom: 30px;
+}
+
 @media screen and (max-width: 1000px) {
 	.recommendation{
 		width: 90%;
@@ -369,6 +374,11 @@ q:after{
 	.card-laureate .element {
 		font-size: 20px;
 	}
+
+	.card-desc{
+		width: fit-content;
+	}
+
 	.details >*{
 		text-align: left;
 	}

@@ -48,7 +48,7 @@ let dbLaureat16=[
 		linked_in :'',
 	},
 	{
-		id:1,
+		id:2,
 		name:'Abdelhamid El Guarti',
 		gender: 'M',
 		job:'I.E.D Confirmé (Java/Java EE)',
@@ -77,7 +77,7 @@ let dbLaureat17=[
 		rating : '',
 		linked_in :'',
 	},
-]
+];
 let dbLaureat18=[
 	{
 		id:1,

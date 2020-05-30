@@ -411,7 +411,7 @@ header {
     animation-duration: 0.6s;
     border-radius: 20px;
     background-color: white;
-    padding: 30px;
+    padding: 50px 50px 80px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-title {
@@ -1102,6 +1102,12 @@ a.links:hover{
     border: 1px solid lightgray;
     border-radius: 10px;
     opacity: 0.4;
+}
+
+.new-laureate {
+    width: 97%;
+    border-radius: 0;
+    margin-bottom: 5px;
 }
 
 .new-block:hover {
