@@ -105,6 +105,7 @@ body {
 	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
+	outline: none;
 }
 
 .access-username:hover, .access-password:hover {
@@ -112,8 +113,8 @@ body {
 }
 
 .access-username:focus, .access-password:focus {
-	border: none;
-	border-radius: 0;
+	border: 2px solid cornflowerblue;
+
 }
 
 .access-button {
