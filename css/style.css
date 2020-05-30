@@ -1359,18 +1359,10 @@ textarea {
     color: white;
 
 }
-
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .button-news:hover {
     background-color: darkslateblue;
-
 }
-
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 .news-modal {
@@ -1387,7 +1379,6 @@ textarea {
     background-color: rgba(0,0,0,0.4);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* Modal Content */
 .news-modal-content {
     display: flex;
@@ -1406,7 +1397,6 @@ textarea {
     animation-duration: 0.5s
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* Animation for the newsletter */
 @-webkit-keyframes animatetop {
     from {left:-300px; opacity:0}
@@ -1418,9 +1408,7 @@ textarea {
     to {left:0; opacity:1}
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 /* The Close Button */
-
 .close-part{
     border:none;
     height: 30px;
@@ -1431,32 +1419,24 @@ textarea {
     font-size: 22px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
-.close-part:hover,
-.close-part:focus {
-
+.close-part:hover, .close-part:focus {
     background-color: #d84b4b;
     color: white;
     text-decoration: none;
     cursor: pointer;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-header {
     text-align: center;
     padding: 10px;
     background-color: #3793d3;
     color: white;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-body {
     padding: 10px;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .subscribe-button{
     height: 50px;
     width: 100%;
@@ -1467,53 +1447,40 @@ textarea {
     border: none;
     opacity: 0.9;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .subscribe-button:hover,.subscribe-button:active {
     opacity: 1;
     outline:0;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-body > p{
     padding: 5px;
     background-color: #e23544;
     font-family: "Open sans", sans-serif;
     font-size: 16px;
     text-align: justify;
-
     border-radius: 4px;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 .modal-header > span{
     text-align: center;
     font-family: MontserratBold, serif;
     font-size: 19px;
-
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 700px) {
     .news-modal-content{
         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
         width: 40%; /* Could be more or less, depending on screen size */
-
     }
-
 }
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1349px) {
     #news-button{
         display: none;
     }
-
 }
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width: 1350px) {
     #newsBlocks{
         display: none;

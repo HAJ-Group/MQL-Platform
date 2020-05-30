@@ -260,6 +260,11 @@ q:after{
 	margin-bottom: 30px;
 }
 
+.l-img:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
 	.recommendation{
 		width: 90%;

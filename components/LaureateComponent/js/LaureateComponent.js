@@ -78,7 +78,7 @@ LaureateComponent.prototype.fillMain = function () {
 				'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img src="' + img + '" alt="">' +
+				'<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="' + ((laureate.photo !== "") ? "l-img" : "") +  '" src="' + img + '" alt="" onclick="popIMG(this.id)">' +
 				'<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
@@ -122,7 +122,7 @@ LaureateComponent.prototype.fillRecomondation =function(){
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
-					'<img  src="' + img + '" alt="">' +
+					'<img class="' + ((laureate.photo !== "") ? "l-img" : "") + '" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">' +
 					'</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
