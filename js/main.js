@@ -759,7 +759,7 @@ function closeModal() {
         btn.style.display = 'none';
     };
     // Get the <span> element that closes the modal
-    let span = $(".close-part")[0];
+    let span =$(".close-part")[0];
        // When the user clicks on <span> (x), close the modal
        span.onclick = function() {
            newsModal.style.display = "none";
