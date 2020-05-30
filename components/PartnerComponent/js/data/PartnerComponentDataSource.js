@@ -3,7 +3,7 @@ let dbPartner = [
 	{
 		id:1	,
 		bg:'../../resources/pictures/Partners/cap-bg.jpg',
-		name : 'CAP',
+		name : 'capgemini',
 		color: 'cornflowerblue',
 		ca : '13,197 milliards €(2018)',
 		description : 'Capgemini( 1967 ) est un leader mondial du conseil, des services informatiques et de la transformation numérique. A la pointe de l’innovation, le Groupe aide ses clients à saisir l’ensemble des opportunités que présentent le cloud, le digital et les plateformes.',
@@ -57,7 +57,7 @@ let dbPartner = [
 		ca :  '457 millions € en 2017',
 		description : 'Fondée en 1969, Cegedim est une entreprise innovante de technologies et de services spécialisée dans la gestion des flux numériques de l’écosystème santé et BtoB, ainsi que dans la conception de logiciels métier destinés aux professionnels de santé et de l’assurance. Cegedim compte plus de 4 200 collaborateurs dans plus de 10 pays. ',
 		nbr_colla : '7',
-		zone : ["Rabat"],
+		zone : ["Rabat Agdal"],
 		website: 'www.cegedim.com',
 		image : '../../resources/partenaires/cegedim.png',
 	},
