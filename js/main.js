@@ -17,8 +17,8 @@ let phone_menu_toggled = false;
 function load() {
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const action = async () => {
-        popSPLASH()
-        await delay(500);
+        popSPLASH();
+        await delay(1000);
         route('Home');
     };
     action();
