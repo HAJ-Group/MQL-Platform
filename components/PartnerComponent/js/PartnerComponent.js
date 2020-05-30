@@ -28,6 +28,7 @@ PartnerComponent.prototype.printPartnerList = function () {
 		this.addPartnerRow(this.service.get(i)); 
 	} 
 };
+
 PartnerComponent.prototype.addOnePartner = function (onePartner) {
 	this.block.innerHTML +=
 		'<div class="card" id="'+onePartner.name+'">' +

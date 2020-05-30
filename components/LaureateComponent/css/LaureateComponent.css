@@ -261,8 +261,13 @@ q:after{
 }
 
 .l-img:hover {
-    opacity: 0.6;
-    cursor: pointer;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.titles-laureates{
+	text-align: center;
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -394,9 +399,6 @@ q:after{
 		min-width: 300px;
 	}
 }
-.titles-laureates{
-	text-align: center;
 
-}
 
 

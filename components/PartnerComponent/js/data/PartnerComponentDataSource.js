@@ -3,7 +3,7 @@ let dbPartner = [
 	{
 		id:1	,
 		bg:'../../resources/pictures/Partners/cap-bg.jpg',
-		name : 'capgemini',
+		name : 'CAP',
 		color: 'cornflowerblue',
 		ca : '13,197 milliards €(2018)',
 		description : 'Capgemini( 1967 ) est un leader mondial du conseil, des services informatiques et de la transformation numérique. A la pointe de l’innovation, le Groupe aide ses clients à saisir l’ensemble des opportunités que présentent le cloud, le digital et les plateformes.',
