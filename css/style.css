@@ -1340,9 +1340,9 @@ textarea {
 .button-news {
     position: fixed;
     left: 0;
-    top: 200px;
-    width: auto;
-    height: 30px;
+    top: 350px;
+    width: 60px;
+    height: 60px;
     padding: 8px;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -1353,13 +1353,14 @@ textarea {
     font-size: 17px;
     line-height: 20px;
     text-decoration: none; /* remove underline from anchors */
-    background-color: #dd4b39;
+
+    background: url("../resources/pictures/paper-plane-1.png") no-repeat;
     color: white;
 
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .button-news:hover {
-    background-color: darkslateblue;
+    background: url("../resources/pictures/paper-plane-2.png") no-repeat;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 
