@@ -258,6 +258,10 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0') 
 	closeFORM();
 	this.navigate();
 };
+LaureateComponent.prototype.triggerSubmit = function () {
+	let submit_element = $('#promotionSubmit');
+	submit_element.click();
+};
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */
 function main() { 
@@ -271,4 +275,6 @@ function main() {
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
+	setKeysAction('.form-content',view.triggerSubmit.bind(view));
+
 }

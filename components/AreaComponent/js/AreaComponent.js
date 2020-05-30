@@ -41,11 +41,10 @@ AreaComponent.prototype.authenticate = function() {
 		$('#errorBlock').style.display = 'block';
 	}
 };
-
 AreaComponent.prototype.logout = function() {
 	// DENY ACCESS
 	localStorage.setItem('ACCESS', null);
-	window.location.reload();
+	route('../Home');
 };
 
 AreaComponent.prototype.loadData = function() {
@@ -70,4 +69,5 @@ function main() {
 	if(localStorage.getItem('ACCESS') !== 'null'){
 		view.loadData();
 	} else view.promptLogin();
-} 
+	setKeysAction('.access-content',view.authenticate.bind(view));
+}
