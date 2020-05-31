@@ -14,14 +14,14 @@ let dbNews = [
         id :2,
         title:'Reprise des cours',
         date:'07-05-2020',
-        desciption:'La reprise des cours est prévue en début d\'octobre ',
+        desciption:'La reprise des cours est prévue en début d\'octobre. ',
         images:[],
     },
     {
         id :3,
         title:'Suspension des cours',
         date:'05-04-2020',
-        desciption:'A cause de COVID-19 et suivant les pré-cautions prise par l\'état marocaine, les cours seront reportés à une date prochaine',
+        desciption:'À cause de COVID-19 et suivant les pré-cautions prisent par l\'état marocaine, les cours seront reportés à une date prochaine.',
         images:[],
     },
 

@@ -9,8 +9,8 @@ function PartnerComponent(service) {
 	this.service = service; 
 	//this.table = $('#table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
 	this.currentblock=null;
-	this.block_menu = $('#partners-menu');
-	this.block_container = $('#partners-container');
+	this.block_menu = $('#menu');
+	this.block_container = $('#container');
 	this.htmlSaver = {
 		menu: this.block_menu.innerHTML,
 		container: this.block_container.innerHTML
@@ -73,6 +73,7 @@ PartnerComponent.prototype.show = function (id) {
 };
 PartnerComponent.prototype.show2 = function (id) {
 	view.show(id);
+	window.location.href='#'+id;
 };
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 1; i < this.service.size(); i++) {
