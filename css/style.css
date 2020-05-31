@@ -713,7 +713,7 @@ a.links:hover{
 }
 
 .text-news-letter{
-    background-color: #df3443;
+    background-color: #3ba7d1;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -722,11 +722,12 @@ a.links:hover{
     width: 80%;
     height: 50px;
     border-radius: 5px;
-    opacity: 0.9;
+
     padding: 5px;
 }
 .text-news-letter:hover{
-    opacity: 1;
+    background-color: #df3443;
+
     cursor: pointer;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1344,7 +1345,7 @@ textarea {
     width: 60px;
     height: 60px;
     padding: 8px;
-    border: none;
+
     border-radius: 0 8px 8px 0;
     display: flex;
     justify-content: center;
