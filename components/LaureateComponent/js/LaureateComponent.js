@@ -77,9 +77,13 @@ LaureateComponent.prototype.fillMain = function () {
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span>\n' +
 				'</div></div>';
 			// INFO BODY
-			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="' + ((laureate.photo !== "") ? "l-img" : "") +  '" src="' + img + '" alt="" onclick="popIMG(this.id)">' +
-				'<div class="description">\n' +
+			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
+			if(laureate.photo !== "") {
+				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="l-img" src="' + img + '" alt="" onclick="popIMG(this.id)">';
+			} else {
+				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" src="' + img + '" alt="">';
+			}
+			htmlContent += '<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
@@ -122,9 +126,13 @@ LaureateComponent.prototype.fillRecomondation =function(){
 				else img = laureate.photo;
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
-					'<div class="image-person">' +
-					'<img class="' + ((laureate.photo !== "") ? "l-img" : "") + '" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">' +
-					'</div>' +
+					'<div class="image-person">';
+				if(laureate.photo !== "") {
+					html_content += '<img class="l-img" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">';
+				} else {
+					html_content += '<img id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" >'
+				}
+				html_content += '</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
 					laureate.name+
