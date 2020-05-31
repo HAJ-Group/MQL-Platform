@@ -55,7 +55,7 @@ function $(target_element) {
     if(target_element.startsWith('.')) return document.getElementsByClassName(target_element.substring(1));
     if(target_element.startsWith('+')) return document.getElementsByName(target_element.substring(1));
     else return document.getElementsByTagName(target_element);
-}
+};
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -140,10 +140,10 @@ function showEmptyErrorResult() {
 function getFooterContent() {
 
     let partners = [
-        {name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
-        {name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
-        {name:'ATOS', image:'../../resources/partenaires/atos.png'},
-        {name:'CGI', image:'../../resources/partenaires/cgi.png'},
+        {id:1,name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
+        {id:3,name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
+        {id:4,name:'ATOS', image:'../../resources/partenaires/atos.png'},
+        {id:2,name:'CGI', image:'../../resources/partenaires/cgi.png'},
     ];
     let foots = [
         {   // LEFT SIDE
@@ -211,7 +211,7 @@ function getFooterContent() {
         '</div><hr> ' +
         '<div class="partenaire"> ';
     for(let partner of partners) {
-        footerContent += '<span><a><img id="' + partner.name + '" onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
+        footerContent += '<span><a><img id="partner-' + partner.id + '" onclick="route(\'../Partner\',\'' + partner.id + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
             partner.name + '"></a></span> ';
     }
     footerContent += '</div> ' +

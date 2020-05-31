@@ -1027,7 +1027,7 @@ a.links:hover{
     }
 
     .title-content {
-        width: 60%;
+        width: 80%;
     }
 
     .details  {
@@ -1036,6 +1036,7 @@ a.links:hover{
 
     .modal-content {
         width: 100%;
+        margin-top: 15%;
     }
 
     .image {

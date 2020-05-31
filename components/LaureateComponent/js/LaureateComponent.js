@@ -21,6 +21,7 @@ function LaureateComponent(service) {
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
+		recommendation : this.block_recommendation.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 } 
@@ -156,19 +157,23 @@ LaureateComponent.prototype.fillRecomondation =function(){
 	}
 	this.block_recommendation.innerHTML = html_content;
 };
-LaureateComponent.prototype.fillRecomondationAleatoire =function(){
+LaureateComponent.prototype.fillRandomRecomondation =function(){
 	let html_content='';
 	let tmp =Math.floor(Math.random()*this.service.special.length);
 	if(k==tmp){
-		view.fillRecomondationAleatoire();
+		this.fillRandomRecomondation();
 	}
 	else{
 	k=tmp;
 	let laureate = this.service.special[k];
+		if(laureate.photo === ''){
+			imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+		}
+		else imageR = laureate.photo;
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
-					'<img  id="reco-img-' + laureate.id + '"  src="' + laureate.photo + '" alt="" onclick="popIMG(this.id)">' +
+					'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="" onclick="popIMG(this.id)">' +
 					'</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
@@ -191,9 +196,9 @@ LaureateComponent.prototype.fillRecomondationAleatoire =function(){
 
 	this.block_recommendation.innerHTML += html_content;
 };
-LaureateComponent.prototype.aleatoire = function (number) {
-	for (let i=0;i<number;i++){
-		view.fillRecomondationAleatoire();
+LaureateComponent.prototype.random = function () {
+	for (let i=0;i<2;i++){
+		this.fillRandomRecomondation();
 	}
 };
 
@@ -349,7 +354,7 @@ LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion'
 		this.navigate();
 	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {
-			view.addData();
+			this.addData();
 		} else {
 			route('../Home');
 		}
@@ -433,7 +438,7 @@ function main() {
 	try {
 		view.fillNavigation();
 		view.fillMain();
-		view.aleatoire(2);
+		view.random();
 		view.fillSwitcher();
 	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {

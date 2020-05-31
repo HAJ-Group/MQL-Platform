@@ -75,7 +75,6 @@ LaureateComponentService.prototype.load = function(dbSource) {
 				dbSource[i].photo,
 				dbSource[i].rating,
 				dbSource[i].linked_in,
-				dbSource[i].special,
 			)
 		)
 	}
@@ -85,10 +84,7 @@ LaureateComponentService.prototype.load = function(dbSource) {
 LaureateComponentService.prototype.loadspecial = function(dbSource) {
 	for (let i = 0; i < dbSource.length; i++) {
 		for(let j=0; j < dbSource[i].content.length ; j++){
-			if(dbSource[i].content[j].job!==''&&
-			dbSource[i].content[j].photo!=='' &&
-			dbSource[i].content[j].rating!=='' &&
-			dbSource[i].content[j].special)
+			if(dbSource[i].content[j].rating!=='')
 				this.special.push(
 					new Laureate(
 						dbSource[i].content[j].id,
@@ -103,12 +99,9 @@ LaureateComponentService.prototype.loadspecial = function(dbSource) {
 						dbSource[i].content[j].photo,
 						dbSource[i].content[j].rating,
 						dbSource[i].content[j].linked_in,
-						dbSource[i].content[j].special,
 					)
 				)
 		}
-
-
 	}
 };
 
