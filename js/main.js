@@ -328,7 +328,7 @@ function addTitleIcon(source, editable=false) {
         title.innerHTML = '<div class="title-content"><img src="' + source + '" alt="title" class="title-logo">' +
             text+'</div><img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
             'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
-        if(editable && localStorage.getItem('ACCESS') !== 'null') {
+        if(editable && sessionStorage.getItem('ACCESS') !== null) {
             // ADD EDIT AND DELETE ICONS
             title.innerHTML += '<img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
                 'class="sh-icon" onclick="view.editData(' + i + ')">' +
@@ -337,7 +337,7 @@ function addTitleIcon(source, editable=false) {
         }
         i++;
     }
-    if(editable && localStorage.getItem('ACCESS') !== 'null') {
+    if(editable && sessionStorage.getItem('ACCESS') !== null) {
         // ADD NEW ICON BLOCK
         let saver = $('.sub-content')[0];
         saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
@@ -362,7 +362,7 @@ function show(id, def_element = 'details', def_display = 'block') {
     element.style.display = def_display;
     sep.style.display='none';
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== 'null') {
+    if(sessionStorage.getItem('ACCESS') !== null) {
         let edit = $('+edit-icon')[id];
         let delt = $('+delete-icon')[id];
         edit.style.display = 'block';
@@ -387,7 +387,7 @@ function hide(id, def_element = 'details', def_display = 'block') {
     element.style.display = 'none';
         sep.style.display = def_display;
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== 'null') {
+    if(sessionStorage.getItem('ACCESS') !== null) {
         let edit = $('+edit-icon')[id];
         let delt = $('+delete-icon')[id];
         edit.style.display = 'none';

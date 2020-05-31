@@ -72,7 +72,7 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 			'onclick=view.show("'+partner.id+'")>'+partner.name+'</div>';
 	}
 	// ADD NEW BLOCK
-	if(localStorage.getItem('ACCESS') !== 'null') {
+	if(sessionStorage.getItem('ACCESS') !== null) {
 		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
 	}
 	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">';
@@ -87,7 +87,7 @@ PartnerComponent.prototype.fillPartners = function() {
 			'<div class="card-image">' +
 			'<img src="'+partner.bg+'" alt="">' +
 			'</div>';
-		if(localStorage.getItem('ACCESS') !== 'null') {
+		if(sessionStorage.getItem('ACCESS') !== null) {
 			htmlContent += '<div class="partner-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
 				'class="sh-icon" onclick="view.editData(' + i + ')">' +
 				'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +

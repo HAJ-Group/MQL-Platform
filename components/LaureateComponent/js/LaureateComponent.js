@@ -56,7 +56,7 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">' +
 			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
-		if(localStorage.getItem('ACCESS') !== 'null') {
+		if(sessionStorage.getItem('ACCESS') !== null) {
 			htmlContent += '<div class="new-block new-laureate">' +
 				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
 				'</div>';
@@ -66,7 +66,7 @@ LaureateComponent.prototype.fillMain = function () {
 				img = DEFAULT_PROFILE_IMAGE[laureate.gender];
 			} else img = laureate.photo;
 			// EDIT AND DELETE
-			if(localStorage.getItem('ACCESS') !== 'null') {
+			if(sessionStorage.getItem('ACCESS') !== null) {
 				htmlContent += '<div class="laureate-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
 					'class="sh-icon" onclick="view.editData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')">' +
 					'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
