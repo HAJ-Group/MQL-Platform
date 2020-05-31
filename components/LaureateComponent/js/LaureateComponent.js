@@ -294,8 +294,16 @@ LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion'
 			//....
 		}
 	}
-	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-	this.navigate();
+	try {
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+		this.navigate();
+	} catch (e) {
+		if(confirm('None Promotion is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
 };
 
 LaureateComponent.prototype.submitData = function (action = 'add', index = '0', target_el = 'promotion') {
@@ -371,10 +379,18 @@ function main() {
 	service = new LaureateComponentService(); 
 	service.loadPromotion(dbPromotion);
 	view = new LaureateComponent(service);
-	view.fillNavigation();
-	view.fillRecomondation();
-	view.fillMain();
-	view.fillSwitcher();
+	try {
+		view.fillNavigation();
+		view.fillRecomondation();
+		view.fillMain();
+		view.fillSwitcher();
+	} catch (e) {
+		if(confirm('None Promotion is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
