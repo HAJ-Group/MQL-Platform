@@ -203,7 +203,7 @@ function getFooterContent() {
 
     let footerContent = '<hr><footer>' +
         '<div class="text-news-letter" onclick="$(\'#news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
-        '<span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
+        '<span style="font-size: 17px;color: white;" > S\'inscrire à notre NewsLetter </span>' +
         '</div><hr> ';
          footerContent += '<div class="text-partenaire"> ' +
         '<img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" ' +
@@ -723,10 +723,10 @@ function loadNewsLetter() {
         '<span>NewsLetter</span>' +
         '</div>' +
         '<div class="modal-body">' +
-        '<p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
-        '<lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>' +
+        '<p>Inscrivez-vous pour recevoir les dernières actualités.</p>' +
+        '<lebel for="full-name" style="font-size: 18px;"> Nom : </lebel>' +
         '<input class="zone-text-contact-news" type="text" name="full-name" placeholder="Nom..."> ' +
-        '<lebel for="email" style="font-size: 18px;">Votre Email : </lebel>' +
+        '<lebel for="email" style="font-size: 18px;"> Email : </lebel>' +
         '<input class="zone-text-contact-news" type="email" name="email" placeholder="Email..."> ' +
         '</div>' +
         '<button class="subscribe-button" type="submit">S\'inscrire</button>' +

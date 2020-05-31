@@ -110,22 +110,6 @@ let dbEvent = [
 			},
 		],
 	},
-	{
-		id:5,
-		title:'Soutenances',
-		date:'05-04-2018',
-		description:'À la fin de la formation MQL, les étudiants MQL sont amenés à soutenir leurs projet de fin d\'études devant un jury',
-		content: [
-			{
-				type:'image-grid',
-				title:'Galerie',
-				description:'',
-				images: ['../../resources/pictures/mqlfam.JPG'],
-			},
-		],
-	},
-
-
 ];
 
 
