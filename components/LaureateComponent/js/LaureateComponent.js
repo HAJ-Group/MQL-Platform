@@ -97,6 +97,7 @@ LaureateComponent.prototype.fillMain = function () {
 				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
 			}
 			// Email :
+			if(laureate.email !== '')
 			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			// DESCRIPTION
 			if(laureate.rating !== ''){
@@ -199,6 +200,7 @@ LaureateComponent.prototype.hideInfos = function (id) {
 	let info = $('#' + id);
 	info.style.display = 'none';
 };
+
 LaureateComponent.prototype.updateView = function () {
 	//
 };
@@ -358,6 +360,7 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0', 
 	closeFORM(target_el);
 	this.navigate();
 };
+
 LaureateComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#promotionSubmit');
 	submit_element.click();
