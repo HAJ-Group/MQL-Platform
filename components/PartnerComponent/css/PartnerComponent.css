@@ -6,11 +6,16 @@ body {
 	display: flex;
 	padding-top: 50px;
 }
-.partners {
+.partners-menu {
 	position: relative;
 	width: 30%;
 	margin-left: 5px;
 	border: 1px solid lightgray;
+	height: fit-content;
+}
+.partners-container {
+	width: 70%;
+	margin-right: 5px;
 }
 
 h2 {
@@ -28,7 +33,13 @@ h2 {
 	width: 100%;
 }
 
-.partners .partner {
+.end-img {
+	width: 100%;
+	margin-top: 10%;
+	margin-bottom: -7px;
+}
+
+.partners-menu .partner {
 	padding-top: 10px;
 	height: 40px;
 	text-align: center;
@@ -41,7 +52,7 @@ h2 {
 	color: black;
 }
 
-.partners .active {
+.partners-menu .active {
 	color: cornflowerblue;
 	border: 1px solid cornflowerblue;
 }
@@ -56,16 +67,10 @@ h2 {
 	box-shadow: 1px 1px 1px 1px lightgray;
 }
 
-.end-img {
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
-
 .card {
+	width: 99%;
+	height: 100%;
 	margin-left: 1%;
-	width: 70%;
-	min-height: 300px;
 	border: 1px solid lightgray;
 	animation: 0.5s ease-in 0s 1 slideInFromRight;
 }
@@ -104,6 +109,25 @@ h2 {
 
 .website > a {
 	color: rgb(253, 59, 76);
+}
+
+.new-block {
+	width: 83%;
+	border-radius: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 19px;
+	margin-bottom: 20px;
+}
+
+.new-block img {
+	width: 15%;
+	height: 15%;
+}
+
+.partner-icons {
+	margin-right: 2%;
+	margin-top: 1%;
 }
 
 @media screen and (max-width: 700px){

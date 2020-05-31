@@ -178,8 +178,16 @@ EventComponent.prototype.deleteData = function(index) {
 	if(confirm('Are you sure you want to delete this Event ?')) {
 		this.service.remove(index);
 		//....
-		this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
-		this.navigate();
+		try {
+			this.page_blocks = split(this.service.db, MAX_EVENT_PER_PAGE);
+			this.navigate();
+		} catch (e) {
+			if(confirm('None Event is found! Add new one ?')) {
+				view.addData();
+			} else {
+				route('../Home');
+			}
+		}
 	}
 };
 
@@ -213,11 +221,17 @@ function main() {
 	service = new EventComponentService(); 
 	service.load(dbEvent);
 	view = new EventComponent(service); 
-	//view.printEventList(); Uncomment to print data in table member
-	//view.printEventList(); Uncomment to print data in table member
-	view.fillNavigation();
-	view.fillMain();
-	view.fillSwitcher();
+	try {
+		view.fillNavigation();
+		view.fillMain();
+		view.fillSwitcher();
+	} catch (e) {
+		if(confirm('None Event is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
 	// Stays last
 	addTitleIcon('../../resources/pictures/Event-logo.png', true);
 	detect_subContent_trigger_left_bar();

@@ -2,7 +2,7 @@
 function Partner(id,bg,name, color,ca,description,nbr_colla,zone,website,image) {
 	//TODO: Intitialize model properties 
 	this.id = id;
-	this.bg=bg;
+	this.bg= bg;
 	this.name= name;
 	this.color = color;
 	this.ca=ca;
