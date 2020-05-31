@@ -1,6 +1,7 @@
 function LaureateComponentService() { 
 	//TODO: Intitialize service for LaureateComponent 
 	this.db= [];
+	this.special=[];
 } 
 // Add model to database table object 
 LaureateComponentService.prototype.add = function (onePromotion) {
@@ -74,12 +75,34 @@ LaureateComponentService.prototype.load = function(dbSource) {
 				dbSource[i].photo,
 				dbSource[i].rating,
 				dbSource[i].linked_in,
-				dbSource[i].special,
 			)
 		)
 	}
 	tmp.sort((a, b) => a.name.localeCompare(b.name));
 	return tmp;
+};
+LaureateComponentService.prototype.loadspecial = function(dbSource) {
+	for (let i = 0; i < dbSource.length; i++) {
+		for(let j=0; j < dbSource[i].content.length ; j++){
+			if(dbSource[i].content[j].rating!=='')
+				this.special.push(
+					new Laureate(
+						dbSource[i].content[j].id,
+						dbSource[i].content[j].name,
+						dbSource[i].content[j].gender,
+						dbSource[i].content[j].job,
+						dbSource[i].content[j].city,
+						dbSource[i].content[j].email,
+						dbSource[i].content[j].stage,
+						dbSource[i].content[j].current_enterprise,
+						dbSource[i].content[j].experience,
+						dbSource[i].content[j].photo,
+						dbSource[i].content[j].rating,
+						dbSource[i].content[j].linked_in,
+					)
+				)
+		}
+	}
 };
 
 /**

@@ -34,7 +34,7 @@ AreaComponent.prototype.authenticate = function() {
 	let password = $('#password').value;
 	if(this.service.isExist(username, password)) {
 		// GRANT ACCESS (WORKING ONLY WHEN DATA IS EXTERNAL)
-		localStorage.setItem('ACCESS', username);
+		sessionStorage.setItem('ACCESS', username);
 		this.loadData();
 	} else {
 		$('#errorMess').innerHTML = 'Username or Password not valid';
@@ -43,7 +43,8 @@ AreaComponent.prototype.authenticate = function() {
 };
 AreaComponent.prototype.logout = function() {
 	// DENY ACCESS
-	localStorage.setItem('ACCESS', null);
+	sessionStorage.removeItem('ACCESS');
+	console.log(sessionStorage.getItem('ACCESS'));
 	route('../Home');
 };
 
@@ -51,8 +52,8 @@ AreaComponent.prototype.loadData = function() {
 	// REMOVE RESTRICTIONS
 	$('#errorBlock').style.display = 'none';
 	$('#login-window').style.display = 'none';
-	$('#user').innerHTML = localStorage.getItem('ACCESS');
-	$('#phone-user').innerHTML = localStorage.getItem('ACCESS');
+	$('#user').innerHTML = sessionStorage.getItem('ACCESS');
+	$('#phone-user').innerHTML = sessionStorage.getItem('ACCESS');
 	$('#restricted').style.display = 'block';
 };
 
@@ -66,7 +67,7 @@ function main() {
 	service.load(dbArea);
 	view = new AreaComponent(service); 
 	//view.printAreaList(); Uncomment to print data in table member
-	if(localStorage.getItem('ACCESS') !== 'null'){
+	if(sessionStorage.getItem('ACCESS') !== null){
 		view.loadData();
 	} else view.promptLogin();
 	setKeysAction('.access-content',view.authenticate.bind(view));

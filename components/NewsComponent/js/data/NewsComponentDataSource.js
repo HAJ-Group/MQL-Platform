@@ -20,9 +20,10 @@ let dbNews = [
     {
         id :3,
         title:'Suspension des cours',
-        date:'05-04-2020',
-        desciption:'À cause de COVID-19 et suivant les pré-cautions prisent par l\'état marocaine, les cours seront reportés à une date prochaine.',
-        images:[],
+        date:'13-03-2020',
+        desciption:'Dans un communiqué diffusé en fin journée le vendredi 13 mars 2020, le ministère de l\'Education nationale annonce la suspension de tous les cours, des jardins d\'enfants jusqu\'à l\'enseignement supérieur à compter du lundi 16 mars 2020. ' +
+            'Sur ce nous ',
+        images:['corona.jpeg'],
     },
 
 ];

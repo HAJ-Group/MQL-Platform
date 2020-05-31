@@ -1028,7 +1028,7 @@ a.links:hover{
     }
 
     .title-content {
-        width: 60%;
+        width: 80%;
     }
 
     .details  {
@@ -1037,6 +1037,7 @@ a.links:hover{
 
     .modal-content {
         width: 100%;
+        margin-top: 15%;
     }
 
     .image {
@@ -1437,7 +1438,7 @@ textarea {
 .modal-header {
     text-align: center;
     padding: 10px;
-    background-color: #3793d3;
+    background-color: cornflowerblue;
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1463,7 +1464,7 @@ textarea {
 /*--------------------------------------------------------------------------------------------------------------------*/
 .modal-body > p{
     padding: 5px;
-    background-color: #e23544;
+    background-color: rgb(253,59,76);
     font-family: "Open sans", sans-serif;
     font-size: 16px;
     text-align: justify;

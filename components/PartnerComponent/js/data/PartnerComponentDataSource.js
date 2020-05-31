@@ -1,7 +1,7 @@
 /* Global data source table for PartnerComponent */ 
 let dbPartner = [ 
 	{
-		id:1	,
+		id:1,
 		bg:'../../resources/pictures/Partners/cap-bg.jpg',
 		name : 'capgemini',
 		color: 'cornflowerblue',

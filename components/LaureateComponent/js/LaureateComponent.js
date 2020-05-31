@@ -2,9 +2,10 @@
 let view; 
 let service;
 let current_page_number = 1;
-const MAX_PROMOTION_PER_PAGE = 5;
+const MAX_PROMOTION_PER_PAGE = 13;
 const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
 const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
+let k;
 /*Default class*/ 
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
@@ -20,6 +21,7 @@ function LaureateComponent(service) {
 	this.htmlSaver = {
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
+		recommendation : this.block_recommendation.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
 } 
@@ -54,7 +56,7 @@ LaureateComponent.prototype.fillMain = function () {
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">' +
 			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
-		if(localStorage.getItem('ACCESS') !== 'null') {
+		if(sessionStorage.getItem('ACCESS') !== null) {
 			htmlContent += '<div class="new-block new-laureate">' +
 				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
 				'</div>';
@@ -64,7 +66,7 @@ LaureateComponent.prototype.fillMain = function () {
 				img = DEFAULT_PROFILE_IMAGE[laureate.gender];
 			} else img = laureate.photo;
 			// EDIT AND DELETE
-			if(localStorage.getItem('ACCESS') !== 'null') {
+			if(sessionStorage.getItem('ACCESS') !== null) {
 				htmlContent += '<div class="laureate-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
 					'class="sh-icon" onclick="view.editData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')">' +
 					'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
@@ -73,9 +75,9 @@ LaureateComponent.prototype.fillMain = function () {
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'+
-				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span>\n' +
-				'</div></div>';
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'
+				+'<span onclick="window.location.href=\'' + laureate.linked_in  + '\'" class="linkedin"></span>\n'
+				+'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
 			if(laureate.photo !== "") {
@@ -155,6 +157,51 @@ LaureateComponent.prototype.fillRecomondation =function(){
 	}
 	this.block_recommendation.innerHTML = html_content;
 };
+LaureateComponent.prototype.fillRandomRecomondation =function(){
+	let html_content='';
+	let tmp =Math.floor(Math.random()*this.service.special.length);
+	if(k==tmp){
+		this.fillRandomRecomondation();
+	}
+	else{
+	k=tmp;
+	let laureate = this.service.special[k];
+		if(laureate.photo === ''){
+			imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+		}
+		else imageR = laureate.photo;
+				html_content+='<div class="recommendation">' +
+					'<div class="image-and-infos">' +
+					'<div class="image-person">' +
+					'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="" onclick="popIMG(this.id)">' +
+					'</div>' +
+					'<div class="infos">' +
+					'<div class="name">' +
+					laureate.name+
+					'</div>' +
+					'<div class="society">' +
+					laureate.job+' à '+laureate.current_enterprise+
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<div class="opinion">' +
+					'<p>' +
+					'<q>' +
+					laureate.rating+
+					'</q>' +
+					'</p>' +
+					'</div>' +
+					'</div>';
+	}
+
+	this.block_recommendation.innerHTML += html_content;
+};
+LaureateComponent.prototype.random = function () {
+	for (let i=0;i<2;i++){
+		this.fillRandomRecomondation();
+	}
+};
+
 /**
  * Create page switcher dynamically
  */
@@ -307,7 +354,7 @@ LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion'
 		this.navigate();
 	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {
-			view.addData();
+			this.addData();
 		} else {
 			route('../Home');
 		}
@@ -386,11 +433,12 @@ LaureateComponent.prototype.triggerSubmit = function () {
 function main() { 
 	service = new LaureateComponentService(); 
 	service.loadPromotion(dbPromotion);
+	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
 	try {
 		view.fillNavigation();
-		view.fillRecomondation();
 		view.fillMain();
+		view.random();
 		view.fillSwitcher();
 	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {

@@ -137,17 +137,19 @@ h2 {
 		display: block;
 	}
 
-	.partners {
+	.partners-menu {
 		display: block;
 		width: 98%;
 		margin-bottom: 10px;
 	}
 
-	.partners .partner {
+	.partners-menu .partner {
 		width: 50%;
 		margin-left: 25%;
 	}
-
+	.partners-container{
+		width: 100%;
+	}
 	.end-img {
 		display: none;
 	}

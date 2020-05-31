@@ -55,7 +55,7 @@ function $(target_element) {
     if(target_element.startsWith('.')) return document.getElementsByClassName(target_element.substring(1));
     if(target_element.startsWith('+')) return document.getElementsByName(target_element.substring(1));
     else return document.getElementsByTagName(target_element);
-}
+};
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -140,10 +140,10 @@ function showEmptyErrorResult() {
 function getFooterContent() {
 
     let partners = [
-        {name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
-        {name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
-        {name:'ATOS', image:'../../resources/partenaires/atos.png'},
-        {name:'CGI', image:'../../resources/partenaires/cgi.png'},
+        {id:1,name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
+        {id:3,name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
+        {id:4,name:'ATOS', image:'../../resources/partenaires/atos.png'},
+        {id:2,name:'CGI', image:'../../resources/partenaires/cgi.png'},
     ];
     let foots = [
         {   // LEFT SIDE
@@ -203,7 +203,7 @@ function getFooterContent() {
 
     let footerContent = '<hr><footer>' +
         '<div class="text-news-letter" onclick="$(\'#news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
-        '<span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
+        '<span style="font-size: 17px;color: white;" > S\'inscrire à notre NewsLetter </span>' +
         '</div><hr> ';
          footerContent += '<div class="text-partenaire"> ' +
         '<img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" ' +
@@ -211,7 +211,7 @@ function getFooterContent() {
         '</div><hr> ' +
         '<div class="partenaire"> ';
     for(let partner of partners) {
-        footerContent += '<span><a><img id="' + partner.name + '" onclick="route(\'../Partner\',\'' + partner.name + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
+        footerContent += '<span><a><img id="partner-' + partner.id + '" onclick="route(\'../Partner\',\'' + partner.id + '\')" class="img-partenaire" src="' + partner.image + '" alt="' +
             partner.name + '"></a></span> ';
     }
     footerContent += '</div> ' +
@@ -328,7 +328,7 @@ function addTitleIcon(source, editable=false) {
         title.innerHTML = '<div class="title-content"><img src="' + source + '" alt="title" class="title-logo">' +
             text+'</div><img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
             'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
-        if(editable && localStorage.getItem('ACCESS') !== 'null') {
+        if(editable && sessionStorage.getItem('ACCESS') !== null) {
             // ADD EDIT AND DELETE ICONS
             title.innerHTML += '<img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
                 'class="sh-icon" onclick="view.editData(' + i + ')">' +
@@ -337,7 +337,7 @@ function addTitleIcon(source, editable=false) {
         }
         i++;
     }
-    if(editable && localStorage.getItem('ACCESS') !== 'null') {
+    if(editable && sessionStorage.getItem('ACCESS') !== null) {
         // ADD NEW ICON BLOCK
         let saver = $('.sub-content')[0];
         saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
@@ -362,7 +362,7 @@ function show(id, def_element = 'details', def_display = 'block') {
     element.style.display = def_display;
     sep.style.display='none';
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== 'null') {
+    if(sessionStorage.getItem('ACCESS') !== null) {
         let edit = $('+edit-icon')[id];
         let delt = $('+delete-icon')[id];
         edit.style.display = 'block';
@@ -387,7 +387,7 @@ function hide(id, def_element = 'details', def_display = 'block') {
     element.style.display = 'none';
         sep.style.display = def_display;
     // HIDE EDIT AND DELETE IF EXISTS
-    if(localStorage.getItem('ACCESS') !== 'null') {
+    if(sessionStorage.getItem('ACCESS') !== null) {
         let edit = $('+edit-icon')[id];
         let delt = $('+delete-icon')[id];
         edit.style.display = 'none';
@@ -723,10 +723,10 @@ function loadNewsLetter() {
         '<span>NewsLetter</span>' +
         '</div>' +
         '<div class="modal-body">' +
-        '<p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
-        '<lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>' +
+        '<p>Inscrivez-vous pour recevoir les dernières actualités.</p>' +
+        '<lebel for="full-name" style="font-size: 18px;"> Nom : </lebel>' +
         '<input class="zone-text-contact-news" type="text" name="full-name" placeholder="Nom..."> ' +
-        '<lebel for="email" style="font-size: 18px;">Votre Email : </lebel>' +
+        '<lebel for="email" style="font-size: 18px;"> Email : </lebel>' +
         '<input class="zone-text-contact-news" type="email" name="email" placeholder="Email..."> ' +
         '</div>' +
         '<button class="subscribe-button" type="submit">S\'inscrire</button>' +

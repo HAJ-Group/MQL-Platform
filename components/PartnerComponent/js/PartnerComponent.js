@@ -9,7 +9,7 @@ function PartnerComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = $('#table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.currentblock = this.service.get(0).name;
+	this.currentblock = this.service.get(0).id;
 	this.block_menu = $('#partnersMenu');
 	this.block_container = $('#partnersContainer');
 	this.htmlSaver = {
@@ -68,11 +68,11 @@ PartnerComponent.prototype.printPartnerList = function () {
 PartnerComponent.prototype.fillPartnersMenu = function() {
 	let htmlContent = this.htmlSaver.menu;
 	for(let partner of this.service.db) {
-		htmlContent += '<div id="menu-' + partner.name + '" class="partner active" ' +
-			'onclick=view.show("'+partner.name+'")>'+partner.name+'</div>';
+		htmlContent += '<div id="menu-' + partner.id + '" class="partner active" ' +
+			'onclick=view.show("'+partner.id+'")>'+partner.name+'</div>';
 	}
 	// ADD NEW BLOCK
-	if(localStorage.getItem('ACCESS') !== 'null') {
+	if(sessionStorage.getItem('ACCESS') !== null) {
 		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
 	}
 	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">';
@@ -83,11 +83,11 @@ PartnerComponent.prototype.fillPartners = function() {
 	let htmlContent = this.htmlSaver.container;
 	let i = 0;
 	for(let partner of this.service.db) {
-		htmlContent += '<div class="card" id="'+partner.name+'">' +
+		htmlContent += '<div class="card" id="'+partner.id+'">' +
 			'<div class="card-image">' +
 			'<img src="'+partner.bg+'" alt="">' +
 			'</div>';
-		if(localStorage.getItem('ACCESS') !== 'null') {
+		if(sessionStorage.getItem('ACCESS') !== null) {
 			htmlContent += '<div class="partner-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
 				'class="sh-icon" onclick="view.editData(' + i + ')">' +
 				'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
@@ -135,7 +135,7 @@ PartnerComponent.prototype.hideAll = function () {
 PartnerComponent.prototype.ajustLinks = function () {
 	let links = $('.img-partenaire');
 	for(let link of links) {
-		link.setAttribute('onclick', 'view.show(\'' + link.id + '\', true)');
+		link.setAttribute('onclick', 'view.show(' + link.id.split('-')[1]+ ', true)');
 	}
 };
 
@@ -155,6 +155,7 @@ PartnerComponent.prototype.addData = function() {
 };
 
 PartnerComponent.prototype.editData = function(index) {
+	let el_id = $('#partnerID');
 	let el_name = $('#partnerName');
 	let el_color = $('#partnerColor');
 	let el_ca=$('#partnerCa');
@@ -163,6 +164,7 @@ PartnerComponent.prototype.editData = function(index) {
 	let el_website=$('#partnerWebSite');
 	//....
 	let target = this.service.get(index);
+	el_id.value = target.id;
 	el_name.value = target.name;
 	el_color.value= target.color;
 	el_ca.value= target.ca;
@@ -179,7 +181,7 @@ PartnerComponent.prototype.deleteData = function(index) {
 		this.service.remove(index);
 		//....
 		try {
-			this.currentblock = this.service.get(0).name;
+			this.currentblock = this.service.get(0).id;
 			this.navigate();
 		} catch (e) {
 			if(confirm('None Partner is found! Add new one ?')) {
@@ -194,6 +196,7 @@ PartnerComponent.prototype.deleteData = function(index) {
 
 PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
+	let id = $('#partnerID').value
 	let name = $('#partnerName').value;
 	let color = $('#partnerColor').value;
 	let ca=$('#partnerCa').value;
@@ -203,6 +206,7 @@ PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 	//...
 	if(action === 'add') {
 		this.service.add(new Partner(this.service.size() + 1, DEFAULT_PARTNER_BG,name,color,ca,desc,co,'',website));
+		id=this.service.size();
 	}
 	if(action === 'edit') {
 		let target = this.service.get(index);
@@ -216,7 +220,7 @@ PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 		$('#partnerSubmit').setAttribute('onclick', 'view.submitData()');
 	}
 	closeFORM();
-	this.currentblock = name;
+	this.currentblock = id;
 	this.navigate();
 };
 
