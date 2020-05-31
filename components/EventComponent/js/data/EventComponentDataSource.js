@@ -32,18 +32,19 @@ let dbEvent = [
 		id: 1,
 		title:'Compagnes de stages',
 		date:'01-10-2017',
-		description:'Un Mqliste, dans sa deuxième année de formation, commence déja à passer des entretiens de stage pré-ambauche, en fait nous retrouvons, à la faculté des sciences, des multinationales dans des sessions de recrutement organisées par les étudiants MQL.',
+		description:'Un Mqliste, dans sa deuxième année de formation, commence déjà  à passer des entretiens de stage pré-ambauche, en fait nous retrouvons, à la faculté des sciences, des multinationales dans des sessions de recrutement organisées par les étudiants MQL.' +
+			' Ces compagnes de stages se déroulent généralemenet en 3 phases : ',
 		content:[
 			{
 				type:'card',
 				title:'Test PsychoTechnique',
-				description: 'Les tests psychotechniques sont utilisés pour mesurer les aptitudes logiques, verbales et numériques de l\'étudiant.Ils mesurent les capacités de réaction, de réflexion, de concentration mais aussi la faculté à intégrer et à traiter l’information ou la stimulation.',
+				description: 'Les tests psychotechniques sont utilisés pour mesurer les aptitudes logiques, verbales et numériques de l\'étudiant. Ils mesurent les capacités de réaction, de réflexion, de concentration mais aussi la faculté à intégrer et à traiter l’information ou la stimulation.',
 				image:'../../resources/pictures/Psytest.jpg',
 			},
 			{
 				type:'card',
 				title:'Test Technique',
-				description: 'Un entretien technique  sur les différents aspects du developpement informatique.',
+				description: 'Un entretien technique  sur les différents aspects du developpement informatique selon le besoin de l\'entreprise.',
 				image:'../../resources/pictures/TechTest.jpg',
 			},
 			{
@@ -76,7 +77,7 @@ let dbEvent = [
 		id:3,
 		title: 'Cérémonie de remise de diplomes',
 		date:'01-03-2018',
-		description: 'La cérémonie de remise de diplômes est une cérémonie organisée afin de celebrer les jeunes diplomés, que la majorité ont déjâ des contrats CDI avec des multinationales notamment CGI,Capgemini,ATOS .... , Cliquez pour voir plus sur nos lauréats.',
+		description: 'La cérémonie de remise de diplômes est une cérémonie organisée afin de célébrer nos jeunes diplomés, que la majorité ont déjâ signés contrats CDI avec des multinationales notamment Capgemini,CGI,ATOS .... ',
 		content: [
 			{
 				type:'image-grid',
@@ -87,7 +88,7 @@ let dbEvent = [
 			{
 				type:'image-grid',
 				title:'Galerie',
-				description:'Les lauréats MQL ne s\'arretent pas à l\'insertion professionnelle mais excellent dans leurs postes professionnels et deviennent des éléments clé pour le developpement des multinationales. ils aident également les nouvelles générations( formations, informations ...) dans une solidarité familiale.',
+				description:'Les lauréats MQL ne s\'arretent pas à l\'insertion professionnelle mais excellent dans leurs parcours professionnels et deviennent des éléments clé pour le developpement de ses entreprises. ils aident également les nouvelles générations( formations, informations ...) dans une solidarité familiale.',
 				images: [
 					'../../resources/pictures/Events/CE2-1.jpg',
 					'../../resources/pictures/Events/CE2-2.jpg',
@@ -99,18 +100,16 @@ let dbEvent = [
 		id:4,
 		title:'Evenements para-scolaire',
 		date:'05-04-2018',
-		description:'MQL dépasse les limtes de formation et éducation; MQL est une équipe, une famille, un style de vie.',
+		description:'MQL dépasse les limtes de la formation et l\'éducation; MQL est une équipe, une famille, un style de vie.',
 		content: [
 			{
 				type:'image-grid',
 				title:'Galerie',
 				description:'',
-				images: ['../../resources/pictures/mqlfam.JPG'],
+				images: ['../../resources/pictures/mqlfam.JPG','../../resources/pictures/sortie.jpg'],
 			},
 		],
 	},
-
-
 ];
 
 

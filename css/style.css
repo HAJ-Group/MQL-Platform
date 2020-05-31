@@ -23,6 +23,44 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+.splash-content {
+    width: 100%;
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    padding: 30px;
+    overflow: hidden;
+    margin-top: -5%;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.splash-content > img {
+    display: block;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.splash-content p {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #4B4C54;
+    font-size: 40px;
+    font-family: "Open Sans", serif;
+    font-weight: bolder;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.loader img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Fonts -------------------------------------------------------------------------------------------------------------*/
@@ -144,6 +182,17 @@ header {
     border-radius: 20px;
     font-size: 20px;
     opacity: 0.5;
+    outline:none;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.search-error {
+    width: 60%;
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    opacity: 0.5;
+    outline: none;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .search-block:hover {
@@ -151,7 +200,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .search-input:focus {
-    border: none;
+    border: 2px solid cornflowerblue;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Text Boxes --------------------------------------------------------------------------------------------------------*/
@@ -244,6 +293,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .title-logo {
+    float: left;
     padding-right: 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -261,22 +311,27 @@ header {
 .sh-sep{
     border-top: 2px solid lightgray ;
     display: none;
+    margin-top: 15px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details{
     font-family: "Open sans", serif;
     font-size: 18px;
     text-align: justify;
-    padding: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
-
+    padding: 15px 10px 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details > * {
     text-align: justify;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.details div {
+    margin-left: auto;
+    margin-right: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Images Grids ------------------------------------------------------------------------------------------------------*/
@@ -320,7 +375,7 @@ header {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 150px; /* Location of the box */
+    padding-top: 5%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -344,10 +399,10 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Modal Content (image) */
 .modal-content {
-    margin: 0 auto;
-    display: block;
     width: 100%;
     max-width: 1000px;
+    display: block;
+    margin: 0 auto;
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -368,7 +423,7 @@ header {
     animation-duration: 0.6s;
     border-radius: 20px;
     background-color: white;
-    padding: 30px;
+    padding: 50px 50px 80px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-title {
@@ -396,6 +451,7 @@ header {
     background-color: #f5f5f5;
     opacity: 0.7;
     overflow: auto;
+    outline: none;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-submit {
@@ -424,14 +480,14 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-text:focus {
-    border: none;
-    border-radius: 0;
+    border: 2px solid cornflowerblue;
+
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* The Close Button */
 .close {
     position: absolute;
-    top: 70px;
+    top: 2%;
     right: 23.2%;
     background-color: rgb(253, 59, 76);
     color: white;
@@ -477,12 +533,14 @@ header {
 .arrow-left, .arrow-right {
     font-family: "Bahnschrift", serif;
     text-align: center;
-    font-size: 100px;
-    opacity: 0.1;
+    font-size: 80px;
+    opacity: 0.3;
     color: rgb(253, 59, 76);
     background-color: white;
     border: 1px solid lightgray;
     width: 80px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .arrow-left:hover, .arrow-right:hover {
@@ -657,12 +715,32 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .text-partenaire{
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 50px;
+}
+
+.text-news-letter{
+    background-color: #3ba7d1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+
+    padding: 5px;
+}
+.text-news-letter:hover{
+    background-color: #df3443;
+
+    cursor: pointer;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .text-partenaire > span{
@@ -759,9 +837,10 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .el-center {
-    margin: auto;
-    display: block;
     width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .hidden {
@@ -844,6 +923,18 @@ a.links:hover{
 /*--------------------------------------------------------------------------------------------------------------------*/
 .startext{
     font-size: 25px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.error-message {
+    color: red;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.success-message {
+    color: limegreen;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -936,12 +1027,17 @@ a.links:hover{
         margin-left: 0;
     }
 
+    .title-content {
+        width: 80%;
+    }
+
     .details  {
         font-size: 14px;
     }
 
     .modal-content {
         width: 100%;
+        margin-top: 15%;
     }
 
     .image {
@@ -949,9 +1045,17 @@ a.links:hover{
         height: 300px;
     }
 
+    .book-images {
+        width: 96%;
+    }
+
     .book-images img {
         width: 70%;
         height: 50%;
+    }
+
+    .arrow-left, .arrow-right {
+        border: none;
     }
 
     .column img {
@@ -966,7 +1070,7 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER ------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 700px){
+@media only screen and (max-width: 700px){
 
     .partenaire{
         height: 400px;
@@ -1014,13 +1118,21 @@ a.links:hover{
     opacity: 0.4;
 }
 
+.new-laureate {
+    width: 97%;
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
 .new-block:hover {
     opacity: 1;
 }
 
 .new-icon {
     width: fit-content;
-    margin-left: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 0.6;
 }
 
@@ -1032,15 +1144,12 @@ a.links:hover{
 #scroll-top {
     display: none;
     position: fixed;
-    bottom: 40px;
+    bottom: 30px;
     right: 30px;
-
     font-size: 18px;
     border: none;
-
     /*background-color: red;*/
     background: url('../resources/pictures/top1.png') no-repeat;
-
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
@@ -1052,8 +1161,11 @@ a.links:hover{
 #scroll-top:hover {
     background: url('../resources/pictures/top2.png') no-repeat;
 }
+#scroll-top:active,#scroll-top:focus{
+    outline:none
+}
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
     .content {
         max-width: 100%;
     }
@@ -1076,8 +1188,318 @@ a.links:hover{
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
     #scroll-top{
         display: none;
     }
+    .title{
+        font-size: 20px;
+    }
+    .new-block {
+        width: 95%;
+    }
 }
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.zone-text-contact-news {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    /* display: inline-block;*/
+    border: none;
+    background: #f1f1f1;
+    font-size: 18px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.zone-text-contact-news:focus{
+
+    background-color: #ddd;
+    outline: 2px solid #68b0ee;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+textarea {
+    resize: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-contact-2, .button-contact {
+
+    padding: 10px;
+    margin: 8px 0 0 10px;
+    border: none;
+    cursor: pointer;
+    /*    width: 100%;*/
+    opacity: 0.8;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+.button-contact-2{
+    background-color: #89c926;
+    color: white;
+}
+
+.button-contact {
+    background-color: #f6f8b2;
+    color: #4B4C54;
+    font-weight: bold;
+}
+
+
+.button-contact:hover,.button-contact:focus, .button-contact-2:hover{
+    opacity:1;
+    outline: none;
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.cancel-button {
+    background-color: #FD3B4C;
+    width: 80px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.submit-button {
+    width: 80px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.form-footer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.contact-container {
+    padding: 16px;
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* The Modal (background) */
+.modal-style {
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Modal Content/Box */
+.modal-contact-content {
+
+    background-color: white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.contact-container > hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* The Close Button (x) */
+.close-modal-contact {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.close-modal-contact:hover,
+.close-modal-contact:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .form-footer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.button-news {
+    position: fixed;
+    right: 30px;
+    bottom: 95px;
+    width: 55px;
+    height: 55px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none; /* remove underline from anchors */
+    background: url("../resources/pictures/paper-plane-1.png") no-repeat;
+    color: white;
+
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.button-news:hover {
+    background: url("../resources/pictures/paper-plane-2.png") no-repeat;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.news-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Modal Content */
+.news-modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    margin: 5% 60px 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Animation for the newsletter */
+@-webkit-keyframes animatetop {
+    from {right:-300px; opacity:0}
+    to {right:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {right:-300px; opacity:0}
+    to {right:0; opacity:1}
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* The Close Button */
+.close-part{
+    border:none;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    background-color: whitesmoke;
+    font-weight: bold;
+    font-size: 22px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.close-part:hover, .close-part:focus {
+    background-color: #d84b4b;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.modal-header {
+    text-align: center;
+    padding: 10px;
+    background-color: cornflowerblue;
+    color: white;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.modal-body {
+    padding: 10px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.subscribe-button{
+    height: 50px;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+    background-color: limegreen;
+    border-radius: 5px;
+    border: none;
+    opacity: 0.9;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.subscribe-button:hover,.subscribe-button:active {
+    opacity: 1;
+    outline:0;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.modal-body > p{
+    padding: 5px;
+    background-color: rgb(253,59,76);
+    font-family: "Open sans", sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    border-radius: 4px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.modal-header > span{
+    text-align: center;
+    font-family: MontserratBold, serif;
+    font-size: 19px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 700px) {
+    .news-modal-content{
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        width: 40%; /* Could be more or less, depending on screen size */
+    }
+    .splash-content > img {
+        width: 60%;
+    }
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 699px) {
+    #news-button{
+        display: none;
+    }
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width: 700px) {
+    #newsBlocks{
+        display: none;
+    }
+}
+
+
+
+
+

@@ -10,119 +10,17 @@
 		<script src="js/data/LaureateComponentDataSource.js"></script> 
 		<script src="js/model/Laureate.js"></script> 
 		<script src="js/service/LaureateComponentService.js"></script> 
-		<script src="js/LaureateComponent.js"></script> 
-	</head> 
+		<script src="js/LaureateComponent.js"></script>
+	</head>
 	<body onload="main()" onresize="view.updateView()">
 		<div class="content"> 
 			<div id="header"></div>
 			<div class="container">
                 <hr>
                 <div class="titles-laureates">
-                    <h3><img src="../../resources/pictures/top.png" class="top-img" alt="">Top-MQListes</h3>
+                    <img src="../../resources/pictures/reload.png" onclick="window.location.reload()" class="top-img" alt="">
                 </div>
-
-				<div class="list-recommendations">
-					<div class="recommendation">
-						<div class="image-and-infos">
-							<div class="image-person">
-								<img src="images/jaouad.jpg" alt="">
-							</div>
-							<div class="infos">
-								<div class="name">
-									Mr. AIT ASSOU Jaouad
-								</div>
-								<div class="society">
-									Software engineer
-								</div>
-							</div>
-						</div>
-						<div class="opinion">
-
-							<p>
-								<q>
-									MQL est une véritable plateforme de formation des étudiants
-									MQL est une véritable plateforme de formation des étudiants
-								</q>
-							</p>
-						</div>
-					</div>
-
-                    <div class="recommendation">
-                        <div class="image-and-infos">
-                            <div class="image-person">
-                                <img src="images/jaouad.jpg" alt="">
-                            </div>
-                            <div class="infos">
-                                <div class="name">
-                                    Mr. AIT ASSOU Jaouad
-                                </div>
-                                <div class="society">
-                                    Software engineer
-                                </div>
-                            </div>
-                        </div>
-                        <div class="opinion">
-
-                            <p>
-                                <q>
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                </q>
-                            </p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="recommendation">
-                        <div class="image-and-infos">
-                            <div class="image-person">
-                                <img src="images/jaouad.jpg" alt="">
-                            </div>
-                            <div class="infos">
-                                <div class="name">
-                                    Mr. AIT ASSOU Jaouad
-                                </div>
-                                <div class="society">
-                                    Software engineer
-                                </div>
-                            </div>
-                        </div>
-                        <div class="opinion">
-                            <p>
-                                <q>
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                </q>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <div class="image-and-infos">
-                            <div class="image-person">
-                                <img src="images/jaouad.jpg" alt="">
-                            </div>
-                            <div class="infos">
-                                <div class="name">
-                                    Mr. AIT ASSOU Jaouad
-                                </div>
-                                <div class="society">
-                                    Software engineer
-                                </div>
-                            </div>
-                        </div>
-                        <div class="opinion">
-                            <p>
-                                <q>
-                                    MQL est une véritable plateforme de formation des étudiants
-                                    MQL est une véritable plateforme de formation des étudiants
-                                </q>
-                            </p>
-                        </div>
-                    </div>
-
+				<div id="list-recommendation" class="list-recommendations">
 				</div>
                 <br>
                 <hr>
@@ -136,9 +34,9 @@
 				    </div>
 				    <div id="main" class="sub-content">
 				    </div>
-                    <!-- FORM MODAL -->
-                    <div id="form" class="modal">
-                        <span onclick="closeFORM()" class="close">&times;</span>
+                    <!-- FORM MODAL PROMOTION-->
+                    <div id="promotion" class="modal">
+                        <span onclick="closeFORM('promotion')" class="close">&times;</span>
                         <div class="form-content" id="formContent">
                             <img src="../../resources/pictures/laureate-logo.png" alt="">
                             <p class="form-title">LAUREATE COMPONENT</p>
@@ -146,9 +44,28 @@
                             <p id="promotionSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
                         </div>
                     </div>
+					<!-- FORM MODAL LAUREATE -->
+					<div id="laureate" class="modal">
+						<span onclick="closeFORM('laureate')" class="close">&times;</span>
+						<div class="form-content" id="formContent-laureate">
+							<img src="../../resources/pictures/laureate-logo.png" alt="">
+							<p class="form-title">LAUREATE COMPONENT</p>
+							<input id="laureateName" type="text" class="form-text" placeholder="Laureate Name...">
+							<input id="laureateGender" type="text" class="form-text" placeholder="Laureate Gender M for Man, F for Woman...">
+							<input id="laureateEmail" type="email" class="form-text" placeholder="Laureate Email...">
+							<input id="laureateJob" type="text" class="form-text" placeholder="Laureate Job... Software Engineer for example...">
+							<input id="laureateCity" type="text" class="form-text" placeholder="Laureate City...">
+							<input id="laureateStage" type="text" class="form-text" placeholder="Laureate Practical Experience Enterprise...">
+							<input id="laureateCE" type="text" class="form-text" placeholder="Laureate Current Work Enterprise...">
+							<input id="laureateExp" type="text" class="form-text" placeholder="Other Experiences: exp1, exp2, ...">
+							<textarea id="laureateRating" class="form-text" rows="5" placeholder="Say something about MQL ? ...."></textarea>
+							<p id="laureateSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
+						</div>
+					</div>
                     <div id="switcher" class="page_numbers"></div>
                 </div>
 			</div>
+
 			<div id="footer"></div>
 		</div>
         <span>

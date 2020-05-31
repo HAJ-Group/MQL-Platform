@@ -10,7 +10,7 @@
 		<script src="js/data/AreaComponentDataSource.js"></script> 
 		<script src="js/model/Area.js"></script> 
 		<script src="js/service/AreaComponentService.js"></script> 
-		<script src="js/AreaComponent.js"></script> 
+		<script src="js/AreaComponent.js"></script>
 	</head> 
 	<body onload="main()"> 
 		<div class="content"> 
@@ -26,7 +26,10 @@
 				<div class="sub-content">
 					<div class="phone-profile">
 						<img src="../../resources/pictures/Area/profile.gif" alt="">
-						<h2 id="phone-user" class="user-block"></h2><hr>
+						<div>
+							<h2 id="phone-user" class="user-block"></h2>
+							<button class="logout-button" onclick="view.logout()">Sortir</button>
+						</div>
 					</div>
 					<div class="manage-block">
 						<h1 class="manage-title"><img src="../../resources/pictures/Area/manage.png" alt="">Zone de Gestion</h1><hr>
@@ -37,8 +40,13 @@
 							<div class="manage-card">
 								<img onclick="route('../Event')" src="../../resources/pictures/Area/event.jpg" alt="">
 							</div>
+						</div>
+						<div class="manage-cards">
 							<div class="manage-card">
 								<img onclick="route('../Laureate')" src="../../resources/pictures/Area/laureate.jpg" alt="">
+							</div>
+							<div class="manage-card">
+								<img onclick="route('../Partner')" src="../../resources/pictures/Area/partner.jpg" alt="">
 							</div>
 						</div>
 					</div>
@@ -59,6 +67,7 @@
 			</div>
 			<div id="footer"></div> 
 		</div>
+
 		<span>
 				<button onclick="topFunction()" id="scroll-top" title="Top"></button>
 		</span>

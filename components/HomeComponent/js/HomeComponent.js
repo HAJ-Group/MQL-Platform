@@ -6,22 +6,18 @@ function HomeComponent(service) {
 	current_component = 'Home';
 	loadResources();
 	this.service = service;
-	this.table=this.get("table-program");
-	this.table_news=this.get("table-news");
+	this.table= $("#table-program");
+	this.table_news= $("#table-news");
 	this.news_idSaver = [];
 }
-
-HomeComponent.prototype.get = function (id) {
-	return document.getElementById(id);
-};
 
 /**
  * Program table builder
  * @param program
  */
 HomeComponent.prototype.addColumn=function (program) {
-	let row=this.table.insertRow();
-	let cell=row.insertCell();
+	let row = this.table.insertRow();
+	let cell = row.insertCell();
 	cell.innerHTML += "<span class='semester'>Semestre"+program.id +"</span>" + "<hr>" + "<ul>";
 	for (let i = 0; i < program.modules.length ; i++) {
 		cell.innerHTML+="<li>"+"M"+(i+1)+":"+program.modules[i]+"</li>";
@@ -44,9 +40,11 @@ HomeComponent.prototype.addNews=function (news) {
 	row.insertCell().innerHTML = formattedDate(news.date);
 	row.insertCell().innerHTML = news.title;
 };
+
 HomeComponent.prototype.printNews=function (max = 5) {
 	let service = new NewsComponentService();
 	service.load(dbNews);
+	if(max > service.size()) max = service.size();
 	for (let i = 0; i < max; i++) {
 		this.addNews(service.get(i));
 	}
@@ -66,6 +64,8 @@ HomeComponent.prototype.setNewsRoutes = function () {
 };
 
 
+
+
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
@@ -74,9 +74,10 @@ function main() {
 //	view.printSemesters();
 	view.printNews();
 	view.setNewsRoutes();
-
 	// stays last
 	addTitleIcon('../../resources/pictures/title-logo.png');
 	detect_subContent_trigger_left_bar();
 	createBook(dbHomeImages);
 }
+
+

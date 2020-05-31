@@ -10,22 +10,47 @@
 		<script src="js/data/PartnerComponentDataSource.js"></script> 
 		<script src="js/model/Partner.js"></script> 
 		<script src="js/service/PartnerComponentService.js"></script> 
-		<script src="js/PartnerComponent.js"></script> 
+		<script src="js/PartnerComponent.js"></script>
 	</head> 
 	<body onload="main()"> 
-		<div class="content"> 
+		<div id="all" class="content">
 			<div id="header"></div>
-			<div id="container" class="container">
-				<div id="partners" class="partners">
-					<img src="../../resources/pictures/Partners/menu-bg.jpg" alt="" class="menu-img">
-					<h2>Companies</h2>
-					<div class="sep"></div>
+			<div class="sub-content"></div>
+				<div class="container">
+					<div id="partnersMenu" class="partners-menu">
+						<img src="../../resources/pictures/Partners/menu-bg.jpg" alt="" class="menu-img">
+						<h2>Companies</h2>
+						<div class="sep"></div>
+					</div>
+					<div id="partnersContainer" class="partners-container">
+					</div>
+				</div>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<span onclick="closeIMG()" class="close">&times;</span>
+				<img class="modal-content" id="modal_img" alt="" src="">
+				<div id="caption"></div>
+			</div>
+			<!-- FORM MODAL -->
+			<div id="form" class="modal">
+				<span onclick="closeFORM()" class="close">&times;</span>
+				<div class="form-content" id="formContent">
+					<img src="../../resources/pictures/News-logo.png" alt="">
+					<p class="form-title">PARTNER COMPONENT</p>
+					<input id="partnerID" type="hidden" class="form-text">
+					<input id="partnerName" type="text" class="form-text" placeholder="Partner Name ...">
+					<input id="partnerColor" type="text" class="form-text" placeholder="Partner Color ...">
+					<input id="partnerCa" type="text" class="form-text" placeholder="Partner Sales ...">
+					<textarea id="partnerDescription" class="form-text" placeholder="Partner Description" rows="5"></textarea>
+					<input id="partnerCo" type="text" class="form-text" placeholder="MQL Partner Collaborators ...">
+					<input id="partnerWebSite" type="text" class="form-text" placeholder="Partner WebSite ...">
+					<p id="partnerSubmit" onclick="view.submitData()" class="form-submit">Valider</p>
 				</div>
 			</div>
 			<div id="footer"></div>
 		</div>
 		<span>
-				<button onclick="topFunction()" id="scroll-top" title="Top"></button>
+			<button onclick="topFunction()" id="scroll-top" title="Top"></button>
 		</span>
 	</body>
 </html> 

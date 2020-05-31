@@ -3,44 +3,27 @@ let dbNews = [
     {
         id :1,
         title:'Plateforme MQL',
-        date:'17-05-2020',
-        desciption:'Le master Qualité du Logiciel lance sa plateforme officielement sur le site web de la faculté de sciences, la plateforme offre des informations détailées sur le master ',
-        images:['mqlfam.jpg', 'Home.jpg', 'Event.jpg'],
+        date:'01-06-2020',
+        desciption:'Le master qualité du logiciel lance sa plateforme officiellement sur le site web de la faculté des ' +
+            'sciences, la plateforme offre des informations détaillées sur le master concernant les actualités, les ' +
+            'événements, les activitées, les partenaires, les promotions et les lauréats... afin de donner la ' +
+            'possibilité aux candidats à découvrir le maximum d\'informations à propos de cette formation d\'étude supérieure.',
+        images:['logoMQL.png', 'platform.jpg'],
     },
     {
         id :2,
         title:'Reprise des cours',
-        date:'17-05-2020',
-        desciption:'La reprise des cours est prévu en début d\'octobre ',
+        date:'07-05-2020',
+        desciption:'La reprise des cours est prévue en début d\'octobre. ',
         images:[],
     },
     {
         id :3,
-        title:'Suspension des cours ',
-        date:'17-05-2020',
-        desciption:'A cause de COVID-19 et en suivant les pré-cautions prise par l\'état marocaine',
-        images:[],
-    },
-    {
-        id :4,
-        title:'News 4',
-        date:'17-05-2020',
-        desciption:'description news 4',
-        images:[],
-    },
-    {
-        id :5,
-        title:'News 5',
-        date:'17-05-2020',
-        desciption:'description news 5',
-        images:[],
-    },
-    {
-        id :6,
-        title:'News 6',
-        date:'17-05-2020',
-        desciption:'description news 6',
-        images:[],
+        title:'Suspension des cours',
+        date:'13-03-2020',
+        desciption:'Dans un communiqué diffusé en fin journée le vendredi 13 mars 2020, le ministère de l\'Education nationale annonce la suspension de tous les cours, des jardins d\'enfants jusqu\'à l\'enseignement supérieur à compter du lundi 16 mars 2020. ' +
+            'Sur ce nous ',
+        images:['corona.jpeg'],
     },
 
 ];

@@ -3,8 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>AppComponent</title>
+        <link rel="stylesheet" href="css/style.css">
         <script src="js/main.js"></script>
     </head>
-    <body onload="route('Home')">
+    <body onload="load()">
+        <!-- SPLASH FIRST SCREEN -->
+        <div id="splash" class="modal">
+            <div class="splash-content">
+                <img src="resources/pictures/logoMQL.png" alt="">
+                <p class="enter-phrase">MQL, la formation déstinée aux multinationales</p>
+                <div class="loader"><img src="resources/pictures/loading.gif" alt="" width="200" height="200"></div>
+            </div>
+        </div>
     </body>
 </html>
