@@ -77,9 +77,13 @@ LaureateComponent.prototype.fillMain = function () {
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span>\n' +
 				'</div></div>';
 			// INFO BODY
-			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n' +
-				'<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="' + ((laureate.photo !== "") ? "l-img" : "") +  '" src="' + img + '" alt="" onclick="popIMG(this.id)">' +
-				'<div class="description">\n' +
+			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
+			if(laureate.photo !== "") {
+				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="l-img" src="' + img + '" alt="" onclick="popIMG(this.id)">';
+			} else {
+				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" src="' + img + '" alt="">';
+			}
+			htmlContent += '<div class="description">\n' +
 				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
 				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
 				'<div class="card-desc">' +
@@ -97,6 +101,7 @@ LaureateComponent.prototype.fillMain = function () {
 				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
 			}
 			// Email :
+			if(laureate.email !== '')
 			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
 			// DESCRIPTION
 			if(laureate.rating !== ''){
@@ -121,9 +126,13 @@ LaureateComponent.prototype.fillRecomondation =function(){
 				else img = laureate.photo;
 				html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
-					'<div class="image-person">' +
-					'<img class="' + ((laureate.photo !== "") ? "l-img" : "") + '" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">' +
-					'</div>' +
+					'<div class="image-person">';
+				if(laureate.photo !== "") {
+					html_content += '<img class="l-img" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">';
+				} else {
+					html_content += '<img id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" >'
+				}
+				html_content += '</div>' +
 					'<div class="infos">' +
 					'<div class="name">' +
 					laureate.name+
@@ -199,6 +208,7 @@ LaureateComponent.prototype.hideInfos = function (id) {
 	let info = $('#' + id);
 	info.style.display = 'none';
 };
+
 LaureateComponent.prototype.updateView = function () {
 	//
 };
@@ -292,8 +302,16 @@ LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion'
 			//....
 		}
 	}
-	this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
-	this.navigate();
+	try {
+		this.page_blocks = split(this.service.db, MAX_PROMOTION_PER_PAGE);
+		this.navigate();
+	} catch (e) {
+		if(confirm('None Promotion is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
 };
 
 LaureateComponent.prototype.submitData = function (action = 'add', index = '0', target_el = 'promotion') {
@@ -358,6 +376,7 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0', 
 	closeFORM(target_el);
 	this.navigate();
 };
+
 LaureateComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#promotionSubmit');
 	submit_element.click();
@@ -368,10 +387,18 @@ function main() {
 	service = new LaureateComponentService(); 
 	service.loadPromotion(dbPromotion);
 	view = new LaureateComponent(service);
-	view.fillNavigation();
-	view.fillRecomondation();
-	view.fillMain();
-	view.fillSwitcher();
+	try {
+		view.fillNavigation();
+		view.fillRecomondation();
+		view.fillMain();
+		view.fillSwitcher();
+	} catch (e) {
+		if(confirm('None Promotion is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();

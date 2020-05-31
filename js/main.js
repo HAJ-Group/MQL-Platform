@@ -203,11 +203,9 @@ function getFooterContent() {
 
     let footerContent = '<hr><footer>' +
         '<div class="text-news-letter" onclick="$(\'#news-modal-id\').style.display = \'block\'" id="newsBlocks">' +
-        '   <span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
+        '<span style="font-size: 17px;color: white;" > S\'inscrire dans notre NewsLetter </span>' +
         '</div><hr> ';
-
-         footerContent += '' +
-        '<div class="text-partenaire"> ' +
+         footerContent += '<div class="text-partenaire"> ' +
         '<img class="right-space" src="../../resources/pictures/icons/partners.png" alt="partners" ' +
         'width="80" height="46"><span>Partenaires</span>  ' +
         '</div><hr> ' +
@@ -247,11 +245,9 @@ function getFooterContent() {
         // Copy-right
         footerContent += '</div><div class="copy-right"><span>Master Qualité du Logiciel,' +
             '<a href="#"> Faculté des sciences</a></span><span>&copy; 2020 All rights reserved</span></div>';
-
          // Elements for form-contact
         footerContent += '<div id="form-contact"></div>';
          // Elements for newsLetter
-
         footerContent += '<a href="#" class="button-news" id="news-button"></a>';
         footerContent += '<div id="news-cont"></div>';
         return footerContent;

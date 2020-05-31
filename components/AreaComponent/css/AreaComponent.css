@@ -187,6 +187,7 @@ body {
 .manage-cards {
 	width: 100%;
 	display: flex;
+	margin-left: 3%;
 }
 
 .manage-card {
@@ -244,6 +245,12 @@ body {
 		font-size: 20px;
 		width: 60%;
 		height: 30px;
+	}
+
+	.manage-cards {
+		width: 100%;
+		display: flex;
+		margin-left: 2%;
 	}
 
 }
@@ -323,6 +330,12 @@ body {
 		width: 50%;
 		margin-right: 20px;
 		margin-left: 10px;
+	}
+
+	.manage-cards {
+		width: 100%;
+		display: flex;
+		margin-left: 0;
 	}
 
 }

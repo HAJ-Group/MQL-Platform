@@ -34,17 +34,29 @@ hr {
     background-color: white;
     padding: 30px;
     overflow: hidden;
+    margin-top: -5%;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-.splash-content img {
+.splash-content > img {
     display: block;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 .splash-content p {
     display: block;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #4B4C54;
+    font-size: 40px;
+    font-family: "Open Sans", serif;
+    font-weight: bolder;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.loader img {
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1472,19 +1484,22 @@ textarea {
         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
         width: 40%; /* Could be more or less, depending on screen size */
     }
+    .splash-content > img {
+        width: 60%;
+    }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 1349px) {
+/*@media screen and (max-width: 1349px) {
     #news-button{
         display: none;
     }
 }
-/*--------------------------------------------------------------------------------------------------------------------*/
+!*--------------------------------------------------------------------------------------------------------------------*!
 @media screen and (min-width: 1350px) {
     #newsBlocks{
         display: none;
     }
-}
+}*/
 
 
 

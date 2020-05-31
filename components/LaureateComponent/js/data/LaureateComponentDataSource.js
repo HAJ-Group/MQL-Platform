@@ -13,7 +13,7 @@ let dbLaureat11=[
 		experience:['Devoceon','Apprism','Digital Factory'],
 		photo:'',
 		rating : 'Très belle formation, reconnue par toutes les entreprises marocaines, et j\'ai eu la chance de travailler avec plusieurs lauréat MQL dans les grandes SS2I marocaine ou internationales. ',
-		linked_in :'www.linkedin.com/in/saad-hjira-58458734',
+		linked_in :'https://www.linkedin.com/in/saad-hjira-58458734',
 	},
 ];
 let dbLaureat14=[
@@ -77,6 +77,20 @@ let dbLaureat17=[
 		rating : '',
 		linked_in :'',
 	},
+	{
+		id:2,
+		name:'Bennani Mehdi',
+		gender: 'M',
+		job:'Ingénieur Analyste Java / Java EE / Oracle EBS',
+		city:'Fes',
+		email:'youness.mouhim1@gmail.com',
+		stage:'CGI, casablanca',
+		current_enterprise : 'CGI',
+		experience:[],
+		photo:'',
+		rating : '',
+		linked_in :'',
+	},
 ];
 let dbLaureat18=[
 	{
@@ -134,7 +148,6 @@ let dbLaureat18=[
 		photo:'',
 		rating : '',
 		linked_in :'',
-		special:true,
 	},
 	{
 		id:5,
@@ -177,7 +190,6 @@ let dbLaureat18=[
 		photo:'',
 		rating : '',
 		linked_in :'',
-		special:true,
 	},
 	{
 		id:8,
@@ -192,6 +204,21 @@ let dbLaureat18=[
 		photo:'',
 		rating : 'La meilleure formation dans le domaine informatique et la plus adaptée au marché de travail au Maroc',
 		linked_in :'',
+	},
+	{
+		id:9,
+		name:'Basri Taha',
+		gender: 'M',
+		job:'Consultant technique',
+		city:'Casablanca',
+		email:'',
+		stage:'CGI',
+		current_enterprise : 'Oracle',
+		experience:['CGI'],
+		photo:'',
+		rating : '',
+		linked_in :'',
+		special: true,
 	},
 ];
 let dbLaureat19=[
@@ -208,7 +235,6 @@ let dbLaureat19=[
 		photo:'',
 		rating : '',
 		linked_in :'',
-		special:true,
 	},
 	{
 		id:2,
@@ -223,7 +249,6 @@ let dbLaureat19=[
 		photo:path+'elkhairy-ibtissam.jpg',
 		rating : '',
 		linked_in :'',
-		special :true,
 	},
 	{
 		id:3,
@@ -349,7 +374,7 @@ let dbLaureat19=[
 		experience:['S2M'],
 		photo:'',
 		rating : '',
-		linked_in :'www.linkedin.com/in/houda-oulachguer/',
+		linked_in :'https://www.linkedin.com/in/houda-oulachguer/',
 	},
 	{
 		id:12,
@@ -363,7 +388,7 @@ let dbLaureat19=[
 		experience:[],
 		photo:'',
 		rating : '',
-		linked_in :'www.linkedin.com/in/salma-taleb-724932142/',
+		linked_in :'https://www.linkedin.com/in/salma-taleb-724932142/',
 	},
 	{
 		id:13,
@@ -377,7 +402,7 @@ let dbLaureat19=[
 		experience:[],
 		photo:'',
 		rating : 'Une formation complète et adaptée au monde d’entreprise',
-		linked_in :'www.linkedin.com/in/hamza-berrada67/',
+		linked_in :'https://www.linkedin.com/in/hamza-berrada67/',
 	},
 	{
 		id:14,
@@ -406,6 +431,21 @@ let dbLaureat19=[
 		photo:path+'Hassan-el-mzabi.jpg',
 		rating : '',
 		linked_in :'',
+	},
+	{
+		id:16,
+		name:'Mehdi Cheracher',
+		gender: 'M',
+		job:'Software Engineer, SRE',
+		city:'Dublin, Irlande',
+		email:'',
+		stage:'Société générale',
+		current_enterprise : 'Google, Irlande',
+		experience:['Oracle Labs'],
+		photo:'',
+		rating : '',
+		linked_in :'',
+		special : true,
 	},
 ];
 

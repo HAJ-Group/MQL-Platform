@@ -1,6 +1,7 @@
 /*Global Variables*/ 
 let view; 
 let service;
+const DEFAULT_PARTNER_BG = '../../resources/pictures/Partners/new-bg.jpg';
 /*Default class*/
 function PartnerComponent(service) { 
 	//TODO: Intitialize controller for PartnerComponent 
@@ -8,14 +9,13 @@ function PartnerComponent(service) {
 	loadResources(); 
 	this.service = service; 
 	//this.table = $('#table-PartnerID'); Uncomment for apply dynamic data loading to a declared html tag by id (Add other tables if needed with associated methods)
-	this.currentblock=null;
-	this.block_menu = $('#partners-menu');
-	this.block_container = $('#partners-container');
+	this.currentblock = this.service.get(0).name;
+	this.block_menu = $('#partnersMenu');
+	this.block_container = $('#partnersContainer');
 	this.htmlSaver = {
 		menu: this.block_menu.innerHTML,
 		container: this.block_container.innerHTML
 	};
-	console.log(this.htmlSaver);
 }
 
 // Adding a row in the table member 
@@ -31,7 +31,7 @@ PartnerComponent.prototype.printPartnerList = function () {
 	} 
 };
 
-PartnerComponent.prototype.addOnePartner = function (onePartner) {
+/*PartnerComponent.prototype.addOnePartner = function (onePartner) {
 	this.block_container.innerHTML +=
 		'<div class="card" id="'+onePartner.name+'">' +
 			'<div class="card-image">' +
@@ -46,13 +46,13 @@ PartnerComponent.prototype.addOnePartner = function (onePartner) {
 				'<p class="website">Site web officiel : <a href="https://'+onePartner.website+'" target="_blank">'+onePartner.website+'</a></p>'+
 			'</div></div>'
 		;
-};
-PartnerComponent.prototype.addMenuPartners = function (onePartner) {
+};*/
+/*PartnerComponent.prototype.addMenuPartners = function (onePartner) {
 	this.block_menu.innerHTML +=
 			'<div id="menu-' + onePartner.name + '" class="partner active" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
-};
+};*/
 // Printing all service data into the table member
-PartnerComponent.prototype.printPartners = function () {
+/*PartnerComponent.prototype.printPartners = function () {
 	this.currentblock =""+this.service.get(0).name;
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addMenuPartners(this.service.get(i));
@@ -61,24 +61,81 @@ PartnerComponent.prototype.printPartners = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addOnePartner(this.service.get(i));
 	}
+};*/
+
+
+
+PartnerComponent.prototype.fillPartnersMenu = function() {
+	let htmlContent = this.htmlSaver.menu;
+	for(let partner of this.service.db) {
+		htmlContent += '<div id="menu-' + partner.name + '" class="partner active" ' +
+			'onclick=view.show("'+partner.name+'")>'+partner.name+'</div>';
+	}
+	// ADD NEW BLOCK
+	if(localStorage.getItem('ACCESS') !== 'null') {
+		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
+	}
+	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">';
+	this.block_menu.innerHTML = htmlContent;
 };
-PartnerComponent.prototype.show = function (id) {
-    let hide_block= $('#' + this.currentblock);
+
+PartnerComponent.prototype.fillPartners = function() {
+	let htmlContent = this.htmlSaver.container;
+	let i = 0;
+	for(let partner of this.service.db) {
+		htmlContent += '<div class="card" id="'+partner.name+'">' +
+			'<div class="card-image">' +
+			'<img src="'+partner.bg+'" alt="">' +
+			'</div>';
+		if(localStorage.getItem('ACCESS') !== 'null') {
+			htmlContent += '<div class="partner-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
+				'class="sh-icon" onclick="view.editData(' + i + ')">' +
+				'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
+				'class="sh-icon" onclick="view.deleteData(' + i + ')"></div>';
+		}
+		htmlContent +='<div class="card-body">' +
+			'<div class="title" style="color: ' + partner.color + '">'+partner.name+'</div>' +
+			'<div class="ca">Chiffre d\'affaire :'+partner.ca+'</div><hr>'+
+			'<p class="description">'+partner.description+'</p>'+
+			'<p class="description">Sur : '+partner.zone+'.</p>'+
+			'<p class="colabs">Nombre de collobaroteurs de MQL chez '+partner.name+' est :'+partner.nbr_colla+'</p>'+
+			'<img src="' + partner.image + '" class="micro-logo" alt="">' +
+			'<p class="website">Site web officiel : <a href="https://'+partner.website+'" target="_blank">'+partner.website+'</a></p>'+
+			'</div></div>';
+		i++;
+	}
+	this.block_container.innerHTML = htmlContent;
+};
+
+
+// SHOW AND HIDE METHODS
+PartnerComponent.prototype.show = function (id, top = false) {
+	// block to hide is the current block
+    let hide_block = $('#' + this.currentblock);
 	$('#menu-' + this.currentblock).classList.remove('active');
+	// block to show is the clicked block
 	let show_block = $('#' + id);
-	this.currentblock=id;
+	this.currentblock = id;
     hide_block.style['display'] = 'none';
     show_block.style['display'] = 'block';
     $('#menu-' + id).classList.add('active');
+    if(top) location.href = '#' + id;
 };
-PartnerComponent.prototype.show2 = function (id) {
-	view.show(id);
-};
+
 PartnerComponent.prototype.hideAll = function () {
-	for (let i = 1; i < this.service.size(); i++) {
+	for (let i = 0; i < this.service.size(); i++) {
 		let partner = $('.card')[i];
 		partner.style['display'] = 'none';
 		$('.partner')[i].classList.remove('active');
+	}
+	this.show(this.currentblock);
+};
+
+// LINKING FROM FOOTER METHODS
+PartnerComponent.prototype.ajustLinks = function () {
+	let links = $('.img-partenaire');
+	for(let link of links) {
+		link.setAttribute('onclick', 'view.show(\'' + link.id + '\', true)');
 	}
 };
 
@@ -86,16 +143,11 @@ PartnerComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
 	if(anchor !== undefined) {
 		$('#menu-' + anchor).click();
-		route('#' + anchor);
 	}
 };
 
-PartnerComponent.prototype.ajustLinks = function () {
-	let links = $('.img-partenaire');
-	for(let link of links) {
-		link.setAttribute('onclick', 'view.show2(\'' + link.id + '\')');
-	}
-};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* FORM SERVICES */
 PartnerComponent.prototype.addData = function() {
 	$('#partnerSubmit').setAttribute('onclick', 'view.submitData()');
@@ -109,7 +161,6 @@ PartnerComponent.prototype.editData = function(index) {
 	let el_desc = $('#partnerDescription');
 	let el_co=$('#partnerCo');
 	let el_website=$('#partnerWebSite');
-
 	//....
 	let target = this.service.get(index);
 	el_name.value = target.name;
@@ -127,7 +178,17 @@ PartnerComponent.prototype.deleteData = function(index) {
 	if(confirm('Are you sure you want to delete this Partner ?')) {
 		this.service.remove(index);
 		//....
-		this.navigate();
+		try {
+			this.currentblock = this.service.get(0).name;
+			this.navigate();
+		} catch (e) {
+			if(confirm('None Partner is found! Add new one ?')) {
+				view.addData();
+			} else {
+				route('../Home');
+			}
+		}
+
 	}
 };
 
@@ -141,7 +202,7 @@ PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 	let website=$('#partnerWebSite').value;
 	//...
 	if(action === 'add') {
-		this.service.add(new Partner(this.service.size() + 1,'',name,ca,desc,co,[],website,''));
+		this.service.add(new Partner(this.service.size() + 1, DEFAULT_PARTNER_BG,name,color,ca,desc,co,'',website));
 	}
 	if(action === 'edit') {
 		let target = this.service.get(index);
@@ -155,52 +216,39 @@ PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 		$('#partnerSubmit').setAttribute('onclick', 'view.submitData()');
 	}
 	closeFORM();
+	this.currentblock = name;
 	this.navigate();
 };
+
 PartnerComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#partnerSubmit');
 	submit_element.click();
 };
-PartnerComponent.prototype.addButtons = function() {
-	let names = $('.title');
-	let i=0;
-	for (let name of names) {
-		if(localStorage.getItem('ACCESS') !== 'null') {
-			// ADD EDIT AND DELETE ICONS
-			name.innerHTML += '<img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
-				'class="sh-icon" onclick="view.editData(' + i + ')">' +
-				'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
-				'class="sh-icon" onclick="view.deleteData(' + i + ')">';
-		}
-		i++;
-	}
-	if(localStorage.getItem('ACCESS') !== 'null') {
-		// ADD NEW ICON BLOCK
-		let saver = $('.sub-content')[0];
-		saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' ;
-	}
-};
+
 PartnerComponent.prototype.navigate = function() {
-	this.block_menu.innerHTML = this.htmlSaver.menu;
-	this.block_container.innerHTML = this.htmlSaver.container;
-	view.printPartners();
+	view.fillPartnersMenu();
+	view.fillPartners();
 	view.hideAll();
-	view.trigger();
-	view.ajustLinks();
-	view.addButtons();
-	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 };
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() {
 	service = new PartnerComponentService(); 
 	service.load(dbPartner);
-	view = new PartnerComponent(service); 
-	//view.printPartnerList(); Uncomment to print data in table member
-	view.printPartners();
-	view.hideAll();
-	view.trigger();
-	view.ajustLinks();
-	//view.addButtons();
+	view = new PartnerComponent(service);
+	try {
+		view.fillPartnersMenu();
+		view.fillPartners();
+		view.hideAll();
+		view.trigger();
+		view.ajustLinks();
+	} catch (e) {
+		if(confirm('None Partner is found! Add new one ?')) {
+			view.addData();
+		} else {
+			route('../Home');
+		}
+	}
+	// Stays Last
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 }

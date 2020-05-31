@@ -14,23 +14,14 @@ let dbNews = [
         id :2,
         title:'Reprise des cours',
         date:'07-05-2020',
-        desciption:'La reprise des cours est prévu en début d\'octobre ',
+        desciption:'La reprise des cours est prévue en début d\'octobre. ',
         images:[],
     },
     {
         id :3,
-        title:'Compte Rendue concernant les Design Patterns',
-        date:'21-04-2020',
-        desciption:'Il est demandé de préparer un compte rendu (individuel) sur les 12 design patterns étudiés jusque ' +
-            'là. Il s\'agit d\'un document Word contenant un explicatif associé à chaque design pattern (ce que vous ' +
-            'avez compris) : Diagrammes, Code, texte, etc.',
-        images:[],
-    },
-    {
-        id :4,
         title:'Suspension des cours',
         date:'05-04-2020',
-        desciption:'A cause de COVID-19 et en suivant les pré-cautions prise par l\'état marocaine',
+        desciption:'À cause de COVID-19 et suivant les pré-cautions prisent par l\'état marocaine, les cours seront reportés à une date prochaine.',
         images:[],
     },
 
