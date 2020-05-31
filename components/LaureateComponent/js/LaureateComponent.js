@@ -75,9 +75,9 @@ LaureateComponent.prototype.fillMain = function () {
 			// LIST ITEM
 			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
 				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'+
-				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span>\n' +
-				'</div></div>';
+				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'
+				+'<span onclick="window.location.href=\'' + laureate.linked_in  + '\'" class="linkedin"></span>\n'
+				+'</div></div>';
 			// INFO BODY
 			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
 			if(laureate.photo !== "") {
