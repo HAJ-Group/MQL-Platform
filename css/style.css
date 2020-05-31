@@ -1193,31 +1193,29 @@ a.links:hover{
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*
 
-input[type=text], input[type=password], input[type=email], textarea {
+.zone-text-contact-news {
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
-    !* display: inline-block;*!
+    /* display: inline-block;*/
     border: none;
     background: #f1f1f1;
     font-size: 18px;
 }
 
-!*--------------------------------------------------------------------------------------------------------------------*!
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus{
+/*--------------------------------------------------------------------------------------------------------------------*/
+.zone-text-contact-news:focus{
 
     background-color: #ddd;
     outline: 2px solid #68b0ee;
 }
 
-!*--------------------------------------------------------------------------------------------------------------------*!
+/*--------------------------------------------------------------------------------------------------------------------*/
 textarea {
     resize: none;
 }
-*/
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -1347,9 +1345,9 @@ textarea {
 .button-news {
     position: fixed;
     left: 0;
-    top: 200px;
-    width: auto;
-    height: 30px;
+    top: 350px;
+    width: 60px;
+    height: 60px;
     padding: 8px;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -1360,13 +1358,14 @@ textarea {
     font-size: 17px;
     line-height: 20px;
     text-decoration: none; /* remove underline from anchors */
-    background-color: #dd4b39;
+
+    background: url("../resources/pictures/paper-plane-1.png") no-repeat;
     color: white;
 
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .button-news:hover {
-    background-color: darkslateblue;
+    background: url("../resources/pictures/paper-plane-2.png") no-repeat;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 

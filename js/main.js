@@ -251,7 +251,8 @@ function getFooterContent() {
          // Elements for form-contact
         footerContent += '<div id="form-contact"></div>';
          // Elements for newsLetter
-        footerContent += '<a href="#" class="button-news" id="news-button">News ></a>';
+
+        footerContent += '<a href="#" class="button-news" id="news-button"></a>';
         footerContent += '<div id="news-cont"></div>';
         return footerContent;
 }
@@ -694,13 +695,13 @@ function loadContactForm() {
         '<h3 style="text-align: center">Contactez-nous directement</h3>' +
         '<hr>' +
         '<label for="first-name"><b>Prénom</b></label>' +
-        '<input type="text" placeholder="Prénom..." name="first-name">' +
+        '<input class="zone-text-contact-news" type="text" placeholder="Prénom..." name="first-name">' +
         '<label for="last-name"><b>Nom </b></label>' +
-        '<input type="text" placeholder="Nom..." name="last-name">' +
+        '<input class="zone-text-contact-news" type="text" placeholder="Nom..." name="last-name">' +
         '<label for="email"><b>Email </b></label>' +
-        '<input type="email" placeholder="Email..." name="email">' +
+        '<input class="zone-text-contact-news" type="email" placeholder="Email..." name="email">' +
         '<label for="subject">Sujet </label>' +
-        '<textarea id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>' +
+        '<textarea class="zone-text-contact-news" id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>' +
         '<div class="form-footer"> ' +
         '<button type="button" onclick="$(\'#form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button> ' +
         '<button type="submit" class="button-contact-2 submit-button">Envoyer</button> ' +
@@ -728,9 +729,9 @@ function loadNewsLetter() {
         '<div class="modal-body">' +
         '<p>Inscrivez-vous dans notre NewsLetter pour recevoir nos actualités et événements.</p>' +
         '<lebel for="full-name" style="font-size: 18px;">Votre Nom : </lebel>' +
-        '<input type="text" name="full-name" placeholder="Nom..."> ' +
+        '<input class="zone-text-contact-news" type="text" name="full-name" placeholder="Nom..."> ' +
         '<lebel for="email" style="font-size: 18px;">Votre Email : </lebel>' +
-        '<input type="email" name="email" placeholder="Email..."> ' +
+        '<input class="zone-text-contact-news" type="email" name="email" placeholder="Email..."> ' +
         '</div>' +
         '<button class="subscribe-button" type="submit">S\'inscrire</button>' +
         '</form>' +
@@ -759,7 +760,7 @@ function closeModal() {
         btn.style.display = 'none';
     };
     // Get the <span> element that closes the modal
-    let span = $(".close-part")[0];
+    let span =$(".close-part")[0];
        // When the user clicks on <span> (x), close the modal
        span.onclick = function() {
            newsModal.style.display = "none";
