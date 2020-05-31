@@ -1143,8 +1143,7 @@ a.links:hover{
 #scroll-top {
     display: none;
     position: fixed;
-    top: 85%;
-    /*top: 650px;*/
+    bottom: 30px;
     right: 30px;
     font-size: 18px;
     border: none;
@@ -1354,11 +1353,9 @@ textarea {
 .button-news {
     position: fixed;
     right: 30px;
-    top: 75%;
-  /*  top: 580px;*/
+    bottom: 95px;
     width: 55px;
     height: 55px;
-
     border-radius: 0 8px 8px 0;
     display: flex;
     justify-content: center;
@@ -1489,17 +1486,17 @@ textarea {
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*@media screen and (max-width: 1349px) {
+@media screen and (max-width: 699px) {
     #news-button{
         display: none;
     }
 }
-!*--------------------------------------------------------------------------------------------------------------------*!
-@media screen and (min-width: 1350px) {
+/*--------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width: 700px) {
     #newsBlocks{
         display: none;
     }
-}*/
+}
 
 
 
