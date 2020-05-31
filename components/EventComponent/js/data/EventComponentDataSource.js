@@ -106,7 +106,7 @@ let dbEvent = [
 				type:'image-grid',
 				title:'Galerie',
 				description:'',
-				images: ['../../resources/pictures/mqlfam.JPG'],
+				images: ['../../resources/pictures/mqlfam.JPG','../../resources/pictures/sortie.jpg'],
 			},
 		],
 	},

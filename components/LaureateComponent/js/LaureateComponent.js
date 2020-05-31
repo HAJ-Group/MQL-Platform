@@ -2,9 +2,10 @@
 let view; 
 let service;
 let current_page_number = 1;
-const MAX_PROMOTION_PER_PAGE = 5;
+const MAX_PROMOTION_PER_PAGE = 13;
 const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
 const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
+let k;
 /*Default class*/ 
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
@@ -155,6 +156,47 @@ LaureateComponent.prototype.fillRecomondation =function(){
 	}
 	this.block_recommendation.innerHTML = html_content;
 };
+LaureateComponent.prototype.fillRecomondationAleatoire =function(){
+	let html_content='';
+	let tmp =Math.floor(Math.random()*this.service.special.length);
+	if(k==tmp){
+		view.fillRecomondationAleatoire();
+	}
+	else{
+	k=tmp;
+	let laureate = this.service.special[k];
+				html_content+='<div class="recommendation">' +
+					'<div class="image-and-infos">' +
+					'<div class="image-person">' +
+					'<img  id="reco-img-' + laureate.id + '"  src="' + laureate.photo + '" alt="" onclick="popIMG(this.id)">' +
+					'</div>' +
+					'<div class="infos">' +
+					'<div class="name">' +
+					laureate.name+
+					'</div>' +
+					'<div class="society">' +
+					laureate.job+' à '+laureate.current_enterprise+
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<div class="opinion">' +
+					'<p>' +
+					'<q>' +
+					laureate.rating+
+					'</q>' +
+					'</p>' +
+					'</div>' +
+					'</div>';
+	}
+
+	this.block_recommendation.innerHTML += html_content;
+};
+LaureateComponent.prototype.aleatoire = function (number) {
+	for (let i=0;i<number;i++){
+		view.fillRecomondationAleatoire();
+	}
+};
+
 /**
  * Create page switcher dynamically
  */
@@ -386,11 +428,12 @@ LaureateComponent.prototype.triggerSubmit = function () {
 function main() { 
 	service = new LaureateComponentService(); 
 	service.loadPromotion(dbPromotion);
+	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
 	try {
 		view.fillNavigation();
-		view.fillRecomondation();
 		view.fillMain();
+		view.aleatoire(2);
 		view.fillSwitcher();
 	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {

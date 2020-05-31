@@ -7,13 +7,14 @@ let dbLaureat11=[
 		gender: 'M',
 		job:'Consultant Senior JAVA/JAVA EE',
 		city:'Casablanca',
-		email:'',
+		email:'test',
 		stage:'IB Maroc',
 		current_enterprise : 'Capgemini',
 		experience:['Devoceon','Apprism','Digital Factory'],
-		photo:'',
+		photo:'test',
 		rating : 'Très belle formation, reconnue par toutes les entreprises marocaines, et j\'ai eu la chance de travailler avec plusieurs lauréat MQL dans les grandes SS2I marocaine ou internationales. ',
 		linked_in :'https://www.linkedin.com/in/saad-hjira-58458734',
+		special : true,
 	},
 ];
 let dbLaureat14=[
@@ -28,8 +29,9 @@ let dbLaureat14=[
 		current_enterprise : 'Total Direct Energie',
 		experience:['Capgemini'],
 		photo:path+'Badr-ZEROUAL.jpeg',
-		rating : '',
-		linked_in :'',
+		rating : 'test',
+		linked_in :'test',
+		special : true,
 	},
 ];
 let dbLaureat16=[
@@ -73,7 +75,7 @@ let dbLaureat17=[
 		stage:'CGI',
 		current_enterprise : 'Vivaliente Inc',
 		experience:['CGI'],
-		photo:path+'Youness-Mouhim',
+		photo:path+'Youness-Mouhim.jpg',
 		rating : '',
 		linked_in :'',
 	},
@@ -173,7 +175,7 @@ let dbLaureat18=[
 		stage:'Capgemeni',
 		current_enterprise : 'Capgemeni',
 		experience:[],
-		photo:path+'Selma-Elmansour',
+		photo:path+'Selma-Elmansour.jpg',
 		rating : '',
 		linked_in :'',
 	},
@@ -218,7 +220,7 @@ let dbLaureat18=[
 		photo:'',
 		rating : '',
 		linked_in :'',
-		special: true,
+		special: false,
 	},
 ];
 let dbLaureat19=[
