@@ -1,6 +1,7 @@
 /*Global Variables*/ 
 let view; 
 let service;
+/*--------------------------------------------------------------------------------------------------------------------*/
 /*Default class*/ 
 function HomeComponent(service) { 
 	current_component = 'Home';
@@ -10,7 +11,7 @@ function HomeComponent(service) {
 	this.table_news= $("#table-news");
 	this.news_idSaver = [];
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Program table builder
  * @param program
@@ -24,12 +25,13 @@ HomeComponent.prototype.addColumn=function (program) {
 	}
 	cell.innerHTML += "</ul>" +"<br>";
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 HomeComponent.prototype.printSemesters=function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addColumn(this.service.get(i));
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * News Table builder (Related Service with NewsComponent)
  * @param news
@@ -40,7 +42,7 @@ HomeComponent.prototype.addNews=function (news) {
 	row.insertCell().innerHTML = formattedDate(news.date);
 	row.insertCell().innerHTML = news.title;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 HomeComponent.prototype.printNews=function (max = 5) {
 	let service = new NewsComponentService();
 	service.load(dbNews);
@@ -49,7 +51,7 @@ HomeComponent.prototype.printNews=function (max = 5) {
 		this.addNews(service.get(i));
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * News link managers
  */
@@ -62,10 +64,7 @@ HomeComponent.prototype.setNewsRoutes = function () {
 		}
 	}
 };
-
-
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */
 function main() {
 	service = new HomeComponentService();
@@ -79,5 +78,5 @@ function main() {
 	detect_subContent_trigger_left_bar();
 	createBook(dbHomeImages);
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 
