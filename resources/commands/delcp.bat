@@ -7,4 +7,4 @@ Rem creating hierachies directories
 cd components
 rmdir /S /Q %dir%
 cd ..
-echo %dir% successfully deleted a wlad nass
+echo %dir% successfully deleted
