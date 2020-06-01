@@ -132,13 +132,9 @@ LaureateComponent.prototype.fillRandomRecomendation =function(){
 		else imageR = laureate.photo;
 		html_content+='<div class="recommendation">' +
 			'<div class="image-and-infos">' +
-			'<div class="image-person">';
-		if(laureate.photo !== '') {
-			html_content += '<img class="l-img" id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="" onclick="popIMG(this.id)">';
-		} else {
-			html_content += '<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="">';
-		}
-		html_content += '</div>' +
+			'<div class="image-person">'+
+			'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="">'+
+			'</div>' +
 			'<div class="infos">' +
 			'<div class="name">' +
 			laureate.name+

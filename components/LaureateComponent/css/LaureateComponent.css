@@ -294,7 +294,7 @@ q:after{
 	}
 
 	.card-laureate .description {
-		width: 100%;
+		width: 95%;
 		padding: 10px;
 		animation-name: zoom;
 		animation-duration: 0.6s;
@@ -305,7 +305,7 @@ q:after{
 	}
 
 	.card-laureate img {
-		width: 25%;
+		width: 30%;
 		height: 100px;
 		border-radius: 10px;
 	}
@@ -313,8 +313,8 @@ q:after{
 	.card-laureate .element {
 		color: white;
 		display: block;
-		margin-left: 30%;
-		max-width: 50%;
+		margin-left: 35%;
+		max-width: 60%;
 		font-size: 25px;
 		font-weight: bolder;
 		margin-top: -80px;
@@ -329,7 +329,7 @@ q:after{
 	}
 
 	.linkedin {
-		margin-right: 15px;
+		margin-right: 25px;
 	}
 
 }

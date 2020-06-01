@@ -490,7 +490,7 @@ let dbLaureat19=[
 		current_enterprise : 'Capgemini',
 		experience:['Umanis'],
 		photo:path+'Hicham-el-mourabet.jpg',
-		rating : '',
+		rating : 'En toute honnêteté, je peux dire que c’est le meilleur master au Maroc. En effet, la formation n’est pas uniquement consacrée aux aspects techniques mais aussi aux soft skills pour intégrer de la meilleure manière le monde de l’entreprise. Contrairement à d’autres masters ou bien d’autres grandes écoles, l’insertion professionnelle de ce master est proche de 100 %. En effet, ce master a réussi à se démarquer et à rompre la mauvaise image qu’on peut avoir de l’université au Maroc. Ce master a donc beaucoup de succès auprès des entreprises. En fin de compte, je ne peux que remercier le responsable de ce master pour m’avoir permis de vivre cette incroyable expérience qui a lancé ma carrière professionnelle.',
 		linked_in :'https://www.linkedin.com/in/hicham-elmorabet-a70044172/',
 	},
 	{
@@ -712,8 +712,9 @@ let dbPromotion= [
 		name:'Promotion 2009-2011',
 		date:'01-06-2011',
 		content : dbLaureat11,
-	},{
-		id : 'p0911',
+	},
+	{
+		id : 'p1113',
 		name:'Promotion 2011-2013',
 		date:'01-06-2013',
 		content : dbLaureat13,
