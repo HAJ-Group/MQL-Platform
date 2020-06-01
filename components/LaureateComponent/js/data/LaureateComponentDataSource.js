@@ -16,6 +16,22 @@ let dbLaureat11=[
 		linked_in :'https://www.linkedin.com/in/saad-hjira-58458734',
 	},
 ];
+let dbLaureat13=[
+	{
+		id:1,
+		name:'Bekkali mohammed',
+		gender: 'M',
+		job:'Professeur d’enseignement supérieur',
+		city:'Fes',
+		email:'',
+		stage:'',
+		current_enterprise : 'Université Sidi Mohammed Ben Abdellah',
+		experience:['Etige'],
+		photo:'',
+		rating : '',
+		linked_in :'https://www.linkedin.com/in/mohammed-bekkali-3b632b74/',
+	},
+];
 let dbLaureat14=[
 	{
 		id:1,
@@ -696,6 +712,11 @@ let dbPromotion= [
 		name:'Promotion 2009-2011',
 		date:'01-06-2011',
 		content : dbLaureat11,
+	},{
+		id : 'p0911',
+		name:'Promotion 2011-2013',
+		date:'01-06-2013',
+		content : dbLaureat13,
 	},
 	{
 		id : 'p1214',

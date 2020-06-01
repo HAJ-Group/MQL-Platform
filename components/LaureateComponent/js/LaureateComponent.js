@@ -125,11 +125,11 @@ LaureateComponent.prototype.fillRandomRecomondation =function(){
 	else{
 	k=tmp;
 	let laureate = this.service.special[k];
-		if(laureate.photo === ''){
-			imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+	let imageR=laureate.photo;
+        if(laureate.photo === ''){
+			 imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
 		}
-		else imageR = laureate.photo;
-				html_content+='<div class="recommendation">' +
+        html_content+='<div class="recommendation">' +
 					'<div class="image-and-infos">' +
 					'<div class="image-person">' +
 					'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="" onclick="popIMG(this.id)">' +
