@@ -399,7 +399,8 @@ header {
 /* Modal Content (image) */
 .modal-content {
     width: 100%;
-    max-width: 1000px;
+    max-width: 700px;
+    max-height: 700px;
     display: block;
     margin: 0 auto;
     -webkit-animation-name: zoom;

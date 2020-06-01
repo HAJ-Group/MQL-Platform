@@ -334,7 +334,7 @@ let dbLaureat18=[
 		current_enterprise : 'CGI',
 		experience:[],
 		photo:path+'ayoub-dadi.jpg',
-		rating : '',
+		rating : 'La période qu’on a passée au master MQL ce n’était pas juste une période d’étude, mais une expérience humaine et professionnelle riche dans laquelle nous avons partagé des moments agréables avec des meilleures personnes',
 		linked_in :'https://www.linkedin.com/in/ayoub-dadi-ba0a63105/',
 	},
 	{
