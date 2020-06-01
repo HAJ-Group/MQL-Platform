@@ -288,8 +288,8 @@ let dbLaureat18=[
 		current_enterprise : 'Salesforce',
 		experience:['Umanis'],
 		photo:path+'Aymane-Hammioui.jpg',
-		rating : 'La formation MQL est une formation d\'excellence et aujourd\'hui les lauréats MQL sont présents dans toutes les structures du conseil IT surtout dans les grands parcs technologiques tels que Casa Neareshore et rabat Technopolis. \n' +
-			'Grâce aux efforts de notre coordinateur Mr Chenfour Noureddine et aux efforts des étudiants et professeurs, nous avons pu acquérir, durant les 2 années de formation, des compétences très solides dans l\'ingénierie logicielle et cela nous a permis de s’intégrer facilement dans le monde professionnel et de montrer une grande efficacité et productivité.\n' +
+		rating : 'La formation MQL est une formation d\'excellence et aujourd\'hui les lauréats MQL sont présents dans toutes les structures du conseil IT surtout dans les grands parcs technologiques tels que Casa Neareshore et Rabat Technopolis. \n' +
+			'Grâce aux efforts de notre coordonateur Mr Chenfour Noureddine et aux efforts des étudiants et professeurs, nous avons pu acquérir, durant les 2 années de formation, des compétences très solides dans l\'ingénierie logicielle et cela nous a permis de s’intégrer facilement dans le monde professionnel et de montrer une grande efficacité et productivité.\n' +
 			'Ce qui diffère le master MQL c’est le fait que nous sommes formés non seulement sur l’aspect technique mais aussi sur l’aspect communication et savoir être, aussi sur l’aspect psychique, tous ces aspects sont très importants et ce sont des éléments qui, aujourd’hui, diffèrent les étudiants MQL des autres étudiants issus des autres formations. Nous sommes très fiers d’être MQListes et très fière d’être formés par un grand professeur qui maîtrise parfaitement ce qu’il fait et qui nous a donné tous les moyens pour dire en toute confiance : On est les meilleurs (en fait nous le disons pas mais nous le montrons).',
 		linked_in :'',
 	},
@@ -467,7 +467,7 @@ let dbLaureat19=[
 		id:1,
 		name:'EL MORABET Hicham',
 		gender: 'M',
-		job:'I.E.D',
+		job:'Stagiaire',
 		city:'Lyon',
 		email:'elmorabethicham@gmail.com',
 		stage:'Umanis',
@@ -488,7 +488,7 @@ let dbLaureat19=[
 		current_enterprise : 'BITS',
 		experience:['Cegedim'],
 		photo:path+'elkhairy-ibtissam.jpg',
-		rating : '',
+		rating : 'Nous avons réussi à MQL grâce à notre professeur Mr Chenfour',
 		linked_in :'https://www.linkedin.com/in/ibtissam-el-khairy-173b33141/',
 	},
 	{

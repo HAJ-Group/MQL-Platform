@@ -203,7 +203,6 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 		let target = this.service.get(index);
 		target.title = title;
 		target.description = desc;
-		//target.date = new Date();
 		//...
 		$('#eventSubmit').setAttribute('onclick', 'view.submitData()');
 	}

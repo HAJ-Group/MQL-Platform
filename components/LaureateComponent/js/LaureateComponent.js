@@ -116,47 +116,6 @@ LaureateComponent.prototype.fillMain = function () {
 	this.block_main.innerHTML = htmlContent;
 };
 
-LaureateComponent.prototype.fillRecomondation =function(){
-	let img;
-	let html_content='';
-	for(let promotion of this.service.db){
-		for(let laureate of promotion.content){
-			if(laureate.special){
-				if(laureate.photo === ''){
-					img = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
-				}
-				else img = laureate.photo;
-				html_content+='<div class="recommendation">' +
-					'<div class="image-and-infos">' +
-					'<div class="image-person">';
-				if(laureate.photo !== "") {
-					html_content += '<img class="l-img" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">';
-				} else {
-					html_content += '<img id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" >'
-				}
-				html_content += '</div>' +
-					'<div class="infos">' +
-					'<div class="name">' +
-					laureate.name+
-					'</div>' +
-					'<div class="society">' +
-					laureate.job+' à '+laureate.current_enterprise+
-					'</div>' +
-					'</div>' +
-					'</div>' +
-					'<div class="opinion">' +
-					'<p>' +
-					'<q>' +
-					laureate.rating+
-					'</q>' +
-					'</p>' +
-					'</div>' +
-					'</div>'
-			}
-		}
-	}
-	this.block_recommendation.innerHTML = html_content;
-};
 LaureateComponent.prototype.fillRandomRecomondation =function(){
 	let html_content='';
 	let tmp =Math.floor(Math.random()*this.service.special.length);
@@ -197,6 +156,7 @@ LaureateComponent.prototype.fillRandomRecomondation =function(){
 	this.block_recommendation.innerHTML += html_content;
 };
 LaureateComponent.prototype.random = function () {
+	this.block_recommendation.innerHTML='';
 	for (let i=0;i<2;i++){
 		this.fillRandomRecomondation();
 	}

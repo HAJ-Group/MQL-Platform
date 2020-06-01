@@ -84,8 +84,8 @@ body {
 .linkedin {
 	background-image: url('../../../resources/pictures/linkedin.png');
 	background-repeat: no-repeat;
-	width: 40px;
-	height: 40px;
+	width: 65px;
+	height: 45px;
 	display: block;
 	margin-left: auto;
 }
@@ -114,10 +114,10 @@ body {
 
 .quotes {
 	float: left;
-	background-image: url('../../../resources/pictures/Laureates/quotes.png');
+	background-image: url('../../../resources/pictures/quote.png');
 	background-repeat: no-repeat;
-	width: 25px;
-	height: 25px;
+	width: 33px;
+	height: 32px;
 	margin-top: 20px;
 	margin-right: 10px;
 	opacity: 0.6;

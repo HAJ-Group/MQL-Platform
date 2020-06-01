@@ -7,6 +7,9 @@ body {
 	padding-top: 50px;
 }
 .partners-menu {
+	font-family: 'Agency FB',Montserrat,Serif;
+	font-size: 22px;
+	font-weight: bold;
 	position: relative;
 	width: 30%;
 	margin-left: 5px;
