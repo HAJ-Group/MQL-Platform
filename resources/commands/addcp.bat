@@ -129,4 +129,4 @@ echo %tab%margin:auto; >> %dir%\css\%dir%.css
 echo } >> %dir%\css\%dir%.css
 Rem finishing up
 cd ..
-echo %dir% successfully created a wlad nass
+echo %dir% successfully created
