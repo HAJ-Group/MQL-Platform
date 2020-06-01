@@ -16,6 +16,22 @@ let dbLaureat11=[
 		linked_in :'https://www.linkedin.com/in/saad-hjira-58458734',
 	},
 ];
+let dbLaureat13=[
+	{
+		id:1,
+		name:'Bekkali mohammed',
+		gender: 'M',
+		job:'Professeur d’enseignement supérieur',
+		city:'Fes',
+		email:'',
+		stage:'',
+		current_enterprise : 'Université Sidi Mohammed Ben Abdellah',
+		experience:['Etige'],
+		photo:'',
+		rating : '',
+		linked_in :'https://www.linkedin.com/in/mohammed-bekkali-3b632b74/',
+	},
+];
 let dbLaureat14=[
 	{
 		id:1,
@@ -29,7 +45,7 @@ let dbLaureat14=[
 		experience:['Capgemini'],
 		photo:path+'Badr-ZEROUAL.jpeg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/badr-zeroual-90b36b85/',
 	},
 ];
 let dbLaureat15=[
@@ -153,7 +169,7 @@ let dbLaureat17=[
 		id:1,
 		name:'Mouhim Youness',
 		gender: 'M',
-		job:'Consultant Oracle applications confirmé',
+		job:'Consultant Oracle applications confirmé, Scrum Master',
 		city:'France',
 		email:'youness.mouhim1@gmail.com',
 		stage:'CGI',
@@ -161,7 +177,7 @@ let dbLaureat17=[
 		experience:['CGI'],
 		photo:path+'Youness-Mouhim.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/youness-mouhim-75918597/',
 	},
 	{
 		id:2,
@@ -288,8 +304,8 @@ let dbLaureat18=[
 		current_enterprise : 'Salesforce',
 		experience:['Umanis'],
 		photo:path+'Aymane-Hammioui.jpg',
-		rating : 'La formation MQL est une formation d\'excellence et aujourd\'hui les lauréats MQL sont présents dans toutes les structures du conseil IT surtout dans les grands parcs technologiques tels que Casa Neareshore et rabat Technopolis. \n' +
-			'Grâce aux efforts de notre coordinateur Mr Chenfour Noureddine et aux efforts des étudiants et professeurs, nous avons pu acquérir, durant les 2 années de formation, des compétences très solides dans l\'ingénierie logicielle et cela nous a permis de s’intégrer facilement dans le monde professionnel et de montrer une grande efficacité et productivité.\n' +
+		rating : 'La formation MQL est une formation d\'excellence et aujourd\'hui les lauréats MQL sont présents dans toutes les structures du conseil IT surtout dans les grands parcs technologiques tels que Casa Neareshore et Rabat Technopolis. \n' +
+			'Grâce aux efforts de notre coordonateur Mr Chenfour Noureddine et aux efforts des étudiants et professeurs, nous avons pu acquérir, durant les 2 années de formation, des compétences très solides dans l\'ingénierie logicielle et cela nous a permis de s’intégrer facilement dans le monde professionnel et de montrer une grande efficacité et productivité.\n' +
 			'Ce qui diffère le master MQL c’est le fait que nous sommes formés non seulement sur l’aspect technique mais aussi sur l’aspect communication et savoir être, aussi sur l’aspect psychique, tous ces aspects sont très importants et ce sont des éléments qui, aujourd’hui, diffèrent les étudiants MQL des autres étudiants issus des autres formations. Nous sommes très fiers d’être MQListes et très fière d’être formés par un grand professeur qui maîtrise parfaitement ce qu’il fait et qui nous a donné tous les moyens pour dire en toute confiance : On est les meilleurs (en fait nous le disons pas mais nous le montrons).',
 		linked_in :'',
 	},
@@ -305,7 +321,7 @@ let dbLaureat18=[
 		experience:['Capgemini'],
 		photo:path+'Filali-Sadiq.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/safae-filali-sadiq-622b9a119/',
 	},
 	{
 		id:3,
@@ -319,7 +335,7 @@ let dbLaureat18=[
 		experience:[],
 		photo:path+'ayoub-dadi.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/ayoub-dadi-ba0a63105/',
 	},
 	{
 		id:4,
@@ -467,14 +483,14 @@ let dbLaureat19=[
 		id:1,
 		name:'EL MORABET Hicham',
 		gender: 'M',
-		job:'I.E.D',
+		job:'Stagiaire',
 		city:'Lyon',
 		email:'elmorabethicham@gmail.com',
 		stage:'Umanis',
 		current_enterprise : 'Capgemini',
 		experience:['Umanis'],
 		photo:path+'Hicham-el-mourabet.jpg',
-		rating : '',
+		rating : 'En toute honnêteté, je peux dire que c’est le meilleur master au Maroc. En effet, la formation n’est pas uniquement consacrée aux aspects techniques mais aussi aux soft skills pour intégrer de la meilleure manière le monde de l’entreprise. Contrairement à d’autres masters ou bien d’autres grandes écoles, l’insertion professionnelle de ce master est proche de 100 %. En effet, ce master a réussi à se démarquer et à rompre la mauvaise image qu’on peut avoir de l’université au Maroc. Ce master a donc beaucoup de succès auprès des entreprises. En fin de compte, je ne peux que remercier le responsable de ce master pour m’avoir permis de vivre cette incroyable expérience qui a lancé ma carrière professionnelle.',
 		linked_in :'https://www.linkedin.com/in/hicham-elmorabet-a70044172/',
 	},
 	{
@@ -488,7 +504,7 @@ let dbLaureat19=[
 		current_enterprise : 'BITS',
 		experience:['Cegedim'],
 		photo:path+'elkhairy-ibtissam.jpg',
-		rating : '',
+		rating : 'Nous avons réussi à MQL grâce à notre professeur Mr Chenfour',
 		linked_in :'https://www.linkedin.com/in/ibtissam-el-khairy-173b33141/',
 	},
 	{
@@ -696,6 +712,12 @@ let dbPromotion= [
 		name:'Promotion 2009-2011',
 		date:'01-06-2011',
 		content : dbLaureat11,
+	},
+	{
+		id : 'p1113',
+		name:'Promotion 2011-2013',
+		date:'01-06-2013',
+		content : dbLaureat13,
 	},
 	{
 		id : 'p1214',

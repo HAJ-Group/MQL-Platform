@@ -6,7 +6,8 @@ const MAX_PROMOTION_PER_PAGE = 13;
 const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg', F:'../../resources/pictures/top-profile-female.jpg'};
 const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
 let k;
-/*Default class*/ 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*Default class*/
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
 	current_component = 'Laureate'; 
@@ -24,15 +25,15 @@ function LaureateComponent(service) {
 		recommendation : this.block_recommendation.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
-} 
-
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Adding a row in the table member 
 LaureateComponent.prototype.addLaureateRow = function (oneLaureate) { 
 	let row = this.table.insertRow(); 
 	//row.insertCell().innerHTML = news.id; 
 	//TODO:INSERT DATA IN CELLS 
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create navigation menu dynamically
  */
@@ -44,9 +45,8 @@ LaureateComponent.prototype.fillNavigation = function () {
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
-
-// Printing all service data into the table member 
-
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Printing all service data into the table member
 LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	let img;
@@ -115,93 +115,54 @@ LaureateComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
-
-LaureateComponent.prototype.fillRecomondation =function(){
-	let img;
-	let html_content='';
-	for(let promotion of this.service.db){
-		for(let laureate of promotion.content){
-			if(laureate.special){
-				if(laureate.photo === ''){
-					img = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
-				}
-				else img = laureate.photo;
-				html_content+='<div class="recommendation">' +
-					'<div class="image-and-infos">' +
-					'<div class="image-person">';
-				if(laureate.photo !== "") {
-					html_content += '<img class="l-img" id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" onclick="popIMG(this.id)">';
-				} else {
-					html_content += '<img id="reco-img-' + promotion.id + '-' + laureate.id + '"  src="' + img + '" alt="" >'
-				}
-				html_content += '</div>' +
-					'<div class="infos">' +
-					'<div class="name">' +
-					laureate.name+
-					'</div>' +
-					'<div class="society">' +
-					laureate.job+' à '+laureate.current_enterprise+
-					'</div>' +
-					'</div>' +
-					'</div>' +
-					'<div class="opinion">' +
-					'<p>' +
-					'<q>' +
-					laureate.rating+
-					'</q>' +
-					'</p>' +
-					'</div>' +
-					'</div>'
-			}
-		}
-	}
-	this.block_recommendation.innerHTML = html_content;
-};
-LaureateComponent.prototype.fillRandomRecomondation =function(){
+/*--------------------------------------------------------------------------------------------------------------------*/
+LaureateComponent.prototype.fillRandomRecomendation =function(){
 	let html_content='';
 	let tmp =Math.floor(Math.random()*this.service.special.length);
 	if(k==tmp){
-		this.fillRandomRecomondation();
+		this.fillRandomRecomendation();
 	}
 	else{
 	k=tmp;
 	let laureate = this.service.special[k];
-		if(laureate.photo === ''){
-			imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
+	let imageR=laureate.photo;
+        if(laureate.photo === ''){
+			 imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
 		}
 		else imageR = laureate.photo;
-				html_content+='<div class="recommendation">' +
-					'<div class="image-and-infos">' +
-					'<div class="image-person">' +
-					'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="" onclick="popIMG(this.id)">' +
-					'</div>' +
-					'<div class="infos">' +
-					'<div class="name">' +
-					laureate.name+
-					'</div>' +
-					'<div class="society">' +
-					laureate.job+' à '+laureate.current_enterprise+
-					'</div>' +
-					'</div>' +
-					'</div>' +
-					'<div class="opinion">' +
-					'<p>' +
-					'<q>' +
-					laureate.rating+
-					'</q>' +
-					'</p>' +
-					'</div>' +
-					'</div>';
+		html_content+='<div class="recommendation">' +
+			'<div class="image-and-infos">' +
+			'<div class="image-person">'+
+			'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="">'+
+			'</div>' +
+			'<div class="infos">' +
+			'<div class="name">' +
+			laureate.name+
+			'</div>' +
+			'<div class="society">' +
+			laureate.job+' à '+laureate.current_enterprise+
+			'</div>' +
+			'</div>' +
+			'</div>' +
+			'<div class="opinion">' +
+			'<p>' +
+			'<q>' +
+			laureate.rating+
+			'</q>' +
+			'</p>' +
+			'</div>' +
+			'</div>';
 	}
-
 	this.block_recommendation.innerHTML += html_content;
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.random = function () {
+	this.block_recommendation.innerHTML='';
 	for (let i=0;i<2;i++){
-		this.fillRandomRecomondation();
+		this.fillRandomRecomendation();
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create page switcher dynamically
  */
@@ -214,7 +175,7 @@ LaureateComponent.prototype.fillSwitcher = function () {
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Navigate between pages
  * @param page_number
@@ -229,13 +190,14 @@ LaureateComponent.prototype.navigate = function(page_number=1, top=false) {
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Print PROMOTIONS :
 LaureateComponent.prototype.printPromotionsCards = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		this.addLaureateRow(this.service.get(i));
 	}
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Collapse cards
 LaureateComponent.prototype.showInfos = function(id) {
 	let item = $('#item-' + id);
@@ -246,6 +208,7 @@ LaureateComponent.prototype.showInfos = function(id) {
 	}
 	else info.style.display = 'flex';
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.hideInfos = function (id) {
 	let item = $('#item-' + id);
 	if(window.innerWidth <= 700){
@@ -255,11 +218,11 @@ LaureateComponent.prototype.hideInfos = function (id) {
 	let info = $('#' + id);
 	info.style.display = 'none';
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.updateView = function () {
 	//
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Filtering function works with search box
  */
@@ -284,7 +247,7 @@ LaureateComponent.prototype.filterKey = function () {
 	}
 	this.navigate();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* FORM SERVICES */
 LaureateComponent.prototype.addData = function(target_el = 'promotion') {
 	if(target_el === 'promotion') {
@@ -297,7 +260,7 @@ LaureateComponent.prototype.addData = function(target_el = 'promotion') {
 		popFORM(value[1]);
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.editData = function(index, target_el = 'promotion') {
 	let el_name = $('#' + target_el + 'Name');
 	//....
@@ -334,7 +297,7 @@ LaureateComponent.prototype.editData = function(index, target_el = 'promotion') 
 	$('#' + target_el + 'Submit').setAttribute('onclick', 'view.submitData(\'edit\', \'' + index + '\', \'' + target_el + '\')');
 	popFORM(target_el);
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion') {
 	if(target_el === 'promotion') {
 		if(confirm('Are you sure you want to delete this Promotion ?')) {
@@ -360,7 +323,7 @@ LaureateComponent.prototype.deleteData = function(index, target_el = 'promotion'
 		}
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.submitData = function (action = 'add', index = '0', target_el = 'promotion') {
 	// PROMOTION
 	if(target_el === 'promotion') {
@@ -423,7 +386,7 @@ LaureateComponent.prototype.submitData = function (action = 'add', index = '0', 
 	closeFORM(target_el);
 	this.navigate();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#promotionSubmit');
 	submit_element.click();
@@ -451,5 +414,5 @@ function main() {
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
-
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
