@@ -201,7 +201,7 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 	let desc = $('#eventDescription').value;
 	//...
 	if(action === 'add') {
-		this.service.add(new EventModel(this.service.size() + 1, title, new Date(), desc));
+		this.service.add(new EventModel(this.service.size() + 1, title,'', desc));
 	}
 	if(action === 'edit') {
 		let target = this.service.get(index);

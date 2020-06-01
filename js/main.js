@@ -686,7 +686,7 @@ function loadContactForm() {
     form.innerHTML += ' ' +
         '<div id="form-contact-id" class="modal-style">' +
         '<span onclick="$(\'#form-contact-id\').style.display=\'none\'" class="close-modal-contact" title="Close Modal">&times;</span> ' +
-        '<form class="modal-contact-content" action="#" method="post"> ' +
+        '<form class="modal-contact-content" > ' +
         '<div class="contact-container">' +
         '<h3 style="text-align: center">Contactez-nous directement</h3>' +
         '<hr>' +
@@ -699,8 +699,8 @@ function loadContactForm() {
         '<label for="subject">Sujet </label>' +
         '<textarea class="zone-text-contact-news" id="subject" name="subject" placeholder="Ecrire ici..." style="height:200px"></textarea>' +
         '<div class="form-footer"> ' +
-        '<button type="button" onclick="$(\'#form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button> ' +
-        '<button type="submit" class="button-contact-2 submit-button">Envoyer</button> ' +
+        '<button  onclick="$(\'#form-contact-id\').style.display=\'none\'" class="button-contact-2 cancel-button">Annuler</button> ' +
+        '<button class="button-contact-2 submit-button">Envoyer</button> ' +
         '</div>' +
         '</div>' +
         '</form>' +
