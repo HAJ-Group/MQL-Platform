@@ -1480,7 +1480,7 @@ textarea {
 @media screen and (max-width: 700px) {
     .news-modal-content{
         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-        width: 40%; /* Could be more or less, depending on screen size */
+        width: 80%; /* Could be more or less, depending on screen size */
     }
     .splash-content > img {
         width: 60%;
