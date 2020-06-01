@@ -31,7 +31,7 @@ let dbEvent = [
 	{
 		id: 1,
 		title:'Compagnes de stages',
-		date:'à partir d\'octobre',
+		date : 'À partir d\'octobre',
 		description:'Un Mqliste, dans sa deuxième année de formation, commence déjà  à passer des entretiens de stage pré-ambauche, en fait nous retrouvons, à la faculté des sciences, des multinationales dans des sessions de recrutement organisées par les étudiants MQL.' +
 			' Ces compagnes de stages se déroulent généralemenet en 3 phases : ',
 		content:[
