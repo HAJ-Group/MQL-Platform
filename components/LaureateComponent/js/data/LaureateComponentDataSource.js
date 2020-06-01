@@ -29,7 +29,7 @@ let dbLaureat14=[
 		experience:['Capgemini'],
 		photo:path+'Badr-ZEROUAL.jpeg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/badr-zeroual-90b36b85/',
 	},
 ];
 let dbLaureat15=[
@@ -153,7 +153,7 @@ let dbLaureat17=[
 		id:1,
 		name:'Mouhim Youness',
 		gender: 'M',
-		job:'Consultant Oracle applications confirmé',
+		job:'Consultant Oracle applications confirmé, Scrum Master',
 		city:'France',
 		email:'youness.mouhim1@gmail.com',
 		stage:'CGI',
@@ -161,7 +161,7 @@ let dbLaureat17=[
 		experience:['CGI'],
 		photo:path+'Youness-Mouhim.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/youness-mouhim-75918597/',
 	},
 	{
 		id:2,
@@ -305,7 +305,7 @@ let dbLaureat18=[
 		experience:['Capgemini'],
 		photo:path+'Filali-Sadiq.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/safae-filali-sadiq-622b9a119/',
 	},
 	{
 		id:3,
@@ -319,7 +319,7 @@ let dbLaureat18=[
 		experience:[],
 		photo:path+'ayoub-dadi.jpg',
 		rating : '',
-		linked_in :'',
+		linked_in :'https://www.linkedin.com/in/ayoub-dadi-ba0a63105/',
 	},
 	{
 		id:4,
