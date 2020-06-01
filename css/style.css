@@ -13,7 +13,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: MontserratBold, serif;
+    font-family: Consolas,MontserratBold, serif;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 hr {
@@ -314,7 +314,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details{
-    font-family: "Open sans", serif;
+    font-family: "Consolas", serif;
     font-size: 18px;
     text-align: justify;
     border: 1px solid lightgray;

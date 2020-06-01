@@ -7,7 +7,7 @@ const DEFAULT_TOP_PROFILE_IMAGE = {M:'../../resources/pictures/top-profile.jpg',
 const DEFAULT_PROFILE_IMAGE = {M:'../../resources/pictures/profile.png', F:'../../resources/pictures/profile-female.png'};
 let k;
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*Default class*/ 
+/*Default class*/
 function LaureateComponent(service) { 
 	//TODO: Intitialize controller for LaureateComponent 
 	current_component = 'Laureate'; 
@@ -198,6 +198,7 @@ LaureateComponent.prototype.fillRandomRecomendation =function(){
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.random = function () {
+	this.block_recommendation.innerHTML='';
 	for (let i=0;i<2;i++){
 		this.fillRandomRecomendation();
 	}
