@@ -21,8 +21,7 @@ let dbNews = [
         id :3,
         title:'Suspension des cours',
         date:'13-03-2020',
-        desciption:'Dans un communiqué diffusé en fin journée le vendredi 13 mars 2020, le ministère de l\'Education nationale annonce la suspension de tous les cours, des jardins d\'enfants jusqu\'à l\'enseignement supérieur à compter du lundi 16 mars 2020. ' +
-            'Sur ce nous ',
+        desciption:'Dans un communiqué diffusé en fin journée le vendredi 13 mars 2020, le ministère de l\'Education nationale annonce la suspension de tous les cours, des jardins d\'enfants jusqu\'à l\'enseignement supérieur à compter du lundi 16 mars 2020. ',
         images:['corona.jpeg'],
     },
 

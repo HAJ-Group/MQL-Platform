@@ -18,7 +18,7 @@
 			<div class="container">
                 <hr>
                 <div class="titles-laureates">
-                    <img src="../../resources/pictures/reload.png" onclick="window.location.reload()" class="top-img" alt="">
+                    <img src="../../resources/pictures/reload.png" onclick="view.random()" class="top-img" alt="">
                 </div>
 				<div id="list-recommendation" class="list-recommendations">
 				</div>
@@ -34,6 +34,12 @@
 				    </div>
 				    <div id="main" class="sub-content">
 				    </div>
+					<!-- The Modal -->
+					<div id="myModal" class="modal">
+						<span onclick="closeIMG()" class="close">&times;</span>
+						<img class="modal-content" id="modal_img" alt="" src="">
+						<div id="caption"></div>
+					</div>
                     <!-- FORM MODAL PROMOTION-->
                     <div id="promotion" class="modal">
                         <span onclick="closeFORM('promotion')" class="close">&times;</span>
@@ -65,11 +71,10 @@
                     <div id="switcher" class="page_numbers"></div>
                 </div>
 			</div>
-
 			<div id="footer"></div>
 		</div>
         <span>
-				<button onclick="topFunction()" id="scroll-top" title="Top"></button>
+			<button onclick="topFunction()" id="scroll-top" title="Top"></button>
         </span>
 	</body>
 </html> 

@@ -3,6 +3,7 @@ let view;
 let service;
 let current_page_number = 1;
 const MAX_EVENT_PER_PAGE = 5;
+/*--------------------------------------------------------------------------------------------------------------------*/
 /*Default class*/ 
 function EventComponent(service) { 
 	//TODO: Intitialize controller for EventComponent 
@@ -19,21 +20,22 @@ function EventComponent(service) {
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
 	};
-} 
-
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Adding a row in the table member 
 EventComponent.prototype.addEventRow = function (oneEvent) { 
 	let row = this.table.insertRow(); 
 	//row.insertCell().innerHTML = news.id; 
 	//TODO:INSERT DATA IN CELLS 
-}; 
+};
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Printing all service data into the table member 
 EventComponent.prototype.printEventList = function () { 
 	for (let i = 0; i < this.service.size(); i++) { 
 		this.addEventRow(this.service.get(i)); 
 	} 
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create navigation menu dynamically
  */
@@ -45,7 +47,7 @@ EventComponent.prototype.fillNavigation = function () {
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Filling main block
  */
@@ -56,9 +58,10 @@ EventComponent.prototype.fillMain = function() {
 	for(let event of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<div id="' + event.id + '" >' +
 			'<div class="title">\n' + event.title + '</div>\n' +
-			'<div class="details">' +
-			'<p class="date">' + formattedDate(event.date) + '</p>' +
-			'<div id="gallery" class="gallery-view' + event.id + '"></div>' +
+			'<div class="details">';
+		if(event.date!=='')
+			htmlContent+='<p class="date">' + event.date + '</p>';
+		htmlContent+='<div id="gallery" class="gallery-view' + event.id + '"></div>' +
 			'<p>' + event.description + '</p>\n';
 		// Contents
 		if(event.content !== []) {
@@ -103,7 +106,7 @@ EventComponent.prototype.fillMain = function() {
 		createBook(show.book_pics, show.book_name);
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create page switcher dynamically
  */
@@ -116,6 +119,7 @@ EventComponent.prototype.fillSwitcher = function () {
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Navigate between pages
  * @param page_number
@@ -130,7 +134,7 @@ EventComponent.prototype.navigate = function(page_number=1, top=false) {
 	detect_subContent_trigger_left_bar();
 	if(top) window.location.href = '#header';
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Filtering function works with search box
  */
@@ -155,13 +159,13 @@ EventComponent.prototype.filterKey = function () {
 	}
 	this.navigate();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* FORM SERVICES */
 EventComponent.prototype.addData = function() {
 	$('#eventSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 EventComponent.prototype.editData = function(index) {
 	let el_title = $('#eventTitle');
 	let el_desc = $('#eventDescription');
@@ -173,7 +177,7 @@ EventComponent.prototype.editData = function(index) {
 	$('#eventSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 EventComponent.prototype.deleteData = function(index) {
 	if(confirm('Are you sure you want to delete this Event ?')) {
 		this.service.remove(index);
@@ -190,7 +194,7 @@ EventComponent.prototype.deleteData = function(index) {
 		}
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
 	let title = $('#eventTitle').value;
@@ -203,7 +207,6 @@ EventComponent.prototype.submitData = function (action = 'add', index = '0') {
 		let target = this.service.get(index);
 		target.title = title;
 		target.description = desc;
-		//target.date = new Date();
 		//...
 		$('#eventSubmit').setAttribute('onclick', 'view.submitData()');
 	}
@@ -238,3 +241,4 @@ function main() {
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 
 }
+/*--------------------------------------------------------------------------------------------------------------------*/

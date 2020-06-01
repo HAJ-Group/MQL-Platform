@@ -3,6 +3,7 @@ let view;
 let service;
 const DEFAULT_PARTNER_BG = '../../resources/pictures/Partners/new-bg.jpg';
 /*Default class*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 function PartnerComponent(service) { 
 	//TODO: Intitialize controller for PartnerComponent 
 	current_component = 'Partner'; 
@@ -17,54 +18,21 @@ function PartnerComponent(service) {
 		container: this.block_container.innerHTML
 	};
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Adding a row in the table member 
 PartnerComponent.prototype.addPartnerRow = function (onePartner) { 
 	let row = this.table.insertRow(); 
 	//row.insertCell().innerHTML = news.id; 
 	//TODO:INSERT DATA IN CELLS 
-}; 
+};
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Printing all service data into the table member 
 PartnerComponent.prototype.printPartnerList = function () { 
 	for (let i = 0; i < this.service.size(); i++) { 
 		this.addPartnerRow(this.service.get(i)); 
 	} 
 };
-
-/*PartnerComponent.prototype.addOnePartner = function (onePartner) {
-	this.block_container.innerHTML +=
-		'<div class="card" id="'+onePartner.name+'">' +
-			'<div class="card-image">' +
-				'<img src="'+onePartner.bg+'" alt="">' +
-			'</div>'+
-			'<div class="card-body">' +
-				'<div class="title" style="color: ' + onePartner.color + '">'+onePartner.name+'</div> <div class="ca">Chiffre d\'affaire :'+onePartner.ca+'</div><hr>'+
-				'<p class="description">'+onePartner.description+'</p>'+
-				'<p class="description">Sur : '+onePartner.zone+'.</p>'+
-				'<p class="colabs">Nombre de collobaroteurs de MQL chez '+onePartner.name+' est :'+onePartner.nbr_colla+'</p>'+
-				'<img src="' + onePartner.image + '" class="micro-logo" alt="">' +
-				'<p class="website">Site web officiel : <a href="https://'+onePartner.website+'" target="_blank">'+onePartner.website+'</a></p>'+
-			'</div></div>'
-		;
-};*/
-/*PartnerComponent.prototype.addMenuPartners = function (onePartner) {
-	this.block_menu.innerHTML +=
-			'<div id="menu-' + onePartner.name + '" class="partner active" onclick=view.show("'+onePartner.name+'")>'+onePartner.name+'</div>';
-};*/
-// Printing all service data into the table member
-/*PartnerComponent.prototype.printPartners = function () {
-	this.currentblock =""+this.service.get(0).name;
-	for (let i = 0; i < this.service.size(); i++) {
-		this.addMenuPartners(this.service.get(i));
-	}
-	this.block_menu.innerHTML += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">'
-	for (let i = 0; i < this.service.size(); i++) {
-		this.addOnePartner(this.service.get(i));
-	}
-};*/
-
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.fillPartnersMenu = function() {
 	let htmlContent = this.htmlSaver.menu;
 	for(let partner of this.service.db) {
@@ -75,10 +43,10 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 	if(sessionStorage.getItem('ACCESS') !== null) {
 		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
 	}
-	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">';
+	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom2.jpg">';
 	this.block_menu.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.fillPartners = function() {
 	let htmlContent = this.htmlSaver.container;
 	let i = 0;
@@ -106,8 +74,7 @@ PartnerComponent.prototype.fillPartners = function() {
 	}
 	this.block_container.innerHTML = htmlContent;
 };
-
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 // SHOW AND HIDE METHODS
 PartnerComponent.prototype.show = function (id, top = false) {
 	// block to hide is the current block
@@ -121,7 +88,7 @@ PartnerComponent.prototype.show = function (id, top = false) {
     $('#menu-' + id).classList.add('active');
     if(top) location.href = '#' + id;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.hideAll = function () {
 	for (let i = 0; i < this.service.size(); i++) {
 		let partner = $('.card')[i];
@@ -130,7 +97,7 @@ PartnerComponent.prototype.hideAll = function () {
 	}
 	this.show(this.currentblock);
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 // LINKING FROM FOOTER METHODS
 PartnerComponent.prototype.ajustLinks = function () {
 	let links = $('.img-partenaire');
@@ -138,22 +105,20 @@ PartnerComponent.prototype.ajustLinks = function () {
 		link.setAttribute('onclick', 'view.show(' + link.id.split('-')[1]+ ', true)');
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
 	if(anchor !== undefined) {
 		$('#menu-' + anchor).click();
 	}
 };
-
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* FORM SERVICES */
 PartnerComponent.prototype.addData = function() {
 	$('#partnerSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.editData = function(index) {
 	let el_id = $('#partnerID');
 	let el_name = $('#partnerName');
@@ -175,7 +140,7 @@ PartnerComponent.prototype.editData = function(index) {
 	$('#partnerSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.deleteData = function(index) {
 	if(confirm('Are you sure you want to delete this Partner ?')) {
 		this.service.remove(index);
@@ -190,10 +155,9 @@ PartnerComponent.prototype.deleteData = function(index) {
 				route('../Home');
 			}
 		}
-
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
 	let id = $('#partnerID').value
@@ -223,12 +187,12 @@ PartnerComponent.prototype.submitData = function (action = 'add', index = '0') {
 	this.currentblock = id;
 	this.navigate();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#partnerSubmit');
 	submit_element.click();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.navigate = function() {
 	view.fillPartnersMenu();
 	view.fillPartners();
@@ -256,3 +220,4 @@ function main() {
 	// Stays Last
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 }
+/*--------------------------------------------------------------------------------------------------------------------*/

@@ -3,6 +3,7 @@ let view;
 let service;
 let current_page_number = 1;
 const MAX_NEWS_PER_PAGE = 5;
+/*--------------------------------------------------------------------------------------------------------------------*/
 /*Default class*/ 
 function NewsComponent(service) { 
 	current_component = 'News';
@@ -19,7 +20,7 @@ function NewsComponent(service) {
 		switcher: this.block_switch.innerHTML,
 	};
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.addNewsRow =function (news) {
 	let row = this.table.insertRow();
 	row.insertCell().innerHTML =news.date;
@@ -30,7 +31,7 @@ NewsComponent.prototype.printNewsList = function (max = this.service.size()) {
 		this.addNewsRow(this.service.get(i));
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create navigation menu dynamically
  */
@@ -42,7 +43,7 @@ NewsComponent.prototype.fillNavigation = function () {
 	}
 	this.block_nav.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create main block dynamically
  */
@@ -62,7 +63,7 @@ NewsComponent.prototype.fillMain = function () {
 	}
 	this.block_main.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create page switcher dynamically
  */
@@ -75,7 +76,7 @@ NewsComponent.prototype.fillSwitcher = function () {
 	}
 	this.block_switch.innerHTML = htmlContent;
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Navigate between pages
  * @param page_number
@@ -90,14 +91,14 @@ NewsComponent.prototype.navigate = function(page_number=1, top=false) {
 	detect_subContent_trigger_left_bar();
     if(top) window.location.href = '#header';
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.trigger = function () {
 	let anchor = window.location.href.split('#')[1];
 	if(anchor !== undefined && anchor !== 'header') {
 		$('#nav' + anchor).click();
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Filtering function works with search box
  */
@@ -121,13 +122,13 @@ NewsComponent.prototype.filterKey = function () {
 	}
 	this.navigate();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* FORM SERVICES */
 NewsComponent.prototype.addData = function() {
 	$('#newsSubmit').setAttribute('onclick', 'view.submitData()');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.editData = function(index) {
 	let el_title = $('#newsTitle');
 	let el_desc = $('#newsDescription');
@@ -139,7 +140,7 @@ NewsComponent.prototype.editData = function(index) {
 	$('#newsSubmit').setAttribute('onclick', 'view.submitData(\'edit\', ' + index + ')');
 	popFORM();
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.deleteData = function(index) {
 	if(confirm('Are you sure you want to delete this News ?')) {
 		this.service.remove(index);
@@ -156,7 +157,7 @@ NewsComponent.prototype.deleteData = function(index) {
 		}
 	}
 };
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 	// GETTING DATA MEMBERS
 	let title = $('#newsTitle').value;
@@ -177,6 +178,7 @@ NewsComponent.prototype.submitData = function (action = 'add', index = '0') {
 	closeFORM();
 	this.navigate();
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#newsSubmit');
 	submit_element.click();
@@ -204,4 +206,4 @@ function main() {
 	view.trigger();
 	setKeysAction('.form-content',view.triggerSubmit.bind(view));
 }
-
+/*--------------------------------------------------------------------------------------------------------------------*/

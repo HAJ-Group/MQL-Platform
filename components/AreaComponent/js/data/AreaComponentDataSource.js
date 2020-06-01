@@ -3,7 +3,7 @@ let dbArea = [
 	// Add object structure associated with the model created 
 	{ 
 		id:1,
-		username:'hamza',
-		password:'12345',
+		username:'admin',
+		password:'admin',
 	}, 
 ]; 
