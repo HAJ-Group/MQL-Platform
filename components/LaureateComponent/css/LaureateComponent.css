@@ -370,9 +370,11 @@ q:after{
 	.opinion{
 		margin-right: auto;
 		margin-left: auto;
-		width: 60%;
+		width: 80%;
 		word-wrap: break-word;
 		text-align: justify;
+        max-height: 200px;
+        height: fit-content;
 	}
 	.infos{
 		padding: 3px 0 0 3px;
