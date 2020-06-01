@@ -58,9 +58,10 @@ EventComponent.prototype.fillMain = function() {
 	for(let event of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<div id="' + event.id + '" >' +
 			'<div class="title">\n' + event.title + '</div>\n' +
-			'<div class="details">' +
-			'<p class="date">' + formattedDate(event.date) + '</p>' +
-			'<div id="gallery" class="gallery-view' + event.id + '"></div>' +
+			'<div class="details">';
+		if(event.date!=='')
+			htmlContent+='<p class="date">' + event.date + '</p>';
+		htmlContent+='<div id="gallery" class="gallery-view' + event.id + '"></div>' +
 			'<p>' + event.description + '</p>\n';
 		// Contents
 		if(event.content !== []) {
