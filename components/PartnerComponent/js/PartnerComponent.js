@@ -43,7 +43,7 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 	if(sessionStorage.getItem('ACCESS') !== null) {
 		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
 	}
-	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom.jpg">';
+	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom2.jpg">';
 	this.block_menu.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
