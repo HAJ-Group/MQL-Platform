@@ -13,7 +13,7 @@ body {
     max-width: 1200px;
     background-attachment: fixed;
     height: 100%;
-    font-family: Consolas,MontserratBold, serif;
+    font-family: MontserratBold, serif;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 hr {
@@ -44,7 +44,7 @@ hr {
     margin-right: auto;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-.splash-content p {
+.splash-content span {
     display: block;
     text-align: center;
     margin-left: auto;
@@ -314,7 +314,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .details{
-    font-family: "Consolas", serif;
+    font-family: "Open Sans",Consolas, serif;
     font-size: 18px;
     text-align: justify;
     border: 1px solid lightgray;
@@ -378,7 +378,7 @@ header {
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: 95%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     /*background-color: rgb(0,0,0);  Fallback color */
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
@@ -399,7 +399,8 @@ header {
 /* Modal Content (image) */
 .modal-content {
     width: 100%;
-    max-width: 1000px;
+    max-width: 700px;
+    max-height: 700px;
     display: block;
     margin: 0 auto;
     -webkit-animation-name: zoom;
