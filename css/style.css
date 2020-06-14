@@ -352,6 +352,7 @@ header {
     vertical-align: middle;
     width: 45%;
     height: 45%;
+    padding-right: 10px;
 }
 
 .column img:hover {
