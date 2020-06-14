@@ -82,6 +82,7 @@ function getHeaderContent() {
         {name: 'Partner', content:'Partenaires'},
         {name: 'Laureate', content:'Lauréats'},
         {name: 'Area', content:'Administration'},
+        {name: 'General', content:'General'},
     ];
     /* HEADER --------------------------------------------------------------------------------------------------------*/
     let headerContent = '<header class="div-center">' +
