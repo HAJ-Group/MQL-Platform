@@ -106,6 +106,94 @@ body {
 	width: 60%;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* ---- Timeline ---- */
+.timeline {
+	padding: 20px;
+}
+
+.timeline-icon {
+	display: block;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.timeline-list {
+	position: relative;
+	display: block;
+	margin: 100px;
+	height: 4px;
+	border-top: 5px solid cornflowerblue;
+	border-radius: 50%;
+}
+/* ---- Timeline elements ---- */
+.timeline-item {
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 20%;
+	margin-left: 10%;
+	font: bold 14px arial;
+	height: 50px;
+}
+.timeline-item .timeline-title {
+	font-size: 30px;
+	position: absolute;
+	color: #000000;
+}
+.timeline-item .timeline-span {
+	top: -10px;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border: 4px solid red;
+	border-radius: 10px;
+	background: #fff;
+	position: absolute;
+}
+.timeline-item .timeline-description {
+	display: none;
+	background-color: white;
+	padding: 5px;
+	border: 1px solid lightgray;
+	box-shadow: 0 0 5px lightgray;
+	margin-top: 20px;
+	margin-left: -50%;
+	position: relative;
+	font-weight: normal;
+	z-index: 1;
+	width: 250px;
+}
+.timeline-description::before {
+	content: '';
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #f4f4f4;
+	position: absolute;
+	top: -5px;
+	left: 43%;
+}
+
+.timeline-item-image {
+	width: 250px;
+	margin-bottom: 5px;
+}
+
+/* ---- Hover effects ---- */
+.timeline-item:hover {
+	cursor: pointer;
+	color: black;
+	font-size: 15px;
+}
+.timeline-item:hover .timeline-description {
+	display: block;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* Phone */
 @media only screen and (max-width: 700px) {
 
@@ -139,6 +227,11 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
+	@media only screen and (max-width: 700px) {
+		.timeline {
+			display: none;
+		}
+	}
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Animations */

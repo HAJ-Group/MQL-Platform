@@ -36,10 +36,16 @@ function route(component, tag_id=null) {
         else path = '';
         component += 'Component';
         let url = window.location;
+        let target = path + 'components/' + component + '/' + component + '.html';
+        console.log(target);
         if(tag_id !== null) {
-            url.href = path + 'components/' + component + '/' + component + '.html' + '#' + tag_id;
+            /*$('#component').innerHTML =
+                '<iframe frameborder="0" scrolling="0" src="' + target + '#' + tag_id + '"></iframe>';*/
+            url.href = target;
         } else
-            url.href = path + 'components/' + component + '/' + component + '.html';
+            /*$('#component').innerHTML =
+                '<iframe frameborder="0" scrolling="0" src="' + target + '"></iframe>';*/
+            url.href = target;
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -797,6 +803,20 @@ function setKeysAction(target_block,target_function,target_key='Enter',isClass=f
     } catch (e) {
        setKeysAction(target_block,target_function,target_key,true);
     }
+}
+
+/**
+ *
+ * @param text
+ * @param maxChar
+ * @returns {string}
+ */
+function textShortener(text, maxChar = 40) {
+    let ret = '';
+    for(let i = 0; i< maxChar; i++) {
+        ret += text[i];
+    }
+    return ret + '...';
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
