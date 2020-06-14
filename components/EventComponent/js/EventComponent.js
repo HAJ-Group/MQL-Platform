@@ -55,6 +55,7 @@ EventComponent.prototype.fillTimeline = function(max = 3) {
 					buildSPAN(null, cls('timeline-span')),
 					buildElement('p', [
 						buildIMG(image, 'img', cls('timeline-item-image')),
+						buildElement('h1', event.title),
 						textShortener(event.description, 100)
 					], cls('timeline-description'))
 				], cls('timeline-item', [{name:'onclick', value:'view.timelineNavigate(' + event.id +')'}])));

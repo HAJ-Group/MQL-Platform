@@ -156,7 +156,7 @@ body {
 .timeline-item .timeline-description {
 	display: none;
 	background-color: white;
-	padding: 5px;
+	padding: 8px;
 	border: 1px solid lightgray;
 	box-shadow: 0 0 5px lightgray;
 	margin-top: 20px;
@@ -180,7 +180,7 @@ body {
 
 .timeline-item-image {
 	width: 250px;
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 }
 
 /* ---- Hover effects ---- */
