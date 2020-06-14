@@ -14,8 +14,8 @@ function PartnerComponent(service) {
 	this.block_menu = $('#partnersMenu');
 	this.block_container = $('#partnersContainer');
 	this.htmlSaver = {
-		menu: this.block_menu.innerHTML,
-		container: this.block_container.innerHTML
+		menu: this.block_menu,
+		container: this.block_container
 	};
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -36,43 +36,50 @@ PartnerComponent.prototype.printPartnerList = function () {
 PartnerComponent.prototype.fillPartnersMenu = function() {
 	let htmlContent = this.htmlSaver.menu;
 	for(let partner of this.service.db) {
-		htmlContent += '<div id="menu-' + partner.id + '" class="partner active" ' +
-			'onclick=view.show("'+partner.id+'")>'+partner.name+'</div>';
+		let divMenu = buildDIV(partner.name,wrapIC('menu-'+partner.id,
+			['partner','active'],[{name:'onclick',value:'view.show('+partner.id+")"}]));
+		htmlContent.appendChild(divMenu);
 	}
 	// ADD NEW BLOCK
 	if(sessionStorage.getItem('ACCESS') !== null) {
-		htmlContent += '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>';
+		let newBlock = buildDIV(
+				buildIMG('../../resources/pictures/icons/new-icon.png','',wrapC(['new-icon'],{name:'onclick',value:'view.addData()'})),
+			wrapC('new-block')
+		);
+		htmlContent.appendChild(newBlock);
 	}
-	htmlContent += '<img class="end-img" src="../../resources/pictures/Partners/menu-bottom2.jpg">';
-	this.block_menu.innerHTML = htmlContent;
+	let endImg = buildIMG("../../resources/pictures/Partners/menu-bottom2.jpg",'',wrapC('end-img'));
+	htmlContent.appendChild(endImg);
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.fillPartners = function() {
 	let htmlContent = this.htmlSaver.container;
 	let i = 0;
 	for(let partner of this.service.db) {
-		htmlContent += '<div class="card" id="'+partner.id+'">' +
-			'<div class="card-image">' +
-			'<img src="'+partner.bg+'" alt="">' +
-			'</div>';
+		let card = buildDIV(buildDIV(buildIMG(partner.bg),wrapC('card-image')),wrapIC(partner.id,'card'));
+		htmlContent.appendChild(card);
 		if(sessionStorage.getItem('ACCESS') !== null) {
-			htmlContent += '<div class="partner-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
-				'class="sh-icon" onclick="view.editData(' + i + ')">' +
-				'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
-				'class="sh-icon" onclick="view.deleteData(' + i + ')"></div>';
+			let partnernsIcons = buildDIV([
+				buildIMG('../../resources/pictures/icons/edit.png','',[{ name:'name',value:'edit-icon'}]),
+				buildIMG('../../resources/pictures/icons/delete.png','',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData(' + i + ')'}]))
+				]
+				,wrapC('partner-icons'));
+			card.appendChild(partnernsIcons);
 		}
-		htmlContent +='<div class="card-body">' +
-			'<div class="title" style="color: ' + partner.color + '">'+partner.name+'</div>' +
-			'<div class="ca">Chiffre d\'affaire :'+partner.ca+'</div><hr>'+
-			'<p class="description">'+partner.description+'</p>'+
-			'<p class="description">Sur : '+partner.zone+'.</p>'+
-			'<p class="colabs">Nombre de collobaroteurs de MQL chez '+partner.name+' est :'+partner.nbr_colla+'</p>'+
-			'<img src="' + partner.image + '" class="micro-logo" alt="">' +
-			'<p class="website">Site web officiel : <a href="https://'+partner.website+'" target="_blank">'+partner.website+'</a></p>'+
-			'</div></div>';
+		let bodyCard = buildDIV([
+				buildDIV(partner.name,wrapC('title',[{name : 'style' , value : "color: ' + partner.color + '"}])),
+				buildDIV('Chiffre d\'affaire :'+partner.ca,wrapC('ca')),
+				buildHR(),
+				buildParagraph(partner.description,wrapC('description')),
+				buildParagraph('Sur : '+partner.zone,wrapC('desciption')),
+				buildParagraph('Nombre de collobaroteurs de MQL chez '+partner.name+' est :'+partner.nbr_colla,wrapC('colabs')),
+				buildIMG(partner.image,'',wrapC('micro-logo')),
+				buildParagraph(['Site web officiel : ',buildLINK('https://'+partner.website,partner.website,[{name:'target',value:'_blank'}])],wrapC('website'))
+			]
+			,wrapC('card-body'));
+		card.appendChild(bodyCard);
 		i++;
 	}
-	this.block_container.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 // SHOW AND HIDE METHODS

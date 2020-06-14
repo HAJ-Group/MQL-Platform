@@ -20,7 +20,7 @@ function LaureateComponent(service) {
 	this.block_switch = $('#switcher');
 	this.block_recommendation = $('#list-recommendation');
 	this.htmlSaver = {
-		nav: this.block_nav.innerHTML,
+		nav: this.block_nav,
 		main: this.block_main.innerHTML,
 		recommendation : this.block_recommendation.innerHTML,
 		switcher: this.block_switch.innerHTML,
@@ -40,10 +40,12 @@ LaureateComponent.prototype.addLaureateRow = function (oneLaureate) {
 LaureateComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
-		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
+		htmlContent.appendChild(buildHR());
+		let divMenu = buildDIV(buildLINK('#' + promotion.id,promotion.name,wrapC('menuitem')));
+		// htmlContent += '<hr>\n' +
+		// 	'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
+		htmlContent.appendChild(divMenu);
 	}
-	this.block_nav.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Printing all service data into the table member
@@ -398,18 +400,20 @@ function main() {
 	service.loadPromotion(dbPromotion);
 	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
-	try {
+	//try {
 		view.fillNavigation();
 		view.fillMain();
 		view.random();
 		view.fillSwitcher();
-	} catch (e) {
+	/*} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {
 			view.addData();
 		} else {
 			route('../Home');
 		}
 	}
+	*/
+
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();

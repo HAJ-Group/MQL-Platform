@@ -140,6 +140,25 @@ function buildLINK(href, content = null, attributes = []) {
     return buildElement('a', content, attributes);
 }
 
+/**
+ * 5
+ * @param content
+ * @param attributes
+ * @returns {any}
+ */
+function buildParagraph(content = null, attributes = []) {
+    return buildElement('p', content, attributes);
+}
+
+/**
+ * 6
+ * @param type
+ * @param value
+ * @param attributes
+ * @param label
+ * @param tag
+ * @returns {any}
+ */
 function buildField(type = 'text', value = '', attributes = [], label = null, tag = 'input') {
     let labelElement = null;
     let labelID;
@@ -157,6 +176,12 @@ function buildField(type = 'text', value = '', attributes = [], label = null, ta
     return container;
 }
 
+/**
+ * 6
+ * @param fields
+ * @param content
+ * @param attributes
+ */
 function buildFORM(fields = [], content = null, attributes = []) {
     let form = buildElement('form', content, attributes);
     for(let field of fields) {
@@ -167,7 +192,7 @@ function buildFORM(fields = [], content = null, attributes = []) {
     }
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
-/** 5
+/** 7
  * <hr/>
  * @returns {any}
  */
@@ -175,7 +200,7 @@ function buildHR(attributes = []) {
     return buildElement('hr', null, attributes);
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
-/** 6
+/** 8
  * <br/>
  * @returns {any}
  */
@@ -225,6 +250,21 @@ function cls(classes, others = []) {
 function id(id, others = []) {
     let attributes = [];
     attributes.push(new Attribute('id', id));
+    for(let o of others) {
+        attributes.push(new Attribute(o.name, o.value));
+    }
+    return attributes;
+}
+/* ---------------------------------------------------------------------------------------------------------------*/
+/** 3-1
+ * @param classes
+ * @param id
+ * @param others
+ * @returns {Array}
+ */
+function wrapC(classes, others = []) {
+    let attributes = [];
+    attributes.push(new Attribute('class', classes));
     for(let o of others) {
         attributes.push(new Attribute(o.name, o.value));
     }
