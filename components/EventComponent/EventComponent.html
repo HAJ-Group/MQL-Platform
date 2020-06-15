@@ -6,8 +6,9 @@
 		<title>EventComponent</title> 
 		<link rel="stylesheet" href="../../css/style.css"> 
 		<link rel="stylesheet" href="css/EventComponent.css"> 
-		<script src="../../js/main.js"></script> 
-		<script src="js/data/EventComponentDataSource.js"></script> 
+		<script src="../../js/ElementFactory.js"></script>
+		<script src="../../js/main.js"></script>
+		<script src="js/data/EventComponentDataSource.js"></script>
 		<script src="js/model/Event.js"></script> 
 		<script src="js/service/EventComponentService.js"></script> 
 		<script src="js/EventComponent.js"></script>
@@ -15,6 +16,12 @@
 	<body onload="main()"> 
 		<div class="content"> 
 			<div id="header"></div>
+			<div class="timeline">
+				<img src="../../resources/pictures/Events/timeline.png" class="timeline-icon">
+				<ol class="timeline-list" id="timeline">
+
+				</ol>
+			</div>
 			<div id="search"></div>
             <div class="container">
                 <div id="navigation" class="left-menu">
