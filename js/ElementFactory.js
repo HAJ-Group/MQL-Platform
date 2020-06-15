@@ -305,7 +305,7 @@ function test() {
                 '</div>\n';
                 '<hr>\n' +
                 '<div id="content" class="content d-block" name="content" onclick="hide()">\n' +
-                    '<img src="images/bg.jpg" alt="image" class="main-img">\n' +
+                    '<img src="images/autoboxBG.jpg" alt="image" class="main-img">\n' +
                     '<span class="caption">This is an image</span>\n' +
                     '<input type=''
                 '</div>\n' +
@@ -320,7 +320,7 @@ function test() {
             buildHR(),
             buildDIV(
                 [
-                    buildIMG('images/bg.jpg', 'image', cls('main-img')),
+                    buildIMG('images/autoboxBG.jpg', 'image', cls('main-img')),
                     buildSPAN('This is an image', cls('caption')),
                     buildField('password', '', wrapIC('myID', 'form-group d-flex'), 'Enter password')
                 ], wrapICN('content', ['content', 'd-block'], 'content', [{name:'onclick', value:'hide()'}])

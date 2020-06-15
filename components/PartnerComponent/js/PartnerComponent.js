@@ -1,7 +1,7 @@
 /*Global Variables*/ 
 let view; 
 let service;
-const DEFAULT_PARTNER_BG = '../../resources/pictures/Partners/new-bg.jpg';
+const DEFAULT_PARTNER_BG = '../../resources/pictures/Partners/new-autoboxBG.jpg';
 /*Default class*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 function PartnerComponent(service) { 
