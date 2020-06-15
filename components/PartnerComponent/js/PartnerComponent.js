@@ -14,8 +14,8 @@ function PartnerComponent(service) {
 	this.block_menu = $('#partnersMenu');
 	this.block_container = $('#partnersContainer');
 	this.htmlSaver = {
-		menu: this.block_menu,
-		container: this.block_container
+		menu: this.block_menu.innerHTML,
+		container: this.block_container.innerHTML
 	};
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -34,7 +34,8 @@ PartnerComponent.prototype.printPartnerList = function () {
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.fillPartnersMenu = function() {
-	let htmlContent = this.htmlSaver.menu;
+	let htmlContent = this.block_menu;
+	htmlContent.innerHTML = this.htmlSaver.menu;
 	for(let partner of this.service.db) {
 		let divMenu = buildDIV(partner.name,wrapIC('menu-'+partner.id,
 			['partner','active'],[{name:'onclick',value:'view.show('+partner.id+")"}]));
@@ -43,7 +44,7 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 	// ADD NEW BLOCK
 	if(sessionStorage.getItem('ACCESS') !== null) {
 		let newBlock = buildDIV(
-				buildIMG('../../resources/pictures/icons/new-icon.png','',wrapC(['new-icon'],{name:'onclick',value:'view.addData()'})),
+				buildIMG('../../resources/pictures/icons/new-icon.png','',wrapC(['new-icon'],[{name:'onclick',value:'view.addData()'}])),
 			wrapC('new-block')
 		);
 		htmlContent.appendChild(newBlock);
@@ -53,21 +54,22 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 PartnerComponent.prototype.fillPartners = function() {
-	let htmlContent = this.htmlSaver.container;
+    let htmlContent = this.block_container;
+    htmlContent.innerHTML = this.htmlSaver.container;
 	let i = 0;
 	for(let partner of this.service.db) {
 		let card = buildDIV(buildDIV(buildIMG(partner.bg),wrapC('card-image')),wrapIC(partner.id,'card'));
 		htmlContent.appendChild(card);
 		if(sessionStorage.getItem('ACCESS') !== null) {
 			let partnernsIcons = buildDIV([
-				buildIMG('../../resources/pictures/icons/edit.png','',[{ name:'name',value:'edit-icon'}]),
+				buildIMG('../../resources/pictures/icons/edit.png','',wrapICN('','sh-icon','edit-icon',[{name:'onclick',value:'view.editData(' + i + ')'}])),
 				buildIMG('../../resources/pictures/icons/delete.png','',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData(' + i + ')'}]))
 				]
 				,wrapC('partner-icons'));
 			card.appendChild(partnernsIcons);
 		}
 		let bodyCard = buildDIV([
-				buildDIV(partner.name,wrapC('title',[{name : 'style' , value : "color: ' + partner.color + '"}])),
+				buildDIV(partner.name,wrapC('title',[{name : 'style' , value : 'color:' + partner.color}])),
 				buildDIV('Chiffre d\'affaire :'+partner.ca,wrapC('ca')),
 				buildHR(),
 				buildParagraph(partner.description,wrapC('description')),

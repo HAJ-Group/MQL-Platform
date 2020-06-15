@@ -21,9 +21,9 @@ function LaureateComponent(service) {
 	this.block_recommendation = $('#list-recommendation');
 	this.htmlSaver = {
 		nav: this.block_nav,
-		main: this.block_main.innerHTML,
-		recommendation : this.block_recommendation.innerHTML,
-		switcher: this.block_switch.innerHTML,
+		main: this.block_main,
+		recommendation : this.block_recommendation,
+		switcher: this.block_switch,
 	};
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -53,12 +53,20 @@ LaureateComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	let img;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
+		let details = buildDIV([
+			buildParagraph(promotion.date.getFullYear(),wrapC('date'))
+		],wrapC('details'));
+		let promotion = buildDIV([
+			buildDIV(promotion.name,wrapC('title')),
+			details
+		],wrapI(promotion.id));
 		htmlContent +=
 			'<div id="' + promotion.id + '" >' +
 			'<div class="title">\n' + promotion.name + '</div>' +
 			'<div class="details">' +
 			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
 		if(sessionStorage.getItem('ACCESS') !== null) {
+			details
 			htmlContent += '<div class="new-block new-laureate">' +
 				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
 				'</div>';

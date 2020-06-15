@@ -269,6 +269,20 @@ function wrapC(classes, others = []) {
         attributes.push(new Attribute(o.name, o.value));
     }
     return attributes;
+}/* ---------------------------------------------------------------------------------------------------------------*/
+/**
+ * 3-2
+ * @param id
+ * @param others
+ * @returns {Array}
+ */
+function wrapI(id, others = []) {
+    let attributes = [];
+    attributes.push(new Attribute('id', id));
+    for(let o of others) {
+        attributes.push(new Attribute(o.name, o.value));
+    }
+    return attributes;
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 /** 4
