@@ -542,15 +542,38 @@ function showMenu() {
  * @param editable
  */
 /*function addTitleIcon(source, editable=false) {
-
+    let titles = $('.title');
+    let i=0;
+    for (let title of titles) {
+        let text = title.textContent;
+        title.innerHTML = '<div class="title-content"><img src="' + source + '" alt="title" class="title-logo">' +
+            text+'</div><img name="sh-icon" src="../../resources/pictures/icons/minus-icon.png" alt=""  ' +
+            'class="sh-icon" onclick="hide('+i+')">'+'<span class="sh-sep"></span>';
+        if(editable && sessionStorage.getItem('ACCESS') !== null) {
+            // ADD EDIT AND DELETE ICONS
+            title.innerHTML += '<img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
+                'class="sh-icon" onclick="view.editData(' + i + ')">' +
+                '<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
+                'class="sh-icon" onclick="view.deleteData(' + i + ')">';
+        }
+        i++;
+    }
+    if(editable && sessionStorage.getItem('ACCESS') !== null) {
+        // ADD NEW ICON BLOCK
+        let saver = $('.sub-content')[0];
+        saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
+            saver.innerHTML;
+    }
 }*/
 function addTitleIcon(source, editable=false) {
     let titles = $('.title');
     let i=0;
-    /*for (let title of titles) {
+    for (let title of titles) {
+        let text = title.textContent;
+        title.innerHTML = '';
         title.appendChild(buildDIV([
             buildIMG(source, 'title', cls('title-logo')),
-            title.textContent
+            text
         ], cls('title-content')));
         title.appendChild(buildIMG('../../resources/pictures/icons/minus-icon.png', '', wrapICN('', 'sh-icon', 'sh-icon', [
             {name:'onclick', value:'hide('+i+')'}
@@ -566,7 +589,7 @@ function addTitleIcon(source, editable=false) {
             ])));
         }
         i++;
-    }*/
+    }
     if(editable && sessionStorage.getItem('ACCESS') !== null) {
         // ADD NEW ICON BLOCK
         let saver = $('.sub-content')[0];
@@ -804,12 +827,18 @@ function createBook(images=[], default_element_id = 'book') {
     current_img = 1;
     images_size = images.length;
     let element = $('#' + default_element_id);
-    element.innerHTML = '<div onclick="target(\''+ default_element_id + '\',--current_img)" class="arrow-left"><</div>';
+    element.appendChild(buildDIV('<', cls('arrow-left', [
+        {name:'onclick', value:'target(\''+ default_element_id + '\',--current_img)'},
+    ])));
     for(let i = 1; i<=images.length; i++) {
-        element.innerHTML += '<img onclick="popIMG(this.id)" id="' + default_element_id + '-img' + i + '" class="' +
-            default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
+        element.appendChild(buildIMG('../../resources/pictures/' + images[i-1], 'MQL PLATFORM',
+            wrapIC(default_element_id + '-img' + i, default_element_id + '-img', [
+                {name:'onclick', value:'popIMG(this.id)'}
+            ])));
     }
-    element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
+    element.appendChild(buildDIV('>', cls('arrow-right', [
+        {name:'onclick', value:'target(\''+ default_element_id + '\',++current_img)'},
+    ])));
     $( '.' + default_element_id + '-img')[current_img - 1].style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
