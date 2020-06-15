@@ -823,6 +823,18 @@ let images_size = 0;
  * @param images
  * @param default_element_id
  */
+/*function createBook(images=[], default_element_id = 'book') {
+    current_img = 1;
+    images_size = images.length;
+    let element = $('#' + default_element_id);
+    element.innerHTML = '<div onclick="target(\''+ default_element_id + '\',--current_img)" class="arrow-left"><</div>';
+    for(let i = 1; i<=images.length; i++) {
+        element.innerHTML += '<img onclick="popIMG(this.id)" id="' + default_element_id + '-img' + i + '" class="' +
+            default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
+    }
+    element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
+    $( '.' + default_element_id + '-img')[current_img - 1].style.display = 'block';
+}*/
 function createBook(images=[], default_element_id = 'book') {
     current_img = 1;
     images_size = images.length;
@@ -946,7 +958,7 @@ function wait(ms){
 /**
  * Load the content of the form contact
  */
-function loadContactForm() {
+/*function loadContactForm() {
     let form = $('#form-contact');
     form.innerHTML += ' ' +
         '<div id="form-contact-id" class="modal-style">' +
@@ -970,6 +982,48 @@ function loadContactForm() {
         '</div>' +
         '</form>' +
         '</div>';
+}*/
+function loadContactForm() {
+    let form = $('#form-contact');
+    form.appendChild(buildDIV([
+        buildSPAN('&times;', cls('close-modal-contact', [
+            {name:'onclick', value:'$(\'#form-contact-id\').style.display=\'none\''},
+            {name:'title', value:'Close Modal'},
+        ])),
+        buildElement('form', [
+            buildDIV([
+                buildElement('h3', 'Contactez-nous directement', wrap([{name:'style', value:'text-align: center'}])),
+                buildHR(),
+                buildElement('label', buildElement('b', 'Prénom', wrap([{name:'for', value:'first-name'}]))),
+                buildElement('input', null, wrapICN('first-name', 'zone-text-contact-news', 'first-name', [
+                    {name:'placeholder', value:'Prénom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', buildElement('b', 'Nom', wrap([{name:'for', value:'last-name'}]))),
+                buildElement('input', null, wrapICN('last-name', 'zone-text-contact-news', 'last-name', [
+                    {name:'placeholder', value:'Nom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', buildElement('b', 'Email', wrap([{name:'for', value:'email'}]))),
+                buildElement('input', null, wrapICN('email', 'zone-text-contact-news', 'email', [
+                    {name:'placeholder', value:'Email...'},
+                    {name:'type', value:'email'},
+                ])),
+                buildElement('label', buildElement('b', 'Sujet', wrap([{name:'for', value:'subject'}]))),
+                buildElement('textarea', null, wrapICN('subject', 'zone-text-contact-news', 'subject', [
+                    {name:'placeholder', value:'Ecrire ici...'},
+                    {name:'type', value:'email'},
+                    {name:'style', value:'height:200px'},
+                ])),
+                buildDIV([
+                    buildElement('button', 'Annuler', cls(['button-contact-2', 'cancel-button'], [
+                        [{name:'onclick', value:'$(\'#form-contact-id\').style.display=\'none\''}]
+                    ])),
+                    buildElement('button', 'Envoyer', cls(['button-contact-2', 'submit-button'])),
+                ], cls('form-footer')),
+            ], cls('contact-container'))
+        ], cls('modal-contact-content')),
+    ], wrapIC('form-contact-id', 'modal-style')));
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -977,7 +1031,7 @@ function loadContactForm() {
 /**
  * Load the content of the NewsLetter
  */
-function loadNewsLetter() {
+/*function loadNewsLetter() {
     let newsLetter = $('#news-cont');
     newsLetter.innerHTML += '<!-- The Modal -->' +
         '<div id="news-modal-id" class="news-modal">' +
@@ -997,6 +1051,39 @@ function loadNewsLetter() {
         '<button class="subscribe-button" type="submit">S\'inscrire</button>' +
         '</form>' +
         '</div>';
+}*/
+function loadNewsLetter() {
+    let newsLetter = $('#news-cont');
+    newsLetter.appendChild(buildDIV([
+        buildElement('form', [
+            buildSPAN('&times;', cls('close-part', [
+                {name:'onclick', value:'$(\'#news-modal-id\').style.display = \'none\''}
+            ])),
+            buildDIV([
+                buildSPAN('NewsLetter')
+            ], cls('modal-header')),
+            buildDIV([
+                buildElement('p', 'Inscrivez-vous pour recevoir les dernières actualités.'),
+                buildElement('label', 'Nom', wrap([
+                    {name:'for', value:'full-name'},
+                    {name:'style', value:'font-size: 18px;'},
+                ])),
+                buildElement('input', null, wrapICN('full-name', 'zone-text-contact-news', 'full-name', [
+                    {name:'placeholder', value:'Nom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', 'Email', wrap([
+                    {name:'for', value:'email'},
+                    {name:'style', value:'font-size: 18px;'},
+                ])),
+                buildElement('input', null, wrapICN('email', 'zone-text-contact-news', 'email', [
+                    {name:'placeholder', value:'Email...'},
+                    {name:'type', value:'email'},
+                ])),
+            ], cls('modal-body')),
+            buildElement('button', 'S\'inscrire', cls('subscribe-button')),
+        ], cls('news-modal-content'))
+    ], wrapIC('news-modal-id', 'news-modal')));
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/

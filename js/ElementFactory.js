@@ -157,15 +157,6 @@ function buildField(type = 'text', value = '', attributes = [], label = null, ta
     return container;
 }
 
-function buildFORM(fields = [], content = null, attributes = []) {
-    let form = buildElement('form', content, attributes);
-    for(let field of fields) {
-        form.appendChild(buildDIV([
-            buildElement('label', field.label, cls('form-label', {name:'for', value:field.id})),
-            buildElement(field.name, field.content, field.attributes)
-        ], cls('form-group')))
-    }
-}
 /* ---------------------------------------------------------------------------------------------------------------*/
 /** 5
  * <hr/>
