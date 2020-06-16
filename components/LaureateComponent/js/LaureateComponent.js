@@ -42,7 +42,7 @@ LaureateComponent.prototype.fillNavigation = function () {
 	htmlContent.innerHTML = this.htmlSaver.nav;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent.appendChild(buildHR());
-		let divMenu = buildDIV(buildLINK('#' + promotion.id,promotion.name,wrapC('menuitem')));
+		let divMenu = buildDIV(buildLINK('#' + promotion.id,promotion.name,cls('menuitem')));
 		// htmlContent += '<hr>\n' +
 		// 	'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
 		htmlContent.appendChild(divMenu);
@@ -55,18 +55,18 @@ LaureateComponent.prototype.fillMain = function () {
 	htmlContent.innerHTML = this.htmlSaver.main;
 	let img;
     for(let promotion of this.page_blocks[current_page_number - 1]) {
-        let details = buildDIV(buildParagraph(promotion.date.getFullYear(),wrapC('date')),wrapC('details'));
+        let details = buildDIV(buildParagraph(promotion.date.getFullYear(),cls('date')),cls('details'));
         let promo = buildDIV([
-			buildDIV(promotion.name,wrapC('title')),
+			buildDIV(promotion.name,cls('title')),
             details
-		],wrapI(promotion.id));
+		],id(promotion.id));
         htmlContent.appendChild(promo);
 		if(sessionStorage.getItem('ACCESS') !== null) {
 			//details
             details.appendChild(
                 buildDIV(
-                    buildIMG("../../resources/pictures/icons/new-icon.png",'',wrapC('new-icon',[{name:'onclick',value:'view.addData("' + promotion.id + ',laureate")'}])),
-                    wrapC(['new-block','new-laureate'])
+                    buildIMG("../../resources/pictures/icons/new-icon.png",'',cls('new-icon',[{name:'onclick',value:'view.addData("' + promotion.id + ',laureate")'}])),
+                    cls(['new-block','new-laureate'])
                 )
             );
 		}
@@ -81,14 +81,14 @@ LaureateComponent.prototype.fillMain = function () {
 			        buildDIV([
 			            buildIMG("../../resources/pictures/icons/edit.png",'',wrapICN('','sh-icon','edit-icon',[{name:'onclick',value:'view.editData("' + promotion.id + ',' +  laureate.id + ',laureate")'}])),
                         buildIMG("../../resources/pictures/icons/delete.png",'',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData("' + promotion.id + ',' +  laureate.id + 'laureate")'}]))
-                    ],wrapC('laureate-icons'))
+                    ],cls('laureate-icons'))
                 );
 			}
 			// LIST ITEM
             let item = buildDIV([
                 buildDIV([
-                    buildDIV(laureate.name +' ('+laureate.job+')', wrapC('item-element',[{name:'onclick',value:'view.showInfos("' + promotion.id + '-' + laureate.id +'")'}])),
-                    buildSPAN(null,wrapC('linkedin',[{name:'onclick',value:'window.location.href="'+ laureate.linked_in+'"'}]))
+                    buildDIV(laureate.name +' ('+laureate.job+')', cls('item-element',[{name:'onclick',value:'view.showInfos("' + promotion.id + '-' + laureate.id +'")'}])),
+                    buildSPAN(null,cls('linkedin',[{name:'onclick',value:'window.location.href="'+ laureate.linked_in+'"'}]))
                 ],cls('item-description')),
             ],wrapIC('item-'+promotion.id+'-'+laureate.id,'card-laureate'));
 			details.appendChild(item);
@@ -105,11 +105,11 @@ LaureateComponent.prototype.fillMain = function () {
                 );
 			}
 			let infos = buildElement('ul',null);
-			let cardDescription = buildDIV(infos,wrapC('card-desc'));
+			let cardDescription = buildDIV(infos,cls('card-desc'));
 			let description = buildDIV([
 			    buildDIV([
 			        laureate.name ,
-                    buildSPAN(null,wrapC('linkedin',[{name:'onclick',value:'"window.location.href='+ laureate.linked_in}])),
+                    buildSPAN(null,cls('linkedin',[{name:'onclick',value:'"window.location.href='+ laureate.linked_in}])),
                 ],cls('element',[{name:'onclick',value:'view.hideInfos("'+promotion.id+'-'+laureate.id+'")'}])),
 				cardDescription
 			],cls('description'));
@@ -117,7 +117,7 @@ LaureateComponent.prototype.fillMain = function () {
 			if(laureate.current_enterprise !== '' && laureate.city !== '') {
 			    infos.appendChild(
                     buildElement('li',[
-                        'Enterprise :',buildSPAN(laureate.current_enterprise+','+laureate.city,wrapC('value'))
+                        'Enterprise :',buildSPAN(laureate.current_enterprise+','+laureate.city,cls('value'))
                     ])
                 );
 			}
@@ -125,7 +125,7 @@ LaureateComponent.prototype.fillMain = function () {
 			if(laureate.stage !== '') {
 			    infos.appendChild(
                     buildElement('li',[
-                        'Stage : ',buildSPAN(laureate.stage,wrapC('value'))
+                        'Stage : ',buildSPAN(laureate.stage,cls('value'))
                     ])
                 );
 			}
@@ -133,7 +133,7 @@ LaureateComponent.prototype.fillMain = function () {
 			if(laureate.experience.length!==0) {
                 infos.appendChild(
                     buildElement('li',[
-                        'Expériences',buildSPAN(laureate.experience,wrapC('value'))
+                        'Expériences',buildSPAN(laureate.experience,cls('value'))
                     ])
                 );
 			}
@@ -141,7 +141,7 @@ LaureateComponent.prototype.fillMain = function () {
 			if(laureate.email !== '')
                 infos.appendChild(
                     buildElement('li',[
-                        'Email : ',buildSPAN(buildLINK('mailto:'+laureate.email,laureate.email),wrapC('value'))
+                        'Email : ',buildSPAN(buildLINK('mailto:'+laureate.email,laureate.email),cls('value'))
                     ])
                 );
 			    infos.appendChild(buildHR());
@@ -151,7 +151,7 @@ LaureateComponent.prototype.fillMain = function () {
                     buildDIV(null,'quotes')
                 );
                 infos.appendChild(
-                    buildParagraph(laureate.rating,wrapC('rating'))
+                    buildParagraph(laureate.rating,cls('rating'))
                 );
 			}
 			promoItem.appendChild(description);
