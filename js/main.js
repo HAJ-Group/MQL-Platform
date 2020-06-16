@@ -61,7 +61,7 @@ function $(target_element) {
     if(target_element.startsWith('.')) return document.getElementsByClassName(target_element.substring(1));
     if(target_element.startsWith('+')) return document.getElementsByName(target_element.substring(1));
     else return document.getElementsByTagName(target_element);
-};
+}
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/

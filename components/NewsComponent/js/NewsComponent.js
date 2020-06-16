@@ -112,9 +112,9 @@ NewsComponent.prototype.fillNavigation = function () {
 NewsComponent.prototype.fillMain = function () {
 	this.block_main.innerHTML = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
-		this.block_main.appendChild(buildDIV([
+		let titleDiv = buildDIV([
 			buildDIV(news.title, cls('title')),
-		], id(news.id)));
+		], id(news.id));
 		let detailsDiv = buildDIV([
 			buildElement('p', formattedDate(news.date), cls('date')),
 			buildElement('p', news.description),
@@ -128,7 +128,8 @@ NewsComponent.prototype.fillMain = function () {
 		}
 		rowDiv.appendChild(columnSpan);
 		detailsDiv.appendChild(rowDiv);
-		this.block_main.appendChild(detailsDiv);
+		titleDiv.appendChild(detailsDiv);
+		this.block_main.appendChild(titleDiv);
 	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
