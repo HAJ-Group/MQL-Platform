@@ -174,30 +174,24 @@ LaureateComponent.prototype.fillRandomRecomendation =function(){
 			 imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
 		}
 		else imageR = laureate.photo;
-		html_content+='<div class="recommendation">' +
-			'<div class="image-and-infos">' +
-			'<div class="image-person">'+
-			'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="">'+
-			'</div>' +
-			'<div class="infos">' +
-			'<div class="name">' +
-			laureate.name+
-			'</div>' +
-			'<div class="society">' +
-			laureate.job+' à '+laureate.current_enterprise+
-			'</div>' +
-			'</div>' +
-			'</div>' +
-			'<div class="opinion">' +
-			'<p>' +
-			'<q>' +
-			laureate.rating+
-			'</q>' +
-			'</p>' +
-			'</div>' +
-			'</div>';
+		let recommendation = buildDIV([
+			buildDIV([
+				buildDIV(buildIMG( imageR,'',id('reco-img-'+laureate.id)),cls('image-person')),
+				buildDIV([
+					buildDIV(laureate.name,cls('name')),
+					buildDIV(laureate.job+' à '+laureate.current_enterprise,cls('society'))
+				],cls('infos'))
+			],cls('image-and-infos')),
+			buildDIV([
+				buildParagraph([
+					buildElement('q',laureate.rating)
+				])
+			],cls('opinion'))
+		],cls('recommendation'))
+
+		this.block_recommendation.appendChild(recommendation);
+
 	}
-	this.block_recommendation.innerHTML += html_content;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.random = function () {
@@ -442,20 +436,18 @@ function main() {
 	service.loadPromotion(dbPromotion);
 	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
-    //try {
+    try {
 		view.fillNavigation();
 		view.fillMain();
 		view.random();
 		view.fillSwitcher();
-	/*} catch (e) {
+	} catch (e) {
 		if(confirm('None Promotion is found! Add new one ?')) {
 			view.addData();
 		} else {
 			route('../Home');
 		}
 	}
-	*/
-
 	// stays last
 	addTitleIcon('../../resources/pictures/laureate-logo.png', true);
 	detect_subContent_trigger_left_bar();
