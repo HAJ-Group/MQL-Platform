@@ -45,12 +45,12 @@ PartnerComponent.prototype.fillPartnersMenu = function() {
 	// ADD NEW BLOCK
 	if(sessionStorage.getItem('ACCESS') !== null) {
 		let newBlock = buildDIV(
-				buildIMG('../../resources/pictures/icons/new-icon.png','',wrapC(['new-icon'],[{name:'onclick',value:'view.addData()'}])),
-			wrapC('new-block')
+				buildIMG('../../resources/pictures/icons/new-icon.png','',cls(['new-icon'],[{name:'onclick',value:'view.addData()'}])),
+			cls('new-block')
 		);
 		htmlContent.appendChild(newBlock);
 	}
-	let endImg = buildIMG("../../resources/pictures/Partners/menu-bottom2.jpg",'',wrapC('end-img'));
+	let endImg = buildIMG("../../resources/pictures/Partners/menu-bottom2.jpg",'',cls('end-img'));
 	htmlContent.appendChild(endImg);
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -59,27 +59,27 @@ PartnerComponent.prototype.fillPartners = function() {
     htmlContent.innerHTML = this.htmlSaver.container;
 	let i = 0;
 	for(let partner of this.service.db) {
-		let card = buildDIV(buildDIV(buildIMG(partner.bg),wrapC('card-image')),wrapIC(partner.id,'card'));
+		let card = buildDIV(buildDIV(buildIMG(partner.bg),cls('card-image')),wrapIC(partner.id,'card'));
 		htmlContent.appendChild(card);
 		if(sessionStorage.getItem('ACCESS') !== null) {
 			let partnernsIcons = buildDIV([
 				buildIMG('../../resources/pictures/icons/edit.png','',wrapICN('','sh-icon','edit-icon',[{name:'onclick',value:'view.editData(' + i + ')'}])),
 				buildIMG('../../resources/pictures/icons/delete.png','',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData(' + i + ')'}]))
 				]
-				,wrapC('partner-icons'));
+				,cls('partner-icons'));
 			card.appendChild(partnernsIcons);
 		}
 		let bodyCard = buildDIV([
-				buildDIV(partner.name,wrapC('title',[{name : 'style' , value : 'color:' + partner.color}])),
-				buildDIV('Chiffre d\'affaire :'+partner.ca,wrapC('ca')),
+				buildDIV(partner.name,cls('title',[{name : 'style' , value : 'color:' + partner.color}])),
+				buildDIV('Chiffre d\'affaire :'+partner.ca,cls('ca')),
 				buildHR(),
-				buildParagraph(partner.description,wrapC('description')),
-				buildParagraph('Sur : '+partner.zone,wrapC('desciption')),
-				buildParagraph('Nombre de collobaroteurs de MQL chez '+partner.name+' est :'+partner.nbr_colla,wrapC('colabs')),
-				buildIMG(partner.image,'',wrapC('micro-logo')),
-				buildParagraph(['Site web officiel : ',buildLINK('https://'+partner.website,partner.website,[{name:'target',value:'_blank'}])],wrapC('website'))
+				buildParagraph(partner.description,cls('description')),
+				buildParagraph('Sur : '+partner.zone,cls('desciption')),
+				buildParagraph('Nombre de collobaroteurs de MQL chez '+partner.name+' est :'+partner.nbr_colla,cls('colabs')),
+				buildIMG(partner.image,'',cls('micro-logo')),
+				buildParagraph(['Site web officiel : ',buildLINK('https://'+partner.website,partner.website,[{name:'target',value:'_blank'}])],cls('website'))
 			]
-			,wrapC('card-body'));
+			,cls('card-body'));
 		card.appendChild(bodyCard);
 		i++;
 	}
