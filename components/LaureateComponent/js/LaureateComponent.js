@@ -20,10 +20,10 @@ function LaureateComponent(service) {
 	this.block_switch = $('#switcher');
 	this.block_recommendation = $('#list-recommendation');
 	this.htmlSaver = {
-		nav: this.block_nav,
-		main: this.block_main,
-		recommendation : this.block_recommendation,
-		switcher: this.block_switch,
+		nav: this.block_nav.innerHTML,
+		main: this.block_main.innerHTML,
+		recommendation : this.block_recommendation.innerHTML,
+		switcher: this.block_switch.innerHTML,
 	};
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -38,7 +38,8 @@ LaureateComponent.prototype.addLaureateRow = function (oneLaureate) {
  * Create navigation menu dynamically
  */
 LaureateComponent.prototype.fillNavigation = function () {
-	let htmlContent = this.htmlSaver.nav;
+	let htmlContent = this.block_nav;
+	htmlContent.innerHTML = this.htmlSaver.nav;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
 		htmlContent.appendChild(buildHR());
 		let divMenu = buildDIV(buildLINK('#' + promotion.id,promotion.name,wrapC('menuitem')));
@@ -50,26 +51,24 @@ LaureateComponent.prototype.fillNavigation = function () {
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Printing all service data into the table member
 LaureateComponent.prototype.fillMain = function () {
-	let htmlContent = this.htmlSaver.main;
+    let htmlContent = this.block_main;
+	htmlContent.innerHTML = this.htmlSaver.main;
 	let img;
-	for(let promotion of this.page_blocks[current_page_number - 1]) {
-		let details = buildDIV([
-			buildParagraph(promotion.date.getFullYear(),wrapC('date'))
-		],wrapC('details'));
-		let promotion = buildDIV([
+    for(let promotion of this.page_blocks[current_page_number - 1]) {
+        let details = buildDIV(buildParagraph(promotion.date.getFullYear(),wrapC('date')),wrapC('details'));
+        let promo = buildDIV([
 			buildDIV(promotion.name,wrapC('title')),
-			details
+            details
 		],wrapI(promotion.id));
-		htmlContent +=
-			'<div id="' + promotion.id + '" >' +
-			'<div class="title">\n' + promotion.name + '</div>' +
-			'<div class="details">' +
-			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
+        htmlContent.appendChild(promo);
 		if(sessionStorage.getItem('ACCESS') !== null) {
-			details
-			htmlContent += '<div class="new-block new-laureate">' +
-				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
-				'</div>';
+			//details
+            details.appendChild(
+                buildDIV(
+                    buildIMG("../../resources/pictures/icons/new-icon.png",'',wrapC('new-icon',[{name:'onclick',value:'view.addData("' + promotion.id + ',laureate")'}])),
+                    wrapC(['new-block','new-laureate'])
+                )
+            );
 		}
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')){
@@ -77,53 +76,88 @@ LaureateComponent.prototype.fillMain = function () {
 			} else img = laureate.photo;
 			// EDIT AND DELETE
 			if(sessionStorage.getItem('ACCESS') !== null) {
-				htmlContent += '<div class="laureate-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
-					'class="sh-icon" onclick="view.editData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')">' +
-					'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
-					'class="sh-icon" onclick="view.deleteData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')"></div>';
+			//    console.log(promo)
+			    details.appendChild(
+			        buildDIV([
+			            buildIMG("../../resources/pictures/icons/edit.png",'',wrapICN('','sh-icon','edit-icon',[{name:'onclick',value:'view.editData("' + promotion.id + ',' +  laureate.id + ',laureate")'}])),
+                        buildIMG("../../resources/pictures/icons/delete.png",'',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData("' + promotion.id + ',' +  laureate.id + 'laureate")'}]))
+                    ],wrapC('laureate-icons'))
+                );
 			}
 			// LIST ITEM
-			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
-				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'
-				+'<span onclick="window.location.href=\'' + laureate.linked_in  + '\'" class="linkedin"></span>\n'
-				+'</div></div>';
+            let item = buildDIV([
+                buildDIV([
+                    buildDIV(laureate.name +' ('+laureate.job+')', wrapC('item-element',[{name:'onclick',value:'view.showInfos("' + promotion.id + '-' + laureate.id +'")'}])),
+                    buildSPAN(null,wrapC('linkedin',[{name:'onclick',value:'window.location.href="'+ laureate.linked_in+'"'}]))
+                ],cls('item-description')),
+            ],wrapIC('item-'+promotion.id+'-'+laureate.id,'card-laureate'));
+			details.appendChild(item);
 			// INFO BODY
-			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
+
+			let promoItem = buildDIV(null,wrapIC( promotion.id +'-'+ laureate.id,'card-laureate',[{name:'style',value:'display: none'}]));
 			if(laureate.photo !== "") {
-				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="l-img" src="' + img + '" alt="" onclick="popIMG(this.id)">';
+				promoItem.appendChild(
+                        buildIMG(img,'',id('laureatePhoto-'+promotion.id+'-'+laureate.id,[{name:'onclick',value:'popIMG(this.id)'}]))
+                );
 			} else {
-				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" src="' + img + '" alt="">';
+				promoItem.appendChild(
+                        buildIMG(img,'',id('laureatePhoto-'+promotion.id+'-'+laureate.id))
+                );
 			}
-			htmlContent += '<div class="description">\n' +
-				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
-				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
-				'<div class="card-desc">' +
-				'<ul>';
+			let infos = buildElement('ul',null);
+			let cardDescription = buildDIV(infos,wrapC('card-desc'));
+			let description = buildDIV([
+			    buildDIV([
+			        laureate.name ,
+                    buildSPAN(null,wrapC('linkedin',[{name:'onclick',value:'"window.location.href='+ laureate.linked_in}])),
+                ],cls('element',[{name:'onclick',value:'view.hideInfos("'+promotion.id+'-'+laureate.id+'")'}])),
+				cardDescription
+			],cls('description'));
 			// ENTERPRISE && CITY
 			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Entreprise: <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>';
+			    infos.appendChild(
+                    buildElement('li',[
+                        'Enterprise :',buildSPAN(laureate.current_enterprise+','+laureate.city,wrapC('value'))
+                    ])
+                );
 			}
 			// STAGE
 			if(laureate.stage !== '') {
-				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
+			    infos.appendChild(
+                    buildElement('li',[
+                        'Stage : ',buildSPAN(laureate.stage,wrapC('value'))
+                    ])
+                );
 			}
 			// EXPERIENCES
 			if(laureate.experience.length!==0) {
-				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
+                infos.appendChild(
+                    buildElement('li',[
+                        'Expériences',buildSPAN(laureate.experience,wrapC('value'))
+                    ])
+                );
 			}
 			// Email :
 			if(laureate.email !== '')
-			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
+                infos.appendChild(
+                    buildElement('li',[
+                        'Email : ',buildSPAN(buildLINK('mailto:'+laureate.email,laureate.email),wrapC('value'))
+                    ])
+                );
+			    infos.appendChild(buildHR());
 			// DESCRIPTION
 			if(laureate.rating !== ''){
-				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
+                infos.appendChild(
+                    buildDIV(null,'quotes')
+                );
+                infos.appendChild(
+                    buildParagraph(laureate.rating,wrapC('rating'))
+                );
 			}
-			htmlContent += '</ul></div></div></div>';
+			promoItem.appendChild(description);
+			details.appendChild(promoItem);
 		}
-		htmlContent+='</div></div>' ;
 	}
-	this.block_main.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.fillRandomRecomendation =function(){
@@ -408,7 +442,7 @@ function main() {
 	service.loadPromotion(dbPromotion);
 	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
-	//try {
+    //try {
 		view.fillNavigation();
 		view.fillMain();
 		view.random();

@@ -13,6 +13,7 @@ function PartnerComponent(service) {
 	this.currentblock = this.service.get(0).id;
 	this.block_menu = $('#partnersMenu');
 	this.block_container = $('#partnersContainer');
+
 	this.htmlSaver = {
 		menu: this.block_menu.innerHTML,
 		container: this.block_container.innerHTML
