@@ -38,28 +38,37 @@ LaureateComponent.prototype.addLaureateRow = function (oneLaureate) {
  * Create navigation menu dynamically
  */
 LaureateComponent.prototype.fillNavigation = function () {
-	let htmlContent = this.htmlSaver.nav;
+	let htmlContent = this.block_nav;
+	htmlContent.innerHTML = this.htmlSaver.nav;
 	for(let promotion of this.page_blocks[current_page_number - 1]) {
-		htmlContent += '<hr>\n' +
-			'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
+		htmlContent.appendChild(buildHR());
+		let divMenu = buildDIV(buildLINK('#' + promotion.id,promotion.name,cls('menuitem')));
+		// htmlContent += '<hr>\n' +
+		// 	'<div><a class="menuitem" href="#' + promotion.id + '">' + promotion.name + '</a></div>\n';
+		htmlContent.appendChild(divMenu);
 	}
-	this.block_nav.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Printing all service data into the table member
 LaureateComponent.prototype.fillMain = function () {
-	let htmlContent = this.htmlSaver.main;
+    let htmlContent = this.block_main;
+	htmlContent.innerHTML = this.htmlSaver.main;
 	let img;
-	for(let promotion of this.page_blocks[current_page_number - 1]) {
-		htmlContent +=
-			'<div id="' + promotion.id + '" >' +
-			'<div class="title">\n' + promotion.name + '</div>' +
-			'<div class="details">' +
-			'<p class="date">' + promotion.date.getFullYear()+ '</p>';
+    for(let promotion of this.page_blocks[current_page_number - 1]) {
+        let details = buildDIV(buildParagraph(promotion.date.getFullYear(),cls('date')),cls('details'));
+        let promo = buildDIV([
+			buildDIV(promotion.name,cls('title')),
+            details
+		],id(promotion.id));
+        htmlContent.appendChild(promo);
 		if(sessionStorage.getItem('ACCESS') !== null) {
-			htmlContent += '<div class="new-block new-laureate">' +
-				'<img onclick="view.addData(\'' + promotion.id + ',laureate\')" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon">' +
-				'</div>';
+			//details
+            details.appendChild(
+                buildDIV(
+                    buildIMG("../../resources/pictures/icons/new-icon.png",'',cls('new-icon',[{name:'onclick',value:'view.addData("' + promotion.id + ',laureate")'}])),
+                    cls(['new-block','new-laureate'])
+                )
+            );
 		}
 		for (let laureate of promotion.content) {
 			if((laureate.photo === '')){
@@ -67,53 +76,88 @@ LaureateComponent.prototype.fillMain = function () {
 			} else img = laureate.photo;
 			// EDIT AND DELETE
 			if(sessionStorage.getItem('ACCESS') !== null) {
-				htmlContent += '<div class="laureate-icons"><img name="edit-icon" src="../../resources/pictures/icons/edit.png" alt=""  ' +
-					'class="sh-icon" onclick="view.editData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')">' +
-					'<img name="delete-icon" src="../../resources/pictures/icons/delete.png" alt=""  ' +
-					'class="sh-icon" onclick="view.deleteData(\'' + promotion.id + ',' +  laureate.id + '\',\'laureate\')"></div>';
+			//    console.log(promo)
+			    details.appendChild(
+			        buildDIV([
+			            buildIMG("../../resources/pictures/icons/edit.png",'',wrapICN('','sh-icon','edit-icon',[{name:'onclick',value:'view.editData("' + promotion.id + ',' +  laureate.id + ',laureate")'}])),
+                        buildIMG("../../resources/pictures/icons/delete.png",'',wrapICN('','sh-icon','delete-icon',[{name:'onclick',value:'view.deleteData("' + promotion.id + ',' +  laureate.id + 'laureate")'}]))
+                    ],cls('laureate-icons'))
+                );
 			}
 			// LIST ITEM
-			htmlContent += '<div id="item-' + promotion.id + '-' + laureate.id + '" class="card-laureate">\n' +
-				'<div class="item-description">\n' +
-				'<div class="item-element" onclick="view.showInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +' ('+laureate.job+')</div>'
-				+'<span onclick="window.location.href=\'' + laureate.linked_in  + '\'" class="linkedin"></span>\n'
-				+'</div></div>';
+            let item = buildDIV([
+                buildDIV([
+                    buildDIV(laureate.name +' ('+laureate.job+')', cls('item-element',[{name:'onclick',value:'view.showInfos("' + promotion.id + '-' + laureate.id +'")'}])),
+                    buildSPAN(null,cls('linkedin',[{name:'onclick',value:'window.location.href="'+ laureate.linked_in+'"'}]))
+                ],cls('item-description')),
+            ],wrapIC('item-'+promotion.id+'-'+laureate.id,'card-laureate'));
+			details.appendChild(item);
 			// INFO BODY
-			htmlContent += '<div id="' + promotion.id + '-' + laureate.id + '" class="card-laureate" style="display: none">\n';
+
+			let promoItem = buildDIV(null,wrapIC( promotion.id +'-'+ laureate.id,'card-laureate',[{name:'style',value:'display: none'}]));
 			if(laureate.photo !== "") {
-				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" class="l-img" src="' + img + '" alt="" onclick="popIMG(this.id)">';
+				promoItem.appendChild(
+                        buildIMG(img,'',id('laureatePhoto-'+promotion.id+'-'+laureate.id,[{name:'onclick',value:'popIMG(this.id)'}]))
+                );
 			} else {
-				htmlContent += '<img id="laureatePhoto-' + promotion.id + '-' + laureate.id + '" src="' + img + '" alt="">';
+				promoItem.appendChild(
+                        buildIMG(img,'',id('laureatePhoto-'+promotion.id+'-'+laureate.id))
+                );
 			}
-			htmlContent += '<div class="description">\n' +
-				'<div class="element"  onclick="view.hideInfos(\'' + promotion.id + '-' + laureate.id + '\')">' + laureate.name +
-				'<span onclick="window.location.href=\'' + laureate.linked_in + '\'" class="linkedin"></span></div>\n' +
-				'<div class="card-desc">' +
-				'<ul>';
+			let infos = buildElement('ul',null);
+			let cardDescription = buildDIV(infos,cls('card-desc'));
+			let description = buildDIV([
+			    buildDIV([
+			        laureate.name ,
+                    buildSPAN(null,cls('linkedin',[{name:'onclick',value:'"window.location.href='+ laureate.linked_in}])),
+                ],cls('element',[{name:'onclick',value:'view.hideInfos("'+promotion.id+'-'+laureate.id+'")'}])),
+				cardDescription
+			],cls('description'));
 			// ENTERPRISE && CITY
 			if(laureate.current_enterprise !== '' && laureate.city !== '') {
-				htmlContent += '<li>Entreprise: <span class="value">' + laureate.current_enterprise + ', ' + laureate.city + '</span></li>';
+			    infos.appendChild(
+                    buildElement('li',[
+                        'Enterprise :',buildSPAN(laureate.current_enterprise+','+laureate.city,cls('value'))
+                    ])
+                );
 			}
 			// STAGE
 			if(laureate.stage !== '') {
-				htmlContent += '<li>Stage : <span class="value">' + laureate.stage + '</span></li>';
+			    infos.appendChild(
+                    buildElement('li',[
+                        'Stage : ',buildSPAN(laureate.stage,cls('value'))
+                    ])
+                );
 			}
 			// EXPERIENCES
 			if(laureate.experience.length!==0) {
-				htmlContent += '<li>Expériences : <span class="value"> '+laureate.experience+' </span></li>' ;
+                infos.appendChild(
+                    buildElement('li',[
+                        'Expériences',buildSPAN(laureate.experience,cls('value'))
+                    ])
+                );
 			}
 			// Email :
 			if(laureate.email !== '')
-			htmlContent+='<li>Email : <span class="value"><a href="mailto:' + laureate.email + '">' + laureate.email + '</a></span></li><hr>';
+                infos.appendChild(
+                    buildElement('li',[
+                        'Email : ',buildSPAN(buildLINK('mailto:'+laureate.email,laureate.email),cls('value'))
+                    ])
+                );
+			    infos.appendChild(buildHR());
 			// DESCRIPTION
 			if(laureate.rating !== ''){
-				htmlContent += '<div class="quotes"></div><p class="rating">' + laureate.rating + '</p>'
+                infos.appendChild(
+                    buildDIV(null,'quotes')
+                );
+                infos.appendChild(
+                    buildParagraph(laureate.rating,cls('rating'))
+                );
 			}
-			htmlContent += '</ul></div></div></div>';
+			promoItem.appendChild(description);
+			details.appendChild(promoItem);
 		}
-		htmlContent+='</div></div>' ;
 	}
-	this.block_main.innerHTML = htmlContent;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.fillRandomRecomendation =function(){
@@ -130,30 +174,24 @@ LaureateComponent.prototype.fillRandomRecomendation =function(){
 			 imageR = DEFAULT_TOP_PROFILE_IMAGE[laureate.gender];
 		}
 		else imageR = laureate.photo;
-		html_content+='<div class="recommendation">' +
-			'<div class="image-and-infos">' +
-			'<div class="image-person">'+
-			'<img  id="reco-img-' + laureate.id + '"  src="' + imageR + '" alt="">'+
-			'</div>' +
-			'<div class="infos">' +
-			'<div class="name">' +
-			laureate.name+
-			'</div>' +
-			'<div class="society">' +
-			laureate.job+' à '+laureate.current_enterprise+
-			'</div>' +
-			'</div>' +
-			'</div>' +
-			'<div class="opinion">' +
-			'<p>' +
-			'<q>' +
-			laureate.rating+
-			'</q>' +
-			'</p>' +
-			'</div>' +
-			'</div>';
+		let recommendation = buildDIV([
+			buildDIV([
+				buildDIV(buildIMG( imageR,'',id('reco-img-'+laureate.id)),cls('image-person')),
+				buildDIV([
+					buildDIV(laureate.name,cls('name')),
+					buildDIV(laureate.job+' à '+laureate.current_enterprise,cls('society'))
+				],cls('infos'))
+			],cls('image-and-infos')),
+			buildDIV([
+				buildParagraph([
+					buildElement('q',laureate.rating)
+				])
+			],cls('opinion'))
+		],cls('recommendation'))
+
+		this.block_recommendation.appendChild(recommendation);
+
 	}
-	this.block_recommendation.innerHTML += html_content;
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 LaureateComponent.prototype.random = function () {
@@ -398,7 +436,7 @@ function main() {
 	service.loadPromotion(dbPromotion);
 	service.loadspecial(dbPromotion);
 	view = new LaureateComponent(service);
-	try {
+    try {
 		view.fillNavigation();
 		view.fillMain();
 		view.random();

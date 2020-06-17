@@ -133,13 +133,13 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Change the color of links on hover */
 .topnav a:hover {
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
     opacity: 0.3;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Add a color to the active/current link */
 .topnav a.active {
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .def-img {
@@ -200,7 +200,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .search-input:focus {
-    border: 2px solid cornflowerblue;
+    border: 2px solid rgb(53, 69, 108);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Text Boxes --------------------------------------------------------------------------------------------------------*/
@@ -251,7 +251,7 @@ header {
 .left-menu {
     background-color: white;
     margin-top: 20px;
-    border: 3px solid cornflowerblue;
+    border: 3px solid rgb(53, 69, 108);
     border-radius: 10px;
     box-shadow: gray 2px 2px 2px;
     width: 20%;
@@ -286,7 +286,7 @@ header {
     font-family: "Agency FB", serif;
     font-weight: bold;
     font-size: 30px;
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
     padding: 15px 10px;
     text-transform: uppercase;
 }
@@ -431,7 +431,7 @@ header {
     font-family: "Agency FB", serif;
     font-weight: bold;
     font-size: 50px;
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
     padding: 15px 10px;
     text-transform: uppercase;
     text-align: center;
@@ -481,7 +481,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .form-text:focus {
-    border: 2px solid cornflowerblue;
+    border: 2px solid rgb(53, 69, 108);
 
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -490,7 +490,7 @@ header {
     position: absolute;
     top: 2%;
     right: 23.2%;
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     color: white;
     font-size: 60px;
     font-weight: bold;
@@ -503,7 +503,7 @@ header {
 /*--------------------------------------------------------------------------------------------------------------------*/
 .close:hover, .close:focus {
     background-color: white;
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
     text-decoration: none;
     cursor: pointer;
 }
@@ -536,7 +536,7 @@ header {
     text-align: center;
     font-size: 80px;
     opacity: 0.3;
-    color: rgb(253, 59, 76);
+    color: rgb(217, 50, 58);
     background-color: white;
     border: 1px solid lightgray;
     width: 80px;
@@ -550,7 +550,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .arrow-left:active, .arrow-right:active {
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -584,7 +584,7 @@ header {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .active-page {
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -605,7 +605,7 @@ footer{
 .flex-container{
     display: flex;
     flex-wrap: wrap;
-    background-color:#4b4c54;
+    background-color:rgb(53, 69, 108);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .flex-container > div{
@@ -762,7 +762,7 @@ a.links:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .partenaire > span > a:hover{
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     opacity: 0.7;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -964,27 +964,27 @@ a.links:hover{
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Coloring with background  */
 .wrap-blue {
-    background-color: cornflowerblue;
+    background-color: rgb(53, 69, 108);
     border-radius: 50px;
     margin-bottom: 20px;
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .wrap-blue:hover {
-    background-color: cornflowerblue;
+    background-color: rgb(53, 69, 108);
     color: white;
     opacity: 0.8;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .wrap-red {
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     border-radius: 50px;
     margin-bottom: 20px;
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 .wrap-red:hover {
-    background-color: rgb(253, 59, 76);
+    background-color: rgb(217, 50, 58);
     border-radius: 50px;
     color: white;
     opacity: 0.8;
@@ -1073,9 +1073,9 @@ a.links:hover{
     }
 
     .topnav a:hover {
-        color: rgb(253, 59, 76);
-        border: 2px solid rgb(253, 59, 76);
-        /*background-color: rgb(253, 59, 76);*/
+        color: rgb(217, 50, 58);
+        border: 2px solid rgb(217, 50, 58);
+        /*background-color: rgb(217, 50, 58);*/
         opacity: 1;
     }
 
@@ -1504,7 +1504,7 @@ textarea {
 .modal-header {
     text-align: center;
     padding: 10px;
-    background-color: cornflowerblue;
+    background-color: rgb(53, 69, 108);
     color: white;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/

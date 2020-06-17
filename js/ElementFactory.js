@@ -140,6 +140,25 @@ function buildLINK(href, content = null, attributes = []) {
     return buildElement('a', content, attributes);
 }
 
+/**
+ * 5
+ * @param content
+ * @param attributes
+ * @returns {any}
+ */
+function buildParagraph(content = null, attributes = []) {
+    return buildElement('p', content, attributes);
+}
+
+/**
+ * 6
+ * @param type
+ * @param value
+ * @param attributes
+ * @param label
+ * @param tag
+ * @returns {any}
+ */
 function buildField(type = 'text', value = '', attributes = [], label = null, tag = 'input') {
     let labelElement = null;
     let labelID;
@@ -157,8 +176,23 @@ function buildField(type = 'text', value = '', attributes = [], label = null, ta
     return container;
 }
 
+/**
+ * 6
+ * @param fields
+ * @param content
+ * @param attributes
+ */
+function buildFORM(fields = [], content = null, attributes = []) {
+    let form = buildElement('form', content, attributes);
+    for(let field of fields) {
+        form.appendChild(buildDIV([
+            buildElement('label', field.label, cls('form-label', {name:'for', value:field.id})),
+            buildElement(field.name, field.content, field.attributes)
+        ], cls('form-group')))
+    }
+}
 /* ---------------------------------------------------------------------------------------------------------------*/
-/** 5
+/** 7
  * <hr/>
  * @returns {any}
  */
@@ -166,7 +200,7 @@ function buildHR(attributes = []) {
     return buildElement('hr', null, attributes);
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
-/** 6
+/** 8
  * <br/>
  * @returns {any}
  */
