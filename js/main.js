@@ -61,7 +61,7 @@ function $(target_element) {
     if(target_element.startsWith('.')) return document.getElementsByClassName(target_element.substring(1));
     if(target_element.startsWith('+')) return document.getElementsByName(target_element.substring(1));
     else return document.getElementsByTagName(target_element);
-};
+}
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -69,12 +69,12 @@ function $(target_element) {
  * Build up the header using given parameters
  * @returns {string}
  */
-function getHeaderContent() {
+/*function getHeaderContent() {
     let navs = [
-        /*
+        /!*
         * name : value of name attribute related with the title picture and the component
         * content : value of the innerText of the nav
-        * */
+        * *!/
         {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
         {name: 'News', content:'Actualités'},
         {name: 'Event', content:'Evénements'},
@@ -83,7 +83,7 @@ function getHeaderContent() {
         {name: 'Laureate', content:'Lauréats'},
         {name: 'Area', content:'Administration'},
     ];
-    /* HEADER --------------------------------------------------------------------------------------------------------*/
+    /!* HEADER --------------------------------------------------------------------------------------------------------*!/
     let headerContent = '<header class="div-center">' +
         '<img id="title-image" src="" alt="title" />' +
         '<div class="phone-header" id="phone-header">' +
@@ -107,11 +107,62 @@ function getHeaderContent() {
         '</div>' +
         '</header>';
     return headerContent;
+}*/
+function getHeaderContent() {
+    let navs = [
+        /*
+        * name : value of name attribute related with the title picture and the component
+        * content : value of the innerText of the nav
+        * */
+        {name: 'Home', content:'<img id="home-logo" class="def-img" src="../../resources/pictures/home.png" alt="home">'},
+        {name: 'News', content:'Actualités'},
+        {name: 'Event', content:'Evénements'},
+        {name: 'Activity', content:'Activités'},
+        {name: 'Partner', content:'Partenaires'},
+        {name: 'Laureate', content:'Lauréats'},
+        {name: 'Area', content:'Administration'},
+    ];
+    /* HEADER --------------------------------------------------------------------------------------------------------*/
+    let headerElement = buildElement('header',[
+        buildIMG('', 'title', id('title-image')),
+        buildDIV([
+            buildDIV([
+                buildIMG('../../resources/pictures/logoMQL.png', 'lm', id('mini-logo', [
+                    {name:'onclick', value:'route(\'../Home\')'},
+                    {name:'width', value:'150'},
+                    {name:'height', value:'90'},
+                ]))
+            ], cls('move-left')),
+            buildDIV([
+                buildIMG('../../resources/pictures/menu-phone.png', 'mp', id('menu-button', [
+                    {name:'onclick', value:'showMenu()'},
+                    {name:'width', value:'60'},
+                    {name:'height', value:'60'},
+                ]))
+            ], cls('move-right'))
+        ], wrapCI('phone-header', 'phone-header'))
+    ], cls('div-center'));
+    let navElement = buildDIV(null, cls('topnav'));
+    // DYNAMIC NAVS
+    for(let nav of navs) {
+        navElement.appendChild(buildLINK('#' + nav.name, nav.content, cls('left', [
+            {name:'onclick', value:'route(\'../' + nav.name + '\')'},
+            {name:'onmouseover', value:'changePicture(this.name)'},
+            {name:'onmouseleave', value:'changePicture(current_component)'},
+            {name:'name', value:nav.name},
+        ])))
+    }
+    // ABOUT NAV
+    navElement.appendChild(buildLINK('#footer', [
+        buildIMG('../../resources/pictures/about.png', 'about', cls('def-img'))
+    ], cls('right')));
+    headerElement.appendChild(navElement);
+    return headerElement;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-function getSearchBar() {
+/*function getSearchBar() {
     return '<div class="search-block"> ' +
         '<img src="../../resources/pictures/search.png" class="search-logo" alt="search Logo"> ' +
         '<input id="key" onkeyup="view.filterKey()" placeholder="Search..." class="search-input" type="text"> ' +
@@ -125,6 +176,17 @@ function getSearchBar() {
         '<p id="BoxText" class="box-text"></p> ' +
         '</div> ' +
         '</div>';
+}*/
+function getSearchBar() {
+    return buildDIV([
+        buildIMG('../../resources/pictures/search.png', 'search Logo', cls('search-logo')),
+        buildElement('input', null, wrapIC('key', 'search-input', [
+            {name:'onkeyup', value:'view.filterKey()'},
+            {name:'placeholder', value:'Search...'},
+            {name:'type', value:'text'},
+        ])),
+        buildSPAN(null, cls('error-message'))
+    ], cls('search-block'));
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -143,7 +205,7 @@ function showEmptyErrorResult() {
  * Build up the footer using given parameters
  * @returns {string}
  */
-function getFooterContent() {
+/*function getFooterContent() {
 
     let partners = [
         {id:1,name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
@@ -257,17 +319,170 @@ function getFooterContent() {
         footerContent += '<a href="#" class="button-news" id="news-button"></a>';
         footerContent += '<div id="news-cont"></div>';
         return footerContent;
+}*/
+function getFooterContent() {
+    let partners = [
+        {id:1,name:'CAP', image:'../../resources/partenaires/capgemeni.png'},
+        {id:3,name:'UMANIS', image:'../../resources/partenaires/umanis.png'},
+        {id:4,name:'ATOS', image:'../../resources/partenaires/atos.png'},
+        {id:2,name:'CGI', image:'../../resources/partenaires/cgi.png'},
+    ];
+    let foots = [
+        {   // LEFT SIDE
+            title:'Lien utiles',
+            content:[
+                {
+                    type:'link',
+                    link_name:'Université Sidi Mohamed Ben Abdellah',
+                    link_address:'http://www.usmba.ac.ma/',
+                },
+                {
+                    type:'link',
+                    link_name:'Faculté des sciences DHER EL-MEHRAZ',
+                    link_address:'http://www.fsdmfes.ac.ma/',
+                },
+            ],
+        },
+        {
+            // CENTER SIDE
+            title: 'Localisation',
+            content:[
+                {
+                    type:'geo',
+                    source:'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1653.2037839986274!2d-4.9779526!3d34.0334149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8b5f7be79403%3A0x64ed183ba63abde7!2sFacult%C3%A9%20des%20Sciences%20Dhar%20El%20Mehraz!5e0!3m2!1sfr!2sma!4v1589646925624!5m2!1sfr!2sma'
+                }
+            ],
+        },
+        {   // RIGHT SIDE
+            title: 'Contact',
+            content: [
+                {
+                    type:'list',
+                    list_title:'Coordonnateur : ',
+                    list_content:'Noureddine Chenfour'
+                },
+                {
+                    type:'list',
+                    list_title:'Adresse : ',
+                    list_content:'Département d’Informatique , Faculté des sciences Dhar El Mahraz'
+                },
+                {
+                    type:'list',
+                    list_title:'BP.1796, Fès-Atlas, Maroc',
+                    list_content:''
+                },
+                {
+                    type:'list',
+                    list_title:'E.mail : ',
+                    list_content:'noureddine.chenfour@usmba.ac.ma'
+                },
+                {
+                    type: 'direct-contact'
+                }
+            ],
+        }
+    ];
+    let footerElement = buildElement('footer', [
+       buildDIV([
+           buildSPAN('S\'inscrire à notre NewsLetter', wrap([
+               {name:'style', value:'font-size: 17px;color: white;'},
+           ]))
+       ], wrapCI('text-news-letter', 'newsBlocks', [
+           {name:'onclick', value:'$(\'#news-modal-id\').style.display = \'block\''}
+       ])),
+       buildHR(),
+       buildDIV([
+           buildIMG('../../resources/pictures/icons/partners.png', 'partners', cls('right-space', [
+               {name:'width', value:'80'},
+               {name:'height', value:'46'},
+           ])),
+           buildSPAN('Partenaires')
+       ], cls('text-partenaire')),
+       buildHR()
+    ]);
+    let partnersDiv = buildDIV(null, cls('partenaire'));
+    for(let partner of partners) {
+        partnersDiv.appendChild(buildSPAN([
+            buildLINK('', [
+                buildIMG(partner.image, '', wrapIC('partner-' + partner.id, 'img-partenaire', [
+                    {name:'onclick', value:'route(\'../Partner\',\'' + partner.id + '\')'},
+                ]))
+            ])
+        ]));
+    }
+    footerElement.appendChild(partnersDiv);
+    footerElement.appendChild(buildDIV(null, cls('background-space')));
+    let footerDiv = buildDIV(null, cls('flex-container'));
+        for(let foot of foots) {
+            let container = buildDIV(buildElement('h5', foot.title));
+            let list = buildElement('ul', null, cls('remove-space'));
+            for(let c of foot.content) {
+                if(c.type === 'link') {
+                    list.appendChild(buildElement('li', [
+                        buildLINK(c.link_address, c.link_name, cls('links'))
+                    ]));
+                }
+                if(c.type === 'list') {
+                    list.appendChild(buildElement('li', [
+                        buildElement('strong', c.list_title),
+                        c.list_content
+                    ], id('direct-contact-element')));
+                }
+                if(c.type === 'direct-contact'){
+                    list.appendChild(buildElement('li', [
+                        buildElement('button', 'Contactez-nous directement !', cls('button-contact', [
+                            {name:'onclick', value:'$(\'#form-contact-id\').style.display=\'block\''},
+                            {name:'style', value:'width:auto;'},
+                        ]))
+                    ]));
+                }
+                if(c.type === 'geo') {
+                    list.appendChild(buildDIV([
+                        buildDIV([
+                            buildElement('iframe', null, cls('map-size', [
+                                {name:'src', value:c.source},
+                                {name:'frameborder', value:'0'},
+                                {name:'style', value:'border:0;'},
+                                {name:'allowfullscreen', value:'true'},
+                                {name:'aria-hidden', value:'false'},
+                                {name:'tabindex', value:'0'},
+                            ]))
+                        ], cls('over-flow'))
+                    ], cls('map')));
+                }
+            }
+            container.appendChild(list);
+            footerDiv.appendChild(container);
+        }
+        footerElement.appendChild(footerDiv);
+        // Copy-right
+        footerElement.appendChild(buildDIV([
+            buildSPAN([
+                'Master Qualité du Logiciel,',
+                buildLINK('#', 'Faculté des sciences'),
+            ]),
+            buildSPAN('&copy; 2020 All rights reserved'),
+        ], cls('copy-right')));
+         // Elements for form-contact
+        footerElement.appendChild(buildDIV(null, id('form-contact')));
+        //  // Elements for newsLetter
+        footerElement.appendChild(buildLINK('#', null, wrapCI('button-news', 'news-button')));
+        footerElement.appendChild(buildDIV(null, id('news-cont')));
+        return footerElement;
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 function loadResources() {
     /* ASSIGN DATA ---------------------------------------------------------------------------------------------------*/
-    $('#header').innerHTML = getHeaderContent();
-    $('#footer').innerHTML = getFooterContent();
+    // $('#header').innerHTML = getHeaderContent();
+    $('#header').appendChild(getHeaderContent());
+    // $('#footer').innerHTML = getFooterContent();
+    $('#footer').appendChild(getFooterContent());
     // SEARCH BAR
     if($('#search') !== null) {
-        $('#search').innerHTML = getSearchBar();
+        // $('#search').innerHTML = getSearchBar();
+        $('#search').appendChild(getSearchBar());
     }
     /* CURRENT INITIALIZATION ----------------------------------------------------------------------------------------*/
     let current_element = $('+' + current_component)[0];
@@ -326,7 +541,7 @@ function showMenu() {
  * @param source
  * @param editable
  */
-function addTitleIcon(source, editable=false) {
+/*function addTitleIcon(source, editable=false) {
     let titles = $('.title');
     let i=0;
     for (let title of titles) {
@@ -348,6 +563,44 @@ function addTitleIcon(source, editable=false) {
         let saver = $('.sub-content')[0];
         saver.innerHTML = '<div class="new-block"><img onclick="view.addData()" src="../../resources/pictures/icons/new-icon.png" alt="" class="new-icon"></div>' +
             saver.innerHTML;
+    }
+}*/
+function addTitleIcon(source, editable=false) {
+    let titles = $('.title');
+    let i=0;
+    for (let title of titles) {
+        let text = title.textContent;
+        title.innerHTML = '';
+        title.appendChild(buildDIV([
+            buildIMG(source, 'title', cls('title-logo')),
+            text
+        ], cls('title-content')));
+        title.appendChild(buildIMG('../../resources/pictures/icons/minus-icon.png', '', wrapICN('', 'sh-icon', 'sh-icon', [
+            {name:'onclick', value:'hide('+i+')'}
+        ])));
+        title.appendChild(buildSPAN(null, cls('sh-sep')));
+        if(editable && sessionStorage.getItem('ACCESS') !== null) {
+            // ADD EDIT AND DELETE ICONS
+            title.appendChild(buildIMG('../../resources/pictures/icons/edit.png', '', wrapICN('', 'sh-icon', 'edit-icon', [
+                {name:'onclick', value:'view.editData(' + i + ')'}
+            ])));
+            title.appendChild(buildIMG('../../resources/pictures/icons/delete.png', '', wrapICN('', 'sh-icon', 'delete-icon', [
+                {name:'onclick', value:'view.deleteData(' + i + ')'}
+            ])));
+        }
+        i++;
+    }
+    if(editable && sessionStorage.getItem('ACCESS') !== null) {
+        // ADD NEW ICON BLOCK
+        let saver = $('.sub-content')[0];
+        let content = saver.innerHTML;
+        saver.innerHTML = '';
+        saver.appendChild(buildDIV([
+            buildIMG('../../resources/pictures/icons/new-icon.png', '', cls('new-icon', [
+                {name:'onclick', value:'view.addData()'}
+            ]))
+        ], cls('new-block')));
+        saver.innerHTML += content;
     }
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -570,7 +823,7 @@ let images_size = 0;
  * @param images
  * @param default_element_id
  */
-function createBook(images=[], default_element_id = 'book') {
+/*function createBook(images=[], default_element_id = 'book') {
     current_img = 1;
     images_size = images.length;
     let element = $('#' + default_element_id);
@@ -580,6 +833,24 @@ function createBook(images=[], default_element_id = 'book') {
             default_element_id + '-img" src="../../resources/pictures/' + images[i-1] + '" alt="MQL PLATFORM">';
     }
     element.innerHTML += '<div onclick="target(\''+ default_element_id + '\',++current_img)" class="arrow-right">></div>';
+    $( '.' + default_element_id + '-img')[current_img - 1].style.display = 'block';
+}*/
+function createBook(images=[], default_element_id = 'book') {
+    current_img = 1;
+    images_size = images.length;
+    let element = $('#' + default_element_id);
+    element.appendChild(buildDIV('<', cls('arrow-left', [
+        {name:'onclick', value:'target(\''+ default_element_id + '\',--current_img)'},
+    ])));
+    for(let i = 1; i<=images.length; i++) {
+        element.appendChild(buildIMG('../../resources/pictures/' + images[i-1], 'MQL PLATFORM',
+            wrapIC(default_element_id + '-img' + i, default_element_id + '-img', [
+                {name:'onclick', value:'popIMG(this.id)'}
+            ])));
+    }
+    element.appendChild(buildDIV('>', cls('arrow-right', [
+        {name:'onclick', value:'target(\''+ default_element_id + '\',++current_img)'},
+    ])));
     $( '.' + default_element_id + '-img')[current_img - 1].style.display = 'block';
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -687,7 +958,7 @@ function wait(ms){
 /**
  * Load the content of the form contact
  */
-function loadContactForm() {
+/*function loadContactForm() {
     let form = $('#form-contact');
     form.innerHTML += ' ' +
         '<div id="form-contact-id" class="modal-style">' +
@@ -711,6 +982,48 @@ function loadContactForm() {
         '</div>' +
         '</form>' +
         '</div>';
+}*/
+function loadContactForm() {
+    let form = $('#form-contact');
+    form.appendChild(buildDIV([
+        buildSPAN('&times;', cls('close-modal-contact', [
+            {name:'onclick', value:'$(\'#form-contact-id\').style.display=\'none\''},
+            {name:'title', value:'Close Modal'},
+        ])),
+        buildElement('form', [
+            buildDIV([
+                buildElement('h3', 'Contactez-nous directement', wrap([{name:'style', value:'text-align: center'}])),
+                buildHR(),
+                buildElement('label', buildElement('b', 'Prénom', wrap([{name:'for', value:'first-name'}]))),
+                buildElement('input', null, wrapICN('first-name', 'zone-text-contact-news', 'first-name', [
+                    {name:'placeholder', value:'Prénom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', buildElement('b', 'Nom', wrap([{name:'for', value:'last-name'}]))),
+                buildElement('input', null, wrapICN('last-name', 'zone-text-contact-news', 'last-name', [
+                    {name:'placeholder', value:'Nom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', buildElement('b', 'Email', wrap([{name:'for', value:'email'}]))),
+                buildElement('input', null, wrapICN('email', 'zone-text-contact-news', 'email', [
+                    {name:'placeholder', value:'Email...'},
+                    {name:'type', value:'email'},
+                ])),
+                buildElement('label', buildElement('b', 'Sujet', wrap([{name:'for', value:'subject'}]))),
+                buildElement('textarea', null, wrapICN('subject', 'zone-text-contact-news', 'subject', [
+                    {name:'placeholder', value:'Ecrire ici...'},
+                    {name:'type', value:'email'},
+                    {name:'style', value:'height:200px'},
+                ])),
+                buildDIV([
+                    buildElement('button', 'Annuler', cls(['button-contact-2', 'cancel-button'], [
+                        [{name:'onclick', value:'$(\'#form-contact-id\').style.display=\'none\''}]
+                    ])),
+                    buildElement('button', 'Envoyer', cls(['button-contact-2', 'submit-button'])),
+                ], cls('form-footer')),
+            ], cls('contact-container'))
+        ], cls('modal-contact-content')),
+    ], wrapIC('form-contact-id', 'modal-style')));
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -718,7 +1031,7 @@ function loadContactForm() {
 /**
  * Load the content of the NewsLetter
  */
-function loadNewsLetter() {
+/*function loadNewsLetter() {
     let newsLetter = $('#news-cont');
     newsLetter.innerHTML += '<!-- The Modal -->' +
         '<div id="news-modal-id" class="news-modal">' +
@@ -738,6 +1051,39 @@ function loadNewsLetter() {
         '<button class="subscribe-button" type="submit">S\'inscrire</button>' +
         '</form>' +
         '</div>';
+}*/
+function loadNewsLetter() {
+    let newsLetter = $('#news-cont');
+    newsLetter.appendChild(buildDIV([
+        buildElement('form', [
+            buildSPAN('&times;', cls('close-part', [
+                {name:'onclick', value:'$(\'#news-modal-id\').style.display = \'none\''}
+            ])),
+            buildDIV([
+                buildSPAN('NewsLetter')
+            ], cls('modal-header')),
+            buildDIV([
+                buildElement('p', 'Inscrivez-vous pour recevoir les dernières actualités.'),
+                buildElement('label', 'Nom', wrap([
+                    {name:'for', value:'full-name'},
+                    {name:'style', value:'font-size: 18px;'},
+                ])),
+                buildElement('input', null, wrapICN('full-name', 'zone-text-contact-news', 'full-name', [
+                    {name:'placeholder', value:'Nom...'},
+                    {name:'type', value:'text'},
+                ])),
+                buildElement('label', 'Email', wrap([
+                    {name:'for', value:'email'},
+                    {name:'style', value:'font-size: 18px;'},
+                ])),
+                buildElement('input', null, wrapICN('email', 'zone-text-contact-news', 'email', [
+                    {name:'placeholder', value:'Email...'},
+                    {name:'type', value:'email'},
+                ])),
+            ], cls('modal-body')),
+            buildElement('button', 'S\'inscrire', cls('subscribe-button')),
+        ], cls('news-modal-content'))
+    ], wrapIC('news-modal-id', 'news-modal')));
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -817,6 +1163,65 @@ function textShortener(text, maxChar = 40) {
         ret += text[i];
     }
     return ret + '...';
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+// AUTO BOX SCRIPTS
+let current_autobox_item;
+let item_size;
+let auto_slider;
+/*--------------------------------------------------------------------------------------------------------------------*/
+function autoBoxLoader() {
+    let items = document.getElementsByClassName('autoBox-item');
+    if(items.length > 0) {
+        let random = Math.floor(Math.random() * items.length);
+        items[random].style.display = 'block';
+        current_autobox_item = random;
+        item_size = items.length;
+    }
+    function handler() {
+        showABI(Math.floor(Math.random() * items.length));
+    }
+    auto_slider = setInterval(handler, 5000);
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function showABI(index) {
+    let items = document.getElementsByClassName('autoBox-item');
+    if(item_size > 0) {
+        for(let item of items) item.style.display = 'none';
+    }
+    items[index].style.display = 'block';
+    current_autobox_item = index;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function nextABI() {
+    if(current_autobox_item === (item_size - 1)) {
+        showABI(0);
+    }
+    else {
+        showABI(++current_autobox_item);
+    }
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function previousABI() {
+    if(current_autobox_item === 0) {
+        showABI(item_size - 1);
+    }
+    else {
+        showABI(--current_autobox_item);
+    }
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function pauseABI() {
+    clearInterval(auto_slider);
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function resumeABI() {
+    function handler() {
+        showABI(Math.floor(Math.random() * item_size));
+    }
+    auto_slider = setInterval(handler, 5000);
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------------------------------------------------------*/
