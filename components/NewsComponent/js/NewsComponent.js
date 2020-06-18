@@ -11,10 +11,12 @@ function NewsComponent(service) {
 	this.service = service;
 	// this.table = this.get('table-NewsID');
 	this.page_blocks = split(this.service.db, MAX_NEWS_PER_PAGE);
+	this.block_auto = $('#autoBox');
 	this.block_nav = $('#navigation');
 	this.block_main = $('#main');
 	this.block_switch = $('#switcher');
 	this.htmlSaver = {
+		auto: this.block_auto.innerHTML,
 		nav: this.block_nav.innerHTML,
 		main: this.block_main.innerHTML,
 		switcher: this.block_switch.innerHTML,
@@ -32,22 +34,66 @@ NewsComponent.prototype.printNewsList = function (max = this.service.size()) {
 	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
+NewsComponent.prototype.fillAutoBox = function() {
+	this.block_auto.innerHTML = this.htmlSaver.auto;
+	for(let news of this.service.db) {
+		if(news.images.length > 0) {
+			let chosen = Math.floor(Math.random() * news.images.length);
+			this.block_auto.appendChild(buildDIV([
+				buildIMG('../../resources/pictures/' + news.images[chosen], '', cls('autoBox-image' ,[
+					{name:'onclick', value:'location.href=\'#' + news.id + '\''},
+					{name:'onmouseover', value:'pauseABI()'},
+					{name:'onmouseleave', value:'resumeABI()'},
+				])),
+				buildDIV([
+					buildDIV(news.title, cls('autoBox-title')),
+					buildDIV([
+						textShortener(news.description, 150),
+						buildElement('button', 'More', cls('autoBox-more', [
+							{name:'onclick', value:'location.href=\'#' + news.id + '\''}
+						])),
+					], cls('autoBox-content'))
+				], cls('autoBox-text')),
+			], cls('autoBox-item')));
+		}
+	}
+	this.block_auto.appendChild(buildSPAN('<', cls( 'previous-auto_item',[
+		{name:'onclick', value:'previousABI()'},
+		{name:'onmouseover', value:'pauseABI()'},
+		{name:'onmouseleave', value:'resumeABI()'},
+	])));
+	this.block_auto.appendChild(buildSPAN('>', cls( 'next-auto_item',[
+		{name:'onclick', value:'nextABI()'},
+		{name:'onmouseover', value:'pauseABI()'},
+		{name:'onmouseleave', value:'resumeABI()'},
+	])));
+};
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create navigation menu dynamically
  */
-NewsComponent.prototype.fillNavigation = function () {
+/*NewsComponent.prototype.fillNavigation = function () {
 	let htmlContent = this.htmlSaver.nav;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<hr>\n' +
 			'<div><a class="menuitem" href="#' + news.id + '">' + news.title + '</a></div>\n';
 	}
 	this.block_nav.innerHTML = htmlContent;
+};*/
+NewsComponent.prototype.fillNavigation = function () {
+	this.block_nav.innerHTML = this.htmlSaver.nav;
+	for(let news of this.page_blocks[current_page_number - 1]) {
+		this.block_nav.appendChild(buildHR());
+		this.block_nav.appendChild(buildDIV([
+			buildLINK('#' + news.id, news.title, cls('menuitem'))
+		]));
+	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create main block dynamically
  */
-NewsComponent.prototype.fillMain = function () {
+/*NewsComponent.prototype.fillMain = function () {
 	let htmlContent = this.htmlSaver.main;
 	for(let news of this.page_blocks[current_page_number - 1]) {
 		htmlContent += '<div id="' + news.id + '" >' +
@@ -62,12 +108,35 @@ NewsComponent.prototype.fillMain = function () {
 		htmlContent += '</span></div>\n</div>\n' +	'</div>';
 	}
 	this.block_main.innerHTML = htmlContent;
+};*/
+NewsComponent.prototype.fillMain = function () {
+	this.block_main.innerHTML = this.htmlSaver.main;
+	for(let news of this.page_blocks[current_page_number - 1]) {
+		let titleDiv = buildDIV([
+			buildDIV(news.title, cls('title')),
+		], id(news.id));
+		let detailsDiv = buildDIV([
+			buildElement('p', formattedDate(news.date), cls('date')),
+			buildElement('p', news.description),
+		], cls('details'));
+		let rowDiv = buildDIV(null, cls('row'));
+		let columnSpan = buildSPAN(null, cls('column'));
+		for(let image of news.images) {
+			columnSpan.appendChild(buildIMG('../../resources/pictures/' + image, 'MQL PLATFORM', id('id_' + image, [
+				{name:'onclick', value:'popIMG(this.id)'}
+			])));
+		}
+		rowDiv.appendChild(columnSpan);
+		detailsDiv.appendChild(rowDiv);
+		titleDiv.appendChild(detailsDiv);
+		this.block_main.appendChild(titleDiv);
+	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 /**
  * Create page switcher dynamically
  */
-NewsComponent.prototype.fillSwitcher = function () {
+/*NewsComponent.prototype.fillSwitcher = function () {
 	let htmlContent = this.htmlSaver.switcher;
 	let pages = this.page_blocks.length;
 	for(let i = 1; i<=pages; i++) {
@@ -75,6 +144,22 @@ NewsComponent.prototype.fillSwitcher = function () {
 		else htmlContent += '<span onclick="view.navigate(' + i + ', true)">' + i + '</span>';
 	}
 	this.block_switch.innerHTML = htmlContent;
+};*/
+NewsComponent.prototype.fillSwitcher = function () {
+	this.block_switch.innerHTML = this.htmlSaver.switcher;
+	let pages = this.page_blocks.length;
+	for(let i = 1; i<=pages; i++) {
+		if(current_page_number === i){
+			this.block_switch.appendChild(buildSPAN(i, cls('active-page', [
+				{name:'onclick', value:'view.navigate(' + i + ', true)'},
+			])));
+		}
+		else {
+			this.block_switch.appendChild(buildSPAN(i, wrap([
+				{name:'onclick', value:'view.navigate(' + i + ', true)'},
+			])));
+		}
+	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 /**
@@ -89,7 +174,7 @@ NewsComponent.prototype.navigate = function(page_number=1, top=false) {
 	this.fillSwitcher();
     addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
-    if(top) window.location.href = '#header';
+    if(top) window.location.href = '#main';
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
 NewsComponent.prototype.trigger = function () {
@@ -183,6 +268,7 @@ NewsComponent.prototype.triggerSubmit = function () {
 	let submit_element = $('#newsSubmit');
 	submit_element.click();
 };
+/*--------------------------------------------------------------------------------------------------------------------*/
 /**-------------------------------------------------------------------------------------------------------------------*/
 /* Main Function */ 
 function main() { 
@@ -190,6 +276,7 @@ function main() {
 	service.load(dbNews);
 	view = new NewsComponent(service);
 	try {
+		view.fillAutoBox();
 		view.fillNavigation();
 		view.fillMain();
 		view.fillSwitcher();
@@ -201,6 +288,7 @@ function main() {
 		}
 	}
 	// stays last
+	autoBoxLoader();
 	addTitleIcon('../../resources/pictures/News-logo.png', true);
 	detect_subContent_trigger_left_bar();
 	view.trigger();
