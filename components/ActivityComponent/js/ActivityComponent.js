@@ -164,7 +164,30 @@ ActivityComponent.prototype.printSemesters = function(){
 				}
 			}
 			if (j === 3){
+				let divCard = buildDIV(
+					buildIMG(activityImage, '', cls('card-image')),
+					wrapIC('card', 'card'));
 
+				let divCardText = buildDIV([
+					buildDIV('Objectifs', cls('card-subject')),
+				], cls('card-text'));
+
+				let divActivities = buildDIV(null, cls('subject'));
+				for (let activity of activitiesElement) {
+					divActivities.appendChild(activity);
+				}
+
+				divCardText.appendChild(divActivities);
+
+				let divCardFooter = buildDIV(
+					buildIMG('../../resources/pictures/logo-mql2.png', '',
+						cls('logo-mql')),
+					cls('card-footer'));
+
+				divCard.appendChild(divCardText);
+				divCard.appendChild(divCardFooter);
+
+				cards.push(divCard);
 			}
 		}
 
