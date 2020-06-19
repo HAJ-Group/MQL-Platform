@@ -138,7 +138,29 @@ ActivityComponent.prototype.printSemesters = function(){
 			if (j === 2){
 
 				if(i !==3) {
+					let divCard = buildDIV(
+						buildIMG(moduleImage, '', cls('card-image')),
+						cls('card'));
 
+					let divCardText = buildDIV([
+						buildDIV('Modules', cls('card-subject')),
+					], cls('card-text'));
+
+					let divModules = buildDIV(null, cls('subject'));
+
+					divModules.appendChild(ulModulesElement);
+
+					divCardText.appendChild(divModules);
+
+					let divCardFooter = buildDIV(
+						buildIMG('../../resources/pictures/logo-mql2.png',
+							cls('logo-mql')),
+						cls('card-footer'));
+
+					divCard.appendChild(divCardText);
+					divCard.appendChild(divCardFooter);
+
+					cards.push(divCard);
 				}
 			}
 			if (j === 3){
