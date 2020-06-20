@@ -24,7 +24,9 @@ ActivityComponent.prototype.printActivityList = function () {
 	}
 };
 /*--------------------------------------------------------------------------------------------------------------------*/
+/*
 ActivityComponent.prototype.printSemester = function(){
+
 	let subjectZone = $('#zone');
 	for (let i = 0; i < this.service.size(); i++) {
 		let semesterI = this.service.get(i);
@@ -93,6 +95,7 @@ ActivityComponent.prototype.printSemester = function(){
 			'</div>';
 	}
 };
+*/
 ActivityComponent.prototype.printSemesters = function(){
 	let subjectZone = $('#zone');
 	for (let i = 0; i < this.service.size(); i++) {
