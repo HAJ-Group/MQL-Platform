@@ -152,6 +152,15 @@ function getHeaderContent() {
             {name:'name', value:nav.name},
         ])))
     }
+
+/*
+    // Search icon
+    navElement.appendChild(buildLINK('#',
+        buildIMG('../../resources/pictures/search.png',
+        '', cls(['left', 'global-search-icon']))
+    ));
+*/
+
     // ABOUT NAV
     navElement.appendChild(buildLINK('#footer', [
         buildIMG('../../resources/pictures/about.png', 'about', cls('def-img'))
